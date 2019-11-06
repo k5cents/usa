@@ -1,0 +1,36 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# state2
+
+<!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/state2)](https://CRAN.R-project.org/package=state2)
+[![Travis build
+status](https://travis-ci.org/kiernann/state2.svg?branch=master)](https://travis-ci.org/kiernann/state2)
+[![Codecov test
+coverage](https://codecov.io/gh/kiernann/state2/branch/master/graph/badge.svg)](https://codecov.io/gh/kiernann/state2?branch=master)
+<!-- badges: end -->
+
+The goal of `state2` is to provide updated versions of the `state` data
+sets included in base R. These versions include newer statistics in the
+modern data frame format.
+
+## Installation
+
+You can install the development version of `state2` from
+[GitHub](https://github.com) with:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("kiernann/state2")
+```
+
+-----
+
+Please note that the `state2` project is released with a [Contributor
+Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this
+project, you agree to abide by its terms.
