@@ -11,7 +11,7 @@ Description: This package contains updated versions of the data files included
     in base R. All data is provided by the United States Census Bureau.
 License: GPL-3
 Suggests: 
-    testthat,
+    testthat (>= 2.1.0),
     covr
 Encoding: UTF-8
 LazyData: true
