@@ -5,6 +5,7 @@ output: github_document
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
+library(knitr)
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -34,6 +35,60 @@ You can install the development version of `usa` from [GitHub](https://github.co
 # install.packages("remotes")
 remotes::install_github("kiernann/usa")
 ```
+
+## Old Data
+
+```{r libs, warning=FALSE, message=FALSE, error=FALSE}
+library(tidyverse)
+```
+
+R ships with seven outdated built-in "state" objects:
+
+* `state.abb`: character vector of 2-letter abbreviations for the state names.
+* `state.area`: numeric vector of state areas (in square miles).
+* `state.center`: list giving the approximate geographic center of each state.
+* `state.division`: factor giving state divisions.
+* `state.name`: character vector giving the full state names.
+* `state.region`: factor giving the region.
+* `state.x77`: matrix with 50 rows and 8 columns:
+  * `Population`: population estimate as of July 1, 1975
+  * `Income`: per capita income (1974)
+  * `Illiteracy`: illiteracy (1970, percent of population)
+  * `Life Exp`: life expectancy in years (1969–71)
+  * `Murder`: murder and non-negligent manslaughter rate per 100,000 population (1976)
+  * `HS Grad`: percent high-school graduates (1970)
+  * `Frost`: mean number of days with minimum temperature below freezing (1931–1960)
+  * `Area`: land area in square miles
+
+```{r vector_tibble}
+library(datasets)
+vectors <- data.frame(
+  abb = state.abb,
+  name = state.name,
+  region = state.region,
+  division = state.division,
+  x = state.center$x,
+  y = state.center$y
+)
+head(vectors, 3)
+head(state.x77, 3)
+```
+
+## New Data
+
+This package contains new versions of these objects!
+
+```{r join_states, message=FALSE}
+library(usa)
+states %>%
+  inner_join(abbs) %>%
+  inner_join(fips) %>%
+  left_join(regions) %>%
+  left_join(divisions) %>%
+  inner_join(ansi) %>%
+  select(-ends_with("id"))
+```
+
 
 ***
 
