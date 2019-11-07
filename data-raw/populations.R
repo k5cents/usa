@@ -22,7 +22,6 @@ populations <- read_csv(
 populations <- populations %>%
   select(
     fips = STATE,
-    state = NAME,
     population = POPESTIMATE2018,
     adult = PCNT_POPEST18PLUS
   ) %>%
