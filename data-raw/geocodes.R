@@ -44,22 +44,40 @@ divisions <- geocodes %>%
   mutate(division = as_factor(str_remove(division, "\\sDivision$")))
 
 # create subset of states
-fips <- geocodes %>%
+states <- geocodes %>%
   filter(fips != "00") %>%
   rename(state = name) %>%
   arrange(fips)
 
+# read abbreviations
+abbs <- read_delim(
+  file = "https://www2.census.gov/geo/docs/reference/state.txt",
+  delim = "|"
+)
+
+# rename abbs for consistency
+abbs <- abbs %>%
+  rename(
+    fips = STATE,
+    abb = STUSAB,
+    state = STATE_NAME,
+    ansi = STATENS
+  )
+
+# join abbs to states
+states <- left_join(states, abbs, by = c("fips", "state"))
+
 # test that all join back
-fips %>%
+states %>%
   left_join(regions) %>%
   left_join(divisions)
 
 # write raw csv
 write_csv(regions, "data-raw/regions.csv")
 write_csv(divisions, "data-raw/divisions.csv")
-write_csv(fips, "data-raw/fips.csv")
+write_csv(states, "data-raw/fips.csv")
 
 # write object rda
 use_data(regions, overwrite = TRUE)
 use_data(divisions, overwrite = TRUE)
-use_data(fips, overwrite = TRUE)
+use_data(states, overwrite = TRUE)
