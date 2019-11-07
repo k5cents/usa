@@ -1,4 +1,4 @@
-## code to prepare `state2` dataset goes here
+## code to prepare `populations` dataset goes here
 ## https://www2.census.gov/programs-surveys/popest/tables/2010-2018/state/totals/nst-est2018-01.xlsx
 
 library(tidyverse)
@@ -27,7 +27,7 @@ populations <- populations %>%
     adult = PCNT_POPEST18PLUS
   ) %>%
   filter(fips != "00") %>%
-  mutate(adult = adult/100) %>%
+  mutate(adult = round(adult/100, digits = 3)) %>%
   arrange(desc(population))
 
 write_csv(
@@ -35,4 +35,4 @@ write_csv(
   path = "data-raw/populations.csv"
 )
 
-use_data(populations)
+use_data(populations, overwrite = TRUE)
