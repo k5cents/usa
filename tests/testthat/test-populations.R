@@ -1,5 +1,5 @@
 library(testthat)
-library(state2)
+library(usa)
 
 test_that("Population data has 52 rows of 7 variables", {
   expect_equal(nrow(populations), 52)
