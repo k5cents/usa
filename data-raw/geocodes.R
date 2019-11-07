@@ -25,6 +25,10 @@ geocodes <- geocodes %>%
     reg_id = region,
     div_id = division,
     fips = state_fips
+  ) %>%
+  add_row(
+    fips = "72",
+    name = "Puerto Rico Commonwealth"
   )
 
 # create subset of regions
@@ -41,7 +45,7 @@ divisions <- geocodes %>%
 
 # create subset of states
 fips <- geocodes %>%
-  filter(div_id != "0", fips != "00") %>%
+  filter(fips != "00") %>%
   rename(state = name) %>%
   arrange(fips)
 
@@ -56,6 +60,6 @@ write_csv(divisions, "data-raw/divisions.csv")
 write_csv(fips, "data-raw/fips.csv")
 
 # write object rda
-use_data(regions)
-use_data(divisions)
-use_data(fips)
+use_data(regions, overwrite = TRUE)
+use_data(divisions, overwrite = TRUE)
+use_data(fips, overwrite = TRUE)
