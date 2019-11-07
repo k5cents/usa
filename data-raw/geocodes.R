@@ -35,13 +35,13 @@ geocodes <- geocodes %>%
 regions <- geocodes %>%
   filter(div_id == "0") %>%
   select(reg_id, region = name) %>%
-  mutate(region = str_remove(region, "\\sRegion$"))
+  mutate(region = as_factor(str_remove(region, "\\sRegion$")))
 
 # create subset of divisions
 divisions <- geocodes %>%
   filter(div_id != "0", fips == "00") %>%
   select(div_id, division = name) %>%
-  mutate(division = str_remove(division, "\\sDivision$"))
+  mutate(division = as_factor(str_remove(division, "\\sDivision$")))
 
 # create subset of states
 fips <- geocodes %>%
