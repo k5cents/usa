@@ -4,7 +4,7 @@
 library(tidyverse)
 
 url <- "https://www2.census.gov/programs-surveys/popest/datasets/2010-2018/state/detail/SCPRC-EST2018-18+POP-RES.csv"
-pop <- read_csv(
+populations <- read_csv(
   file = url,
   na = "X",
   col_types = cols(
@@ -19,22 +19,20 @@ pop <- read_csv(
   )
 )
 
-pop <- pop %>%
+populations <- populations %>%
   select(
-    sumlev = SUMLEV,
-    region = REGION,
-    division = DIVISION,
     fips = STATE,
     state = NAME,
-    pop = POPESTIMATE2018,
+    population = POPESTIMATE2018,
     adult = PCNT_POPEST18PLUS
   ) %>%
   filter(fips != "00") %>%
-  mutate(adult = adult/100)
+  mutate(adult = adult/100) %>%
+  arrange(desc(population))
 
 write_csv(
-  x = pop,
-  path = "data-raw/pop.csv"
+  x = populations,
+  path = "data-raw/populations.csv"
 )
 
-usethis::use_data(pop, overwrite = TRUE)
+use_data(populations)
