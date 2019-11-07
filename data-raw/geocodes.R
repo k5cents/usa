@@ -58,7 +58,7 @@ codes <- read_delim(
 abbs <- select(codes, fips = STATE, abb = STUSAB)
 
 # create names from codes
-states <- select(codes, fips = STATE, name = STATE_NAME)
+states <- select(codes, fips = STATE, state = STATE_NAME)
 
 # create ansi from codes
 ansi <- select(codes, fips = STATE, ansi = STATENS)
@@ -89,7 +89,7 @@ use_data(abbs, overwrite = TRUE)
 use_data(ansi, overwrite = TRUE)
 
 # overwrite vectors
-state.name <- names$name
+state.name <- states$state
 usethis::use_data(state.name, overwrite = TRUE)
 
 state.abb <- abbs$abb
