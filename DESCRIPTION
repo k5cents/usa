@@ -1,6 +1,6 @@
 Package: usa
 Title: Updated US State Facts and Figures
-Version: 0.0.1
+Version: 0.0.1.9000
 Authors@R: 
     person(given = "Kiernan",
            family = "Nicholls",
