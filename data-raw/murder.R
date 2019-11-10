@@ -12,10 +12,10 @@ murder <-
     murder = 7
   ) %>%
   mutate(
-    state = str_remove_all(state, "\\d"),
+    name = str_remove_all(state, "\\d"),
     murder = round(as.numeric(murder), 2)
   ) %>%
-  inner_join(states) %>%
+  inner_join(state_names) %>%
   select(fips, murder) %>%
   arrange(desc(murder))
 
