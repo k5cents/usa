@@ -12,10 +12,11 @@ life <-
   as_tibble() %>%
   filter(!is.na(X1)) %>%
   select(
-    state = X2,
+    name = X2,
     life = X3
   ) %>%
-  inner_join(states, by = "state") %>%
+  mutate_at(vars(life), parse_number) %>%
+  inner_join(state_names) %>%
   select(fips, life) %>%
   arrange(desc(life))
 
@@ -23,5 +24,3 @@ write_csv(
   x = life,
   path = "data-raw/life.csv"
 )
-
-usethis::use_data(life, overwrite = TRUE)

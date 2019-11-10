@@ -11,7 +11,7 @@ education <-
   slice(-(1:2)) %>%
   as_tibble() %>%
   select(
-    state = X1,
+    name = X1,
     high = X2,
     bach = X4,
     grad = X6
@@ -20,7 +20,7 @@ education <-
     .vars = c(2:4),
     .funs = function(x) parse_number(x)/100
   ) %>%
-  inner_join(states, by = "state") %>%
+  inner_join(state_names) %>%
   select(fips, high, bach, grad) %>%
   arrange(desc(high))
 
@@ -28,5 +28,3 @@ write_csv(
   x = education,
   path = "data-raw/education.csv"
 )
-
-usethis::use_data(education, overwrite = TRUE)

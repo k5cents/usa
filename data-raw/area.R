@@ -11,7 +11,7 @@ areas <-
   slice(-(1:2), -c(59:62)) %>%
   as_tibble() %>%
   select(
-    state = X1,
+    name = X1,
     area = X3,
     land = X8
   ) %>%
@@ -19,7 +19,7 @@ areas <-
     area = parse_number(area) %>% round(2),
     land = parse_number(land) %>% divide_by(100) %>% round(4)
   ) %>%
-  inner_join(states, by = "state") %>%
+  inner_join(state_names) %>%
   select(fips, area, land) %>%
   arrange(desc(area))
 
@@ -27,5 +27,3 @@ write_csv(
   x = areas,
   path = "data-raw/areas.csv"
 )
-
-usethis::use_data(areas, overwrite = TRUE)
