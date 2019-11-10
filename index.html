@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">usa</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.3</span>
       </span>
     </div>
 
@@ -83,6 +83,93 @@
 <p>You can install the development version of <code>usa</code> from <a href="https://github.com">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("remotes")</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"kiernann/usa"</span>)</a></code></pre></div>
+</div>
+<div id="old-data" class="section level2">
+<h2 class="hasAnchor">
+<a href="#old-data" class="anchor"></a>Old Data</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tidyverse)</a></code></pre></div>
+<p>R ships with seven outdated built-in “state” objects:</p>
+<ul>
+<li>
+<code>state.abb</code>: character vector of 2-letter abbreviations for the state names.</li>
+<li>
+<code>state.area</code>: numeric vector of state areas (in square miles).</li>
+<li>
+<code>state.center</code>: list giving the approximate geographic center of each state.</li>
+<li>
+<code>state.division</code>: factor giving state divisions.</li>
+<li>
+<code>state.name</code>: character vector giving the full state names.</li>
+<li>
+<code>state.region</code>: factor giving the region.</li>
+<li>
+<code>state.x77</code>: matrix with 50 rows and 8 columns:
+<ul>
+<li>
+<code>Population</code>: population estimate as of July 1, 1975</li>
+<li>
+<code>Income</code>: per capita income (1974)</li>
+<li>
+<code>Illiteracy</code>: illiteracy (1970, percent of population)</li>
+<li>
+<code>Life Exp</code>: life expectancy in years (1969–71)</li>
+<li>
+<code>Murder</code>: murder and non-negligent manslaughter rate per 100,000 population (1976)</li>
+<li>
+<code>HS Grad</code>: percent high-school graduates (1970)</li>
+<li>
+<code>Frost</code>: mean number of days with minimum temperature below freezing (1931–1960)</li>
+<li>
+<code>Area</code>: land area in square miles</li>
+</ul>
+</li>
+</ul>
+<!-- end list --><div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(datasets)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">vectors &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="dt">abb =</span> state.abb,</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="dt">name =</span> state.name,</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="dt">region =</span> state.region,</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="dt">division =</span> state.division,</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">  <span class="dt">x =</span> state.center<span class="op">$</span>x,</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">  <span class="dt">y =</span> state.center<span class="op">$</span>y</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">)</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(vectors, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;   abb    name region           division         x       y</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; 1  AL Alabama  South East South Central  -86.7509 32.5901</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; 2  AK  Alaska   West            Pacific -127.2500 49.2500</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; 3  AZ Arizona   West           Mountain -111.6250 34.2192</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(state.x77, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt;         Population Income Illiteracy Life Exp Murder HS Grad Frost   Area</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; Alabama       3615   3624        2.1    69.05   15.1    41.3    20  50708</span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt; Alaska         365   6315        1.5    69.31   11.3    66.7   152 566432</span></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt; Arizona       2212   4530        1.8    70.55    7.8    58.1    15 113417</span></a></code></pre></div>
+</div>
+<div id="new-data" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-data" class="anchor"></a>New Data</h2>
+<p>This package contains new versions of these objects!</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(usa)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">states <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw">inner_join</span>(abbs) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw">inner_join</span>(fips) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">  </span><span class="kw">left_join</span>(regions) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="st">  </span><span class="kw">left_join</span>(divisions) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="st">  </span><span class="kw">inner_join</span>(ansi) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span><span class="kw">ends_with</span>(<span class="st">"id"</span>))</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; # A tibble: 52 x 6</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt;    fips  name                 abb   region    division           ansi    </span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt; &lt;fct&gt;     &lt;fct&gt;              &lt;chr&gt;   </span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;  1 01    Alabama              AL    South     East South Central 01779775</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;  2 02    Alaska               AK    West      Pacific            01785533</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt;  3 04    Arizona              AZ    West      Mountain           01779777</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt;  4 05    Arkansas             AR    South     West South Central 00068085</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt;  5 06    California           CA    West      Pacific            01779778</span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt;  6 08    Colorado             CO    West      Mountain           01779779</span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt;  7 09    Connecticut          CT    Northeast New England        01779780</span></a>
+<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt;  8 10    Delaware             DE    South     South Atlantic     01779781</span></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt;  9 11    District of Columbia DC    South     South Atlantic     01702382</span></a>
+<a class="sourceLine" id="cb4-21" data-line-number="21"><span class="co">#&gt; 10 12    Florida              FL    South     South Atlantic     00294478</span></a>
+<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co">#&gt; # … with 42 more rows</span></a></code></pre></div>
 <hr>
 <p>Please note that the <code>usa</code> project is released with a <a href="https://kiernann.com/usa/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
