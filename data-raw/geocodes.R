@@ -3,6 +3,8 @@ library(janitor)
 library(readxl)
 library(fs)
 
+# Get Census Bureau Regions and Divisions by FIPS -------------------------
+
 # download USCB geocodes file
 download.file(
   url = "https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx",
@@ -21,20 +23,18 @@ file_delete("data-raw/state-geocodes-v2018.xlsx")
 
 # rename for split
 geocodes <- geocodes %>%
-  rename(
+  select(
+    fips = state_fips,
+    name,
     rid = region,
-    did = division,
-    fips = state_fips
-  ) %>%
-  add_row(
-    fips = "72",
-    name = "Puerto Rico Commonwealth"
+    did = division
   )
 
 # create subset of regions
 regions <- geocodes %>%
   filter(did == "0") %>%
   select(rid, region = name) %>%
+  arrange(rid) %>%
   mutate(region = as_factor(str_remove(region, "\\sRegion$")))
 
 # create subset of divisions
@@ -43,60 +43,71 @@ divisions <- geocodes %>%
   select(did, division = name) %>%
   mutate(division = as_factor(str_remove(division, "\\sDivision$")))
 
-# create subset of fips
-fips <- geocodes %>%
+# add regions to fips
+# replaces `state.region` factor vector
+state_regions <- geocodes %>%
   filter(fips != "00") %>%
-  select(-name)
+  left_join(regions) %>%
+  select(fips, region) %>%
+  arrange(fips)
 
-# read abbreviations
+# add divisions to fips
+# replaces `state.division` factor vector
+state_divisions <- geocodes %>%
+  filter(fips != "00") %>%
+  left_join(divisions) %>%
+  select(fips, division) %>%
+  arrange(fips)
+
+# read various USCB codes
 codes <- read_delim(
   file = "https://www2.census.gov/geo/docs/reference/state.txt",
   delim = "|"
 )
 
 # create abbs from codes
-abbs <- select(codes, fips = STATE, abb = STUSAB)
+# replaces `state.abb` character vector
+state_abbs <- select(codes, fips = STATE, abb = STUSAB)
 
 # create names from codes
-states <- select(codes, fips = STATE, state = STATE_NAME)
+# replaces `state.name` character vector
+state_names <- select(codes, fips = STATE, name = STATE_NAME)
 
 # create ansi from codes
-ansi <- select(codes, fips = STATE, ansi = STATENS)
+state_ansi <- select(codes, fips = STATE, ansi = STATENS)
 
 # test that all join back
-states %>%
-  inner_join(abbs) %>%
-  inner_join(fips) %>%
-  left_join(regions) %>%
-  left_join(divisions) %>%
-  inner_join(ansi) %>%
-  select(-ends_with("id"))
+state_names %>%
+  inner_join(state_abbs) %>%
+  inner_join(state_ansi) %>%
+  left_join(state_regions) %>%
+  left_join(state_divisions) -> states
 
 # write raw csv
-write_csv(regions, "data-raw/regions.csv")
-write_csv(divisions, "data-raw/divisions.csv")
-write_csv(states, "data-raw/states.csv")
-write_csv(fips, "data-raw/fips.csv")
-write_csv(abbs, "data-raw/abbs.csv")
-write_csv(ansi, "data-raw/ansi.csv")
+write_csv(states,          "data-raw/states.csv")
+write_csv(state_regions,   "data-raw/state_regions.csv")
+write_csv(state_divisions, "data-raw/state_divisions.csv")
+write_csv(state_names,     "data-raw/state_names.csv")
+write_csv(state_abbs,      "data-raw/state_abbs.csv")
+write_csv(state_ansi,      "data-raw/state_ansi.csv")
 
 # write object rda
-use_data(regions, overwrite = TRUE)
-use_data(divisions, overwrite = TRUE)
-use_data(states, overwrite = TRUE)
-use_data(fips, overwrite = TRUE)
-use_data(abbs, overwrite = TRUE)
-use_data(ansi, overwrite = TRUE)
+use_data(states,          overwrite = TRUE)
+use_data(state_regions,   overwrite = TRUE)
+use_data(state_divisions, overwrite = TRUE)
+use_data(state_names,     overwrite = TRUE)
+use_data(state_abbs,      overwrite = TRUE)
+use_data(state_ansi,      overwrite = TRUE)
 
 # overwrite vectors
-state.name <- states$state
+state.name <- state_names$name
 usethis::use_data(state.name, overwrite = TRUE)
 
-state.abb <- abbs$abb
+state.abb <- state_abbs$abb
 usethis::use_data(state.abb, overwrite = TRUE)
 
-state.division <- divisions$division
+state.division <- state_divisions$division
 usethis::use_data(state.division, overwrite = TRUE)
 
-state.region <- regions$region
+state.region <- state_regions$region
 usethis::use_data(state.region, overwrite = TRUE)

@@ -1,58 +1,58 @@
-fips,state
-01,Alabama
-02,Alaska
-04,Arizona
-05,Arkansas
-06,California
-08,Colorado
-09,Connecticut
-10,Delaware
-11,District of Columbia
-12,Florida
-13,Georgia
-15,Hawaii
-16,Idaho
-17,Illinois
-18,Indiana
-19,Iowa
-20,Kansas
-21,Kentucky
-22,Louisiana
-23,Maine
-24,Maryland
-25,Massachusetts
-26,Michigan
-27,Minnesota
-28,Mississippi
-29,Missouri
-30,Montana
-31,Nebraska
-32,Nevada
-33,New Hampshire
-34,New Jersey
-35,New Mexico
-36,New York
-37,North Carolina
-38,North Dakota
-39,Ohio
-40,Oklahoma
-41,Oregon
-42,Pennsylvania
-44,Rhode Island
-45,South Carolina
-46,South Dakota
-47,Tennessee
-48,Texas
-49,Utah
-50,Vermont
-51,Virginia
-53,Washington
-54,West Virginia
-55,Wisconsin
-56,Wyoming
-60,American Samoa
-66,Guam
-69,Northern Mariana Islands
-72,Puerto Rico
-74,U.S. Minor Outlying Islands
-78,U.S. Virgin Islands
+fips,name,abb,ansi,region,division
+01,Alabama,AL,01779775,South,East South Central
+02,Alaska,AK,01785533,West,Pacific
+04,Arizona,AZ,01779777,West,Mountain
+05,Arkansas,AR,00068085,South,West South Central
+06,California,CA,01779778,West,Pacific
+08,Colorado,CO,01779779,West,Mountain
+09,Connecticut,CT,01779780,Northeast,New England
+10,Delaware,DE,01779781,South,South Atlantic
+11,District of Columbia,DC,01702382,South,South Atlantic
+12,Florida,FL,00294478,South,South Atlantic
+13,Georgia,GA,01705317,South,South Atlantic
+15,Hawaii,HI,01779782,West,Pacific
+16,Idaho,ID,01779783,West,Mountain
+17,Illinois,IL,01779784,Midwest,East North Central
+18,Indiana,IN,00448508,Midwest,East North Central
+19,Iowa,IA,01779785,Midwest,West North Central
+20,Kansas,KS,00481813,Midwest,West North Central
+21,Kentucky,KY,01779786,South,East South Central
+22,Louisiana,LA,01629543,South,West South Central
+23,Maine,ME,01779787,Northeast,New England
+24,Maryland,MD,01714934,South,South Atlantic
+25,Massachusetts,MA,00606926,Northeast,New England
+26,Michigan,MI,01779789,Midwest,East North Central
+27,Minnesota,MN,00662849,Midwest,West North Central
+28,Mississippi,MS,01779790,South,East South Central
+29,Missouri,MO,01779791,Midwest,West North Central
+30,Montana,MT,00767982,West,Mountain
+31,Nebraska,NE,01779792,Midwest,West North Central
+32,Nevada,NV,01779793,West,Mountain
+33,New Hampshire,NH,01779794,Northeast,New England
+34,New Jersey,NJ,01779795,Northeast,Middle Atlantic
+35,New Mexico,NM,00897535,West,Mountain
+36,New York,NY,01779796,Northeast,Middle Atlantic
+37,North Carolina,NC,01027616,South,South Atlantic
+38,North Dakota,ND,01779797,Midwest,West North Central
+39,Ohio,OH,01085497,Midwest,East North Central
+40,Oklahoma,OK,01102857,South,West South Central
+41,Oregon,OR,01155107,West,Pacific
+42,Pennsylvania,PA,01779798,Northeast,Middle Atlantic
+44,Rhode Island,RI,01219835,Northeast,New England
+45,South Carolina,SC,01779799,South,South Atlantic
+46,South Dakota,SD,01785534,Midwest,West North Central
+47,Tennessee,TN,01325873,South,East South Central
+48,Texas,TX,01779801,South,West South Central
+49,Utah,UT,01455989,West,Mountain
+50,Vermont,VT,01779802,Northeast,New England
+51,Virginia,VA,01779803,South,South Atlantic
+53,Washington,WA,01779804,West,Pacific
+54,West Virginia,WV,01779805,South,South Atlantic
+55,Wisconsin,WI,01779806,Midwest,East North Central
+56,Wyoming,WY,01779807,West,Mountain
+60,American Samoa,AS,01802701,NA,NA
+66,Guam,GU,01802705,NA,NA
+69,Northern Mariana Islands,MP,01779809,NA,NA
+72,Puerto Rico,PR,01779808,NA,NA
+74,U.S. Minor Outlying Islands,UM,01878752,NA,NA
+78,U.S. Virgin Islands,VI,01802710,NA,NA
