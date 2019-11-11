@@ -83,6 +83,20 @@
 #' @source \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/}
 "state_divisions"
 
+#' 2018 US state centers
+#'
+#' Updated list of USGS state geographic centroids.
+#'
+#' @format A tibble with 56 rows and 3 variables:
+#' \describe{
+#'   \item{fips}{United States Census Bureau state FIPS code}
+#'   \item{x}{Longitude}
+#'   \item{y}{Latitude}
+#'   ...
+#' }
+#' @source \url{https://en.wikipedia.org/wiki/List_of_geographic_centers_of_the_United_States}
+"state_centers"
+
 #' US state and territory abbreviations
 #'
 #' Character vector of 2-letter abbreviations for the state and territory names.
@@ -121,3 +135,13 @@
 #'
 #' @source \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/}
 "state.division"
+
+#' US state geographic centers
+#'
+#' List with components named x and y giving the approximate geographic center
+#' of each state in negative longitude and latitude.
+#'
+#' @format A character vector of length 51.
+#'
+#' @source \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/}
+"state.center"
