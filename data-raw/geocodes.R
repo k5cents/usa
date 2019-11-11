@@ -81,7 +81,8 @@ state_names %>%
   inner_join(state_abbs) %>%
   inner_join(state_ansi) %>%
   left_join(state_regions) %>%
-  left_join(state_divisions) -> states
+  left_join(state_divisions) %>%
+  left_join(state_centers) -> states
 
 # write raw csv
 write_csv(states,          "data-raw/states.csv")
