@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">usa</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4</span>
       </span>
     </div>
 
@@ -149,27 +149,27 @@
 <a href="#new-data" class="anchor"></a>New Data</h2>
 <p>This package contains new versions of these objects!</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(usa)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">states <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw">inner_join</span>(abbs) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw">inner_join</span>(fips) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">  </span><span class="kw">left_join</span>(regions) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="st">  </span><span class="kw">left_join</span>(divisions) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="st">  </span><span class="kw">inner_join</span>(ansi) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span><span class="kw">ends_with</span>(<span class="st">"id"</span>))</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; # A tibble: 52 x 6</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt;    fips  name                 abb   region    division           ansi    </span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt; &lt;fct&gt;     &lt;fct&gt;              &lt;chr&gt;   </span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;  1 01    Alabama              AL    South     East South Central 01779775</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;  2 02    Alaska               AK    West      Pacific            01785533</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt;  3 04    Arizona              AZ    West      Mountain           01779777</span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt;  4 05    Arkansas             AR    South     West South Central 00068085</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt;  5 06    California           CA    West      Pacific            01779778</span></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt;  6 08    Colorado             CO    West      Mountain           01779779</span></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt;  7 09    Connecticut          CT    Northeast New England        01779780</span></a>
-<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt;  8 10    Delaware             DE    South     South Atlantic     01779781</span></a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt;  9 11    District of Columbia DC    South     South Atlantic     01702382</span></a>
-<a class="sourceLine" id="cb4-21" data-line-number="21"><span class="co">#&gt; 10 12    Florida              FL    South     South Atlantic     00294478</span></a>
-<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co">#&gt; # … with 42 more rows</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-2" data-line-number="2">states</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; # A tibble: 57 x 8</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;    fips  name            abb   ansi    region   division            x     y</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;           &lt;chr&gt; &lt;chr&gt;   &lt;fct&gt;    &lt;fct&gt;           &lt;dbl&gt; &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;  1 01    Alabama         AL    017797… South    East South Ce…  -86.8  32.8</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt;  2 02    Alaska          AK    017855… West     Pacific        -152.   64.1</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt;  3 04    Arizona         AZ    017797… West     Mountain       -112.   34.3</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt;  4 05    Arkansas        AR    000680… South    West South Ce…  -92.4  34.9</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt;  5 06    California      CA    017797… West     Pacific        -119.   37.2</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;  6 08    Colorado        CO    017797… West     Mountain       -106.   39.0</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;  7 09    Connecticut     CT    017797… Northea… New England     -72.7  41.6</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;  8 10    Delaware        DE    017797… South    South Atlantic  -75.5  39.0</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt;  9 11    District of Co… DC    017023… South    South Atlantic  -77.0  38.9</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; 10 12    Florida         FL    002944… South    South Atlantic  -82.4  28.6</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt; # … with 47 more rows</span></a></code></pre></div>
+<p>The updated data includes the District of Columbia and all the other sovereign territories of the United States of America.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/sets.html">setdiff</a></span>(usa<span class="op">::</span>state.name, datasets<span class="op">::</span>state.name)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; [1] "District of Columbia"        "American Samoa"             </span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; [3] "Guam"                        "Northern Mariana Islands"   </span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; [5] "Puerto Rico"                 "U.S. Minor Outlying Islands"</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; [7] "U.S. Virgin Islands"</span></a></code></pre></div>
 <hr>
 <p>Please note that the <code>usa</code> project is released with a <a href="https://kiernann.com/usa/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
