@@ -80,15 +80,15 @@ This package contains new versions of these objects!
 
 ```{r join_states, message=FALSE}
 library(usa)
-states %>%
-  inner_join(abbs) %>%
-  inner_join(fips) %>%
-  left_join(regions) %>%
-  left_join(divisions) %>%
-  inner_join(ansi) %>%
-  select(-ends_with("id"))
+states
 ```
 
+The updated data includes the District of Columbia and all the other sovereign
+territories of the United States of America.
+
+```{r new_diff}
+setdiff(usa::state.name, datasets::state.name)
+```
 
 ***
 

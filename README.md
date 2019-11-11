@@ -87,27 +87,32 @@ This package contains new versions of these objects\!
 
 ``` r
 library(usa)
-states %>%
-  inner_join(abbs) %>%
-  inner_join(fips) %>%
-  left_join(regions) %>%
-  left_join(divisions) %>%
-  inner_join(ansi) %>%
-  select(-ends_with("id"))
-#> # A tibble: 52 x 6
-#>    fips  name                 abb   region    division           ansi    
-#>    <chr> <chr>                <chr> <fct>     <fct>              <chr>   
-#>  1 01    Alabama              AL    South     East South Central 01779775
-#>  2 02    Alaska               AK    West      Pacific            01785533
-#>  3 04    Arizona              AZ    West      Mountain           01779777
-#>  4 05    Arkansas             AR    South     West South Central 00068085
-#>  5 06    California           CA    West      Pacific            01779778
-#>  6 08    Colorado             CO    West      Mountain           01779779
-#>  7 09    Connecticut          CT    Northeast New England        01779780
-#>  8 10    Delaware             DE    South     South Atlantic     01779781
-#>  9 11    District of Columbia DC    South     South Atlantic     01702382
-#> 10 12    Florida              FL    South     South Atlantic     00294478
-#> # … with 42 more rows
+states
+#> # A tibble: 57 x 8
+#>    fips  name            abb   ansi    region   division            x     y
+#>    <chr> <chr>           <chr> <chr>   <fct>    <fct>           <dbl> <dbl>
+#>  1 01    Alabama         AL    017797… South    East South Ce…  -86.8  32.8
+#>  2 02    Alaska          AK    017855… West     Pacific        -152.   64.1
+#>  3 04    Arizona         AZ    017797… West     Mountain       -112.   34.3
+#>  4 05    Arkansas        AR    000680… South    West South Ce…  -92.4  34.9
+#>  5 06    California      CA    017797… West     Pacific        -119.   37.2
+#>  6 08    Colorado        CO    017797… West     Mountain       -106.   39.0
+#>  7 09    Connecticut     CT    017797… Northea… New England     -72.7  41.6
+#>  8 10    Delaware        DE    017797… South    South Atlantic  -75.5  39.0
+#>  9 11    District of Co… DC    017023… South    South Atlantic  -77.0  38.9
+#> 10 12    Florida         FL    002944… South    South Atlantic  -82.4  28.6
+#> # … with 47 more rows
+```
+
+The updated data includes the District of Columbia and all the other
+sovereign territories of the United States of America.
+
+``` r
+setdiff(usa::state.name, datasets::state.name)
+#> [1] "District of Columbia"        "American Samoa"             
+#> [3] "Guam"                        "Northern Mariana Islands"   
+#> [5] "Puerto Rico"                 "U.S. Minor Outlying Islands"
+#> [7] "U.S. Virgin Islands"
 ```
 
 -----
