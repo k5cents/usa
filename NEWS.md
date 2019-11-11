@@ -1,3 +1,9 @@
+# usa 0.0.4
+
+* Save `state_centers` tibble from Wikipedia.
+* Overwrite `state.center` list with territories.
+* Update `README.md` with newest object differences.
+
 # usa 0.0.3
 
 * Improve draft objects and tibbles.
