@@ -1,14 +1,17 @@
 Package: usa
 Title: Updated US State Facts and Figures
-Version: 0.0.4
+Version: 0.0.5
 Authors@R: 
     person(given = "Kiernan",
            family = "Nicholls",
            role = c("aut", "cre"),
            email = "first.last@example.com")
-Description: This package contains updated versions of the
-    data files included in base R. All data is provided by the United
-    States Census Bureau.
+Description: This package contains updated versions of the "US State Facts and 
+    Figures" data files included in base R, which were taken from the 
+    Statistical Abstract of the United States (1977) and County and City Data 
+    Book (1977) by the United States Bureau of the Census. The updated data in
+    this package is compiled from a number of sources, primarily from Bureau of 
+    the Census or the relevant United States government agency.
 License: GPL-3
 URL: https://github.com/kiernann/usa
 BugReports: https://github.com/kiernann/usa/issues
