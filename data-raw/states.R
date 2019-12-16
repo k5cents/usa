@@ -44,7 +44,7 @@ geocodes <- geocodes %>%
   )
 
 # delete the census region file
-file_delete("data-raw/state-geocodes-v2018.xlsx")
+unlink("data-raw/state-geocodes-v2018.xlsx")
 
 # join and filter to sub codes --------------------------------------------
 
@@ -103,7 +103,7 @@ write_csv(states, "data-raw/states.csv")
 # overwrite dataset objects
 state.abb <- states$abb
 class(state.abb) == class(datasets::state.abb)
-usethis::use_data(state.area, overwrite = TRUE)
+usethis::use_data(state.abb, overwrite = TRUE)
 write_lines(state.area, "data-raw/state-abb.csv")
 
 # overwrite datasets::state.center
