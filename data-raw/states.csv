@@ -1,0 +1,58 @@
+abb,name,fips,ansi,region,division,area,lat,long
+AL,Alabama,01,01779775,South,East South Central,50646.64,32.7437,-86.8468
+AK,Alaska,02,01785533,West,Pacific,571016.95,63.4131,-152.8796
+AZ,Arizona,04,01779777,West,Mountain,113653.15,34.2751,-111.6605
+AR,Arkansas,05,00068085,South,West South Central,52037.53,34.894,-92.4427
+CA,California,06,01779778,West,Pacific,155854.04,37.1548,-119.5278
+CO,Colorado,08,01779779,West,Mountain,103637.5,38.9976,-105.5478
+CT,Connecticut,09,01779780,Northeast,New England,4842.69,41.5751,-72.7393
+DE,Delaware,10,01779781,South,South Atlantic,1948.51,38.9933,-75.4514
+DC,District of Columbia,11,01702382,South,South Atlantic,61.14,38.9048,-77.0163
+FL,Florida,12,00294478,South,South Atlantic,53647.88,28.4604,-82.4245
+GA,Georgia,13,01705317,South,South Atlantic,57716.33,32.6279,-83.4165
+HI,Hawaii,15,01779782,West,Pacific,6422.43,21.0509,-157.9937
+ID,Idaho,16,01779783,West,Mountain,82645.13,44.3524,-114.6137
+IL,Illinois,17,01779784,Midwest,East North Central,55513.72,40.1006,-89.1501
+IN,Indiana,18,00448508,Midwest,East North Central,35826.44,39.906,-86.2873
+IA,Iowa,19,01779785,Midwest,West North Central,55853.72,42.0754,-93.4959
+KS,Kansas,20,00481813,Midwest,West North Central,81758.48,38.4939,-98.3786
+KY,Kentucky,21,01779786,South,East South Central,39491.39,37.5352,-85.3018
+LA,Louisiana,22,01629543,South,West South Central,43204.49,30.9026,-91.7982
+ME,Maine,23,01779787,Northeast,New England,30844.8,45.2611,-69.2137
+MD,Maryland,24,01714934,South,South Atlantic,9711.14,38.9464,-76.679
+MA,Massachusetts,25,00606926,Northeast,New England,7800.96,42.1618,-71.4975
+MI,Michigan,26,01779789,Midwest,East North Central,56605.93,44.8382,-85.665
+MN,Minnesota,27,00662849,Midwest,West North Central,79625.88,46.3167,-94.1983
+MS,Mississippi,28,01779790,South,East South Central,46925.54,32.6975,-89.6553
+MO,Missouri,29,01779791,Midwest,West North Central,68745.46,38.357,-92.4581
+MT,Montana,30,00767982,West,Mountain,145547.71,47.0526,-109.6329
+NE,Nebraska,31,01779792,Midwest,West North Central,76816.5,41.5381,-99.795
+NV,Nevada,32,01779793,West,Mountain,109860.37,39.3292,-116.6313
+NH,New Hampshire,33,01779794,Northeast,New England,8953.4,43.674,-71.5738
+NJ,New Jersey,34,01779795,Northeast,Middle Atlantic,7354.8,40.105,-74.658
+NM,New Mexico,35,00897535,West,Mountain,121312.24,34.4076,-106.1127
+NY,New York,36,01779796,Northeast,Middle Atlantic,47123.77,42.9198,-75.5943
+NC,North Carolina,37,01027616,South,South Atlantic,48620.28,35.5402,-79.1299
+ND,North Dakota,38,01779797,Midwest,West North Central,68994.77,47.4504,-100.466
+OH,Ohio,39,01085497,Midwest,East North Central,40858.76,40.4097,-82.7169
+OK,Oklahoma,40,01102857,South,West South Central,68595.95,35.5886,-97.4947
+OR,Oregon,41,01155107,West,Pacific,95988,43.9396,-120.6109
+PA,Pennsylvania,42,01779798,Northeast,Middle Atlantic,44741.7,40.9011,-77.8369
+RI,Rhode Island,44,01219835,Northeast,New England,1033.9,41.594,-71.5247
+SC,South Carolina,45,01779799,South,South Atlantic,30063.71,33.8758,-80.8583
+SD,South Dakota,46,01785534,Midwest,West North Central,75809.69,44.4446,-100.227
+TN,Tennessee,47,01325873,South,East South Central,41237.97,35.8581,-86.3503
+TX,Texas,48,01779801,South,West South Central,261263.07,31.4278,-99.2891
+UT,Utah,49,01455989,West,Mountain,82376.88,39.3063,-111.6703
+VT,Vermont,50,01779802,Northeast,New England,9217.88,44.0694,-72.666
+VA,Virginia,51,01779803,South,South Atlantic,39482.15,37.5183,-78.6759
+WA,Washington,53,01779804,West,Pacific,66455.12,47.4149,-120.5955
+WV,West Virginia,54,01779805,South,South Atlantic,24041.13,38.6412,-80.6235
+WI,Wisconsin,55,01779806,Midwest,East North Central,54167.44,44.6273,-89.7098
+WY,Wyoming,56,01779807,West,Mountain,97088.7,42.9961,-107.5515
+AS,American Samoa,60,01802701,NA,NA,76.36,-13.9638,-170.0823
+GU,Guam,66,01802705,NA,NA,209.87,13.4427,144.7694
+MP,Northern Mariana Islands,69,01779809,NA,NA,182.35,16.7974,145.5969
+PR,Puerto Rico,72,01779808,NA,NA,3424.23,18.2165,-66.4148
+UM,U.S. Minor Outlying Islands,74,01878752,NA,NA,NA,NA,NA
+VI,U.S. Virgin Islands,78,01802710,NA,NA,134.37,18.0594,-64.8388
