@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>US state geographic centers — state.center • usa</title>
+<title>US State Centers — state.center • usa</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,9 +42,9 @@
 
 
 
-<meta property="og:title" content="US state geographic centers — state.center" />
-<meta property="og:description" content="List with components named x and y giving the approximate geographic center
-of each state in negative longitude and latitude." />
+<meta property="og:title" content="US State Centers — state.center" />
+<meta property="og:description" content="A list with components named x and y giving the approximate geographic
+center of each state in negative longitude and latitude." />
 <meta property="og:image" content="https://kiernann.com/usa/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -78,7 +78,7 @@ of each state in negative longitude and latitude." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">usa</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.6</span>
       </span>
     </div>
 
@@ -117,14 +117,14 @@ of each state in negative longitude and latitude." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>US state geographic centers</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kiernann/usa/blob/master/R/state_info.R'><code>R/state_info.R</code></a></small>
+    <h1>US State Centers</h1>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/usa/blob/master/R/data.R'><code>R/data.R</code></a></small>
     <div class="hidden name"><code>state.center.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>List with components named x and y giving the approximate geographic center
-of each state in negative longitude and latitude.</p>
+    <p>A list with components named <code>x</code> and <code>y</code> giving the approximate geographic
+center of each state in negative longitude and latitude.</p>
     </div>
 
     <pre class="usage"><span class='no'>state.center</span></pre>
@@ -132,10 +132,14 @@ of each state in negative longitude and latitude.</p>
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A character vector of length 51.</p>
+    <p>A list of length two, each element a numeric vector of length 57.</p><dl class='dl-horizontal'>
+<dt>x</dt><dd><p>Center longitudinal coordinate</p></dd>
+<dt>y</dt><dd><p>Center latitudinal coordinate</p></dd>
+
+</dl>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p><a href='https://www2.census.gov/programs-surveys/popest/geographies/2018/'>https://www2.census.gov/programs-surveys/popest/geographies/2018/</a></p>
+    <p><a href='https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html'>https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html</a></p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

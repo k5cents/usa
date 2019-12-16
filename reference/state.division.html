@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>US state Census divisions — state.division • usa</title>
+<title>US State Divisions — state.division • usa</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,10 +42,19 @@
 
 
 
-<meta property="og:title" content="US state Census divisions — state.division" />
-<meta property="og:description" content="Factor giving state divisions (New England, Middle Atlantic, South Atlantic,
-East South Central, West South Central, East North Central, West North
-Central, Mountain, and Pacific)." />
+<meta property="og:title" content="US State Divisions — state.division" />
+<meta property="og:description" content="The Census division to which each state belongs, one of nine:
+New England
+Middle Atlantic
+East North Central
+West North Central
+South Atlantic
+East South Central
+West South Central
+Mountain
+Pacific
+
+" />
 <meta property="og:image" content="https://kiernann.com/usa/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -79,7 +88,7 @@ Central, Mountain, and Pacific)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">usa</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.6</span>
       </span>
     </div>
 
@@ -118,15 +127,24 @@ Central, Mountain, and Pacific)." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>US state Census divisions</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kiernann/usa/blob/master/R/state_info.R'><code>R/state_info.R</code></a></small>
+    <h1>US State Divisions</h1>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/usa/blob/master/R/data.R'><code>R/data.R</code></a></small>
     <div class="hidden name"><code>state.division.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Factor giving state divisions (New England, Middle Atlantic, South Atlantic,
-East South Central, West South Central, East North Central, West North
-Central, Mountain, and Pacific).</p>
+    <p>The Census division to which each state belongs, one of nine:</p><ol>
+<li><p>New England</p></li>
+<li><p>Middle Atlantic</p></li>
+<li><p>East North Central</p></li>
+<li><p>West North Central</p></li>
+<li><p>South Atlantic</p></li>
+<li><p>East South Central</p></li>
+<li><p>West South Central</p></li>
+<li><p>Mountain</p></li>
+<li><p>Pacific</p></li>
+</ol>
+
     </div>
 
     <pre class="usage"><span class='no'>state.division</span></pre>
@@ -134,10 +152,10 @@ Central, Mountain, and Pacific).</p>
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A character vector of length 51.</p>
+    <p>A factor vector of length 57.</p>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p><a href='https://www2.census.gov/programs-surveys/popest/geographies/2018/'>https://www2.census.gov/programs-surveys/popest/geographies/2018/</a></p>
+    <p><a href='https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx'>https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx</a></p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
