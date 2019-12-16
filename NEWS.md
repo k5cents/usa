@@ -1,3 +1,9 @@
+# usa 0.0.6
+
+* Replace geocodes data with census sources.
+* Combine state info into single table.
+* Delete unfinished data.
+
 # usa 0.0.4
 
 * Save `state_centers` tibble from Wikipedia.
