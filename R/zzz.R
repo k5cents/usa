@@ -9,9 +9,9 @@
   )
   masked <- paste("*", masked, collapse = "\n")
   msg <- c(
-    "The 'usa' package masks the state datasets included in base R:\n",
+    "The ‘usa’ package masks the state datasets included in base R:\n",
     masked,
-    "\nObjects are similar but updated and expanded."
+    "\nObjects are similar in class and content but updated and expanded."
   )
   packageStartupMessage(msg)
 }
