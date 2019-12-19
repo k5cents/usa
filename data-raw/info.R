@@ -27,25 +27,27 @@ populations <- read_csv(
 )
 
 populations <- populations %>%
-  rename(fips = STATE, pop = POPESTIMATE2018) %>%
+  rename(fips = STATE, population = POPESTIMATE2018) %>%
   filter(fips != "00") %>%
   left_join(y = abb_fips, by = "fips") %>%
-  select(abb, pop) %>%
-  arrange(desc(pop))
+  select(abb, population) %>%
+  arrange(desc(population))
 
 # income ------------------------------------------------------------------
 
-# https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml
+# http://factfinder.census.gov/bkmk/table/1.0/en/ACS/17_1YR/R1901.US01PRF
 # MEDIAN HOUSEHOLD INCOME (IN 2017 INFLATION-ADJUSTED DOLLARS) - United States -- States; and Puerto Rico
 # Source:  U.S. Census Bureau, 2017 American Community Survey 1-Year Estimates
 zip_file <- "data-raw/ACS_17_1YR_R1901.US01PRF.zip"
-R1901 <- unzip(zip_file, "ACS_17_1YR_R1901.US01PRF.csv", exdir = "data-raw/")
+R1901 <- unzip(zip_file, "ACS_17_1YR_R1901.US01PRF.csv", exdir = "data-raw")
 income <-
   read_csv(file = R1901) %>%
-  select(fips = 5, dollars = EST) %>%
+  select(fips = 5, income = EST) %>%
   left_join(abb_fips, by = "fips") %>%
   filter(!is.na(abb)) %>%
-  select(abb, dollars)
+  select(abb, income)
+
+file_delete(R1901)
 
 # literacy ----------------------------------------------------------------
 
@@ -100,13 +102,17 @@ murder <-
     select(abb, murder) %>%
     arrange(desc(murder))
 
+file_delete("data-raw/table-4.xls")
+
 # education ---------------------------------------------------------------
 
+# https://factfinder.census.gov/bkmk/table/1.0/en/ACS/17_1YR/S1501
+# https://data.census.gov/cedsci/table?q=S1501
 # S1501 EDUCATIONAL ATTAINMENT
 # Source:  U.S. Census Bureau, 2018 American Community Survey 1-Year Estimates
 edu_csv <- unzip(
-  zipfile = "data-raw/ACSST1Y2018.S1501_2019-12-17T110421.zip",
-  files = "ACSST1Y2018.S1501_data_with_overlays_2019-12-17T110415.csv",
+  zipfile = "data-raw/ACSST1Y2018.S1501_2019-12-19T151514.zip",
+  files = "ACSST1Y2018.S1501_data_with_overlays_2019-12-19T151505.csv",
   exdir = "data-raw"
 )
 
@@ -132,6 +138,8 @@ edu <-
   mutate_if(is.numeric, round, 4) %>%
   select(abb, high, bach) %>%
   arrange(desc(high))
+
+file_delete(edu_csv)
 
 # temperature -------------------------------------------------------------
 
@@ -169,9 +177,16 @@ degree_days <-
 
 # join --------------------------------------------------------------------
 
-populations %>%
+info <- populations %>%
   left_join(income, by = "abb") %>%
   left_join(life, by = "abb") %>%
   left_join(murder, by = "abb") %>%
   left_join(edu, by = "abb") %>%
   left_join(degree_days, by = "abb")
+
+
+# save --------------------------------------------------------------------
+
+write_csv(info, "data-raw/info.csv")
+
+as.matrix(column_to_rownames(info, "abb"))
