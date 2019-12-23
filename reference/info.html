@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • usa</title>
+<title>US State and Territory Statistics — info • usa</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,7 +42,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="US State and Territory Statistics — info" />
+<meta property="og:description" content="Updated version of the datasets::state.x77 matrix, which provides eight
+statistics from the 1970's. This version is a modern data frame format
+with updated (and alternative) statistics." />
 <meta property="og:image" content="https://kiernann.com/usa/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -63,7 +66,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -113,90 +116,43 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>US State and Territory Statistics</h1>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/usa/blob/master/R/data.R'><code>R/data.R</code></a></small>
+    <div class="hidden name"><code>info.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Updated version of the <a href='https://rdrr.io/r/datasets/state.html'>datasets::state.x77</a> matrix, which provides eight
+statistics from the 1970's. This version is a modern data frame format
+with updated (and alternative) statistics.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='no'>info</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="info.html">info</a></code> </p>
-        </td>
-        <td><p>US State and Territory Statistics</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="state.abb.html">state.abb</a></code> </p>
-        </td>
-        <td><p>US State Abbreviations</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="state.area.html">state.area</a></code> </p>
-        </td>
-        <td><p>US State Areas</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="state.center.html">state.center</a></code> </p>
-        </td>
-        <td><p>US State Centers</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="state.division.html">state.division</a></code> </p>
-        </td>
-        <td><p>US State Divisions</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="state.name.html">state.name</a></code> </p>
-        </td>
-        <td><p>US State Names</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="state.region.html">state.region</a></code> </p>
-        </td>
-        <td><p>US State Regions</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="state.x19.html">state.x19</a></code> </p>
-        </td>
-        <td><p>US State and Territory Statistics</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="states.html">states</a></code> </p>
-        </td>
-        <td><p>US State and Territories</p></td>
-      </tr>
-    </tbody>
-    </table>
+
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>A tibble with 57 rows and 9 variables:</p><dl class='dl-horizontal'>
+<dt>abb</dt><dd><p>2-letter abbreviation</p></dd>
+<dt>population</dt><dd><p>Population estimate as of September 26, 2019</p></dd>
+<dt>income</dt><dd><p>Per capita income (2017)</p></dd>
+<dt>life_exp</dt><dd><p>Life expectancy in years (2017-18)</p></dd>
+<dt>murder</dt><dd><p>Murder rate per 100,000 population (2018)</p></dd>
+<dt>high</dt><dd><p>Percent adult population with at least a high school degree (2019)</p></dd>
+<dt>bach</dt><dd><p>Percent adult population with at least a bachelor's degree or greater (2019)</p></dd>
+<dt>heat</dt><dd><p>Mean number of degree days (temperature requires heating) per year from 1981-2010</p></dd>
+
+</dl>
+
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#format">Format</a></li>
     </ul>
+
   </div>
 </div>
 

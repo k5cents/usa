@@ -87,19 +87,18 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The goal of <code>usa</code> is to provide updated versions of the <code>state</code> data sets included in base R. These versions include newer statistics in the modern data frame format.</p>
+<p>The goal of <code>usa</code> is to provide updated versions of the <code>state</code> data sets included with R. When attached, this package <strong>overwrites</strong> these original vectors. The vectors from this package contain information for the District of Columbia, Puerto Rico, and the other sovereign territories of the United States of America.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the development version of <code>usa</code> from <a href="https://github.com">GitHub</a> with:</p>
+<p>You can install the development version of <code>usa</code> from <a href="https://github.com/kiernann/usa">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("remotes")</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"kiernann/usa"</span>)</a></code></pre></div>
 </div>
-<div id="old-data" class="section level2">
+<div id="base-data" class="section level2">
 <h2 class="hasAnchor">
-<a href="#old-data" class="anchor"></a>Old Data</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tidyverse)</a></code></pre></div>
-<p>R ships with seven outdated built-in “state” objects:</p>
+<a href="#base-data" class="anchor"></a>Base Data</h2>
+<p>R ships with seven outdated “state” objects:</p>
 <ul>
 <li>
 <code>state.abb</code>: character vector of 2-letter abbreviations for the state names.</li>
@@ -108,11 +107,11 @@
 <li>
 <code>state.center</code>: list giving the approximate geographic center of each state.</li>
 <li>
-<code>state.division</code>: factor giving state divisions.</li>
+<code>state.division</code>: factor giving state geographic census divisions.</li>
 <li>
 <code>state.name</code>: character vector giving the full state names.</li>
 <li>
-<code>state.region</code>: factor giving the region.</li>
+<code>state.region</code>: factor giving the census region.</li>
 <li>
 <code>state.x77</code>: matrix with 50 rows and 8 columns:
 <ul>
@@ -135,52 +134,66 @@
 </ul>
 </li>
 </ul>
-<!-- end list --><div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(datasets)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">vectors &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="dt">abb =</span> state.abb,</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="dt">name =</span> state.name,</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="dt">region =</span> state.region,</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="dt">division =</span> state.division,</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">  <span class="dt">x =</span> state.center<span class="op">$</span>x,</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">  <span class="dt">y =</span> state.center<span class="op">$</span>y</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">)</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(vectors, <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;   abb    name region           division         x       y</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; 1  AL Alabama  South East South Central  -86.7509 32.5901</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; 2  AK  Alaska   West            Pacific -127.2500 49.2500</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; 3  AZ Arizona   West           Mountain -111.6250 34.2192</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(state.x77, <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt;         Population Income Illiteracy Life Exp Murder HS Grad Frost   Area</span></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; Alabama       3615   3624        2.1    69.05   15.1    41.3    20  50708</span></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt; Alaska         365   6315        1.5    69.31   11.3    66.7   152 566432</span></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt; Arizona       2212   4530        1.8    70.55    7.8    58.1    15 113417</span></a></code></pre></div>
+<!-- end list --><div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">base &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="dt">abb =</span> state.abb,</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="dt">name =</span> state.name,</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="dt">region =</span> state.region,</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="dt">division =</span> state.division,</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">  <span class="dt">center.x =</span> state.center<span class="op">$</span>x,</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">  <span class="dt">center.y =</span> state.center<span class="op">$</span>y</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">)</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(base)</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;   abb       name region           division  center.x center.y</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; 1  AL    Alabama  South East South Central  -86.7509  32.5901</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; 2  AK     Alaska   West            Pacific -127.2500  49.2500</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; 3  AZ    Arizona   West           Mountain -111.6250  34.2192</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; 4  AR   Arkansas  South West South Central  -92.2992  34.7336</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; 5  CA California   West            Pacific -119.7730  36.5341</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; 6  CO   Colorado   West           Mountain -105.5130  38.6777</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(state.x77)</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt;            Population Income Illiteracy Life Exp Murder HS Grad Frost   Area</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt; Alabama          3615   3624        2.1    69.05   15.1    41.3    20  50708</span></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt; Alaska            365   6315        1.5    69.31   11.3    66.7   152 566432</span></a>
+<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt; Arizona          2212   4530        1.8    70.55    7.8    58.1    15 113417</span></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt; Arkansas         2110   3378        1.9    70.66   10.1    39.9    65  51945</span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; California      21198   5114        1.1    71.71   10.3    62.6    20 156361</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766</span></a></code></pre></div>
 </div>
 <div id="new-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-data" class="anchor"></a>New Data</h2>
-<p>This package contains new versions of these objects!</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(usa)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">states</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; # A tibble: 57 x 8</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;    fips  name            abb   ansi    region   division            x     y</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;           &lt;chr&gt; &lt;chr&gt;   &lt;fct&gt;    &lt;fct&gt;           &lt;dbl&gt; &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;  1 01    Alabama         AL    017797… South    East South Ce…  -86.8  32.8</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt;  2 02    Alaska          AK    017855… West     Pacific        -152.   64.1</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt;  3 04    Arizona         AZ    017797… West     Mountain       -112.   34.3</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt;  4 05    Arkansas        AR    000680… South    West South Ce…  -92.4  34.9</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt;  5 06    California      CA    017797… West     Pacific        -119.   37.2</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;  6 08    Colorado        CO    017797… West     Mountain       -106.   39.0</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;  7 09    Connecticut     CT    017797… Northea… New England     -72.7  41.6</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;  8 10    Delaware        DE    017797… South    South Atlantic  -75.5  39.0</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt;  9 11    District of Co… DC    017023… South    South Atlantic  -77.0  38.9</span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; 10 12    Florida         FL    002944… South    South Atlantic  -82.4  28.6</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt; # … with 47 more rows</span></a></code></pre></div>
-<p>The updated data includes the District of Columbia and all the other sovereign territories of the United States of America.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/sets.html">setdiff</a></span>(usa<span class="op">::</span>state.name, datasets<span class="op">::</span>state.name)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; [1] "District of Columbia"        "American Samoa"             </span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; [3] "Guam"                        "Northern Mariana Islands"   </span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; [5] "Puerto Rico"                 "U.S. Minor Outlying Islands"</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; [7] "U.S. Virgin Islands"</span></a></code></pre></div>
+<p>This package contains new versions of these objects. Attaching the package with <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> will <strong>overwrite</strong> these vectors with newer, longer versions. The new versions maintain the same class and content.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tibble)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(usa)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/sets.html">setdiff</a></span>(usa<span class="op">::</span>state.abb, datasets<span class="op">::</span>state.abb)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; [1] "DC" "AS" "GU" "MP" "PR" "UM" "VI"</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/base/unique.html">unique</a></span>(usa<span class="op">::</span>state.region)</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; [1] South     West      Northeast Midwest   &lt;NA&gt;     </span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; Levels: Northeast Midwest South West</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="kw"><a href="https://rdrr.io/r/base/unique.html">unique</a></span>(datasets<span class="op">::</span>state.region)</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; [1] South         West          Northeast     North Central</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt; Levels: Northeast South North Central West</span></a></code></pre></div>
+<p>The package also contains two <a href="https://tibble.tidyverse.org/">tibbles</a> identifying the states and territories and providing various updated statistics.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(usa<span class="op">::</span>states)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; # A tibble: 6 x 9</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;   abb   name       fips  ansi     region division              area   lat   long</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;    &lt;fct&gt;  &lt;fct&gt;                &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; 1 AL    Alabama    01    01779775 South  East South Central  50647.  32.7  -86.8</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; 2 AK    Alaska     02    01785533 West   Pacific            571017.  63.4 -153. </span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; 3 AZ    Arizona    04    01779777 West   Mountain           113653.  34.3 -112. </span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; 4 AR    Arkansas   05    00068085 South  West South Central  52038.  34.9  -92.4</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; 5 CA    California 06    01779778 West   Pacific            155854.  37.2 -120. </span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt; 6 CO    Colorado   08    01779779 West   Mountain           103638.  39.0 -106.</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(usa<span class="op">::</span>info)</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt; # A tibble: 6 x 8</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;   abb   population income life_exp murder  high  bach   heat</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt;   &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; 1 AL       4887871  48123     74.9    7.8 0.866 0.234  65.9 </span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="co">#&gt; 2 AK        737438  73181     77.8    6.4 0.927 0.271 -26.6 </span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; 3 AZ       7171646  56581     79.2    5.1 0.871 0.271  73.6 </span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt; 4 AR       3013825  45869     75.4    7.2 0.873 0.214  62.4 </span></a>
+<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt; 5 CA      39557045  71805     80.9    4.4 0.845 0.314  38.1 </span></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt; 6 CO       5695564  69117     79.9    3.7 0.913 0.384   6.24</span></a></code></pre></div>
 <hr>
 <p>Please note that the <code>usa</code> project is released with a <a href="https://kiernann.com/usa/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
