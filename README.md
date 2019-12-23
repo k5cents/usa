@@ -16,35 +16,33 @@ coverage](https://codecov.io/gh/kiernann/usa/branch/master/graph/badge.svg)](htt
 <!-- badges: end -->
 
 The goal of `usa` is to provide updated versions of the `state` data
-sets included in base R. These versions include newer statistics in the
-modern data frame format.
+sets included with R. When attached, this package **overwrites** these
+original vectors. The vectors from this package contain information for
+the District of Columbia, Puerto Rico, and the other sovereign
+territories of the United States of America.
 
 ## Installation
 
 You can install the development version of `usa` from
-[GitHub](https://github.com) with:
+[GitHub](https://github.com/kiernann/usa) with:
 
 ``` r
 # install.packages("remotes")
 remotes::install_github("kiernann/usa")
 ```
 
-## Old Data
+## Base Data
 
-``` r
-library(tidyverse)
-```
-
-R ships with seven outdated built-in “state” objects:
+R ships with seven outdated “state” objects:
 
   - `state.abb`: character vector of 2-letter abbreviations for the
     state names.
   - `state.area`: numeric vector of state areas (in square miles).
   - `state.center`: list giving the approximate geographic center of
     each state.
-  - `state.division`: factor giving state divisions.
+  - `state.division`: factor giving state geographic census divisions.
   - `state.name`: character vector giving the full state names.
-  - `state.region`: factor giving the region.
+  - `state.region`: factor giving the census region.
   - `state.x77`: matrix with 50 rows and 8 columns:
       - `Population`: population estimate as of July 1, 1975
       - `Income`: per capita income (1974)
@@ -60,59 +58,76 @@ R ships with seven outdated built-in “state” objects:
 <!-- end list -->
 
 ``` r
-library(datasets)
-vectors <- data.frame(
+base <- data.frame(
   abb = state.abb,
   name = state.name,
   region = state.region,
   division = state.division,
-  x = state.center$x,
-  y = state.center$y
+  center.x = state.center$x,
+  center.y = state.center$y
 )
-head(vectors, 3)
-#>   abb    name region           division         x       y
-#> 1  AL Alabama  South East South Central  -86.7509 32.5901
-#> 2  AK  Alaska   West            Pacific -127.2500 49.2500
-#> 3  AZ Arizona   West           Mountain -111.6250 34.2192
-head(state.x77, 3)
-#>         Population Income Illiteracy Life Exp Murder HS Grad Frost   Area
-#> Alabama       3615   3624        2.1    69.05   15.1    41.3    20  50708
-#> Alaska         365   6315        1.5    69.31   11.3    66.7   152 566432
-#> Arizona       2212   4530        1.8    70.55    7.8    58.1    15 113417
+head(base)
+#>   abb       name region           division  center.x center.y
+#> 1  AL    Alabama  South East South Central  -86.7509  32.5901
+#> 2  AK     Alaska   West            Pacific -127.2500  49.2500
+#> 3  AZ    Arizona   West           Mountain -111.6250  34.2192
+#> 4  AR   Arkansas  South West South Central  -92.2992  34.7336
+#> 5  CA California   West            Pacific -119.7730  36.5341
+#> 6  CO   Colorado   West           Mountain -105.5130  38.6777
+head(state.x77)
+#>            Population Income Illiteracy Life Exp Murder HS Grad Frost   Area
+#> Alabama          3615   3624        2.1    69.05   15.1    41.3    20  50708
+#> Alaska            365   6315        1.5    69.31   11.3    66.7   152 566432
+#> Arizona          2212   4530        1.8    70.55    7.8    58.1    15 113417
+#> Arkansas         2110   3378        1.9    70.66   10.1    39.9    65  51945
+#> California      21198   5114        1.1    71.71   10.3    62.6    20 156361
+#> Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766
 ```
 
 ## New Data
 
-This package contains new versions of these objects\!
+This package contains new versions of these objects. Attaching the
+package with `library()` will **overwrite** these vectors with newer,
+longer versions. The new versions maintain the same class and content.
 
 ``` r
+library(tibble)
 library(usa)
-states
-#> # A tibble: 57 x 8
-#>    fips  name            abb   ansi    region   division            x     y
-#>    <chr> <chr>           <chr> <chr>   <fct>    <fct>           <dbl> <dbl>
-#>  1 01    Alabama         AL    017797… South    East South Ce…  -86.8  32.8
-#>  2 02    Alaska          AK    017855… West     Pacific        -152.   64.1
-#>  3 04    Arizona         AZ    017797… West     Mountain       -112.   34.3
-#>  4 05    Arkansas        AR    000680… South    West South Ce…  -92.4  34.9
-#>  5 06    California      CA    017797… West     Pacific        -119.   37.2
-#>  6 08    Colorado        CO    017797… West     Mountain       -106.   39.0
-#>  7 09    Connecticut     CT    017797… Northea… New England     -72.7  41.6
-#>  8 10    Delaware        DE    017797… South    South Atlantic  -75.5  39.0
-#>  9 11    District of Co… DC    017023… South    South Atlantic  -77.0  38.9
-#> 10 12    Florida         FL    002944… South    South Atlantic  -82.4  28.6
-#> # … with 47 more rows
+setdiff(usa::state.abb, datasets::state.abb)
+#> [1] "DC" "AS" "GU" "MP" "PR" "UM" "VI"
+unique(usa::state.region)
+#> [1] South     West      Northeast Midwest   <NA>     
+#> Levels: Northeast Midwest South West
+unique(datasets::state.region)
+#> [1] South         West          Northeast     North Central
+#> Levels: Northeast South North Central West
 ```
 
-The updated data includes the District of Columbia and all the other
-sovereign territories of the United States of America.
+The package also contains two [tibbles](https://tibble.tidyverse.org/)
+identifying the states and territories and providing various updated
+statistics.
 
 ``` r
-setdiff(usa::state.name, datasets::state.name)
-#> [1] "District of Columbia"        "American Samoa"             
-#> [3] "Guam"                        "Northern Mariana Islands"   
-#> [5] "Puerto Rico"                 "U.S. Minor Outlying Islands"
-#> [7] "U.S. Virgin Islands"
+head(usa::states)
+#> # A tibble: 6 x 9
+#>   abb   name       fips  ansi     region division              area   lat   long
+#>   <chr> <chr>      <chr> <chr>    <fct>  <fct>                <dbl> <dbl>  <dbl>
+#> 1 AL    Alabama    01    01779775 South  East South Central  50647.  32.7  -86.8
+#> 2 AK    Alaska     02    01785533 West   Pacific            571017.  63.4 -153. 
+#> 3 AZ    Arizona    04    01779777 West   Mountain           113653.  34.3 -112. 
+#> 4 AR    Arkansas   05    00068085 South  West South Central  52038.  34.9  -92.4
+#> 5 CA    California 06    01779778 West   Pacific            155854.  37.2 -120. 
+#> 6 CO    Colorado   08    01779779 West   Mountain           103638.  39.0 -106.
+head(usa::info)
+#> # A tibble: 6 x 8
+#>   abb   population income life_exp murder  high  bach   heat
+#>   <chr>      <dbl>  <dbl>    <dbl>  <dbl> <dbl> <dbl>  <dbl>
+#> 1 AL       4887871  48123     74.9    7.8 0.866 0.234  65.9 
+#> 2 AK        737438  73181     77.8    6.4 0.927 0.271 -26.6 
+#> 3 AZ       7171646  56581     79.2    5.1 0.871 0.271  73.6 
+#> 4 AR       3013825  45869     75.4    7.2 0.873 0.214  62.4 
+#> 5 CA      39557045  71805     80.9    4.4 0.845 0.314  38.1 
+#> 6 CO       5695564  69117     79.9    3.7 0.913 0.384   6.24
 ```
 
 -----

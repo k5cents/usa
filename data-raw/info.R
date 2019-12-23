@@ -182,11 +182,16 @@ info <- populations %>%
   left_join(life, by = "abb") %>%
   left_join(murder, by = "abb") %>%
   left_join(edu, by = "abb") %>%
-  left_join(degree_days, by = "abb")
+  left_join(degree_days, by = "abb") %>%
+  left_join(abb_name) %>%
+  arrange(name) %>%
+  select(-name)
 
 
 # save --------------------------------------------------------------------
 
+use_data(info, overwrite = TRUE)
 write_csv(info, "data-raw/info.csv")
 
-as.matrix(column_to_rownames(info, "abb"))
+state.x19 <- as.matrix(column_to_rownames(info, "abb"))
+use_data(state.x19, overwrite = TRUE)

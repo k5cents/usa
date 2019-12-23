@@ -1,5 +1,7 @@
 ---
 output: github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -24,32 +26,32 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The goal of `usa` is to provide updated versions of the `state` data sets
-included in base R. These versions include newer statistics in the modern
-data frame format.
+included with R. When attached, this package **overwrites** these original
+vectors. The vectors from this package contain information for the District of
+Columbia, Puerto Rico, and the other sovereign territories of the United States
+of America.
 
 ## Installation
 
-You can install the development version of `usa` from [GitHub](https://github.com) with:
+You can install the development version of `usa` from [GitHub] with:
 
-``` r
+```{r remote, eval=FALSE}
 # install.packages("remotes")
 remotes::install_github("kiernann/usa")
 ```
 
-## Old Data
+[GitHub]: https://github.com/kiernann/usa
 
-```{r libs, warning=FALSE, message=FALSE, error=FALSE}
-library(tidyverse)
-```
+## Base Data
 
-R ships with seven outdated built-in "state" objects:
+R ships with seven outdated "state" objects:
 
 * `state.abb`: character vector of 2-letter abbreviations for the state names.
 * `state.area`: numeric vector of state areas (in square miles).
 * `state.center`: list giving the approximate geographic center of each state.
-* `state.division`: factor giving state divisions.
+* `state.division`: factor giving state geographic census divisions.
 * `state.name`: character vector giving the full state names.
-* `state.region`: factor giving the region.
+* `state.region`: factor giving the census region.
 * `state.x77`: matrix with 50 rows and 8 columns:
   * `Population`: population estimate as of July 1, 1975
   * `Income`: per capita income (1974)
@@ -60,35 +62,42 @@ R ships with seven outdated built-in "state" objects:
   * `Frost`: mean number of days with minimum temperature below freezing (1931–1960)
   * `Area`: land area in square miles
 
-```{r vector_tibble}
-library(datasets)
-vectors <- data.frame(
+```{r old}
+base <- data.frame(
   abb = state.abb,
   name = state.name,
   region = state.region,
   division = state.division,
-  x = state.center$x,
-  y = state.center$y
+  center.x = state.center$x,
+  center.y = state.center$y
 )
-head(vectors, 3)
-head(state.x77, 3)
+head(base)
+head(state.x77)
 ```
 
 ## New Data
 
-This package contains new versions of these objects!
+This package contains new versions of these objects. Attaching the package
+with `library()` will **overwrite** these vectors with newer, longer versions.
+The new versions maintain the same class and content.
 
 ```{r join_states, message=FALSE}
+library(tibble)
 library(usa)
-states
+setdiff(usa::state.abb, datasets::state.abb)
+unique(usa::state.region)
+unique(datasets::state.region)
 ```
 
-The updated data includes the District of Columbia and all the other sovereign
-territories of the United States of America.
+The package also contains two [tibbles] identifying the states and
+territories and providing various updated statistics.
 
-```{r new_diff}
-setdiff(usa::state.name, datasets::state.name)
+```{r tibbles}
+head(usa::states)
+head(usa::info)
 ```
+
+[tibbles]: https://tibble.tidyverse.org/
 
 ***
 

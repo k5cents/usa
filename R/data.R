@@ -1,3 +1,5 @@
+# objects from states.R ---------------------------------------------------
+
 #' US State and Territories
 #'
 #' Information on the 50 states, 1 federal district, and 6 territories of the
@@ -82,3 +84,42 @@
 #' @format A factor vector of length 57.
 #' @source \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx}
 "state.region"
+
+# objects from info.R -----------------------------------------------------
+
+#' US State and Territory Statistics
+#'
+#' Updated version of the [datasets::state.x77] matrix, which provides eight
+#' statistics from the 1970's. This version is a modern data frame format
+#' with updated (and alternative) statistics.
+#'
+#' @format A tibble with 57 rows and 9 variables:
+#' \describe{
+#'   \item{abb}{2-letter abbreviation}
+#'   \item{population}{Population estimate as of September 26, 2019}
+#'   \item{income}{Per capita income (2017)}
+#'   \item{life_exp}{Life expectancy in years (2017-18)}
+#'   \item{murder}{Murder rate per 100,000 population (2018)}
+#'   \item{high}{Percent adult population with at least a high school degree (2019)}
+#'   \item{bach}{Percent adult population with at least a bachelor's degree or greater (2019)}
+#'   \item{heat}{Mean number of degree days (temperature requires heating) per year from 1981-2010}
+#' }
+"info"
+
+#' US State and Territory Statistics
+#'
+#' A matrix version of the [info] tibble, used to more closely align with the
+#' [datasets::state.x77] matrix included with R.
+#'
+#' @format A tibble with 57 rows and 9 variables:
+#' \describe{
+#'   \item{abb}{2-letter abbreviation}
+#'   \item{population}{Population estimate as of September 26, 2019}
+#'   \item{income}{Per capita income (2017)}
+#'   \item{life_exp}{Life expectancy in years (2017-18)}
+#'   \item{murder}{Murder rate per 100,000 population (2018)}
+#'   \item{high}{Percent adult population with at least a high school degree (2019)}
+#'   \item{bach}{Percent adult population with at least a bachelor's degree or greater (2019)}
+#'   \item{heat}{Mean number of degree days (temperature requires heating) per year from 1981-2010}
+#' }
+"state.x19"
