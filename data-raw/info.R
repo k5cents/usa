@@ -174,10 +174,40 @@ degree_days <-
   summarise(heat = round(mean(days)/(2010 - 1981), 2)) %>%
   arrange(desc(heat))
 
+# admission ---------------------------------------------------------------
+
+# https://en.wikipedia.org/wiki/List_of_U.S._states_by_date_of_admission_to_the_Union
+admission <-
+  read_html("https://w.wiki/EQG") %>%
+  html_node("table") %>%
+  html_table(fill = TRUE) %>%
+  as_tibble(.name_repair = "unique") %>%
+  select(name = 2, admission = 3) %>%
+  mutate(
+    admission = admission %>%
+      str_remove("(\\[|\\().*") %>%
+      parse_date("%B %d, %Y")
+  ) %>%
+  left_join(abb_name) %>%
+  select(abb, admission) %>%
+  # https://en.wikipedia.org/wiki/Territories_of_the_United_States
+  bind_rows(
+    tribble(
+      ~abb, ~admission,
+      "DC", as.Date("1790-07-16"), # Residence Act
+      "AS", as.Date("1900-04-17"), # Treaty of Cession of Tutuila
+      "GU", as.Date("1898-12-10"), # Treaty of Paris
+      "MP", as.Date("1976-03-24"), # Commonwealth Covenant
+      "PR", as.Date("1898-12-10"), # Treaty of Paris
+      "VI", as.Date("1917-03-31")  # Treaty of the Danish West Indies
+    )
+  ) %>%
+  arrange(admission)
 
 # join --------------------------------------------------------------------
 
 info <- populations %>%
+  left_join(admission)
   left_join(income, by = "abb") %>%
   left_join(life, by = "abb") %>%
   left_join(murder, by = "abb") %>%
@@ -186,7 +216,6 @@ info <- populations %>%
   left_join(abb_name) %>%
   arrange(name) %>%
   select(-name)
-
 
 # save --------------------------------------------------------------------
 
