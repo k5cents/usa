@@ -49,6 +49,36 @@ income <-
 
 file_delete(R1901)
 
+
+# gdp ---------------------------------------------------------------------
+
+# Gross Domestic Product by State: Second Quarter 2019
+gdp_url <- "https://www.bea.gov/system/files/2019-11/qgdpstate1119.xlsx"
+download.file(gdp_url, "data-raw/qgdpstate1119.xlsx")
+gdp <- read_excel(
+  path = "data-raw/qgdpstate1119.xlsx",
+  sheet = "Table 3",
+  range = "A4:G65"
+)
+
+gdp <- gdp %>%
+  select(name = 1, gdp = 7) %>%
+  inner_join(abb_name) %>%
+  select(abb, gdp) %>%
+  mutate_at(vars(gdp), parse_integer) %>%
+  bind_rows(
+    tribble(
+      ~abb, ~gdp,
+      "AS", 608L, # BEA
+      "GU", 5920L, # BEA
+      "MP", 1323L, # BEA
+      "PR", 99913L, # IMF
+      "VI", 3984L, # BEA
+    )
+  )
+
+file_delete("data-raw/qgdpstate1119.xlsx")
+
 # literacy ----------------------------------------------------------------
 
 # https://nces.ed.gov/naal/estimates/StateEstimates.aspx
