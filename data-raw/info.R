@@ -54,9 +54,10 @@ file_delete(R1901)
 
 # Gross Domestic Product by State: Second Quarter 2019
 gdp_url <- "https://www.bea.gov/system/files/2019-11/qgdpstate1119.xlsx"
-download.file(gdp_url, "data-raw/qgdpstate1119.xlsx")
+gdp_file <- file_temp(ext = "xlsx")
+download.file(gdp_url, gdp_file)
 gdp <- read_excel(
-  path = "data-raw/qgdpstate1119.xlsx",
+  path = gdp_file,
   sheet = "Table 3",
   range = "A4:G65"
 )
@@ -76,8 +77,6 @@ gdp <- gdp %>%
       "VI", 3984L, # BEA
     )
   )
-
-file_delete("data-raw/qgdpstate1119.xlsx")
 
 # literacy ----------------------------------------------------------------
 
@@ -118,7 +117,8 @@ life <-
 # murder ------------------------------------------------------------------
 
 fbi_url <- "https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018/tables/table-4/table-4.xls/output.xls"
-download.file(fbi_url, destfile = "data-raw/table-4.xls")
+fbi_file <- file_temp(ext = "xls")
+download.file(fbi_url, fbi_file)
 murder <-
     read_excel("data-raw/table-4.xls", range = "A4:G203") %>%
     fill(Area) %>%
@@ -132,23 +132,23 @@ murder <-
     select(abb, murder) %>%
     arrange(desc(murder))
 
-file_delete("data-raw/table-4.xls")
-
 # education ---------------------------------------------------------------
 
 # https://factfinder.census.gov/bkmk/table/1.0/en/ACS/17_1YR/S1501
 # https://data.census.gov/cedsci/table?q=S1501
 # S1501 EDUCATIONAL ATTAINMENT
 # Source:  U.S. Census Bureau, 2018 American Community Survey 1-Year Estimates
-edu_csv <- unzip(
-  zipfile = "data-raw/ACSST1Y2018.S1501_2019-12-19T151514.zip",
-  files = "ACSST1Y2018.S1501_data_with_overlays_2019-12-19T151505.csv",
-  exdir = "data-raw"
+edu_zip <- dir_ls(path_temp(), regexp = "S1501")
+edu_file <- unzip(edu_zip, list = TRUE)$Name[3]
+edu_file <- unzip(
+  zipfile = edu_zip,
+  files = edu_file,
+  exdir = path_temp()
 )
 
 edu <-
   read_csv(
-    file = edu_csv,
+    file = edu_file,
     col_types = cols(.default = "c")
   ) %>%
   slice(-1) %>%
@@ -168,8 +168,6 @@ edu <-
   mutate_if(is.numeric, round, 4) %>%
   select(abb, high, bach) %>%
   arrange(desc(high))
-
-file_delete(edu_csv)
 
 # temperature -------------------------------------------------------------
 
