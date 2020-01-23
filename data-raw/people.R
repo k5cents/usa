@@ -1,6 +1,8 @@
 ## code to prepare `people` dataset goes here
 library(tidyverse)
+library(lubridate)
 library(babynames)
+library(magrittr)
 library(janitor)
 library(readxl)
 library(haven)
@@ -64,6 +66,7 @@ people <- people %>%
     hood_group = COMGRP_CPS,
     hood_talks = TALK_CPS,
     hood_trust = TRUST_CPS,
+    tablet = TABLET_CPS,
     texting = TEXTIM_CPS,
     social = SOCIAL_CPS,
     volunteer = VOLSUM,
@@ -77,7 +80,8 @@ people <- people %>%
   ) %>%
   clean_names("snake")
 
-# convert types
+# recode vars --------------------------------------------------------------------------------
+
 yesno <- function(x) {
   if (all(levels(x) %in% c("Yes", "No"))) {
     x == "Yes"
@@ -90,6 +94,9 @@ people <- people %>%
   # most cols are really logical
   mutate_if(is.factor, yesno) %>%
   mutate(
+    id = as.integer(labels(id)),
+    gender = as_factor(str_sub(gender, end = 1)),
+    race = as_factor(str_remove(race, "\\snon-Hispanic")),
     children = children == "One or more children",
     us_citizen = us_citizen == "Yes, a U.S. citizen",
     us_born = us_born == "Inside the United States",
@@ -97,40 +104,123 @@ people <- people %>%
     metro = metro == "Metropolitan",
     house_moved = house_moved != "Same house",
     volunteer = volunteer == "Volunteered",
-    vote = vote == "Voted"
+    vote = vote == "Voted",
   )
 
-sys.year <- as.numeric(format(Sys.Date(), "%Y"))
-x <- people %>%
-  select(1:4) %>%
-  mutate(
-    year = sys.year - age,
-    gender = str_sub(gender, end = 1)
-  )
+# add last names -----------------------------------------------------------------------------
 
-x <- mutate(
-  .data = x,
-  name = NA_character_,
-  id = as.integer(id)
+# last names are sampled using proportion of that name with a given race/ethnicity
+
+# download and extract the zip
+download.file(
+  url = surname_url <- "https://www2.census.gov/topics/genealogy/2010surnames/names.zip",
+  destfile = surname_zip <- file_temp(ext = "zip")
+)
+surname_file <- unzip(
+  zipfile = surname_zip,
+  files = "Names_2010Census.csv",
+  exdir = path_temp()
 )
 
-for (id in x$id) {
-  x$name[id] <- sample(
-    x = subset(babynames$name, babynames$sex == x$gender[id], babynames$year == x$year[id]),
-    size = 1,
-    prob = subset(babynames$prop, babynames$sex == x$gender[id], babynames$year == x$year[id])
+surnames <- read_csv(
+  file = surname_file,
+  na = c("", "(S)"),
+  col_types = cols(
+    .default = col_double(),
+    name = col_character()
+  )
+)
+
+surnames <- surnames %>%
+  filter(prop100k > 2, rank >= 1) %>%
+  arrange(rank) %>%
+  select(name, prop100k, starts_with("pct")) %>%
+  mutate_at(vars(name), str_to_title) %>%
+  mutate_at(vars(prop100k), ~divide_by(., 100000)) %>%
+  mutate_at(vars(starts_with("pct")), ~divide_by(., 100)) %>%
+  mutate_if(is.numeric, ~replace(., is.na(.), mean(., na.rm = TRUE)))
+
+race_names <- people %>%
+  mutate(
+    year = year(now()) - age,
+    lname = NA_character_
+  ) %>%
+  group_split(race) %>%
+  set_names(make_clean_names(sort(unique(people$race))))
+
+race_names$asian$lname <- sample(
+  x = surnames$name,
+  prob = surnames$pctapi,
+  size = length(race_names$asian$lname),
+  replace = TRUE
+)
+
+race_names$black$lname <- sample(
+  x = surnames$name,
+  prob = surnames$pctblack,
+  size = length(race_names$black$lname),
+  replace = TRUE
+)
+
+race_names$hispanic$lname <- sample(
+  x = surnames$name,
+  prob = surnames$pcthispanic,
+  size = length(race_names$hispanic$lname),
+  replace = TRUE
+)
+
+race_names$white$lname <- sample(
+  x = surnames$name,
+  prob = surnames$pctwhite,
+  size = length(race_names$white$lname),
+  replace = TRUE
+)
+
+race_names$other_race$lname <- sample(
+  x = surnames$name,
+  prob = surnames$pctaian,
+  size = length(race_names$other_race$lname),
+  replace = TRUE
+)
+
+people <- race_names %>%
+  bind_rows() %>%
+  arrange(id)
+
+# add first names ----------------------------------------------------------------------------
+
+# first names are taken from the `babynames` package
+# includes all SSA baby names with at least five occurances
+# assigned to people based on year and sex not race/ethnicity
+
+age_names <- people %>%
+  mutate(fname = NA_character_) %>%
+  # split by gender and birthyear
+  group_split(gender, year)
+
+# for every gender/year combo
+for (i in seq_along(age_names)) {
+  s.year <- unique(age_names[[i]]$year)
+  s.gender <- as.character(unique(age_names[[i]]$gender))
+  # randomly assign first names
+  age_names[[i]]$fname <- sample(
+    # from the set of names for that sex and year
+    x = subset(babynames, sex = s.gender, year = s.year, select = name, drop = 1),
+    # weighted by proportion of names
+    prob = subset(babynames, sex = s.gender, year = s.year, select = prop, drop = 1),
+    size = length(age_names[[i]]$fname),
+    # with replacement
+    replace = TRUE
   )
 }
 
-surname_file <- file_temp(ext = "xlsx")
-download.file(
-  url = "https://www2.census.gov/topics/genealogy/2010surnames/Names_2010Census_Top1000.xlsx",
-  destfile = surname_file
-)
-read_excel(
-  path = surname_file,
-  range = "A3:K1003",
-  .name_repair = janitor::make_clean_names
-)
+# bind back together
+people <-
+  # put names at front
+  bind_rows(age_names) %>%
+  select(id, fname, lname, everything(), -year)
+
+# save ---------------------------------------------------------------------------------------
 
 usethis::use_data(people, overwrite = TRUE)
+write_csv(people, "data-raw/people.csv")
