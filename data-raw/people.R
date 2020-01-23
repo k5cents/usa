@@ -222,5 +222,7 @@ people <-
 
 # save ---------------------------------------------------------------------------------------
 
-usethis::use_data(people, overwrite = TRUE)
+usethis::use_data(people, overwrite = TRUE, compress = "bzip2")
 write_csv(people, "data-raw/people.csv")
+zip("data-raw/people.zip", "data-raw/people.csv")
+file_delete("data-raw/people.csv")
