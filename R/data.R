@@ -124,6 +124,8 @@
 #' }
 "state.x19"
 
+# objects from people.R ---------------------------------------------------
+
 #' Synthetic Sample of US population
 #'
 #' This dataset was originally produced by the Pew Research center for their paper entitled
@@ -199,3 +201,66 @@
 #'   \item{guns}{Owns a gun}
 #' }
 "people"
+
+# objects from zipcodes.R -------------------------------------------------
+
+#' US ZIP Code Locations
+#'
+#' This tibble contains city, state, latitude, and longitude for U.S. ZIP
+#' codes from the CivicSpace Database (August 2004) augmented by Daniel Coven's
+#' [web site](http://federalgovernmentzipcodes.us/) (updated on January 22,
+#' 2012). The data was originally contained in the
+#' [`zipcodes`](https://CRAN.R-project.org/package=zipcode) CRAN package, which
+#' was archived on Janurary 1, 2020.
+#'
+#' @format A tibble with 57 rows and 9 variables:
+#' \describe{
+#'   \item{zip}{5 digit Zipcode or military postal code (FPO/APO)}
+#'   \item{city}{USPS offical city name}
+#'   \item{state}{USPS offical state, territory abbreviation code}
+#'   \item{latitude}{Decimal Latitude}
+#'   \item{longitude}{Decimal Longitude}
+#' }
+#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#'   the CivicSpace US ZIP Code Database written by Schuyler Erle
+#'   <schuyler@geocoder.us>, 5 August 2004.
+"zipcodes"
+
+#' US ZIP Codes
+#'
+#' The United States Postal Service's 5-digit codes used to identify a
+#' particular postal delivery area.
+#'
+#' @format A character vector of length 44336.
+#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#'   the CivicSpace US ZIP Code Database written by Schuyler Erle
+#'   <schuyler@geocoder.us>, 5 August 2004.
+"zip.code"
+
+#' US ZIP Cities
+#'
+#' The United States Postal Service's official names for the cities in which
+#' ZIP codes are contained. This vector contains unique values, sorted
+#' alphabetically; because of this, they do not line up the other vectors in the
+#' way [zip.code] and [zip.center] do.
+#'
+#' @format A character vector of length 19108.
+#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#'   the CivicSpace US ZIP Code Database written by Schuyler Erle
+#'   <schuyler@geocoder.us>, 5 August 2004.
+"zip.city"
+
+#' US ZIP Centers
+#'
+#' A list with components named `x` and `y` giving the approximate geographic
+#' center of each ZIP code in negative longitude and latitude.
+#'
+#' @format A list of length two, each element a numeric vector of length 44336.
+#' \describe{
+#'   \item{x}{Center longitudinal coordinate}
+#'   \item{y}{Center latitudinal coordinate}
+#' }#'
+#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#'   the CivicSpace US ZIP Code Database written by Schuyler Erle
+#'   <schuyler@geocoder.us>, 5 August 2004.
+"zip.center"
