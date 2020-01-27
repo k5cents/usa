@@ -1,3 +1,12 @@
+# usa 0.0.8
+
+* Add the data from the archived `zipcode` package.
+* Export the columns from the `zipcodes` data frame as `zip.*` vectors.
+
+# usa 0.0.7
+
+* Add the synthetic population data set from PEW Research.
+
 # usa 0.0.6
 
 * Replace geocodes data with census sources.
