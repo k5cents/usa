@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Synthetic Sample of US population — people • usa</title>
+<title>US ZIP Code Locations — zipcodes • usa</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,11 +42,13 @@
 
 
 
-<meta property="og:title" content="Synthetic Sample of US population — people" />
-<meta property="og:description" content="This dataset was originally produced by the Pew Research center for their paper entitled
-For Weighting Online Opt-In Samples, What Matters Most?
-The synthetic population dataset was created to serve as a reference for making online opt-in
-surveys more representative of the overall population." />
+<meta property="og:title" content="US ZIP Code Locations — zipcodes" />
+<meta property="og:description" content="This tibble contains city, state, latitude, and longitude for U.S. ZIP
+codes from the CivicSpace Database (August 2004) augmented by Daniel Coven's
+web site (updated on January 22,
+2012). The data was originally contained in the
+zipcodes CRAN package, which
+was archived on Janurary 1, 2020." />
 <meta property="og:image" content="https://kiernann.com/usa/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -119,94 +121,45 @@ surveys more representative of the overall population." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Synthetic Sample of US population</h1>
+    <h1>US ZIP Code Locations</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/usa/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>people.Rd</code></div>
+    <div class="hidden name"><code>zipcodes.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This dataset was originally produced by the Pew Research center for their paper entitled
-<a href='https://www.pewresearch.org/methods/wp-content/uploads/sites/10/2018/01/Weighting-Online-Opt-In-Samples.pdf'><em>For Weighting Online Opt-In Samples, What Matters Most?</em></a>
-The synthetic population dataset was created to serve as a reference for making online opt-in
-surveys more representative of the overall population.</p>
+    <p>This tibble contains city, state, latitude, and longitude for U.S. ZIP
+codes from the CivicSpace Database (August 2004) augmented by Daniel Coven's
+<a href='http://federalgovernmentzipcodes.us/'>web site</a> (updated on January 22,
+2012). The data was originally contained in the
+<a href='https://CRAN.R-project.org/package=zipcode'><code>zipcodes</code></a> CRAN package, which
+was archived on Janurary 1, 2020.</p>
     </div>
 
-    <pre class="usage"><span class='no'>people</span></pre>
+    <pre class="usage"><span class='no'>zipcodes</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A tibble with 20,000 rows and 40 variables:</p><dl class='dl-horizontal'>
-<dt>id</dt><dd><p>Sequential unique ID</p></dd>
-<dt>fname</dt><dd><p>Random first name, see details</p></dd>
-<dt>lname</dt><dd><p>Random last name, see details</p></dd>
-<dt>gender</dt><dd><p>Biological sex</p></dd>
-<dt>age</dt><dd><p>Age capped at 85</p></dd>
-<dt>race</dt><dd><p>Race and Ethnicity</p></dd>
-<dt>edu</dt><dd><p>Educational attainment</p></dd>
-<dt>div</dt><dd><p>Census regional division</p></dd>
-<dt>married</dt><dd><p>Marital status</p></dd>
-<dt>house_size</dt><dd><p>Household size</p></dd>
-<dt>children</dt><dd><p>Has children</p></dd>
-<dt>us_citizen</dt><dd><p>Is a US citizen</p></dd>
-<dt>us_born</dt><dd><p>Was born in the Us</p></dd>
-<dt>house_income</dt><dd><p>Family income</p></dd>
-<dt>emp_status</dt><dd><p>Employment status</p></dd>
-<dt>emp_sector</dt><dd><p>Employment sector</p></dd>
-<dt>hours_work</dt><dd><p>Hours worked per week</p></dd>
-<dt>hours_vary</dt><dd><p>Hours vary week to week</p></dd>
-<dt>mil</dt><dd><p>Has served in the military</p></dd>
-<dt>house_own</dt><dd><p>Home ownership</p></dd>
-<dt>metro</dt><dd><p>Lives in metropolitan area</p></dd>
-<dt>internet</dt><dd><p>Household has internet access</p></dd>
-<dt>foodstamp</dt><dd><p>Recieves foodstamps</p></dd>
-<dt>house_moved</dt><dd><p>Moved in the last year</p></dd>
-<dt>pub_contact</dt><dd><p>Contacted or visited a public official</p></dd>
-<dt>boycott</dt><dd><p></p></dd>
-<dt>hood_group</dt><dd><p>Participated in a community association</p></dd>
-<dt>hood_talks</dt><dd><p>Talked with neighbors</p></dd>
-<dt>hood_trust</dt><dd><p>Trusts neighbors</p></dd>
-<dt>tablet</dt><dd><p>Uses a tablet or e-reader</p></dd>
-<dt>texting</dt><dd><p>Uses text messaging</p></dd>
-<dt>social</dt><dd><p>Uses social media</p></dd>
-<dt>volunteer</dt><dd><p>Volunteered</p></dd>
-<dt>register</dt><dd><p>Is registered to vote</p></dd>
-<dt>vote</dt><dd><p>Voted in the 2014 midterm elections</p></dd>
-<dt>party</dt><dd><p>Political party</p></dd>
-<dt>religion</dt><dd><p>Religious (evangelical) affilitation</p></dd>
-<dt>ideology</dt><dd><p>Political ideology</p></dd>
-<dt>govt</dt><dd><p>Follows government and public affairs</p></dd>
-<dt>guns</dt><dd><p>Owns a gun</p></dd>
+    <p>A tibble with 57 rows and 9 variables:</p><dl class='dl-horizontal'>
+<dt>zip</dt><dd><p>5 digit Zipcode or military postal code (FPO/APO)</p></dd>
+<dt>city</dt><dd><p>USPS offical city name</p></dd>
+<dt>state</dt><dd><p>USPS offical state, territory abbreviation code</p></dd>
+<dt>latitude</dt><dd><p>Decimal Latitude</p></dd>
+<dt>longitude</dt><dd><p>Decimal Longitude</p></dd>
 
 </dl>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p>See <a href='https://www.pewresearch.org/methods/2018/01/26/appendix-b-synthetic-population-dataset/'>Appendix B: Synthetic population dataset</a>
-for a more detailed description of the method for and rationale behind creating this dataset.</p>
-<p>In short, the dataset was created to overcome the limitations of using large, federal benchmark
-survey datasets such as the American Community Survey (ACS) or Current Population Survey (CPS).
-These surveys often do not contain the exact questions asked in online-opt in surveys, keeping
-them from being used for proper adjustment.</p>
-<p>This <em>synthetic</em> dataset was created by combining nine separate benchmark datasets. Each had a
-set of common demographic variables but many added unique variables such as gun ownership or
-voter registration. The surveys were combined, stratified, sampled, combined, and imputed to
-fill missing values from each. From this large dataset, the original 20,000 surveys from the ACS
-were kept to ensure accurate demographic distribution.</p>
-<p>The names were <em>RANDOMLY</em> assigned to respondents to better simulate a synthetic sample of the
-population. First names were taken from the babynames::babynames dataset which contains the
-Social Security Administration's record of baby names from 1880 to 2017 along with gender and
-proportion. First names were proportionally randomly assigned by birth year and sex. Last names
-were taken from the Census Bureau, who provides the 162,254 most common last names in the 2010
-Census, covering over 90% of the population. For a given surname, the proportion of that name
-belonging to members of each race and ethnicity is provided. The last names were proportionally
-randomly assigned by race.</p>
+    <p>Daniel Coven's <a href='http://federalgovernmentzipcodes.us/'>web site</a> and
+the CivicSpace US ZIP Code Database written by Schuyler Erle
+<a href='mailto:schuyler@geocoder.us'>schuyler@geocoder.us</a>, 5 August 2004.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#format">Format</a></li>
-      <li><a href="#details">Details</a></li>
+      <li><a href="#source">Source</a></li>
     </ul>
 
   </div>
