@@ -9,7 +9,6 @@
 \item{abb}{2-letter abbreviation}
 \item{name}{Full legal name}
 \item{fips}{Federal Information Processing Standard Publication 5-2 code}
-\item{ansi}{American National Standards Institute 7-digit code}
 \item{region}{Census Bureau region}
 \item{division}{Census Bureau division}
 \item{area}{Area in square miles}

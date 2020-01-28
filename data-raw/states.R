@@ -2,6 +2,7 @@
 library(tidyverse)
 library(readxl)
 library(rvest)
+library(fs)
 
 # get state id codes ------------------------------------------------------
 
@@ -14,23 +15,21 @@ codes <- read_delim(
 # reorder and rename
 codes <- codes %>%
   select(
-    abb = STUSAB,
     name = STATE_NAME,
-    fips = STATE,
-    ansi = STATENS
+    abb = STUSAB,
+    fips = STATE
   )
 
 # get geography codes -----------------------------------------------------
 
 # download census region file
-download.file(
-  url = "https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx",
-  destfile = "data-raw/state-geocodes-v2018.xlsx"
-)
+geo_url <- "https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx"
+geo_path <- path_temp(basename(geo_url))
+download.file(geo_url, geo_path)
 
 # read region sheet range
 geocodes <- read_excel(
-  path = "data-raw/state-geocodes-v2018.xlsx",
+  path = geo_path,
   range = "A6:D70"
 )
 
@@ -42,9 +41,6 @@ geocodes <- geocodes %>%
     did = Division,
     name = Name
   )
-
-# delete the census region file
-unlink("data-raw/state-geocodes-v2018.xlsx")
 
 # join and filter to sub codes --------------------------------------------
 
@@ -65,10 +61,10 @@ divisions <- geocodes %>%
 
 tiger <- read_html("https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html")
 # html_node(tiger, "table") %>% html_attr("summary")
-# This table containing the U.S. States - Current/ACS19 - Data as of January 1,
-# 2019, gives the data (headers) for each States record (rows). For the record
-# layout, please reference back to the Record Layout link on the TIGERweb
-# State-Based Tabular Data Files page for the given record type.
+#> This table containing the U.S. States - Current/ACS19 - Data as of January 1,
+#> 2019, gives the data (headers) for each States record (rows). For the record
+#> layout, please reference back to the Record Layout link on the TIGERweb
+#> State-Based Tabular Data Files page for the given record type.
 area <- tiger %>%
   html_node("table") %>%
   html_table(header = TRUE) %>%
