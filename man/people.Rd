@@ -47,6 +47,11 @@
 \item{govt}{Follows government and public affairs}
 \item{guns}{Owns a gun}
 }}
+\source{
+“For Weighting Online Opt-In Samples, What Matters Most?” Pew
+Research Center, Washington, D.C. (January 26, 2018)
+\url{http://pewrsr.ch/2rNawC7}
+}
 \usage{
 people
 }

@@ -10,7 +10,6 @@
 #'   \item{abb}{2-letter abbreviation}
 #'   \item{name}{Full legal name}
 #'   \item{fips}{Federal Information Processing Standard Publication 5-2 code}
-#'   \item{ansi}{American National Standards Institute 7-digit code}
 #'   \item{region}{Census Bureau region}
 #'   \item{division}{Census Bureau division}
 #'   \item{area}{Area in square miles}
@@ -200,7 +199,12 @@
 #'   \item{govt}{Follows government and public affairs}
 #'   \item{guns}{Owns a gun}
 #' }
+#' @source “For Weighting Online Opt-In Samples, What Matters Most?” Pew
+#'   Research Center, Washington, D.C. (January 26, 2018)
+#'   \url{http://pewrsr.ch/2rNawC7}
 "people"
+
+
 
 # objects from zipcodes.R -------------------------------------------------
 
