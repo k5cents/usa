@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>US ZIP Centers — zip.center • usa</title>
+<title>US ZIP Cities — city.name • usa</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,9 +42,11 @@
 
 
 
-<meta property="og:title" content="US ZIP Centers — zip.center" />
-<meta property="og:description" content="A list with components named x and y giving the approximate geographic
-center of each ZIP code in negative longitude and latitude." />
+<meta property="og:title" content="US ZIP Cities — city.name" />
+<meta property="og:description" content="The United States Postal Service's official names for the cities in which
+ZIP codes are contained. This vector contains unique values, sorted
+alphabetically; because of this, they do not line up the other vectors in the
+way zip.code and zip.center do." />
 <meta property="og:image" content="https://kiernann.com/usa/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -117,26 +119,24 @@ center of each ZIP code in negative longitude and latitude." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>US ZIP Centers</h1>
+    <h1>US ZIP Cities</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/usa/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>zip.center.Rd</code></div>
+    <div class="hidden name"><code>city.name.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A list with components named <code>x</code> and <code>y</code> giving the approximate geographic
-center of each ZIP code in negative longitude and latitude.</p>
+    <p>The United States Postal Service's official names for the cities in which
+ZIP codes are contained. This vector contains unique values, sorted
+alphabetically; because of this, they do not line up the other vectors in the
+way <a href='zip.code.html'>zip.code</a> and <a href='zip.center.html'>zip.center</a> do.</p>
     </div>
 
-    <pre class="usage"><span class='no'>zip.center</span></pre>
+    <pre class="usage"><span class='no'>city.name</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A list of length two, each element a numeric vector of length 44336.</p><dl class='dl-horizontal'>
-<dt>x</dt><dd><p>Center longitudinal coordinate</p></dd>
-<dt>y</dt><dd><p>Center latitudinal coordinate</p></dd>
-
-</dl>
+    <p>A character vector of length 19108.</p>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
     <p>Daniel Coven's <a href='http://federalgovernmentzipcodes.us/'>web site</a> and

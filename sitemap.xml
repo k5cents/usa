@@ -4,6 +4,15 @@
     <loc>https://kiernann.com/usa//index.html</loc>
   </url>
   <url>
+    <loc>https://kiernann.com/usa//reference/city.name.html</loc>
+  </url>
+  <url>
+    <loc>https://kiernann.com/usa//reference/counties.html</loc>
+  </url>
+  <url>
+    <loc>https://kiernann.com/usa//reference/county.name.html</loc>
+  </url>
+  <url>
     <loc>https://kiernann.com/usa//reference/info.html</loc>
   </url>
   <url>
@@ -35,9 +44,6 @@
   </url>
   <url>
     <loc>https://kiernann.com/usa//reference/zip.center.html</loc>
-  </url>
-  <url>
-    <loc>https://kiernann.com/usa//reference/zip.city.html</loc>
   </url>
   <url>
     <loc>https://kiernann.com/usa//reference/zip.code.html</loc>
