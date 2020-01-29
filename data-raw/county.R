@@ -21,17 +21,7 @@ counties <- page %>%
 usethis::use_data(counties, overwrite = TRUE)
 write_csv(counties, "data-raw/counties.csv")
 
-# save codes as vector
-county.code <- counties$fips
-usethis::use_data(zip.code, overwrite = TRUE)
-write_lines(zip.code, "data-raw/zip.code.csv")
-
-# save cities as vector
-zip.city <- sort(unique(zipcodes$city))
-usethis::use_data(zip.city, overwrite = TRUE)
-write_lines(zip.city, "data-raw/zip.city.csv")
-
-# save coordinates as vector
-zip.center <- list(x = zipcodes$lat, y = zipcodes$long)
-usethis::use_data(zip.center, overwrite = TRUE)
-write_lines(zip.center, "data-raw/zip.center.csv")
+# save counties as vector
+county.name <- sort(unique(counties$name))
+usethis::use_data(county.name, overwrite = TRUE)
+write_lines(county.name, "data-raw/county.name.csv")
