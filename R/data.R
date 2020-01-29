@@ -241,6 +241,21 @@
 #'   <schuyler@geocoder.us>, 5 August 2004.
 "zip.code"
 
+#' US ZIP Centers
+#'
+#' A list with components named `x` and `y` giving the approximate geographic
+#' center of each ZIP code in negative longitude and latitude.
+#'
+#' @format A list of length two, each element a numeric vector of length 44336.
+#' \describe{
+#'   \item{x}{Center longitudinal coordinate}
+#'   \item{y}{Center latitudinal coordinate}
+#' }
+#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#'   the CivicSpace US ZIP Code Database written by Schuyler Erle
+#'   <schuyler@geocoder.us>, 5 August 2004.
+"zip.center"
+
 #' US ZIP Cities
 #'
 #' The United States Postal Service's official names for the cities in which
@@ -252,19 +267,29 @@
 #' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
 #'   <schuyler@geocoder.us>, 5 August 2004.
-"zip.city"
+"city.name"
 
-#' US ZIP Centers
+#' US Counties
 #'
-#' A list with components named `x` and `y` giving the approximate geographic
-#' center of each ZIP code in negative longitude and latitude.
+#' The county subdivisions of the US states and territories.
 #'
-#' @format A list of length two, each element a numeric vector of length 44336.
+#' @format A tibble with 3,232 rows and 3 variables:
 #' \describe{
-#'   \item{x}{Center longitudinal coordinate}
-#'   \item{y}{Center latitudinal coordinate}
-#' }#'
-#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
-#'   the CivicSpace US ZIP Code Database written by Schuyler Erle
-#'   <schuyler@geocoder.us>, 5 August 2004.
-"zip.center"
+#'   \item{fips}{Federal Information Processing Standard Publication 5-2 code}
+#'   \item{name}{Census county names}
+#'   \item{state}{USPS offical state, territory abbreviation code}
+#' }
+#' @source Kyle Walker (2020). tidycensus: Load US Census Boundary and Attribute
+#'   Data as 'tidyverse' and 'sf'-Ready Data Frames. R package version 0.9.6.
+#'   https://CRAN.R-project.org/package=tidycensus
+"counties"
+
+#' US County Names
+#'
+#' The name of distinct US counties.
+#'
+#' @format A character vector of length 19108.
+#' @source Kyle Walker (2020). tidycensus: Load US Census Boundary and Attribute
+#'   Data as 'tidyverse' and 'sf'-Ready Data Frames. R package version 0.9.6.
+#'   https://CRAN.R-project.org/package=tidycensus
+"county.name"

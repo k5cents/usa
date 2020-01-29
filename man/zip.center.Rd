@@ -8,7 +8,7 @@
 \describe{
 \item{x}{Center longitudinal coordinate}
 \item{y}{Center latitudinal coordinate}
-}#'}
+}}
 \source{
 Daniel Coven's \href{http://federalgovernmentzipcodes.us/}{web site} and
 the CivicSpace US ZIP Code Database written by Schuyler Erle
