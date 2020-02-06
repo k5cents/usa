@@ -56,12 +56,15 @@ Research Center, Washington, D.C. (January 26, 2018)
 people
 }
 \description{
+A statistically representative synthentic sample of 20,000 Americans. Each
+record is a simulated survey respondent.
+}
+\details{
 This dataset was originally produced by the Pew Research center for their paper entitled
 \href{https://www.pewresearch.org/methods/wp-content/uploads/sites/10/2018/01/Weighting-Online-Opt-In-Samples.pdf}{\emph{For Weighting Online Opt-In Samples, What Matters Most?}}
 The synthetic population dataset was created to serve as a reference for making online opt-in
 surveys more representative of the overall population.
-}
-\details{
+
 See \href{https://www.pewresearch.org/methods/2018/01/26/appendix-b-synthetic-population-dataset/}{Appendix B: Synthetic population dataset}
 for a more detailed description of the method for and rationale behind creating this dataset.
 

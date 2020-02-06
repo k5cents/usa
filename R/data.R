@@ -31,7 +31,7 @@ NULL
 
 #' US State Areas
 #'
-#' The area in square miles (converted from square meters) of the US states and territories.
+#' The area in square miles of the US states and territories.
 #'
 #' @format A numeric vector of length 57.
 #' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
@@ -98,14 +98,23 @@ NULL
 #' @format A tibble with 57 rows and 9 variables:
 #' \describe{
 #'   \item{abb}{2-letter abbreviation}
-#'   \item{population}{Population estimate as of September 26, 2019}
-#'   \item{income}{Per capita income (2017)}
+#'   \item{population}{Population estimate (September 26, 2019)}
+#'   \item{income}{Per capita income (2018)}
 #'   \item{life_exp}{Life expectancy in years (2017-18)}
 #'   \item{murder}{Murder rate per 100,000 population (2018)}
 #'   \item{high}{Percent adult population with at least a high school degree (2019)}
 #'   \item{bach}{Percent adult population with at least a bachelor's degree or greater (2019)}
 #'   \item{heat}{Mean number of degree days (temperature requires heating) per year from 1981-2010}
 #' }
+#' @source
+#' * Population: \url{https://www2.census.gov/programs-surveys/popest/datasets/2010-2018/state/detail/SCPRC-EST2018-18+POP-RES.csv}
+#' * Income: \url{https://data.census.gov/cedsci/table?tid=ACSST1Y2018.S1903}
+#' * GDP: \url{https://www.bea.gov/system/files/2019-11/qgdpstate1119.xlsx}
+#' * Literacy: \url{https://nces.ed.gov/naal/estimates/StateEstimates.aspx}
+#' * Life Expectancy: \url{https://www.cia.gov/library/publications/the-world-factbook/geos/aq.html}
+#' * Murder: \url{https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018/tables/table-4/table-4.xls/output.xls}
+#' * Education: \url{https://data.census.gov/cedsci/table?q=S1501}
+#' * Temperature: \url{ftp://ftp.ncdc.noaa.gov/pub/data/normals/1981-2010/products/temperature/ann-cldd-normal.txt}
 "info"
 
 #' US State and Territory Statistics
@@ -130,12 +139,15 @@ NULL
 
 #' Synthetic Sample of US population
 #'
+#' A statistically representative synthentic sample of 20,000 Americans. Each
+#' record is a simulated survey respondent.
+#'
+#' @details
 #' This dataset was originally produced by the Pew Research center for their paper entitled
 #' [_For Weighting Online Opt-In Samples, What Matters Most?_](https://www.pewresearch.org/methods/wp-content/uploads/sites/10/2018/01/Weighting-Online-Opt-In-Samples.pdf)
 #' The synthetic population dataset was created to serve as a reference for making online opt-in
 #' surveys more representative of the overall population.
 #'
-#' @details
 #' See [Appendix B: Synthetic population dataset](https://www.pewresearch.org/methods/2018/01/26/appendix-b-synthetic-population-dataset/)
 #' for a more detailed description of the method for and rationale behind creating this dataset.
 #'
