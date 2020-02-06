@@ -91,14 +91,15 @@ NULL
 
 #' US State and Territory Statistics
 #'
-#' Updated version of the [datasets::state.x77] matrix, which provides eight
+#' Updated version of the [datasets::state.x77] matrix, which provides eights
 #' statistics from the 1970's. This version is a modern data frame format
 #' with updated (and alternative) statistics.
 #'
-#' @format A tibble with 57 rows and 9 variables:
+#' @format A tibble with 52 rows and 9 variables:
 #' \describe{
-#'   \item{abb}{2-letter abbreviation}
+#'   \item{name}{Full state name}
 #'   \item{population}{Population estimate (September 26, 2019)}
+#'   \item{admission}{The data which the state was admitted to the union}
 #'   \item{income}{Per capita income (2018)}
 #'   \item{life_exp}{Life expectancy in years (2017-18)}
 #'   \item{murder}{Murder rate per 100,000 population (2018)}

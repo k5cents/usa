@@ -1,3 +1,13 @@
+# usa 0.0.9
+
+* Finish the `info` data set:
+    * Find degree days for Washington, DC.
+    * Use state names instead of abbreviations.
+    * Remove outdated litteracy rates.
+    * Add admission date (age in matrix).
+    * Use https://data.census.gov sources.
+    * Save `.zip` and `.xlsx` data sources.
+
 # usa 0.0.8
 
 * Add the data from the archived `zipcode` package.
@@ -5,7 +15,7 @@
 
 # usa 0.0.7
 
-* Add the synthetic population data set from PEW Research.
+* Add the synthetic `people` data set from PEW Research.
 
 # usa 0.0.6
 
