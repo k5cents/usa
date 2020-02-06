@@ -205,9 +205,9 @@ for (i in seq_along(age_names)) {
   # randomly assign first names
   age_names[[i]]$fname <- sample(
     # from the set of names for that sex and year
-    x = subset(babynames, sex = s.gender, year = s.year, select = name, drop = 1),
+    x = babynames$name[babynames$sex == s.gender & babynames$year == s.year],
     # weighted by proportion of names
-    prob = subset(babynames, sex = s.gender, year = s.year, select = prop, drop = 1),
+    prob = babynames$prop[babynames$sex == s.gender & babynames$year == s.year],
     size = length(age_names[[i]]$fname),
     # with replacement
     replace = TRUE
