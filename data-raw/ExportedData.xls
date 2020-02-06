@@ -1,0 +1,137 @@
+<div id="ctl00_ContentPlaceHolder1_Panel1">
+	<table id="ctl00_ContentPlaceHolder1_tblTwo" border="0" style="font-weight:bold;">
+		<tr id="ctl00_ContentPlaceHolder1_trExcelHeader" style="font-size:Large;font-weight:bold;">
+			<td colspan="5">National Center for Education Statistics<br />  </td>
+		</tr><tr id="ctl00_ContentPlaceHolder1_TableRow1">
+			<td id="ctl00_ContentPlaceHolder1_TableCell1" colspan="6">Indirect estimate of percent lacking <em>Basic</em> prose literacy skills and corresponding credible intervals : All States 2003</td>
+		</tr><tr id="ctl00_ContentPlaceHolder1_TableRow2">
+			<td id="ctl00_ContentPlaceHolder1_TableCell2" colspan="6" style="border-bottom: solid 1 #000;"></td>
+		</tr>
+	</table><div id="ctl00_ContentPlaceHolder1_divGrid" style="position: relative;"><table id="ctl00_ContentPlaceHolder1_tblEstimatesResults" class="EstimatesResults" border="0">
+		<tr>
+			<th align="left" valign="bottom" rowspan="2" scope="column" style="border-bottom: solid 1 #000;">Location</th><th align="right" valign="bottom" rowspan="2" scope="column" style="border-bottom: solid 1 #000;">FIPS code<sup>0</sup></th><th align="right" valign="bottom" rowspan="2" scope="column" style="border-bottom: solid 1 #000;">Population size<sup>1</sup></th><th align="right" rowspan="2" scope="column" style="width:150px;border-bottom: solid 1 #000;">Percent lacking <em>basic</em><br />prose literacy skills<sup>2</sup></th><th align="center" colspan="2" scope="column" style="border-bottom: solid 1 #000;">95% credible  interval<sup>3</sup></th>
+		</tr><tr>
+			<th align="right" scope="column" style="border-bottom: solid 1 #000;">Lower bound</th><th align="right" scope="column" style="border-bottom: solid 1 #000;">Upper bound</th>
+		</tr><tr>
+			<td class="RowHeader">Alabama</td><td style="mso-style-parent:style0;mso-number-format:00000;">01000</td><td>3,399,775</td><td x:num="14.8270159450" style="mso-style-parent:style0;mso-number-format:0;">14.8270159450</td><td x:num="11.7508696860" style="mso-style-parent:style0;mso-number-format:0.0;">11.7508696860</td><td x:num="19.3821899580" style="mso-style-parent:style0;mso-number-format:0.0;">19.3821899580</td>
+		</tr><tr>
+			<td class="RowHeader">Alaska</td><td style="mso-style-parent:style0;mso-number-format:00000;">02000</td><td>460,997</td><td x:num="9.1608718690" style="mso-style-parent:style0;mso-number-format:0;">9.1608718690</td><td x:num="6.1218454305" style="mso-style-parent:style0;mso-number-format:0.0;">6.1218454305</td><td x:num="13.2590729440" style="mso-style-parent:style0;mso-number-format:0.0;">13.2590729440</td>
+		</tr><tr>
+			<td class="RowHeader">Arizona</td><td style="mso-style-parent:style0;mso-number-format:00000;">04000 </td><td>4,083,287</td><td x:num="13.0920935420" style="mso-style-parent:style0;mso-number-format:0;">13.0920935420</td><td x:num="9.5776022852" style="mso-style-parent:style0;mso-number-format:0.0;">9.5776022852</td><td x:num="18.0861645560" style="mso-style-parent:style0;mso-number-format:0.0;">18.0861645560</td>
+		</tr><tr>
+			<td class="RowHeader">Arkansas</td><td style="mso-style-parent:style0;mso-number-format:00000;">05000 </td><td>2,044,669</td><td x:num="13.7267611960" style="mso-style-parent:style0;mso-number-format:0;">13.7267611960</td><td x:num="10.1816382990" style="mso-style-parent:style0;mso-number-format:0.0;">10.1816382990</td><td x:num="17.1860450120" style="mso-style-parent:style0;mso-number-format:0.0;">17.1860450120</td>
+		</tr><tr>
+			<td class="RowHeader">California</td><td style="mso-style-parent:style0;mso-number-format:00000;">06000</td><td>26,029,840</td><td x:num="23.0504442510" style="mso-style-parent:style0;mso-number-format:0;">23.0504442510</td><td x:num="20.3228875270" style="mso-style-parent:style0;mso-number-format:0.0;">20.3228875270</td><td x:num="26.1628282220" style="mso-style-parent:style0;mso-number-format:0.0;">26.1628282220</td>
+		</tr><tr>
+			<td class="RowHeader">Colorado</td><td style="mso-style-parent:style0;mso-number-format:00000;">08000</td><td>3,385,807</td><td x:num="9.9156850821" style="mso-style-parent:style0;mso-number-format:0;">9.9156850821</td><td x:num="7.0712915596" style="mso-style-parent:style0;mso-number-format:0.0;">7.0712915596</td><td x:num="12.9167249650" style="mso-style-parent:style0;mso-number-format:0.0;">12.9167249650</td>
+		</tr><tr>
+			<td class="RowHeader">Connecticut</td><td style="mso-style-parent:style0;mso-number-format:00000;">09000</td><td>2,668,989</td><td x:num="8.5662527957" style="mso-style-parent:style0;mso-number-format:0;">8.5662527957</td><td x:num="5.5144640298" style="mso-style-parent:style0;mso-number-format:0.0;">5.5144640298</td><td x:num="12.5405464390" style="mso-style-parent:style0;mso-number-format:0.0;">12.5405464390</td>
+		</tr><tr>
+			<td class="RowHeader">Delaware</td><td style="mso-style-parent:style0;mso-number-format:00000;">10000</td><td>618,525</td><td x:num="10.7169529540" style="mso-style-parent:style0;mso-number-format:0;">10.7169529540</td><td x:num="6.5654531646" style="mso-style-parent:style0;mso-number-format:0.0;">6.5654531646</td><td x:num="16.4055438180" style="mso-style-parent:style0;mso-number-format:0.0;">16.4055438180</td>
+		</tr><tr>
+			<td class="RowHeader">District of Columbia</td><td style="mso-style-parent:style0;mso-number-format:00000;">11000</td><td>425,630</td><td x:num="19.1247634640" style="mso-style-parent:style0;mso-number-format:0;">19.1247634640</td><td x:num="9.3305090748" style="mso-style-parent:style0;mso-number-format:0.0;">9.3305090748</td><td x:num="33.0893085050" style="mso-style-parent:style0;mso-number-format:0.0;">33.0893085050</td>
+		</tr><tr>
+			<td class="RowHeader">Florida</td><td style="mso-style-parent:style0;mso-number-format:00000;">12000</td><td>13,040,318</td><td x:num="19.6606319010" style="mso-style-parent:style0;mso-number-format:0;">19.6606319010</td><td x:num="17.0195009940" style="mso-style-parent:style0;mso-number-format:0.0;">17.0195009940</td><td x:num="22.9378175360" style="mso-style-parent:style0;mso-number-format:0.0;">22.9378175360</td>
+		</tr><tr>
+			<td class="RowHeader">Georgia</td><td style="mso-style-parent:style0;mso-number-format:00000;">13000 </td><td>6,365,942</td><td x:num="16.7292665400" style="mso-style-parent:style0;mso-number-format:0;">16.7292665400</td><td x:num="14.0309600050" style="mso-style-parent:style0;mso-number-format:0.0;">14.0309600050</td><td x:num="20.7370241870" style="mso-style-parent:style0;mso-number-format:0.0;">20.7370241870</td>
+		</tr><tr>
+			<td class="RowHeader">Hawaii</td><td style="mso-style-parent:style0;mso-number-format:00000;">15000 </td><td>944,472</td><td x:num="15.8765586260" style="mso-style-parent:style0;mso-number-format:0;">15.8765586260</td><td x:num="11.5026891540" style="mso-style-parent:style0;mso-number-format:0.0;">11.5026891540</td><td x:num="22.2141615010" style="mso-style-parent:style0;mso-number-format:0.0;">22.2141615010</td>
+		</tr><tr>
+			<td class="RowHeader">Idaho</td><td style="mso-style-parent:style0;mso-number-format:00000;">16000 </td><td>1,000,313</td><td x:num="10.5359549490" style="mso-style-parent:style0;mso-number-format:0;">10.5359549490</td><td x:num="8.0017175903" style="mso-style-parent:style0;mso-number-format:0.0;">8.0017175903</td><td x:num="13.7557574760" style="mso-style-parent:style0;mso-number-format:0.0;">13.7557574760</td>
+		</tr><tr>
+			<td class="RowHeader">Illinois</td><td style="mso-style-parent:style0;mso-number-format:00000;">17000 </td><td>9,507,861</td><td x:num="12.9477130360" style="mso-style-parent:style0;mso-number-format:0;">12.9477130360</td><td x:num="10.3716405610" style="mso-style-parent:style0;mso-number-format:0.0;">10.3716405610</td><td x:num="16.6112638240" style="mso-style-parent:style0;mso-number-format:0.0;">16.6112638240</td>
+		</tr><tr>
+			<td class="RowHeader">Indiana</td><td style="mso-style-parent:style0;mso-number-format:00000;">18000 </td><td>4,633,843</td><td x:num="8.0166983991" style="mso-style-parent:style0;mso-number-format:0;">8.0166983991</td><td x:num="6.0617545421" style="mso-style-parent:style0;mso-number-format:0.0;">6.0617545421</td><td x:num="10.2756768810" style="mso-style-parent:style0;mso-number-format:0.0;">10.2756768810</td>
+		</tr><tr>
+			<td class="RowHeader">Iowa</td><td style="mso-style-parent:style0;mso-number-format:00000;">19000 </td><td>2,249,427</td><td x:num="7.4952904509" style="mso-style-parent:style0;mso-number-format:0;">7.4952904509</td><td x:num="5.3325385032" style="mso-style-parent:style0;mso-number-format:0.0;">5.3325385032</td><td x:num="10.1005870950" style="mso-style-parent:style0;mso-number-format:0.0;">10.1005870950</td>
+		</tr><tr>
+			<td class="RowHeader">Kansas</td><td style="mso-style-parent:style0;mso-number-format:00000;">20000 </td><td>2,048,059</td><td x:num="7.7541613676" style="mso-style-parent:style0;mso-number-format:0;">7.7541613676</td><td x:num="5.8627013148" style="mso-style-parent:style0;mso-number-format:0.0;">5.8627013148</td><td x:num="10.1614409080" style="mso-style-parent:style0;mso-number-format:0.0;">10.1614409080</td>
+		</tr><tr>
+			<td class="RowHeader">Kentucky</td><td style="mso-style-parent:style0;mso-number-format:00000;">21000 </td><td>3,202,516</td><td x:num="12.1844790540" style="mso-style-parent:style0;mso-number-format:0;">12.1844790540</td><td x:num="10.2927917210" style="mso-style-parent:style0;mso-number-format:0.0;">10.2927917210</td><td x:num="14.3422830150" style="mso-style-parent:style0;mso-number-format:0.0;">14.3422830150</td>
+		</tr><tr>
+			<td class="RowHeader">Louisiana</td><td style="mso-style-parent:style0;mso-number-format:00000;">22000 </td><td>3,313,847</td><td x:num="15.9639453720" style="mso-style-parent:style0;mso-number-format:0;">15.9639453720</td><td x:num="12.4957070120" style="mso-style-parent:style0;mso-number-format:0.0;">12.4957070120</td><td x:num="20.2900124320" style="mso-style-parent:style0;mso-number-format:0.0;">20.2900124320</td>
+		</tr><tr>
+			<td class="RowHeader">Maine</td><td style="mso-style-parent:style0;mso-number-format:00000;">23000 </td><td>1,036,269</td><td x:num="7.4163079877" style="mso-style-parent:style0;mso-number-format:0;">7.4163079877</td><td x:num="5.2313933875" style="mso-style-parent:style0;mso-number-format:0.0;">5.2313933875</td><td x:num="10.2052527920" style="mso-style-parent:style0;mso-number-format:0.0;">10.2052527920</td>
+		</tr><tr>
+			<td class="RowHeader">Maryland</td><td style="mso-style-parent:style0;mso-number-format:00000;">24000 </td><td>4,190,921</td><td x:num="11.2158915770" style="mso-style-parent:style0;mso-number-format:0;">11.2158915770</td><td x:num="9.1148259577" style="mso-style-parent:style0;mso-number-format:0.0;">9.1148259577</td><td x:num="13.7226239790" style="mso-style-parent:style0;mso-number-format:0.0;">13.7226239790</td>
+		</tr><tr>
+			<td class="RowHeader">Massachusetts</td><td style="mso-style-parent:style0;mso-number-format:00000;">25000 </td><td>5,096,670</td><td x:num="9.9051667121" style="mso-style-parent:style0;mso-number-format:0;">9.9051667121</td><td x:num="8.2561435405" style="mso-style-parent:style0;mso-number-format:0.0;">8.2561435405</td><td x:num="12.0547811860" style="mso-style-parent:style0;mso-number-format:0.0;">12.0547811860</td>
+		</tr><tr>
+			<td class="RowHeader">Michigan</td><td style="mso-style-parent:style0;mso-number-format:00000;">26000 </td><td>7,629,134</td><td x:num="8.2991420453" style="mso-style-parent:style0;mso-number-format:0;">8.2991420453</td><td x:num="6.1609345394" style="mso-style-parent:style0;mso-number-format:0.0;">6.1609345394</td><td x:num="11.0353040990" style="mso-style-parent:style0;mso-number-format:0.0;">11.0353040990</td>
+		</tr><tr>
+			<td class="RowHeader">Minnesota</td><td style="mso-style-parent:style0;mso-number-format:00000;">27000 </td><td>3,852,097</td><td x:num="5.9535787844" style="mso-style-parent:style0;mso-number-format:0;">5.9535787844</td><td x:num="4.1184605196" style="mso-style-parent:style0;mso-number-format:0.0;">4.1184605196</td><td x:num="7.9684024226" style="mso-style-parent:style0;mso-number-format:0.0;">7.9684024226</td>
+		</tr><tr>
+			<td class="RowHeader">Mississippi</td><td style="mso-style-parent:style0;mso-number-format:00000;">28000 </td><td>2,116,087</td><td x:num="16.0430861990" style="mso-style-parent:style0;mso-number-format:0;">16.0430861990</td><td x:num="11.9067976780" style="mso-style-parent:style0;mso-number-format:0.0;">11.9067976780</td><td x:num="20.8306892740" style="mso-style-parent:style0;mso-number-format:0.0;">20.8306892740</td>
+		</tr><tr>
+			<td class="RowHeader">Missouri</td><td style="mso-style-parent:style0;mso-number-format:00000;">29000 </td><td>4,321,763</td><td x:num="7.4702406512" style="mso-style-parent:style0;mso-number-format:0;">7.4702406512</td><td x:num="5.9371858996" style="mso-style-parent:style0;mso-number-format:0.0;">5.9371858996</td><td x:num="9.1760866331" style="mso-style-parent:style0;mso-number-format:0.0;">9.1760866331</td>
+		</tr><tr>
+			<td class="RowHeader">Montana</td><td style="mso-style-parent:style0;mso-number-format:00000;">30000 </td><td>704,494</td><td x:num="8.7817036057" style="mso-style-parent:style0;mso-number-format:0;">8.7817036057</td><td x:num="5.9264884813" style="mso-style-parent:style0;mso-number-format:0.0;">5.9264884813</td><td x:num="12.1827858210" style="mso-style-parent:style0;mso-number-format:0.0;">12.1827858210</td>
+		</tr><tr>
+			<td class="RowHeader">Nebraska</td><td style="mso-style-parent:style0;mso-number-format:00000;">31000 </td><td>1,310,211</td><td x:num="7.2755113783" style="mso-style-parent:style0;mso-number-format:0;">7.2755113783</td><td x:num="5.3249499530" style="mso-style-parent:style0;mso-number-format:0.0;">5.3249499530</td><td x:num="9.7087298628" style="mso-style-parent:style0;mso-number-format:0.0;">9.7087298628</td>
+		</tr><tr>
+			<td class="RowHeader">Nevada</td><td style="mso-style-parent:style0;mso-number-format:00000;">32000 </td><td>1,668,489</td><td x:num="16.1289813310" style="mso-style-parent:style0;mso-number-format:0;">16.1289813310</td><td x:num="9.4659000634" style="mso-style-parent:style0;mso-number-format:0.0;">9.4659000634</td><td x:num="25.2606760050" style="mso-style-parent:style0;mso-number-format:0.0;">25.2606760050</td>
+		</tr><tr>
+			<td class="RowHeader">New Hampshire</td><td style="mso-style-parent:style0;mso-number-format:00000;">33000 </td><td>995,072</td><td x:num="5.8163089619" style="mso-style-parent:style0;mso-number-format:0;">5.8163089619</td><td x:num="4.0098494226" style="mso-style-parent:style0;mso-number-format:0.0;">4.0098494226</td><td x:num="8.1793403820" style="mso-style-parent:style0;mso-number-format:0.0;">8.1793403820</td>
+		</tr><tr>
+			<td class="RowHeader">New Jersey</td><td style="mso-style-parent:style0;mso-number-format:00000;">34000 </td><td>6,610,051</td><td x:num="16.9171625200" style="mso-style-parent:style0;mso-number-format:0;">16.9171625200</td><td x:num="13.5062203720" style="mso-style-parent:style0;mso-number-format:0.0;">13.5062203720</td><td x:num="20.8353902220" style="mso-style-parent:style0;mso-number-format:0.0;">20.8353902220</td>
+		</tr><tr>
+			<td class="RowHeader">New Mexico</td><td style="mso-style-parent:style0;mso-number-format:00000;">35000 </td><td>1,394,621</td><td x:num="16.4639097850" style="mso-style-parent:style0;mso-number-format:0;">16.4639097850</td><td x:num="12.2157437500" style="mso-style-parent:style0;mso-number-format:0.0;">12.2157437500</td><td x:num="21.5816851450" style="mso-style-parent:style0;mso-number-format:0.0;">21.5816851450</td>
+		</tr><tr>
+			<td class="RowHeader">New York</td><td style="mso-style-parent:style0;mso-number-format:00000;">36000 </td><td>15,058,111</td><td x:num="22.0890895020" style="mso-style-parent:style0;mso-number-format:0;">22.0890895020</td><td x:num="19.6711144670" style="mso-style-parent:style0;mso-number-format:0.0;">19.6711144670</td><td x:num="25.0146952790" style="mso-style-parent:style0;mso-number-format:0.0;">25.0146952790</td>
+		</tr><tr>
+			<td class="RowHeader">North Carolina</td><td style="mso-style-parent:style0;mso-number-format:00000;">37000 </td><td>6,278,385</td><td x:num="13.5995320820" style="mso-style-parent:style0;mso-number-format:0;">13.5995320820</td><td x:num="11.0137180350" style="mso-style-parent:style0;mso-number-format:0.0;">11.0137180350</td><td x:num="16.4544995060" style="mso-style-parent:style0;mso-number-format:0.0;">16.4544995060</td>
+		</tr><tr>
+			<td class="RowHeader">North Dakota</td><td style="mso-style-parent:style0;mso-number-format:00000;">38000 </td><td>489,045</td><td x:num="6.3275376668" style="mso-style-parent:style0;mso-number-format:0;">6.3275376668</td><td x:num="4.2155767335" style="mso-style-parent:style0;mso-number-format:0.0;">4.2155767335</td><td x:num="9.0153855231" style="mso-style-parent:style0;mso-number-format:0.0;">9.0153855231</td>
+		</tr><tr>
+			<td class="RowHeader">Ohio</td><td style="mso-style-parent:style0;mso-number-format:00000;">39000 </td><td>8,715,916</td><td x:num="9.1462628491" style="mso-style-parent:style0;mso-number-format:0;">9.1462628491</td><td x:num="7.1794540401" style="mso-style-parent:style0;mso-number-format:0.0;">7.1794540401</td><td x:num="11.9510804410" style="mso-style-parent:style0;mso-number-format:0.0;">11.9510804410</td>
+		</tr><tr>
+			<td class="RowHeader">Oklahoma</td><td style="mso-style-parent:style0;mso-number-format:00000;">40000 </td><td>2,696,155</td><td x:num="12.2571692570" style="mso-style-parent:style0;mso-number-format:0;">12.2571692570</td><td x:num="10.4065154150" style="mso-style-parent:style0;mso-number-format:0.0;">10.4065154150</td><td x:num="14.5271190610" style="mso-style-parent:style0;mso-number-format:0.0;">14.5271190610</td>
+		</tr><tr>
+			<td class="RowHeader">Oregon</td><td style="mso-style-parent:style0;mso-number-format:00000;">41000 </td><td>2,713,872</td><td x:num="10.2438029500" style="mso-style-parent:style0;mso-number-format:0;">10.2438029500</td><td x:num="7.2599415649" style="mso-style-parent:style0;mso-number-format:0.0;">7.2599415649</td><td x:num="13.8769810230" style="mso-style-parent:style0;mso-number-format:0.0;">13.8769810230</td>
+		</tr><tr>
+			<td class="RowHeader">Pennsylvania</td><td style="mso-style-parent:style0;mso-number-format:00000;">42000 </td><td>9,561,844</td><td x:num="12.6204462240" style="mso-style-parent:style0;mso-number-format:0;">12.6204462240</td><td x:num="10.2027830830" style="mso-style-parent:style0;mso-number-format:0.0;">10.2027830830</td><td x:num="15.5087695700" style="mso-style-parent:style0;mso-number-format:0.0;">15.5087695700</td>
+		</tr><tr>
+			<td class="RowHeader">Rhode Island</td><td style="mso-style-parent:style0;mso-number-format:00000;">44000 </td><td>832,138</td><td x:num="8.4590548684" style="mso-style-parent:style0;mso-number-format:0;">8.4590548684</td><td x:num="4.6773165795" style="mso-style-parent:style0;mso-number-format:0.0;">4.6773165795</td><td x:num="13.9413518710" style="mso-style-parent:style0;mso-number-format:0.0;">13.9413518710</td>
+		</tr><tr>
+			<td class="RowHeader">South Carolina</td><td style="mso-style-parent:style0;mso-number-format:00000;">45000 </td><td>3,098,822</td><td x:num="14.6944347870" style="mso-style-parent:style0;mso-number-format:0;">14.6944347870</td><td x:num="11.6403156930" style="mso-style-parent:style0;mso-number-format:0.0;">11.6403156930</td><td x:num="18.4495445220" style="mso-style-parent:style0;mso-number-format:0.0;">18.4495445220</td>
+		</tr><tr>
+			<td class="RowHeader">South Dakota</td><td style="mso-style-parent:style0;mso-number-format:00000;">46000 </td><td>572,209</td><td x:num="6.9711738048" style="mso-style-parent:style0;mso-number-format:0;">6.9711738048</td><td x:num="4.7347107328" style="mso-style-parent:style0;mso-number-format:0.0;">4.7347107328</td><td x:num="9.7452909664" style="mso-style-parent:style0;mso-number-format:0.0;">9.7452909664</td>
+		</tr><tr>
+			<td class="RowHeader">Tennessee</td><td style="mso-style-parent:style0;mso-number-format:00000;">47000 </td><td>4,439,666</td><td x:num="13.1722811470" style="mso-style-parent:style0;mso-number-format:0;">13.1722811470</td><td x:num="10.5106173790" style="mso-style-parent:style0;mso-number-format:0.0;">10.5106173790</td><td x:num="16.5465801730" style="mso-style-parent:style0;mso-number-format:0.0;">16.5465801730</td>
+		</tr><tr>
+			<td class="RowHeader">Texas</td><td style="mso-style-parent:style0;mso-number-format:00000;">48000 </td><td>15,936,279</td><td x:num="19.0283096170" style="mso-style-parent:style0;mso-number-format:0;">19.0283096170</td><td x:num="16.3721949500" style="mso-style-parent:style0;mso-number-format:0.0;">16.3721949500</td><td x:num="22.0686618110" style="mso-style-parent:style0;mso-number-format:0.0;">22.0686618110</td>
+		</tr><tr>
+			<td class="RowHeader">Utah</td><td style="mso-style-parent:style0;mso-number-format:00000;">49000 </td><td>1,638,079</td><td x:num="9.3875390281" style="mso-style-parent:style0;mso-number-format:0;">9.3875390281</td><td x:num="6.0757112837" style="mso-style-parent:style0;mso-number-format:0.0;">6.0757112837</td><td x:num="13.8690729760" style="mso-style-parent:style0;mso-number-format:0.0;">13.8690729760</td>
+		</tr><tr>
+			<td class="RowHeader">Vermont</td><td style="mso-style-parent:style0;mso-number-format:00000;">50000</td><td>485,416</td><td x:num="6.6039104565" style="mso-style-parent:style0;mso-number-format:0;">6.6039104565</td><td x:num="4.4159588776" style="mso-style-parent:style0;mso-number-format:0.0;">4.4159588776</td><td x:num="9.3666977542" style="mso-style-parent:style0;mso-number-format:0.0;">9.3666977542</td>
+		</tr><tr>
+			<td class="RowHeader">Virginia</td><td style="mso-style-parent:style0;mso-number-format:00000;">51000 </td><td>5,522,625</td><td x:num="12.0487358500" style="mso-style-parent:style0;mso-number-format:0;">12.0487358500</td><td x:num="9.6488076969" style="mso-style-parent:style0;mso-number-format:0.0;">9.6488076969</td><td x:num="14.8222444760" style="mso-style-parent:style0;mso-number-format:0.0;">14.8222444760</td>
+		</tr><tr>
+			<td class="RowHeader">Washington</td><td style="mso-style-parent:style0;mso-number-format:00000;">53000 </td><td>4,641,680</td><td x:num="9.8189380317" style="mso-style-parent:style0;mso-number-format:0;">9.8189380317</td><td x:num="7.2920859354" style="mso-style-parent:style0;mso-number-format:0.0;">7.2920859354</td><td x:num="12.8179645400" style="mso-style-parent:style0;mso-number-format:0.0;">12.8179645400</td>
+		</tr><tr>
+			<td class="RowHeader">West Virginia</td><td style="mso-style-parent:style0;mso-number-format:00000;">54000 </td><td>1,418,672</td><td x:num="13.4495357110" style="mso-style-parent:style0;mso-number-format:0;">13.4495357110</td><td x:num="10.1939242780" style="mso-style-parent:style0;mso-number-format:0.0;">10.1939242780</td><td x:num="17.2125283340" style="mso-style-parent:style0;mso-number-format:0.0;">17.2125283340</td>
+		</tr><tr>
+			<td class="RowHeader">Wisconsin</td><td style="mso-style-parent:style0;mso-number-format:00000;">55000 </td><td>4,185,290</td><td x:num="7.3296479397" style="mso-style-parent:style0;mso-number-format:0;">7.3296479397</td><td x:num="5.1442122366" style="mso-style-parent:style0;mso-number-format:0.0;">5.1442122366</td><td x:num="9.8964861527" style="mso-style-parent:style0;mso-number-format:0.0;">9.8964861527</td>
+		</tr><tr>
+			<td class="RowHeader">Wyoming</td><td style="mso-style-parent:style0;mso-number-format:00000;">56000 </td><td>382,009</td><td x:num="8.9417740690" style="mso-style-parent:style0;mso-number-format:0;">8.9417740690</td><td x:num="6.1845714447" style="mso-style-parent:style0;mso-number-format:0.0;">6.1845714447</td><td x:num="12.2284165940" style="mso-style-parent:style0;mso-number-format:0.0;">12.2284165940</td>
+		</tr>
+	</table>
+                    
+                        </div><table id="ctl00_ContentPlaceHolder1_tblThree" border="0" style="font-size:0.7em;">
+		<tr>
+			<td class="notes" colspan="6" style="border-top: solid 1 #000; vertical-align:middle;height:30px;"><sup>*</sup> The state and county Federal Information processing Standards (FIPS) codes are standardized unique state and county identifiers. The first two positions identify the state, and the last three positions identify the county. For more information, see http://www.census.gov/geo/www/fips/fips.html</td>
+		</tr><tr>
+			<td class="notes" colspan="6" style="border-top: solid 1 #000;vertical-align:middle;height:20px;"><sup>1</sup> Estimated population size of persons 16 years and older in households in  2003.</td>
+		</tr><tr>
+			<td class="notes" colspan="6" style="vertical-align:middle;height:20px;"><sup>2</sup> Those lacking <em>Basic</em> prose literacy skills include those who scored <em>Below Basic</em> in prose and those who could not be tested due to language barriers.</td>
+		</tr><tr>
+			<td class="notes" colspan="6" style="vertical-align:middle;height:30px;"><sup>3</sup> The estimated percent lacking <em>Basic</em> prose literacy skills has a margin of error as measured by the associated credible interval. There is a 95% chance that the value of the percent lacking <em>Basic</em> prose literacy skills is contained between the lower and upper bound.</td>
+		</tr><tr>
+			<td class="notes" colspan="6" style="vertical-align:middle;height:20px;"><strong>SOURCE:</strong> U.S. Department of Education, Institute of Education Sciences, National Center for Education Statistics, 2003 National Assessment of Adult Literacy</td>
+		</tr>
+	</table>
+                
+                    
+                    
+                    
+</div>

@@ -1,9 +1,12 @@
 ## code to prepare `info` dataset goes here
 library(tidyverse)
+library(lubridate)
 library(magrittr)
 library(readxl)
 library(rvest)
+library(rgdal)
 library(fs)
+library(sp)
 
 abb_fips <- select(read_csv("data-raw/states.csv"), fips, abb)
 abb_name <- select(read_csv("data-raw/states.csv"), name, abb)
@@ -29,26 +32,40 @@ populations <- read_csv(
 populations <- populations %>%
   rename(fips = STATE, population = POPESTIMATE2018) %>%
   filter(fips != "00") %>%
-  left_join(y = abb_fips, by = "fips") %>%
-  select(abb, population) %>%
-  arrange(desc(population))
+  inner_join(abb_fips) %>%
+  select(abb, population)
 
 # income ------------------------------------------------------------------
 
-# http://factfinder.census.gov/bkmk/table/1.0/en/ACS/17_1YR/R1901.US01PRF
-# MEDIAN HOUSEHOLD INCOME (IN 2017 INFLATION-ADJUSTED DOLLARS) - United States -- States; and Puerto Rico
-# Source:  U.S. Census Bureau, 2017 American Community Survey 1-Year Estimates
-zip_file <- "data-raw/ACS_17_1YR_R1901.US01PRF.zip"
-R1901 <- unzip(zip_file, "ACS_17_1YR_R1901.US01PRF.csv", exdir = "data-raw")
+# https://data.census.gov/cedsci/table?tid=ACSST1Y2018.S1903
+# MEDIAN INCOME IN THE PAST 12 MONTHS (IN 2018 INFLATION-ADJUSTED DOLLARS)
+# TableID: S1903
+# Survey/Program: American Community Survey
+# Product: 2018 ACS 1-Year Estimates Subject Tables
+zip_file <- "data-raw/ACSST1Y2018-S1903.zip"
+zip_list <- unzip(zip_file, list = TRUE)
+S1903 <- unzip(
+  zipfile = zip_file,
+  files = zip_list$Name[which.max(zip_list$Length)],
+  exdir = path_temp()
+)
+
 income <-
-  read_csv(file = R1901) %>%
-  select(fips = 5, income = EST) %>%
-  left_join(abb_fips, by = "fips") %>%
-  filter(!is.na(abb)) %>%
+  read_csv(
+    file = S1903,
+    col_types = cols(
+      .default = col_skip(),
+      GEO_ID = col_character(),
+      S1903_C03_001E = col_double()
+    )
+  ) %>%
+  select(fips = GEO_ID, income = S1903_C03_001E) %>%
+  slice(-1) %>%
+  mutate(fips = str_extract(fips, "(?<=US)\\d+")) %>%
+  inner_join(abb_fips) %>%
   select(abb, income)
 
-file_delete(R1901)
-
+file_delete(S1903)
 
 # gdp ---------------------------------------------------------------------
 
@@ -59,39 +76,14 @@ download.file(gdp_url, gdp_file)
 gdp <- read_excel(
   path = gdp_file,
   sheet = "Table 3",
-  range = "A4:G65"
+  range = "A5:G65"
 )
 
 gdp <- gdp %>%
   select(name = 1, gdp = 7) %>%
+  add_row(name = "Puerto Rico", gdp = 99913) %>%
   inner_join(abb_name) %>%
-  select(abb, gdp) %>%
-  mutate_at(vars(gdp), parse_integer) %>%
-  bind_rows(
-    tribble(
-      ~abb, ~gdp,
-      "AS", 608L, # BEA
-      "GU", 5920L, # BEA
-      "MP", 1323L, # BEA
-      "PR", 99913L, # IMF
-      "VI", 3984L, # BEA
-    )
-  )
-
-# literacy ----------------------------------------------------------------
-
-# https://nces.ed.gov/naal/estimates/StateEstimates.aspx
-literacy <-
-  read_csv("data-raw/ExportedData.csv") %>%
-  select(
-    fips = `FIPS code`,
-    literacy = `Prose literacy skills`
-  ) %>%
-  mutate(
-    fips = str_sub(str_pad(fips, width = 5, pad = "0"), end = 2),
-    literacy = round(literacy/100, 4)
-  ) %>%
-  arrange(desc(literacy))
+  select(abb, gdp)
 
 # life expect -------------------------------------------------------------
 
@@ -120,7 +112,7 @@ fbi_url <- "https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018/tab
 fbi_file <- file_temp(ext = "xls")
 download.file(fbi_url, fbi_file)
 murder <-
-    read_excel("data-raw/table-4.xls", range = "A4:G203") %>%
+    read_excel(fbi_file, range = "A4:G203") %>%
     fill(Area) %>%
     filter(Year == "2018") %>%
     select(name = Area, murder = 7) %>%
@@ -129,20 +121,20 @@ murder <-
       murder = round(as.numeric(murder), 2)
     ) %>%
     inner_join(abb_name, by = "name") %>%
-    select(abb, murder) %>%
-    arrange(desc(murder))
+    select(abb, murder)
 
 # education ---------------------------------------------------------------
 
-# https://factfinder.census.gov/bkmk/table/1.0/en/ACS/17_1YR/S1501
-# https://data.census.gov/cedsci/table?q=S1501
-# S1501 EDUCATIONAL ATTAINMENT
-# Source:  U.S. Census Bureau, 2018 American Community Survey 1-Year Estimates
-edu_zip <- dir_ls(path_temp(), regexp = "S1501")
-edu_file <- unzip(edu_zip, list = TRUE)$Name[3]
+# https://data.census.gov/cedsci/table?tid=ACSST1Y2018.S1501
+# EDUCATIONAL ATTAINMENT
+# TableID: S1501
+# Survey/Program: American Community Survey
+# Product: 2018 ACS 1-Year Estimates Subject Tables
+edu_zip <- dir_ls("data-raw/", regexp = "S1501")
+edu_list <- unzip(edu_zip, list = TRUE)
 edu_file <- unzip(
   zipfile = edu_zip,
-  files = edu_file,
+  files = edu_list$Name[which.max(edu_list$Length)],
   exdir = path_temp()
 )
 
@@ -166,8 +158,7 @@ edu <-
   ) %>%
   inner_join(abb_name, by = "name") %>%
   mutate_if(is.numeric, round, 4) %>%
-  select(abb, high, bach) %>%
-  arrange(desc(high))
+  select(abb, high, bach)
 
 # temperature -------------------------------------------------------------
 
@@ -186,6 +177,23 @@ allstations <- read_fwf(
     method = c(87, 99)
   )
 )
+
+# get DC stations
+# read Dc polygon
+url <- "https://opendata.arcgis.com/datasets/7241f6d500b44288ad983f0942b39663_10.kml"
+tmp <- file_temp(ext = "kml")
+download.file(url, tmp)
+dc_shape <- readOGR(tmp)
+
+# find points in polygon
+in_dc <- point.in.polygon(
+  point.x = allstations$long,
+  point.y = allstations$lat,
+  pol.x = dc_shape@polygons[[1]]@Polygons[[1]]@coords[, 1],
+  pol.y = dc_shape@polygons[[1]]@Polygons[[1]]@coords[, 2]
+)
+
+allstations$state[which(as.logical(in_dc))] <- "DC"
 
 # annual cooling degree days
 degree_days <-
@@ -235,20 +243,25 @@ admission <-
 # join --------------------------------------------------------------------
 
 info <- populations %>%
-  left_join(admission)
+  left_join(admission) %>%
   left_join(income, by = "abb") %>%
   left_join(life, by = "abb") %>%
   left_join(murder, by = "abb") %>%
   left_join(edu, by = "abb") %>%
   left_join(degree_days, by = "abb") %>%
   left_join(abb_name) %>%
+  select(name, everything()) %>%
   arrange(name) %>%
-  select(-name)
+  select(-abb)
 
 # save --------------------------------------------------------------------
 
 use_data(info, overwrite = TRUE)
 write_csv(info, "data-raw/info.csv")
 
-state.x19 <- as.matrix(column_to_rownames(info, "abb"))
+state.x19 <- info %>%
+  mutate(admission = 2020 - year(admission)) %>%
+  rename(age = admission) %>%
+  column_to_rownames("name") %>%
+  as.matrix()
 use_data(state.x19, overwrite = TRUE)
