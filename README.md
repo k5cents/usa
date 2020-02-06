@@ -6,13 +6,13 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN
-status](https://www.r-pkg.org/badges/version/aaa)](https://CRAN.R-project.org/package=aaa)
+status](https://www.r-pkg.org/badges/version/usa)](https://CRAN.R-project.org/package=usa)
 [![Travis build
-status](https://travis-ci.org/kiernann/aaa.svg?branch=master)](https://travis-ci.org/kiernann/aaa)
+status](https://travis-ci.org/kiernann/usa.svg?branch=master)](https://travis-ci.org/kiernann/usa)
 [![Codecov test
-coverage](https://codecov.io/gh/kiernann/aaa/branch/master/graph/badge.svg)](https://codecov.io/gh/kiernann/aaa?branch=master)
+coverage](https://codecov.io/gh/kiernann/usa/branch/master/graph/badge.svg)](https://codecov.io/gh/kiernann/usa?branch=master)
 <!-- badges: end -->
 
 The goal of `usa` is to provide updated versions of the `state` data
