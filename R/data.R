@@ -1,3 +1,6 @@
+#' @importFrom tibble tibble
+NULL
+
 # objects from states.R ---------------------------------------------------
 
 #' US State and Territories
