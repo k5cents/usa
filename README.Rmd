@@ -19,10 +19,10 @@ knitr::opts_chunk$set(
 # usa <a href='https:/kiernann.com/usa'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![CRAN status](https://www.r-pkg.org/badges/version/usa)](https://CRAN.R-project.org/package=usa)
-[![Travis build status](https://travis-ci.org/kiernann/usa.svg?branch=master)](https://travis-ci.org/kiernann/usa)
-[![Codecov test coverage](https://codecov.io/gh/kiernann/usa/branch/master/graph/badge.svg)](https://codecov.io/gh/kiernann/usa?branch=master)
+[![Lifecycle: experimental][life_badge]][life_link]
+[![CRAN status][cran_badge]][cran_link]
+[![Travis build status][trav_badge]][trav_link]
+[![Codecov test coverage][cov_badge]][cov_link]
 <!-- badges: end -->
 
 The goal of `usa` is to provide updated versions of the `state` data sets
@@ -33,18 +33,16 @@ of America.
 
 ## Installation
 
-You can install the development version of `usa` from [GitHub] with:
+You can install the development version of `usa` from [GitHub][gh] with:
 
 ```{r remote, eval=FALSE}
 # install.packages("remotes")
 remotes::install_github("kiernann/usa")
 ```
 
-[GitHub]: https://github.com/kiernann/usa
-
 ## Base Data
 
-R ships with seven outdated "state" objects:
+R ships with seven outdated "state" objects in the `datasets` package:
 
 * `state.abb`: character vector of 2-letter abbreviations for the state names.
 * `state.area`: numeric vector of state areas (in square miles).
@@ -57,39 +55,41 @@ R ships with seven outdated "state" objects:
   * `Income`: per capita income (1974)
   * `Illiteracy`: illiteracy (1970, percent of population)
   * `Life Exp`: life expectancy in years (1969–71)
-  * `Murder`: murder and non-negligent manslaughter rate per 100,000 population (1976)
+  * `Murder`: murder and manslaughter rate per 100,000 population (1976)
   * `HS Grad`: percent high-school graduates (1970)
-  * `Frost`: mean number of days with minimum temperature below freezing (1931–1960)
+  * `Frost`: mean number of days with temperature below freezing (1931–1960)
   * `Area`: land area in square miles
 
-```{r old}
-base <- data.frame(
-  abb = state.abb,
+```{r enframe_vectors, echo=FALSE}
+base.vectors <- data.frame(
   name = state.name,
+  abb = state.abb,
   region = state.region,
   division = state.division,
+  area = state.area,
   center.x = state.center$x,
   center.y = state.center$y
 )
-head(base)
+```
+
+```{r old}
+head(base.vectors)
 head(state.x77)
 ```
 
 ## New Data
 
-This package contains new versions of these objects. Attaching the package
-with `library()` will **overwrite** these vectors with newer, longer versions.
-The new versions maintain the same class and content.
+This package contains new versions of these objects. Attaching the package will
+**overwrite** these vectors with newer, longer versions. The new versions
+maintain the same class and content.
 
 ```{r join_states, message=FALSE}
-library(tibble)
-library(usa)
 setdiff(usa::state.abb, datasets::state.abb)
 unique(usa::state.region)
 unique(datasets::state.region)
 ```
 
-The package also contains two [tibbles] identifying the states and
+The package also contains two [tibbles][tib] identifying the states and
 territories and providing various updated statistics.
 
 ```{r tibbles}
@@ -97,10 +97,39 @@ head(usa::states)
 head(usa::info)
 ```
 
-[tibbles]: https://tibble.tidyverse.org/
+Zipcodes and counties are also included.
+
+```{r zips}
+head(usa::zipcodes)
+head(usa::counties)
+```
+
+The `people` tibble contains 20,000 synthetic survey respondents created by the 
+[Pew Research Center][pew]. Statistically accurate first and last names have
+been added to feel more authentic.
+
+```{r people}
+head(usa::people)[, 1:8]
+```
+
 
 ***
 
 Please note that the `usa` project is released with a 
-[Contributor Code of Conduct](https://kiernann.com/usa/CODE_OF_CONDUCT.html). By
+[Contributor Code of Conduct][coc]. By
 contributing to this project, you agree to abide by its terms.
+
+<!-- refs: start -->
+[life_badge]: https://img.shields.io/badge/lifecycle-experimental-orange.svg
+[life_link]: https://www.tidyverse.org/lifecycle/#experimental
+[cran_badge]: https://www.r-pkg.org/badges/version/aaa
+[cran_link]: https://CRAN.R-project.org/package=aaa
+[trav_badge]: https://travis-ci.org/kiernann/aaa.svg?branch=master
+[trav_link]: https://travis-ci.org/kiernann/aaa
+[cov_badge]: https://codecov.io/gh/kiernann/aaa/branch/master/graph/badge.svg
+[cov_link]: https://codecov.io/gh/kiernann/aaa?branch=master
+[tib]: https://tibble.tidyverse.org/
+[gh]: https://github.com/kiernann/usa
+[pew]: http://pewrsr.ch/2rNawC7
+[coc]: https://kiernann.com/usa/CODE_OF_CONDUCT.html
+<!-- refs: end -->
