@@ -218,7 +218,8 @@ for (i in seq_along(age_names)) {
 people <-
   # put names at front
   bind_rows(age_names) %>%
-  select(id, fname, lname, everything(), -year)
+  select(id, fname, lname, everything(), -year) %>%
+  arrange(id)
 
 # save ---------------------------------------------------------------------------------------
 
