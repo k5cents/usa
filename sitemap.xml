@@ -13,7 +13,7 @@
     <loc>https://kiernann.com/usa//reference/county.name.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/info.html</loc>
+    <loc>https://kiernann.com/usa//reference/facts.html</loc>
   </url>
   <url>
     <loc>https://kiernann.com/usa//reference/people.html</loc>
@@ -41,6 +41,21 @@
   </url>
   <url>
     <loc>https://kiernann.com/usa//reference/states.html</loc>
+  </url>
+  <url>
+    <loc>https://kiernann.com/usa//reference/territory.html</loc>
+  </url>
+  <url>
+    <loc>https://kiernann.com/usa//reference/territory.abb.html</loc>
+  </url>
+  <url>
+    <loc>https://kiernann.com/usa//reference/territory.area.html</loc>
+  </url>
+  <url>
+    <loc>https://kiernann.com/usa//reference/territory.center.html</loc>
+  </url>
+  <url>
+    <loc>https://kiernann.com/usa//reference/territory.name.html</loc>
   </url>
   <url>
     <loc>https://kiernann.com/usa//reference/zip.center.html</loc>
