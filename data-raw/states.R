@@ -88,7 +88,13 @@ states <- codes %>%
   left_join(regions, by = "rid") %>%
   left_join(divisions, by = "did") %>%
   select(-rid, -did) %>%
-  left_join(area, by = "abb")
+  left_join(area, by = "abb") %>%
+  arrange(name)
+
+# consider keeping other territories
+# would need to get info for each
+states <- states %>%
+  filter(name %in% c(state.name, "District of Columbia", "Puerto Rico"))
 
 # write data --------------------------------------------------------------
 

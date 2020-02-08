@@ -4,7 +4,7 @@
 \name{state.x19}
 \alias{state.x19}
 \title{US State and Territory Statistics}
-\format{A tibble with 57 rows and 9 variables:
+\format{A tibble with 52 rows and 9 variables:
 \describe{
 \item{abb}{2-letter abbreviation}
 \item{population}{Population estimate as of September 26, 2019}

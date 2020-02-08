@@ -5,10 +5,9 @@ NULL
 
 #' US State and Territories
 #'
-#' Information on the 50 states, 1 federal district, and 6 territories of the
-#' United States of America.
+#' The 50 states, District of Columbia, and Puerto Rico.
 #'
-#' @format A tibble with 57 rows and 9 variables:
+#' @format A tibble with 52 rows and 9 variables:
 #' \describe{
 #'   \item{abb}{2-letter abbreviation}
 #'   \item{name}{Full legal name}
@@ -25,7 +24,7 @@ NULL
 #'
 #' The 2-letter abbreviations for the US state and territory names.
 #'
-#' @format A character vector of length 57.
+#' @format A character vector of length 52.
 #' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
 "state.abb"
 
@@ -33,7 +32,7 @@ NULL
 #'
 #' The area in square miles of the US states and territories.
 #'
-#' @format A numeric vector of length 57.
+#' @format A numeric vector of length 52.
 #' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
 "state.area"
 
@@ -42,7 +41,7 @@ NULL
 #' A list with components named `x` and `y` giving the approximate geographic
 #' center of each state in negative longitude and latitude.
 #'
-#' @format A list of length two, each element a numeric vector of length 57.
+#' @format A list of length two, each element a numeric vector of length 52.
 #' \describe{
 #'   \item{x}{Center longitudinal coordinate}
 #'   \item{y}{Center latitudinal coordinate}
@@ -63,7 +62,7 @@ NULL
 #' 8. Mountain
 #' 9. Pacific
 #'
-#' @format A factor vector of length 57.
+#' @format A factor vector of length 52.
 #' @source \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx}
 "state.division"
 
@@ -71,7 +70,7 @@ NULL
 #'
 #' The full names for the US states and territories.
 #'
-#' @format A numeric vector of length 57.
+#' @format A numeric vector of length 52.
 #' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
 "state.name"
 
@@ -83,7 +82,7 @@ NULL
 #' 3. South
 #' 4. West
 #'
-#' @format A factor vector of length 57.
+#' @format A factor vector of length 52.
 #' @source \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx}
 "state.region"
 
@@ -123,7 +122,7 @@ NULL
 #' A matrix version of the [info] tibble, used to more closely align with the
 #' [datasets::state.x77] matrix included with R.
 #'
-#' @format A tibble with 57 rows and 9 variables:
+#' @format A tibble with 52 rows and 9 variables:
 #' \describe{
 #'   \item{abb}{2-letter abbreviation}
 #'   \item{population}{Population estimate as of September 26, 2019}
@@ -233,7 +232,7 @@ NULL
 #' [`zipcodes`](https://CRAN.R-project.org/package=zipcode) CRAN package, which
 #' was archived on Janurary 1, 2020.
 #'
-#' @format A tibble with 57 rows and 9 variables:
+#' @format A tibble with 52 rows and 9 variables:
 #' \describe{
 #'   \item{zip}{5 digit Zipcode or military postal code (FPO/APO)}
 #'   \item{city}{USPS offical city name}

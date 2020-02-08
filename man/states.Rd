@@ -4,7 +4,7 @@
 \name{states}
 \alias{states}
 \title{US State and Territories}
-\format{A tibble with 57 rows and 9 variables:
+\format{A tibble with 52 rows and 9 variables:
 \describe{
 \item{abb}{2-letter abbreviation}
 \item{name}{Full legal name}
@@ -19,7 +19,6 @@
 states
 }
 \description{
-Information on the 50 states, 1 federal district, and 6 territories of the
-United States of America.
+The 50 states, District of Columbia, and Puerto Rico.
 }
 \keyword{datasets}

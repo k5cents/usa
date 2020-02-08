@@ -4,7 +4,7 @@
 \name{zipcodes}
 \alias{zipcodes}
 \title{US ZIP Code Locations}
-\format{A tibble with 57 rows and 9 variables:
+\format{A tibble with 52 rows and 9 variables:
 \describe{
 \item{zip}{5 digit Zipcode or military postal code (FPO/APO)}
 \item{city}{USPS offical city name}
