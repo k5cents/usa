@@ -12,6 +12,6 @@
 state.area
 }
 \description{
-The area in square miles of the US states and territories.
+The area in square miles of the US states.
 }
 \keyword{datasets}

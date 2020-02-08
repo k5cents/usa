@@ -7,7 +7,7 @@ NULL
 #'
 #' The 50 states, District of Columbia, and Puerto Rico.
 #'
-#' @format A tibble with 52 rows and 9 variables:
+#' @format A tibble with 52 rows and 8 variables:
 #' \describe{
 #'   \item{abb}{2-letter abbreviation}
 #'   \item{name}{Full legal name}
@@ -20,21 +20,52 @@ NULL
 #' }
 "states"
 
+#' US Territories
+#'
+#' The 6 non-state territories and federal district.
+#'
+#' @format A tibble with 7 rows and 6 variables:
+#' \describe{
+#'   \item{abb}{2-letter abbreviation}
+#'   \item{name}{Full legal name}
+#'   \item{fips}{Federal Information Processing Standard Publication 5-2 code}
+#'   \item{area}{Area in square miles}
+#'   \item{lat}{Center latitudinal coordinate}
+#'   \item{long}{Center longitudinal coordinate}
+#' }
+"territory"
+
 #' US State Abbreviations
 #'
-#' The 2-letter abbreviations for the US state and territory names.
+#' The 2-letter abbreviations for the US state names.
 #'
 #' @format A character vector of length 52.
 #' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
 "state.abb"
 
+#' US Territory Abbreviations
+#'
+#' The 2-letter abbreviations for the US territory names.
+#'
+#' @format A character vector of length 52.
+#' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
+"territory.abb"
+
 #' US State Areas
 #'
-#' The area in square miles of the US states and territories.
+#' The area in square miles of the US states.
 #'
 #' @format A numeric vector of length 52.
 #' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
 "state.area"
+
+#' US State Areas
+#'
+#' The area in square miles of the US territories.
+#'
+#' @format A numeric vector of length 52.
+#' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
+"territory.area"
 
 #' US State Centers
 #'
@@ -48,6 +79,19 @@ NULL
 #' }
 #' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
 "state.center"
+
+#' US Territory Centers
+#'
+#' A list with components named `x` and `y` giving the approximate geographic
+#' center of each territory in negative longitude and latitude.
+#'
+#' @format A list of length two, each element a numeric vector of length 5.
+#' \describe{
+#'   \item{x}{Center longitudinal coordinate}
+#'   \item{y}{Center latitudinal coordinate}
+#' }
+#' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
+"territory.center"
 
 #' US State Divisions
 #'
@@ -68,11 +112,19 @@ NULL
 
 #' US State Names
 #'
-#' The full names for the US states and territories.
+#' The full names for the US states.
 #'
 #' @format A numeric vector of length 52.
 #' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
 "state.name"
+
+#' US Teritory Names
+#'
+#' The full names for the US territories.
+#'
+#' @format A numeric vector of length 52.
+#' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
+"territory.name"
 
 #' US State Regions
 #'
@@ -88,7 +140,7 @@ NULL
 
 # objects from info.R -----------------------------------------------------
 
-#' US State and Territory Statistics
+#' US State Facts
 #'
 #' Updated version of the [datasets::state.x77] matrix, which provides eights
 #' statistics from the 1970's. This version is a modern data frame format
@@ -115,11 +167,11 @@ NULL
 #' * Murder: \url{https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018/tables/table-4/table-4.xls/output.xls}
 #' * Education: \url{https://data.census.gov/cedsci/table?q=S1501}
 #' * Temperature: \url{ftp://ftp.ncdc.noaa.gov/pub/data/normals/1981-2010/products/temperature/ann-cldd-normal.txt}
-"info"
+"facts"
 
 #' US State and Territory Statistics
 #'
-#' A matrix version of the [info] tibble, used to more closely align with the
+#' A matrix version of the [facts] tibble, used to more closely align with the
 #' [datasets::state.x77] matrix included with R.
 #'
 #' @format A tibble with 52 rows and 9 variables:
@@ -218,8 +270,6 @@ NULL
 #'   Research Center, Washington, D.C. (January 26, 2018)
 #'   \url{http://pewrsr.ch/2rNawC7}
 "people"
-
-
 
 # objects from zipcodes.R -------------------------------------------------
 

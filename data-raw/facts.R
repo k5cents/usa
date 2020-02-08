@@ -1,4 +1,4 @@
-## code to prepare `info` dataset goes here
+## code to prepare `facts` dataset goes here
 library(tidyverse)
 library(lubridate)
 library(magrittr)
@@ -242,7 +242,7 @@ admission <-
 
 # join --------------------------------------------------------------------
 
-info <- populations %>%
+facts <- populations %>%
   left_join(admission) %>%
   left_join(income, by = "abb") %>%
   left_join(life, by = "abb") %>%
@@ -256,10 +256,10 @@ info <- populations %>%
 
 # save --------------------------------------------------------------------
 
-use_data(info, overwrite = TRUE)
-write_csv(info, "data-raw/info.csv")
+use_data(facts, overwrite = TRUE)
+write_csv(facts, "data-raw/facts.csv")
 
-state.x19 <- info %>%
+state.x19 <- facts %>%
   mutate(admission = 2020 - year(admission)) %>%
   rename(age = admission) %>%
   column_to_rownames("name") %>%

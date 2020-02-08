@@ -25,15 +25,15 @@ knitr::opts_chunk$set(
 [![Codecov test coverage][cov_badge]][cov_link]
 <!-- badges: end -->
 
-The goal of `usa` is to provide updated versions of the `state` data sets
+The goal of 'usa' is to provide updated versions of the 'state' data sets
 included with R. When attached, this package **overwrites** these original
-vectors. The vectors from this package contain information for the District of
-Columbia, Puerto Rico, and the other sovereign territories of the United States
-of America.
+vectors. The new vectors contain information on all fifty states, the District
+of Columbia, and Puerto Rico. As of this version, information on the other
+territories are provided in separate objects.
 
 ## Installation
 
-You can install the development version of `usa` from [GitHub][gh] with:
+You can install the development version of 'usa' from [GitHub][gh] with:
 
 ```{r remote, eval=FALSE}
 # install.packages("remotes")
@@ -42,23 +42,8 @@ remotes::install_github("kiernann/usa")
 
 ## Base Data
 
-R ships with seven outdated "state" objects in the `datasets` package:
-
-* `state.abb`: character vector of 2-letter abbreviations for the state names.
-* `state.area`: numeric vector of state areas (in square miles).
-* `state.center`: list giving the approximate geographic center of each state.
-* `state.division`: factor giving state geographic census divisions.
-* `state.name`: character vector giving the full state names.
-* `state.region`: factor giving the census region.
-* `state.x77`: matrix with 50 rows and 8 columns:
-  * `Population`: population estimate as of July 1, 1975
-  * `Income`: per capita income (1974)
-  * `Illiteracy`: illiteracy (1970, percent of population)
-  * `Life Exp`: life expectancy in years (1969–71)
-  * `Murder`: murder and manslaughter rate per 100,000 population (1976)
-  * `HS Grad`: percent high-school graduates (1970)
-  * `Frost`: mean number of days with temperature below freezing (1931–1960)
-  * `Area`: land area in square miles
+R ships with eight outdated objects in the 'datasets' package, 7 vectors and a
+matrix of statistics.
 
 ```{r enframe_vectors, echo=FALSE}
 base.vectors <- data.frame(
@@ -79,42 +64,47 @@ head(state.x77)
 
 ## New Data
 
-This package contains new versions of these objects. Attaching the package will
-**overwrite** these vectors with newer, longer versions. The new versions
-maintain the same class and content.
+This package contains new versions of these objects.
 
 ```{r join_states, message=FALSE}
 setdiff(usa::state.abb, datasets::state.abb)
 unique(usa::state.region)
-unique(datasets::state.region)
+show(usa::territory.abb)
 ```
 
 The package also contains two [tibbles][tib] identifying the states and
-territories and providing various updated statistics.
+and providing various updated facts and figures.
 
 ```{r tibbles}
-head(usa::states)
-head(usa::info)
+usa::states
+usa::facts
 ```
 
-Zipcodes and counties are also included.
+An additional tibble and vectors for just the territories.
+
+```{r territory}
+usa::territory
+```
+
+ZIP codes and counties are also included. ZIP codes are from the archived
+[zipcodes][zip] package.
 
 ```{r zips}
-head(usa::zipcodes)
-head(usa::counties)
+usa::zipcodes
+usa::counties
 ```
 
 The `people` tibble contains 20,000 synthetic survey respondents created by the 
 [Pew Research Center][pew]. Statistically accurate first and last names have
-been added to feel more authentic.
+been added to improve authenticity.
 
 ```{r people}
-head(usa::people)[, 1:8]
+dplyr::select(usa::people, 1:8)
 ```
 
 ***
 
-Please note that the `usa` project is released with a 
+Please note that the 'usa' project is released with a 
 [Contributor Code of Conduct][coc]. By
 contributing to this project, you agree to abide by its terms.
 
@@ -129,6 +119,7 @@ contributing to this project, you agree to abide by its terms.
 [cov_link]: https://codecov.io/gh/kiernann/usa?branch=master
 [tib]: https://tibble.tidyverse.org/
 [gh]: https://github.com/kiernann/usa
+[zip]: https://cran.r-project.org/package=zipcodes
 [pew]: http://pewrsr.ch/2rNawC7
 [coc]: https://kiernann.com/usa/CODE_OF_CONDUCT.html
 <!-- refs: end -->

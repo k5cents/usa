@@ -1,3 +1,8 @@
+# usa 0.1.0
+
+* Rename `info` data to `facts`.
+* Separate territories from `states` to `territory`, ect (for now).
+
 # usa 0.0.9
 
 * Finish the `info` data set:

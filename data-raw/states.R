@@ -93,6 +93,10 @@ states <- codes %>%
 
 # consider keeping other territories
 # would need to get info for each
+territory <- states %>%
+  filter(!(name %in% datasets::state.name)) %>%
+  select(-region, -division)
+
 states <- states %>%
   filter(name %in% c(state.name, "District of Columbia", "Puerto Rico"))
 
@@ -137,3 +141,28 @@ state.region <- states$region
 class(state.region) == class(datasets::state.region)
 usethis::use_data(state.region, overwrite = TRUE)
 write_lines(state.region, "data-raw/state-region.csv")
+
+# territory data ----------------------------------------------------------
+
+# save new tibble
+usethis::use_data(territory, overwrite = TRUE)
+write_csv(territory, "data-raw/territory.csv")
+
+territory <- territory %>%
+  filter(!(name %in% c("District of Columbia", "Puerto Rico")))
+
+territory.abb <- territory$abb
+usethis::use_data(territory.abb, overwrite = TRUE)
+write_lines(territory.abb, "data-raw/territory-abb.csv")
+
+territory.area <- territory$area
+usethis::use_data(territory.area, overwrite = TRUE)
+write_lines(territory.area, "data-raw/territory-area.csv")
+
+territory.center <- list(x = territory$long, y = territory$lat)
+usethis::use_data(territory.center, overwrite = TRUE)
+write_csv(as.data.frame(territory.center), "data-raw/territory-center.csv")
+
+territory.name <- territory$name
+usethis::use_data(territory.name, overwrite = TRUE)
+write_lines(territory.name, "data-raw/territory-name.csv")

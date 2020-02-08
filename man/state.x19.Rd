@@ -19,7 +19,7 @@
 state.x19
 }
 \description{
-A matrix version of the \link{info} tibble, used to more closely align with the
+A matrix version of the \link{facts} tibble, used to more closely align with the
 \link[datasets:state.x77]{datasets::state.x77} matrix included with R.
 }
 \keyword{datasets}
