@@ -89,7 +89,7 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The goal of ‘usa’ is to provide updated versions of the ‘state’ data sets included with R. When attached, this package <strong>overwrites</strong> these original vectors. The new vectors contain information on all fifty states, the District of Columbia, and Puerto Rico. As of this version, information on the other territories are provided in separate objects.</p>
+<p>The goal of ‘usa’ is to provide updated versions of the ‘dataset’ objects included with R. When attached, this package <strong>overwrites</strong> these original vectors with information on all fifty states, the District of Columbia, and Puerto Rico. As of now, information on the other territories are provided in separate objects.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -100,7 +100,7 @@
 <div id="base-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#base-data" class="anchor"></a>Base Data</h2>
-<p>R ships with eight outdated objects in the ‘datasets’ package, 7 vectors and a matrix of statistics.</p>
+<p>R ships with eight outdated objects in the ‘datasets’ package: 7 vectors and a matrix of statistics from the 1970’s.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(base.vectors)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt;         name abb region           division   area  center.x center.y</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; 1    Alabama  AL  South East South Central  51609  -86.7509  32.5901</span></a>
@@ -108,117 +108,85 @@
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; 3    Arizona  AZ   West           Mountain 113909 -111.6250  34.2192</span></a>
 <a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; 4   Arkansas  AR  South West South Central  53104  -92.2992  34.7336</span></a>
 <a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; 5 California  CA   West            Pacific 158693 -119.7730  36.5341</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; 6   Colorado  CO   West           Mountain 104247 -105.5130  38.6777</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(state.x77)</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;            Population Income Illiteracy Life Exp Murder HS Grad Frost   Area</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; Alabama          3615   3624        2.1    69.05   15.1    41.3    20  50708</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; Alaska            365   6315        1.5    69.31   11.3    66.7   152 566432</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; Arizona          2212   4530        1.8    70.55    7.8    58.1    15 113417</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; Arkansas         2110   3378        1.9    70.66   10.1    39.9    65  51945</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; California      21198   5114        1.1    71.71   10.3    62.6    20 156361</span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; 6   Colorado  CO   West           Mountain 104247 -105.5130  38.6777</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(state.x77)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt;            Population Income Illiteracy Life Exp Murder HS Grad Frost   Area</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt; Alabama          3615   3624        2.1    69.05   15.1    41.3    20  50708</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; Alaska            365   6315        1.5    69.31   11.3    66.7   152 566432</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; Arizona          2212   4530        1.8    70.55    7.8    58.1    15 113417</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; Arkansas         2110   3378        1.9    70.66   10.1    39.9    65  51945</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; California      21198   5114        1.1    71.71   10.3    62.6    20 156361</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766</span></a></code></pre></div>
 </div>
 <div id="new-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-data" class="anchor"></a>New Data</h2>
-<p>This package contains new versions of these objects.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/sets.html">setdiff</a></span>(usa<span class="op">::</span>state.abb, datasets<span class="op">::</span>state.abb)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; [1] "DC" "PR"</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/unique.html">unique</a></span>(usa<span class="op">::</span>state.region)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; [1] South     West      Northeast Midwest   &lt;NA&gt;     </span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; Levels: Northeast Midwest South West</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="kw">show</span>(usa<span class="op">::</span>territory.abb)</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; [1] "AS" "GU" "MP" "UM" "VI"</span></a></code></pre></div>
-<p>The package also contains two <a href="https://tibble.tidyverse.org/">tibbles</a> identifying the states and and providing various updated facts and figures.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">usa<span class="op">::</span>states</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; # A tibble: 52 x 8</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt;    name              abb   fips  region    division            area   lat   long</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt; &lt;chr&gt; &lt;fct&gt;     &lt;fct&gt;              &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt;  1 Alabama           AL    01    South     East South Cent…  5.06e4  32.7  -86.8</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt;  2 Alaska            AK    02    West      Pacific           5.71e5  63.4 -153. </span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt;  3 Arizona           AZ    04    West      Mountain          1.14e5  34.3 -112. </span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt;  4 Arkansas          AR    05    South     West South Cent…  5.20e4  34.9  -92.4</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt;  5 California        CA    06    West      Pacific           1.56e5  37.2 -120. </span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt;  6 Colorado          CO    08    West      Mountain          1.04e5  39.0 -106. </span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;  7 Connecticut       CT    09    Northeast New England       4.84e3  41.6  -72.7</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;  8 Delaware          DE    10    South     South Atlantic    1.95e3  39.0  -75.5</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">#&gt;  9 District of Colu… DC    11    South     South Atlantic    6.11e1  38.9  -77.0</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="co">#&gt; 10 Florida           FL    12    South     South Atlantic    5.36e4  28.5  -82.4</span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co">#&gt; # … with 42 more rows</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16">usa<span class="op">::</span>facts</a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="co">#&gt; # A tibble: 52 x 9</span></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co">#&gt;    name          population admission  income life_exp murder  high  bach   heat</span></a>
-<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="co">#&gt;    &lt;chr&gt;              &lt;dbl&gt; &lt;date&gt;      &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="co">#&gt;  1 Alabama          4887871 1819-12-14  49861     75.3    7.8 0.866 0.234  65.9 </span></a>
-<a class="sourceLine" id="cb4-21" data-line-number="21"><span class="co">#&gt;  2 Alaska            737438 1959-01-03  74346     78.3    6.4 0.927 0.271 -26.6 </span></a>
-<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co">#&gt;  3 Arizona          7171646 1912-02-14  59246     79.7    5.1 0.871 0.271  73.6 </span></a>
-<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="co">#&gt;  4 Arkansas         3013825 1836-06-15  47062     75.9    7.2 0.873 0.214  62.4 </span></a>
-<a class="sourceLine" id="cb4-24" data-line-number="24"><span class="co">#&gt;  5 California      39557045 1850-09-09  75277     81.5    4.4 0.845 0.314  38.1 </span></a>
-<a class="sourceLine" id="cb4-25" data-line-number="25"><span class="co">#&gt;  6 Colorado         5695564 1876-08-01  71953     80.3    3.7 0.913 0.384   6.24</span></a>
-<a class="sourceLine" id="cb4-26" data-line-number="26"><span class="co">#&gt;  7 Connecticut      3572665 1788-01-09  76348     81      2.3 0.908 0.368  20.4 </span></a>
-<a class="sourceLine" id="cb4-27" data-line-number="27"><span class="co">#&gt;  8 Delaware          967171 1787-12-07  64805     78.6    5   0.895 0.288  40.5 </span></a>
-<a class="sourceLine" id="cb4-28" data-line-number="28"><span class="co">#&gt;  9 District of …     702455 1790-07-16  85203     78.5   22.8 0.920 0.557  50.7 </span></a>
-<a class="sourceLine" id="cb4-29" data-line-number="29"><span class="co">#&gt; 10 Florida         21299325 1845-03-03  55462     80      5.2 0.881 0.282 115.  </span></a>
-<a class="sourceLine" id="cb4-30" data-line-number="30"><span class="co">#&gt; # … with 42 more rows</span></a></code></pre></div>
-<p>An additional tibble and vectors for just the territories.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">usa<span class="op">::</span>territory</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; # A tibble: 7 x 6</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt;   name                        abb   fips    area   lat   long</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;                       &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; 1 American Samoa              AS    60      76.4 -14.0 -170. </span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; 2 District of Columbia        DC    11      61.1  38.9  -77.0</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; 3 Guam                        GU    66     210.   13.4  145. </span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; 4 Northern Mariana Islands    MP    69     182.   16.8  146. </span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; 5 Puerto Rico                 PR    72    3424.   18.2  -66.4</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; 6 U.S. Minor Outlying Islands UM    74      NA    NA     NA  </span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt; 7 U.S. Virgin Islands         VI    78     134.   18.1  -64.8</span></a></code></pre></div>
-<p>ZIP codes and counties are also included. ZIP codes are from the archived <a href="https://cran.r-project.org/package=zipcodes">zipcodes</a> package.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">usa<span class="op">::</span>zipcodes</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; # A tibble: 44,336 x 5</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt;    zip   city       state   lat  long</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt;  1 00210 Portsmouth NH     43.0 -71.0</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt;  2 00211 Portsmouth NH     43.0 -71.0</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt;  3 00212 Portsmouth NH     43.0 -71.0</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt;  4 00213 Portsmouth NH     43.0 -71.0</span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt;  5 00214 Portsmouth NH     43.0 -71.0</span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt;  6 00215 Portsmouth NH     43.0 -71.0</span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt;  7 00501 Holtsville NY     40.9 -72.6</span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt;  8 00544 Holtsville NY     40.9 -72.6</span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt;  9 00601 Adjuntas   PR     18.2 -66.7</span></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; 10 00602 Aguada     PR     18.4 -67.2</span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt; # … with 44,326 more rows</span></a>
-<a class="sourceLine" id="cb6-16" data-line-number="16">usa<span class="op">::</span>counties</a>
-<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt; # A tibble: 3,232 x 3</span></a>
-<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">#&gt;    fips  name     state</span></a>
-<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;</span></a>
-<a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co">#&gt;  1 01001 Autauga  AL   </span></a>
-<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">#&gt;  2 01003 Baldwin  AL   </span></a>
-<a class="sourceLine" id="cb6-22" data-line-number="22"><span class="co">#&gt;  3 01005 Barbour  AL   </span></a>
-<a class="sourceLine" id="cb6-23" data-line-number="23"><span class="co">#&gt;  4 01007 Bibb     AL   </span></a>
-<a class="sourceLine" id="cb6-24" data-line-number="24"><span class="co">#&gt;  5 01009 Blount   AL   </span></a>
-<a class="sourceLine" id="cb6-25" data-line-number="25"><span class="co">#&gt;  6 01011 Bullock  AL   </span></a>
-<a class="sourceLine" id="cb6-26" data-line-number="26"><span class="co">#&gt;  7 01013 Butler   AL   </span></a>
-<a class="sourceLine" id="cb6-27" data-line-number="27"><span class="co">#&gt;  8 01015 Calhoun  AL   </span></a>
-<a class="sourceLine" id="cb6-28" data-line-number="28"><span class="co">#&gt;  9 01017 Chambers AL   </span></a>
-<a class="sourceLine" id="cb6-29" data-line-number="29"><span class="co">#&gt; 10 01019 Cherokee AL   </span></a>
-<a class="sourceLine" id="cb6-30" data-line-number="30"><span class="co">#&gt; # … with 3,222 more rows</span></a></code></pre></div>
-<p>The <code>people</code> tibble contains 20,000 synthetic survey respondents created by the <a href="http://pewrsr.ch/2rNawC7">Pew Research Center</a>. Statistically accurate first and last names have been added to improve authenticity.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw">select</span>(usa<span class="op">::</span>people, <span class="dv">1</span><span class="op">:</span><span class="dv">8</span>)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; # A tibble: 20,000 x 8</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt;       id fname   lname    gender   age race     edu          div               </span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;fct&gt;  &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;        &lt;fct&gt;             </span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt;  1     1 Marquez Minnick  M         25 White    Some college Mountain          </span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt;  2     2 Sandra  Medina   F         70 Hispanic HS Grad      West South Central</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt;  3     3 John    Samples  M         85 White    Less than HS Middle Atlantic   </span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt;  4     4 David   Mcneely  M         59 White    HS Grad      Mountain          </span></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt;  5     5 Emily   Tsang    F         19 Asian    Some college Pacific           </span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt;  6     6 Rodney  Matheson M         67 White    HS Grad      West North Central</span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt;  7     7 Joseph  Ammons   M         70 White    HS Grad      West North Central</span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt;  8     8 Ryan    Allen    M         26 Black    Less than HS Pacific           </span></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#&gt;  9     9 Lane    Burchett M         50 White    Some college East North Central</span></a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">#&gt; 10    10 William Slater   M         73 White    Some college South Atlantic    </span></a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">#&gt; # … with 19,990 more rows</span></a></code></pre></div>
+<p>This package contains new, expanded versions of these vectors.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/sets.html">setdiff</a></span>(usa<span class="op">::</span>state.abb, datasets<span class="op">::</span>state.abb)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; [1] "DC" "PR"</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/unique.html">unique</a></span>(usa<span class="op">::</span>state.region)</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#&gt; [1] South     West      Northeast Midwest   &lt;NA&gt;     </span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; Levels: Northeast Midwest South West</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="kw">show</span>(usa<span class="op">::</span>territory.abb)</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; [1] "AS" "GU" "MP" "UM" "VI"</span></a></code></pre></div>
+<p>The package contains <a href="https://tibble.tidyverse.org/">tibbles</a> identifying the states and providing updated facts and figures.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">usa<span class="op">::</span>states</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; # A tibble: 52 x 8</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt;   name       abb   fips  region division              area   lat   long</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;                &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; 1 Alabama    AL    01    South  East South Central  50647.  32.7  -86.8</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; 2 Alaska     AK    02    West   Pacific            571017.  63.4 -153. </span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; 3 Arizona    AZ    04    West   Mountain           113653.  34.3 -112. </span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; 4 Arkansas   AR    05    South  West South Central  52038.  34.9  -92.4</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; 5 California CA    06    West   Pacific            155854.  37.2 -120. </span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; 6 Colorado   CO    08    West   Mountain           103638.  39.0 -106. </span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt; # … with 46 more rows</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">usa<span class="op">::</span>facts</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; # A tibble: 52 x 9</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt;   name       population admission  income life_exp murder  high  bach   heat</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;           &lt;dbl&gt; &lt;date&gt;      &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; 1 Alabama       4887871 1819-12-14  49861     75.3    7.8 0.866 0.234  65.9 </span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; 2 Alaska         737438 1959-01-03  74346     78.3    6.4 0.927 0.271 -26.6 </span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt; 3 Arizona       7171646 1912-02-14  59246     79.7    5.1 0.871 0.271  73.6 </span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt; 4 Arkansas      3013825 1836-06-15  47062     75.9    7.2 0.873 0.214  62.4 </span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt; 5 California   39557045 1850-09-09  75277     81.5    4.4 0.845 0.314  38.1 </span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt; 6 Colorado      5695564 1876-08-01  71953     80.3    3.7 0.913 0.384   6.24</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt; # … with 46 more rows</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">usa<span class="op">::</span>territory</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; # A tibble: 7 x 6</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt;   name                        abb   fips    area   lat   long</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;                       &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; 1 American Samoa              AS    60      76.4 -14.0 -170. </span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; 2 District of Columbia        DC    11      61.1  38.9  -77.0</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; 3 Guam                        GU    66     210.   13.4  145. </span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt; 4 Northern Mariana Islands    MP    69     182.   16.8  146. </span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt; 5 Puerto Rico                 PR    72    3424.   18.2  -66.4</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt; 6 U.S. Minor Outlying Islands UM    74      NA    NA     NA  </span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt; 7 U.S. Virgin Islands         VI    78     134.   18.1  -64.8</span></a></code></pre></div>
+<p>ZIP codes from the archived <a href="https://cran.r-project.org/package=zipcodes">‘zipcodes’</a> package are also included</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">usa<span class="op">::</span>zipcodes</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; # A tibble: 44,336 x 5</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt;   zip   city       state   lat  long</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt; 1 00210 Portsmouth NH     43.0 -71.0</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt; 2 00211 Portsmouth NH     43.0 -71.0</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt; 3 00212 Portsmouth NH     43.0 -71.0</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt; 4 00213 Portsmouth NH     43.0 -71.0</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt; 5 00214 Portsmouth NH     43.0 -71.0</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt; 6 00215 Portsmouth NH     43.0 -71.0</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">#&gt; # … with 4.433e+04 more rows</span></a></code></pre></div>
+<p>These synthetic survey respondents from <a href="http://pewrsr.ch/2rNawC7">Pew</a> provide a statistically accurate sample of the American people.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">dplyr<span class="op">::</span><span class="kw">select</span>(usa<span class="op">::</span>people, <span class="dv">1</span><span class="op">:</span><span class="dv">8</span>)</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="co">#&gt; # A tibble: 20,000 x 8</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co">#&gt;      id fname   lname    gender   age race     edu          div               </span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;fct&gt;  &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;        &lt;fct&gt;             </span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co">#&gt; 1     1 Marquez Minnick  M         25 White    Some college Mountain          </span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="co">#&gt; 2     2 Sandra  Medina   F         70 Hispanic HS Grad      West South Central</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co">#&gt; 3     3 John    Samples  M         85 White    Less than HS Middle Atlantic   </span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="co">#&gt; 4     4 David   Mcneely  M         59 White    HS Grad      Mountain          </span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">#&gt; 5     5 Emily   Tsang    F         19 Asian    Some college Pacific           </span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="co">#&gt; 6     6 Rodney  Matheson M         67 White    HS Grad      West North Central</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11"><span class="co">#&gt; # … with 1.999e+04 more rows</span></a></code></pre></div>
 <hr>
 <p>Please note that the ‘usa’ project is released with a <a href="https://kiernann.com/usa/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 <!-- refs: start -->
