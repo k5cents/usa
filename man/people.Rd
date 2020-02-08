@@ -28,7 +28,7 @@
 \item{house_own}{Home ownership}
 \item{metro}{Lives in metropolitan area}
 \item{internet}{Household has internet access}
-\item{foodstamp}{Recieves foodstamps}
+\item{foodstamp}{Receives food stamps}
 \item{house_moved}{Moved in the last year}
 \item{pub_contact}{Contacted or visited a public official}
 \item{boycott}{}
@@ -42,7 +42,7 @@
 \item{register}{Is registered to vote}
 \item{vote}{Voted in the 2014 midterm elections}
 \item{party}{Political party}
-\item{religion}{Religious (evangelical) affilitation}
+\item{religion}{Religious (evangelical) affiliation}
 \item{ideology}{Political ideology}
 \item{govt}{Follows government and public affairs}
 \item{guns}{Owns a gun}
@@ -56,7 +56,7 @@ Research Center, Washington, D.C. (January 26, 2018)
 people
 }
 \description{
-A statistically representative synthentic sample of 20,000 Americans. Each
+A statistically representative synthetic sample of 20,000 Americans. Each
 record is a simulated survey respondent.
 }
 \details{

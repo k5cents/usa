@@ -8,12 +8,10 @@
 \describe{
 \item{fips}{Federal Information Processing Standard Publication 5-2 code}
 \item{name}{Census county names}
-\item{state}{USPS offical state, territory abbreviation code}
+\item{state}{USPS official state, territory abbreviation code}
 }}
 \source{
-Kyle Walker (2020). tidycensus: Load US Census Boundary and Attribute
-Data as 'tidyverse' and 'sf'-Ready Data Frames. R package version 0.9.6.
-https://CRAN.R-project.org/package=tidycensus
+\url{https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/home/?cid=nrcs143_013697}
 }
 \usage{
 counties

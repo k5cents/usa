@@ -26,7 +26,7 @@ options(tibble.print_min = 6)
 [![Codecov test coverage][cov_badge]][cov_link]
 <!-- badges: end -->
 
-The goal of 'usa' is to provide updated versions of the 'dataset' objects
+The goal of 'usa' is to provide updated versions of the 'datasets' objects
 included with R. When attached, this package **overwrites** these original
 vectors with information on all fifty states, the District of Columbia, and
 Puerto Rico. As of now, information on the other territories are provided in

@@ -1,14 +1,14 @@
 # usa 0.1.0
 
 * Rename `info` data to `facts`.
-* Separate territories from `states` to `territory`, ect (for now).
+* Separate territories from `states` to `territory`, etc (for now).
 
 # usa 0.0.9
 
 * Finish the `info` data set:
     * Find degree days for Washington, DC.
     * Use state names instead of abbreviations.
-    * Remove outdated litteracy rates.
+    * Remove outdated literacy rates.
     * Add admission date (age in matrix).
     * Use https://data.census.gov sources.
     * Save `.zip` and `.xlsx` data sources.

@@ -118,7 +118,7 @@ NULL
 #' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
 "state.name"
 
-#' US Teritory Names
+#' US Territory Names
 #'
 #' The full names for the US territories.
 #'
@@ -191,7 +191,7 @@ NULL
 
 #' Synthetic Sample of US population
 #'
-#' A statistically representative synthentic sample of 20,000 Americans. Each
+#' A statistically representative synthetic sample of 20,000 Americans. Each
 #' record is a simulated survey respondent.
 #'
 #' @details
@@ -254,7 +254,7 @@ NULL
 #'   \item{house_own}{Home ownership}
 #'   \item{metro}{Lives in metropolitan area}
 #'   \item{internet}{Household has internet access}
-#'   \item{foodstamp}{Recieves foodstamps}
+#'   \item{foodstamp}{Receives food stamps}
 #'   \item{house_moved}{Moved in the last year}
 #'   \item{pub_contact}{Contacted or visited a public official}
 #'   \item{boycott}{}
@@ -268,7 +268,7 @@ NULL
 #'   \item{register}{Is registered to vote}
 #'   \item{vote}{Voted in the 2014 midterm elections}
 #'   \item{party}{Political party}
-#'   \item{religion}{Religious (evangelical) affilitation}
+#'   \item{religion}{Religious (evangelical) affiliation}
 #'   \item{ideology}{Political ideology}
 #'   \item{govt}{Follows government and public affairs}
 #'   \item{guns}{Owns a gun}
@@ -287,13 +287,13 @@ NULL
 #' site](http://federalgovernmentzipcodes.us/) (updated on January 22, 2012).
 #' The data was originally contained in the
 #' [`zipcodes`](https://CRAN.R-project.org/package=zipcode) CRAN package, which
-#' was archived on Janurary 1, 2020.
+#' was archived on January 1, 2020.
 #'
 #' @format A tibble with 52 rows and 9 variables:
 #' \describe{
-#'   \item{zip}{5 digit Zipcode or military postal code (FPO/APO)}
-#'   \item{city}{USPS offical city name}
-#'   \item{state}{USPS offical state, territory abbreviation code}
+#'   \item{zip}{5 digit ZIP code or military postal code (FPO/APO)}
+#'   \item{city}{USPS official city name}
+#'   \item{state}{USPS official state, territory abbreviation code}
 #'   \item{latitude}{Decimal Latitude}
 #'   \item{longitude}{Decimal Longitude}
 #' }
@@ -349,11 +349,9 @@ NULL
 #' \describe{
 #'   \item{fips}{Federal Information Processing Standard Publication 5-2 code}
 #'   \item{name}{Census county names}
-#'   \item{state}{USPS offical state, territory abbreviation code}
+#'   \item{state}{USPS official state, territory abbreviation code}
 #' }
-#' @source Kyle Walker (2020). tidycensus: Load US Census Boundary and Attribute
-#'   Data as 'tidyverse' and 'sf'-Ready Data Frames. R package version 0.9.6.
-#'   https://CRAN.R-project.org/package=tidycensus
+#' @source \url{https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/home/?cid=nrcs143_013697}
 "counties"
 
 #' US County Names
@@ -361,7 +359,5 @@ NULL
 #' The name of distinct US counties.
 #'
 #' @format A character vector of length 19108.
-#' @source Kyle Walker (2020). tidycensus: Load US Census Boundary and Attribute
-#'   Data as 'tidyverse' and 'sf'-Ready Data Frames. R package version 0.9.6.
-#'   https://CRAN.R-project.org/package=tidycensus
+#' @source \url{https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/home/?cid=nrcs143_013697}
 "county.name"
