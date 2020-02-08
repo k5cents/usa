@@ -11,9 +11,9 @@
 \item{income}{Per capita income (2017)}
 \item{life_exp}{Life expectancy in years (2017-18)}
 \item{murder}{Murder rate per 100,000 population (2018)}
-\item{high}{Percent adult population with at least a high school degree (2019)}
-\item{bach}{Percent adult population with at least a bachelor's degree or greater (2019)}
-\item{heat}{Mean number of degree days (temperature requires heating) per year from 1981-2010}
+\item{high}{Percent of population with at least a high school degree (2019)}
+\item{bach}{Percent of population with at least a bachelor's degree (2019)}
+\item{heat}{Mean number of "degree days" per year from 1981-2010}
 }}
 \usage{
 state.x19

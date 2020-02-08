@@ -60,32 +60,36 @@ A statistically representative synthentic sample of 20,000 Americans. Each
 record is a simulated survey respondent.
 }
 \details{
-This dataset was originally produced by the Pew Research center for their paper entitled
-\href{https://www.pewresearch.org/methods/wp-content/uploads/sites/10/2018/01/Weighting-Online-Opt-In-Samples.pdf}{\emph{For Weighting Online Opt-In Samples, What Matters Most?}}
-The synthetic population dataset was created to serve as a reference for making online opt-in
-surveys more representative of the overall population.
+This dataset was originally produced by the Pew Research center for their
+paper entitled \href{http://pewrsr.ch/2rNawC7}{\emph{For Weighting Online Opt-In Samples, What Matters Most?}}
+The synthetic population dataset was created to serve as a reference for
+making online opt-in surveys more representative of the overall population.
 
-See \href{https://www.pewresearch.org/methods/2018/01/26/appendix-b-synthetic-population-dataset/}{Appendix B: Synthetic population dataset}
-for a more detailed description of the method for and rationale behind creating this dataset.
+See \href{https://www.pewresearch.org/methods/?p=85}{Appendix B: Synthetic population dataset} for a more detailed
+description of the method for and rationale behind creating this dataset.
 
-In short, the dataset was created to overcome the limitations of using large, federal benchmark
-survey datasets such as the American Community Survey (ACS) or Current Population Survey (CPS).
-These surveys often do not contain the exact questions asked in online-opt in surveys, keeping
-them from being used for proper adjustment.
+In short, the dataset was created to overcome the limitations of using large,
+federal benchmark survey datasets such as the American Community Survey (ACS)
+or Current Population Survey (CPS). These surveys often do not contain the
+exact questions asked in online-opt in surveys, keeping them from being used
+for proper adjustment.
 
-This \emph{synthetic} dataset was created by combining nine separate benchmark datasets. Each had a
-set of common demographic variables but many added unique variables such as gun ownership or
-voter registration. The surveys were combined, stratified, sampled, combined, and imputed to
-fill missing values from each. From this large dataset, the original 20,000 surveys from the ACS
-were kept to ensure accurate demographic distribution.
+This \emph{synthetic} dataset was created by combining nine separate benchmark
+datasets. Each had a set of common demographic variables but many added
+unique variables such as gun ownership or voter registration. The surveys
+were combined, stratified, sampled, combined, and imputed to fill missing
+values from each. From this large dataset, the original 20,000 surveys from
+the ACS were kept to ensure accurate demographic distribution.
 
-The names were \emph{RANDOMLY} assigned to respondents to better simulate a synthetic sample of the
-population. First names were taken from the \link[babynames:babynames]{babynames::babynames} dataset which contains the
-Social Security Administration's record of baby names from 1880 to 2017 along with gender and
-proportion. First names were proportionally randomly assigned by birth year and sex. Last names
-were taken from the Census Bureau, who provides the 162,254 most common last names in the 2010
-Census, covering over 90\% of the population. For a given surname, the proportion of that name
-belonging to members of each race and ethnicity is provided. The last names were proportionally
-randomly assigned by race.
+The names were \emph{RANDOMLY} assigned to respondents to better simulate a
+synthetic sample of the population. First names were taken from the
+\code{babynames} dataset which contains the Social Security Administration's
+record of baby names from 1880 to 2017 along with gender and proportion.
+First names were proportionally randomly assigned by birth year and sex. Last
+names were taken from the Census Bureau, who provides the 162,254 most common
+last names in the 2010 Census, covering over 90\% of the population. For a
+given surname, the proportion of that name belonging to members of each race
+and ethnicity is provided. The last names were proportionally randomly
+assigned by race.
 }
 \keyword{datasets}

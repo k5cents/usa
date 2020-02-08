@@ -181,9 +181,9 @@ NULL
 #'   \item{income}{Per capita income (2017)}
 #'   \item{life_exp}{Life expectancy in years (2017-18)}
 #'   \item{murder}{Murder rate per 100,000 population (2018)}
-#'   \item{high}{Percent adult population with at least a high school degree (2019)}
-#'   \item{bach}{Percent adult population with at least a bachelor's degree or greater (2019)}
-#'   \item{heat}{Mean number of degree days (temperature requires heating) per year from 1981-2010}
+#'   \item{high}{Percent of population with at least a high school degree (2019)}
+#'   \item{bach}{Percent of population with at least a bachelor's degree (2019)}
+#'   \item{heat}{Mean number of "degree days" per year from 1981-2010}
 #' }
 "state.x19"
 
@@ -195,33 +195,40 @@ NULL
 #' record is a simulated survey respondent.
 #'
 #' @details
-#' This dataset was originally produced by the Pew Research center for their paper entitled
-#' [_For Weighting Online Opt-In Samples, What Matters Most?_](https://www.pewresearch.org/methods/wp-content/uploads/sites/10/2018/01/Weighting-Online-Opt-In-Samples.pdf)
-#' The synthetic population dataset was created to serve as a reference for making online opt-in
-#' surveys more representative of the overall population.
+#' This dataset was originally produced by the Pew Research center for their
+#' paper entitled [_For Weighting Online Opt-In Samples, What Matters Most?_][1]
+#' The synthetic population dataset was created to serve as a reference for
+#' making online opt-in surveys more representative of the overall population.
 #'
-#' See [Appendix B: Synthetic population dataset](https://www.pewresearch.org/methods/2018/01/26/appendix-b-synthetic-population-dataset/)
-#' for a more detailed description of the method for and rationale behind creating this dataset.
+#' See [Appendix B: Synthetic population dataset][2] for a more detailed
+#' description of the method for and rationale behind creating this dataset.
 #'
-#' In short, the dataset was created to overcome the limitations of using large, federal benchmark
-#' survey datasets such as the American Community Survey (ACS) or Current Population Survey (CPS).
-#' These surveys often do not contain the exact questions asked in online-opt in surveys, keeping
-#' them from being used for proper adjustment.
+#' In short, the dataset was created to overcome the limitations of using large,
+#' federal benchmark survey datasets such as the American Community Survey (ACS)
+#' or Current Population Survey (CPS). These surveys often do not contain the
+#' exact questions asked in online-opt in surveys, keeping them from being used
+#' for proper adjustment.
 #'
-#' This _synthetic_ dataset was created by combining nine separate benchmark datasets. Each had a
-#' set of common demographic variables but many added unique variables such as gun ownership or
-#' voter registration. The surveys were combined, stratified, sampled, combined, and imputed to
-#' fill missing values from each. From this large dataset, the original 20,000 surveys from the ACS
-#' were kept to ensure accurate demographic distribution.
+#' This _synthetic_ dataset was created by combining nine separate benchmark
+#' datasets. Each had a set of common demographic variables but many added
+#' unique variables such as gun ownership or voter registration. The surveys
+#' were combined, stratified, sampled, combined, and imputed to fill missing
+#' values from each. From this large dataset, the original 20,000 surveys from
+#' the ACS were kept to ensure accurate demographic distribution.
 #'
-#' The names were _RANDOMLY_ assigned to respondents to better simulate a synthetic sample of the
-#' population. First names were taken from the [babynames::babynames] dataset which contains the
-#' Social Security Administration's record of baby names from 1880 to 2017 along with gender and
-#' proportion. First names were proportionally randomly assigned by birth year and sex. Last names
-#' were taken from the Census Bureau, who provides the 162,254 most common last names in the 2010
-#' Census, covering over 90% of the population. For a given surname, the proportion of that name
-#' belonging to members of each race and ethnicity is provided. The last names were proportionally
-#' randomly assigned by race.
+#' The names were _RANDOMLY_ assigned to respondents to better simulate a
+#' synthetic sample of the population. First names were taken from the
+#' `babynames` dataset which contains the Social Security Administration's
+#' record of baby names from 1880 to 2017 along with gender and proportion.
+#' First names were proportionally randomly assigned by birth year and sex. Last
+#' names were taken from the Census Bureau, who provides the 162,254 most common
+#' last names in the 2010 Census, covering over 90% of the population. For a
+#' given surname, the proportion of that name belonging to members of each race
+#' and ethnicity is provided. The last names were proportionally randomly
+#' assigned by race.
+#'
+#' [1]: http://pewrsr.ch/2rNawC7
+#' [2]: https://www.pewresearch.org/methods/?p=85
 #'
 #' @format A tibble with 20,000 rows and 40 variables:
 #' \describe{
@@ -275,12 +282,14 @@ NULL
 
 #' US ZIP Code Locations
 #'
-#' This tibble contains city, state, latitude, and longitude for U.S. ZIP
-#' codes from the CivicSpace Database (August 2004) augmented by Daniel Coven's
-#' [web site](http://federalgovernmentzipcodes.us/) (updated on January 22,
-#' 2012). The data was originally contained in the
-#' [`zipcodes`](https://CRAN.R-project.org/package=zipcode) CRAN package, which
-#' was archived on Janurary 1, 2020.
+#' This tibble contains city, state, latitude, and longitude for U.S. ZIP codes
+#' from the CivicSpace Database (August 2004) augmented by Daniel Coven's [web
+#' site][coven] (updated on January 22, 2012). The data was originally contained
+#' in the [`zipcodes`][zip] CRAN package, which was archived on Janurary 1,
+#' 2020.
+#'
+#' [coven]: http://federalgovernmentzipcodes.us/
+#' [zip]: https://CRAN.R-project.org/package=zipcode
 #'
 #' @format A tibble with 52 rows and 9 variables:
 #' \describe{
