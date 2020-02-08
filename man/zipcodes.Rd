@@ -22,11 +22,9 @@ zipcodes
 }
 \description{
 This tibble contains city, state, latitude, and longitude for U.S. ZIP codes
-from the CivicSpace Database (August 2004) augmented by Daniel Coven's \link[=coven]{web site} (updated on January 22, 2012). The data was originally contained
-in the \code{\link[=zip]{zipcodes}} CRAN package, which was archived on Janurary 1,
-2020.
-}
-\details{
-
+from the CivicSpace Database (August 2004) augmented by Daniel Coven's \href{http://federalgovernmentzipcodes.us/}{web site} (updated on January 22, 2012).
+The data was originally contained in the
+\href{https://CRAN.R-project.org/package=zipcode}{\code{zipcodes}} CRAN package, which
+was archived on Janurary 1, 2020.
 }
 \keyword{datasets}

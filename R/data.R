@@ -284,12 +284,10 @@ NULL
 #'
 #' This tibble contains city, state, latitude, and longitude for U.S. ZIP codes
 #' from the CivicSpace Database (August 2004) augmented by Daniel Coven's [web
-#' site][coven] (updated on January 22, 2012). The data was originally contained
-#' in the [`zipcodes`][zip] CRAN package, which was archived on Janurary 1,
-#' 2020.
-#'
-#' [coven]: http://federalgovernmentzipcodes.us/
-#' [zip]: https://CRAN.R-project.org/package=zipcode
+#' site](http://federalgovernmentzipcodes.us/) (updated on January 22, 2012).
+#' The data was originally contained in the
+#' [`zipcodes`](https://CRAN.R-project.org/package=zipcode) CRAN package, which
+#' was archived on Janurary 1, 2020.
 #'
 #' @format A tibble with 52 rows and 9 variables:
 #' \describe{
