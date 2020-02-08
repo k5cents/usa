@@ -14,6 +14,7 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+options(tibble.print_min = 6)
 ```
 
 # usa <a href='https:/kiernann.com/usa'><img src='man/figures/logo.png' align="right" height="139" /></a>
@@ -25,11 +26,11 @@ knitr::opts_chunk$set(
 [![Codecov test coverage][cov_badge]][cov_link]
 <!-- badges: end -->
 
-The goal of 'usa' is to provide updated versions of the 'state' data sets
+The goal of 'usa' is to provide updated versions of the 'dataset' objects
 included with R. When attached, this package **overwrites** these original
-vectors. The new vectors contain information on all fifty states, the District
-of Columbia, and Puerto Rico. As of this version, information on the other
-territories are provided in separate objects.
+vectors with information on all fifty states, the District of Columbia, and
+Puerto Rico. As of now, information on the other territories are provided in
+separate objects.
 
 ## Installation
 
@@ -42,8 +43,8 @@ remotes::install_github("kiernann/usa")
 
 ## Base Data
 
-R ships with eight outdated objects in the 'datasets' package, 7 vectors and a
-matrix of statistics.
+R ships with eight outdated objects in the 'datasets' package: 7 vectors and a
+matrix of statistics from the 1970's.
 
 ```{r enframe_vectors, echo=FALSE}
 base.vectors <- data.frame(
@@ -57,14 +58,17 @@ base.vectors <- data.frame(
 )
 ```
 
-```{r old}
+```{r vectors}
 head(base.vectors)
+```
+
+```{r state.x77}
 head(state.x77)
 ```
 
 ## New Data
 
-This package contains new versions of these objects.
+This package contains new, expanded versions of these vectors.
 
 ```{r join_states, message=FALSE}
 setdiff(usa::state.abb, datasets::state.abb)
@@ -72,31 +76,29 @@ unique(usa::state.region)
 show(usa::territory.abb)
 ```
 
-The package also contains two [tibbles][tib] identifying the states and
-and providing various updated facts and figures.
+The package contains [tibbles][tib] identifying the states and providing updated
+facts and figures.
 
-```{r tibbles}
+```{r states}
 usa::states
-usa::facts
 ```
 
-An additional tibble and vectors for just the territories.
+```{r facts}
+usa::facts
+```
 
 ```{r territory}
 usa::territory
 ```
 
-ZIP codes and counties are also included. ZIP codes are from the archived
-[zipcodes][zip] package.
+ZIP codes from the archived ['zipcodes'][zip] package are also included
 
-```{r zips}
+```{r zipcodes}
 usa::zipcodes
-usa::counties
 ```
 
-The `people` tibble contains 20,000 synthetic survey respondents created by the 
-[Pew Research Center][pew]. Statistically accurate first and last names have
-been added to improve authenticity.
+These synthetic survey respondents from [Pew][pew] provide a statistically
+accurate sample of the American people.
 
 ```{r people}
 dplyr::select(usa::people, 1:8)
