@@ -12,10 +12,10 @@ status](https://www.r-pkg.org/badges/version/usa)](https://CRAN.R-project.org/pa
 [![Travis build
 status](https://travis-ci.org/kiernann/usa.svg?branch=master)](https://travis-ci.org/kiernann/usa)
 [![Codecov test
-coverage](https://codecov.io/gh/kiernann/usa/branch/master/graph/badge.svg)](https://codecov.io/gh/kiernann/usa?branch=master)
+coverage](https://img.shields.io/codecov/c/github/kiernann/usa/master.svg)](https://codecov.io/gh/kiernann/usa?branch=master)
 <!-- badges: end -->
 
-The goal of ‘usa’ is to provide updated versions of the ‘dataset’
+The goal of ‘usa’ is to provide updated versions of the ‘datasets’
 objects included with R. When attached, this package **overwrites**
 these original vectors with information on all fifty states, the
 District of Columbia, and Puerto Rico. As of now, information on the
@@ -118,8 +118,8 @@ usa::territory
 ```
 
 ZIP codes from the archived
-[‘zipcodes’](https://cran.r-project.org/package=zipcodes) package
-are also included
+[‘zipcode’](https://cran.r-project.org/package=zipcode) package are
+also included
 
 ``` r
 usa::zipcodes

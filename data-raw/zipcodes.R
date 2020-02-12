@@ -3,7 +3,7 @@
 library(tidyverse)
 library(fs)
 
-# download and read archives {zipcodes} package data
+# download and read archives {zipcode} package data
 zip_url <- "https://cran.r-project.org/src/contrib/Archive/zipcode/zipcode_1.0.tar.gz"
 zip_file <- file_temp(ext = ".tar.gz")
 download.file(zip_url, zip_file)

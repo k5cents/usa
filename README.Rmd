@@ -91,7 +91,7 @@ usa::facts
 usa::territory
 ```
 
-ZIP codes from the archived ['zipcodes'][zip] package are also included
+ZIP codes from the archived ['zipcode'][zip] package are also included
 
 ```{r zipcodes}
 usa::zipcodes
@@ -117,11 +117,11 @@ contributing to this project, you agree to abide by its terms.
 [cran_link]: https://CRAN.R-project.org/package=usa
 [trav_badge]: https://travis-ci.org/kiernann/usa.svg?branch=master
 [trav_link]: https://travis-ci.org/kiernann/usa
-[cov_badge]: https://codecov.io/gh/kiernann/usa/branch/master/graph/badge.svg
+[cov_badge]: https://img.shields.io/codecov/c/github/kiernann/usa/master.svg
 [cov_link]: https://codecov.io/gh/kiernann/usa?branch=master
 [tib]: https://tibble.tidyverse.org/
 [gh]: https://github.com/kiernann/usa
-[zip]: https://cran.r-project.org/package=zipcodes
+[zip]: https://cran.r-project.org/package=zipcode
 [pew]: http://pewrsr.ch/2rNawC7
 [coc]: https://kiernann.com/usa/CODE_OF_CONDUCT.html
 <!-- refs: end -->
