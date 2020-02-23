@@ -34,7 +34,13 @@ separate objects.
 
 ## Installation
 
-You can install the development version of 'usa' from [GitHub][gh] with:
+You can install the release version of 'usa' from [CRAN][cran] with:
+
+```{r cran, eval=FALSE}
+install.packages("usa")
+```
+
+Or the development version from [GitHub][gh] with:
 
 ```{r remote, eval=FALSE}
 # install.packages("remotes")
@@ -120,6 +126,7 @@ contributing to this project, you agree to abide by its terms.
 [cov_badge]: https://img.shields.io/codecov/c/github/kiernann/usa/master.svg
 [cov_link]: https://codecov.io/gh/kiernann/usa?branch=master
 [tib]: https://tibble.tidyverse.org/
+[cran]: https://cran.r-project.org/package=usa
 [gh]: https://github.com/kiernann/usa
 [zip]: https://cran.r-project.org/package=zipcode
 [pew]: http://pewrsr.ch/2rNawC7

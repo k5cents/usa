@@ -23,7 +23,14 @@ other territories are provided in separate objects.
 
 ## Installation
 
-You can install the development version of ‘usa’ from
+You can install the release version of ‘usa’ from
+[CRAN](https://cran.r-project.org/package=usa) with:
+
+``` r
+install.packages("usa")
+```
+
+Or the development version from
 [GitHub](https://github.com/kiernann/usa) with:
 
 ``` r
