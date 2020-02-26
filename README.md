@@ -13,6 +13,7 @@ status](https://www.r-pkg.org/badges/version/usa)](https://CRAN.R-project.org/pa
 status](https://travis-ci.org/kiernann/usa.svg?branch=master)](https://travis-ci.org/kiernann/usa)
 [![Codecov test
 coverage](https://img.shields.io/codecov/c/github/kiernann/usa/master.svg)](https://codecov.io/gh/kiernann/usa?branch=master)
+![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/usa)
 <!-- badges: end -->
 
 The goal of ‘usa’ is to provide updated versions of the ‘datasets’
@@ -139,7 +140,7 @@ usa::zipcodes
 #> 4 00213 Portsmouth NH     43.0 -71.0
 #> 5 00214 Portsmouth NH     43.0 -71.0
 #> 6 00215 Portsmouth NH     43.0 -71.0
-#> # … with 4.433e+04 more rows
+#> # … with 44,330 more rows
 ```
 
 These synthetic survey respondents from [Pew](http://pewrsr.ch/2rNawC7)
@@ -156,7 +157,7 @@ dplyr::select(usa::people, 1:8)
 #> 4     4 David   Mcneely  M         59 White    HS Grad      Mountain          
 #> 5     5 Emily   Tsang    F         19 Asian    Some college Pacific           
 #> 6     6 Rodney  Matheson M         67 White    HS Grad      West North Central
-#> # … with 1.999e+04 more rows
+#> # … with 19,994 more rows
 ```
 
 -----

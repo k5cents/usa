@@ -24,6 +24,7 @@ options(tibble.print_min = 6)
 [![CRAN status][cran_badge]][cran_link]
 [![Travis build status][trav_badge]][trav_link]
 [![Codecov test coverage][cov_badge]][cov_link]
+![Downloads][dl_badge]
 <!-- badges: end -->
 
 The goal of 'usa' is to provide updated versions of the 'datasets' objects
@@ -125,6 +126,7 @@ contributing to this project, you agree to abide by its terms.
 [trav_link]: https://travis-ci.org/kiernann/usa
 [cov_badge]: https://img.shields.io/codecov/c/github/kiernann/usa/master.svg
 [cov_link]: https://codecov.io/gh/kiernann/usa?branch=master
+[dl_badge]: https://cranlogs.r-pkg.org/badges/grand-total/usa
 [tib]: https://tibble.tidyverse.org/
 [cran]: https://cran.r-project.org/package=usa
 [gh]: https://github.com/kiernann/usa
