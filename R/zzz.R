@@ -13,5 +13,5 @@
     masked,
     "\nObjects are similar in class and content but updated and expanded."
   )
-  packageStartupMessage(msg)
+  setHook(packageEvent("usa", "onLoad"), message(msg))
 }
