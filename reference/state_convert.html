@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>US State Facts — facts • usa</title>
+<title>Convert state identifiers — state_convert • usa</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,10 +46,8 @@
 
 
 
-<meta property="og:title" content="US State Facts — facts" />
-<meta property="og:description" content="Updated version of the datasets::state.x77 matrix, which provides eights
-statistics from the 1970's. This version is a modern data frame format
-with updated (and alternative) statistics." />
+<meta property="og:title" content="Convert state identifiers — state_convert" />
+<meta property="og:description" content="Take a vector of state identifiers and convert to a common format." />
 <meta property="og:image" content="https://kiernann.com/usa/logo.png" />
 
 
@@ -121,50 +119,36 @@ with updated (and alternative) statistics." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>US State Facts</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kiernann/usa/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>facts.Rd</code></div>
+    <h1>Convert state identifiers</h1>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/usa/blob/master/R/state-convert.R'><code>R/state-convert.R</code></a></small>
+    <div class="hidden name"><code>state_convert.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Updated version of the <a href='https://rdrr.io/r/datasets/state.html'>datasets::state.x77</a> matrix, which provides eights
-statistics from the 1970's. This version is a modern data frame format
-with updated (and alternative) statistics.</p>
+    <p>Take a vector of state identifiers and convert to a common format.</p>
     </div>
 
-    <pre class="usage"><span class='no'>facts</span></pre>
+    <pre class="usage"><span class='fu'>state_convert</span>(<span class='no'>x</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>A character vector of: state names, abbreviations, or FIPS codes.</p></td>
+    </tr>
+    <tr>
+      <th>to</th>
+      <td><p>The format returned: "abb", "name" or "fips".</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A tibble with 52 rows and 9 variables:</p><dl'>
-<dt>name</dt><dd><p>Full state name</p></dd>
-<dt>population</dt><dd><p>Population estimate (September 26, 2019)</p></dd>
-<dt>admission</dt><dd><p>The data which the state was admitted to the union</p></dd>
-<dt>income</dt><dd><p>Per capita income (2018)</p></dd>
-<dt>life_exp</dt><dd><p>Life expectancy in years (2017-18)</p></dd>
-<dt>murder</dt><dd><p>Murder rate per 100,000 population (2018)</p></dd>
-<dt>high</dt><dd><p>Percent adult population with at least a high school degree (2019)</p></dd>
-<dt>bach</dt><dd><p>Percent adult population with at least a bachelor's degree or greater (2019)</p></dd>
-<dt>heat</dt><dd><p>Mean number of degree days (temperature requires heating) per year from 1981-2010</p></dd>
+    <p>A character vector of single format state identifiers.</p>
 
-</dl>
-
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
-
-    
-<ul>
-<li><p>Population: <a href='https://www2.census.gov/programs-surveys/popest/datasets/2010-2018/state/detail/SCPRC-EST2018-18+POP-RES.csv'>https://www2.census.gov/programs-surveys/popest/datasets/2010-2018/state/detail/SCPRC-EST2018-18+POP-RES.csv</a></p></li>
-<li><p>Income: <a href='https://data.census.gov/cedsci/table?tid=ACSST1Y2018.S1903'>https://data.census.gov/cedsci/table?tid=ACSST1Y2018.S1903</a></p></li>
-<li><p>GDP: <a href='https://www.bea.gov/system/files/2019-11/qgdpstate1119.xlsx'>https://www.bea.gov/system/files/2019-11/qgdpstate1119.xlsx</a></p></li>
-<li><p>Literacy: <a href='https://nces.ed.gov/naal/estimates/StateEstimates.aspx'>https://nces.ed.gov/naal/estimates/StateEstimates.aspx</a></p></li>
-<li><p>Life Expectancy: <a href='https://www.cia.gov/library/publications/the-world-factbook/geos/aq.html'>https://www.cia.gov/library/publications/the-world-factbook/geos/aq.html</a></p></li>
-<li><p>Murder: <a href='https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018/tables/table-4/table-4.xls/output.xls'>https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018/tables/table-4/table-4.xls/output.xls</a></p></li>
-<li><p>Education: <a href='https://data.census.gov/cedsci/table?q=S1501'>https://data.census.gov/cedsci/table?q=S1501</a></p></li>
-<li><p>Temperature: <a href='ftp://ftp.ncdc.noaa.gov/pub/data/normals/1981-2010/products/temperature/ann-cldd-normal.txt'>ftp://ftp.ncdc.noaa.gov/pub/data/normals/1981-2010/products/temperature/ann-cldd-normal.txt</a></p></li>
-</ul>
-
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>state_convert</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"AL"</span>, <span class='st'>"Vermont"</span>, <span class='st'>"06"</span>))</div><div class='output co'>#&gt; [1] "AL" "VT" "CA"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
