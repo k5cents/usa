@@ -4,7 +4,9 @@
 \name{state.abb}
 \alias{state.abb}
 \title{US State Abbreviations}
-\format{A character vector of length 52.}
+\format{
+A character vector of length 52.
+}
 \source{
 \url{https://www2.census.gov/geo/docs/reference/state.txt}
 }

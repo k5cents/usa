@@ -4,7 +4,8 @@
 \name{people}
 \alias{people}
 \title{Synthetic Sample of US population}
-\format{A tibble with 20,000 rows and 40 variables:
+\format{
+A tibble with 20,000 rows and 40 variables:
 \describe{
 \item{id}{Sequential unique ID}
 \item{fname}{Random first name, see details}
@@ -46,7 +47,8 @@
 \item{ideology}{Political ideology}
 \item{govt}{Follows government and public affairs}
 \item{guns}{Owns a gun}
-}}
+}
+}
 \source{
 “For Weighting Online Opt-In Samples, What Matters Most?” Pew
 Research Center, Washington, D.C. (January 26, 2018)

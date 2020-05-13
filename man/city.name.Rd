@@ -4,7 +4,9 @@
 \name{city.name}
 \alias{city.name}
 \title{US ZIP Cities}
-\format{A character vector of length 19108.}
+\format{
+A character vector of length 19108.
+}
 \source{
 Daniel Coven's \href{http://federalgovernmentzipcodes.us/}{web site} and
 the CivicSpace US ZIP Code Database written by Schuyler Erle

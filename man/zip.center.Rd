@@ -4,11 +4,13 @@
 \name{zip.center}
 \alias{zip.center}
 \title{US ZIP Centers}
-\format{A list of length two, each element a numeric vector of length 44336.
+\format{
+A list of length two, each element a numeric vector of length 44336.
 \describe{
 \item{x}{Center longitudinal coordinate}
 \item{y}{Center latitudinal coordinate}
-}}
+}
+}
 \source{
 Daniel Coven's \href{http://federalgovernmentzipcodes.us/}{web site} and
 the CivicSpace US ZIP Code Database written by Schuyler Erle

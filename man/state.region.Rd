@@ -4,7 +4,9 @@
 \name{state.region}
 \alias{state.region}
 \title{US State Regions}
-\format{A factor vector of length 52.}
+\format{
+A factor vector of length 52.
+}
 \source{
 \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx}
 }

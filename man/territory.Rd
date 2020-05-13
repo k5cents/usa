@@ -4,7 +4,8 @@
 \name{territory}
 \alias{territory}
 \title{US Territories}
-\format{A tibble with 7 rows and 6 variables:
+\format{
+A tibble with 7 rows and 6 variables:
 \describe{
 \item{abb}{2-letter abbreviation}
 \item{name}{Full legal name}
@@ -12,7 +13,8 @@
 \item{area}{Area in square miles}
 \item{lat}{Center latitudinal coordinate}
 \item{long}{Center longitudinal coordinate}
-}}
+}
+}
 \usage{
 territory
 }

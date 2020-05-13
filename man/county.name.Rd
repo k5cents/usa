@@ -4,7 +4,9 @@
 \name{county.name}
 \alias{county.name}
 \title{US County Names}
-\format{A character vector of length 19108.}
+\format{
+A character vector of length 19108.
+}
 \source{
 \url{https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/home/?cid=nrcs143_013697}
 }

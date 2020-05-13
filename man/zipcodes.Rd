@@ -4,14 +4,16 @@
 \name{zipcodes}
 \alias{zipcodes}
 \title{US ZIP Code Locations}
-\format{A tibble with 52 rows and 9 variables:
+\format{
+A tibble with 52 rows and 9 variables:
 \describe{
 \item{zip}{5 digit ZIP code or military postal code (FPO/APO)}
 \item{city}{USPS official city name}
 \item{state}{USPS official state, territory abbreviation code}
 \item{latitude}{Decimal Latitude}
 \item{longitude}{Decimal Longitude}
-}}
+}
+}
 \source{
 Daniel Coven's \href{http://federalgovernmentzipcodes.us/}{web site} and
 the CivicSpace US ZIP Code Database written by Schuyler Erle

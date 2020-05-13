@@ -4,7 +4,8 @@
 \name{facts}
 \alias{facts}
 \title{US State Facts}
-\format{A tibble with 52 rows and 9 variables:
+\format{
+A tibble with 52 rows and 9 variables:
 \describe{
 \item{name}{Full state name}
 \item{population}{Population estimate (September 26, 2019)}
@@ -15,7 +16,8 @@
 \item{high}{Percent adult population with at least a high school degree (2019)}
 \item{bach}{Percent adult population with at least a bachelor's degree or greater (2019)}
 \item{heat}{Mean number of degree days (temperature requires heating) per year from 1981-2010}
-}}
+}
+}
 \source{
 \itemize{
 \item Population: \url{https://www2.census.gov/programs-surveys/popest/datasets/2010-2018/state/detail/SCPRC-EST2018-18+POP-RES.csv}

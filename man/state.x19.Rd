@@ -4,7 +4,8 @@
 \name{state.x19}
 \alias{state.x19}
 \title{US State and Territory Statistics}
-\format{A tibble with 52 rows and 9 variables:
+\format{
+A tibble with 52 rows and 9 variables:
 \describe{
 \item{abb}{2-letter abbreviation}
 \item{population}{Population estimate as of September 26, 2019}
@@ -14,7 +15,8 @@
 \item{high}{Percent of population with at least a high school degree (2019)}
 \item{bach}{Percent of population with at least a bachelor's degree (2019)}
 \item{heat}{Mean number of "degree days" per year from 1981-2010}
-}}
+}
+}
 \usage{
 state.x19
 }

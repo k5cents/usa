@@ -4,12 +4,14 @@
 \name{counties}
 \alias{counties}
 \title{US Counties}
-\format{A tibble with 3,232 rows and 3 variables:
+\format{
+A tibble with 3,232 rows and 3 variables:
 \describe{
 \item{fips}{Federal Information Processing Standard Publication 5-2 code}
 \item{name}{Census county names}
 \item{state}{USPS official state, territory abbreviation code}
-}}
+}
+}
 \source{
 \url{https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/home/?cid=nrcs143_013697}
 }

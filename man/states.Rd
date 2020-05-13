@@ -4,7 +4,8 @@
 \name{states}
 \alias{states}
 \title{US State and Territories}
-\format{A tibble with 52 rows and 8 variables:
+\format{
+A tibble with 52 rows and 8 variables:
 \describe{
 \item{abb}{2-letter abbreviation}
 \item{name}{Full legal name}
@@ -14,7 +15,8 @@
 \item{area}{Area in square miles}
 \item{lat}{Center latitudinal coordinate}
 \item{long}{Center longitudinal coordinate}
-}}
+}
+}
 \usage{
 states
 }

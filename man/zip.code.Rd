@@ -4,7 +4,9 @@
 \name{zip.code}
 \alias{zip.code}
 \title{US ZIP Codes}
-\format{A character vector of length 44336.}
+\format{
+A character vector of length 44336.
+}
 \source{
 Daniel Coven's \href{http://federalgovernmentzipcodes.us/}{web site} and
 the CivicSpace US ZIP Code Database written by Schuyler Erle

@@ -4,7 +4,9 @@
 \name{territory.area}
 \alias{territory.area}
 \title{US State Areas}
-\format{A numeric vector of length 52.}
+\format{
+A numeric vector of length 52.
+}
 \source{
 \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
 }

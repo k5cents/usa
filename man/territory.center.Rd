@@ -4,11 +4,13 @@
 \name{territory.center}
 \alias{territory.center}
 \title{US Territory Centers}
-\format{A list of length two, each element a numeric vector of length 5.
+\format{
+A list of length two, each element a numeric vector of length 5.
 \describe{
 \item{x}{Center longitudinal coordinate}
 \item{y}{Center latitudinal coordinate}
-}}
+}
+}
 \source{
 \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
 }
