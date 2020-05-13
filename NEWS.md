@@ -1,5 +1,7 @@
 # usa (development version)
 
+* Add `state_convert()` helper function.
+
 # usa 0.1.0
 
 * Rename `info` data to `facts`.
