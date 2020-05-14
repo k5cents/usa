@@ -3,13 +3,16 @@ library(usa)
 
 x <- c("ID", "new mexico", 2)
 test_that("conversion to abbreviation", {
-  expect_equal(state_convert(x, "abb"), c("ID", "NM", "AK"))
+  y <- usa::state_convert(x, "abb")
+  expect_equal(y, c("ID", "NM", "AK"))
 })
 
 test_that("conversion to abbreviation", {
-  expect_equal(state_convert(x, "fips"), c("16", "35", "02"))
+  y <- usa::state_convert(x, "fips")
+  expect_equal(y, c("16", "35", "02"))
 })
 
 test_that("conversion to full name", {
-  expect_equal(state_convert(x, "names"), c("Idaho", "New Mexico", "Alaska"))
+  y <- usa::state_convert(x, "names")
+  expect_equal(y, c("Idaho", "New Mexico", "Alaska"))
 })
