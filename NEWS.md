@@ -1,6 +1,7 @@
 # usa (development version)
 
 * Add `state_convert()` helper function.
+* Add Electoral College votes to `facts`.
 
 # usa 0.1.0
 

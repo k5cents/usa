@@ -240,9 +240,22 @@ admission <-
   ) %>%
   arrange(admission)
 
+
+# electoral college -------------------------------------------------------
+
+url <- "https://www.archives.gov/electoral-college/allocation"
+ec <- read_html(url) %>%
+  html_node("table") %>%
+  html_table() %>%
+  as_vector() %>%
+  enframe(name = NULL) %>%
+  separate(value, c("name", "votes"), "\\s-\\s") %>%
+  mutate(across(votes, parse_number))
+
 # join --------------------------------------------------------------------
 
 facts <- populations %>%
+  left_join(ec) %>%
   left_join(admission) %>%
   left_join(income, by = "abb") %>%
   left_join(life, by = "abb") %>%

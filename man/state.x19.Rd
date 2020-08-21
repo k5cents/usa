@@ -9,6 +9,7 @@ A tibble with 52 rows and 9 variables:
 \describe{
 \item{abb}{2-letter abbreviation}
 \item{population}{Population estimate as of September 26, 2019}
+\item{votes}{Votes in the Electoral College (following the 2010 Census)}
 \item{income}{Per capita income (2017)}
 \item{life_exp}{Life expectancy in years (2017-18)}
 \item{murder}{Murder rate per 100,000 population (2018)}
@@ -22,6 +23,6 @@ state.x19
 }
 \description{
 A matrix version of the \link{facts} tibble, used to more closely align with the
-\link[datasets:state.x77]{datasets::state.x77} matrix included with R.
+\link[datasets:state]{datasets::state.x77} matrix included with R.
 }
 \keyword{datasets}

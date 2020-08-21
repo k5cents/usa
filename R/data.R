@@ -150,6 +150,7 @@ NULL
 #' \describe{
 #'   \item{name}{Full state name}
 #'   \item{population}{Population estimate (September 26, 2019)}
+#'   \item{votes}{Votes in the Electoral College (following the 2010 Census)}
 #'   \item{admission}{The data which the state was admitted to the union}
 #'   \item{income}{Per capita income (2018)}
 #'   \item{life_exp}{Life expectancy in years (2017-18)}
@@ -160,6 +161,7 @@ NULL
 #' }
 #' @source
 #' * Population: \url{https://www2.census.gov/programs-surveys/popest/datasets/2010-2018/state/detail/SCPRC-EST2018-18+POP-RES.csv}
+#' * Electoral College: \url{https://www.archives.gov/electoral-college/allocation}
 #' * Income: \url{https://data.census.gov/cedsci/table?tid=ACSST1Y2018.S1903}
 #' * GDP: \url{https://www.bea.gov/system/files/2019-11/qgdpstate1119.xlsx}
 #' * Literacy: \url{https://nces.ed.gov/naal/estimates/StateEstimates.aspx}
@@ -178,6 +180,7 @@ NULL
 #' \describe{
 #'   \item{abb}{2-letter abbreviation}
 #'   \item{population}{Population estimate as of September 26, 2019}
+#'   \item{votes}{Votes in the Electoral College (following the 2010 Census)}
 #'   \item{income}{Per capita income (2017)}
 #'   \item{life_exp}{Life expectancy in years (2017-18)}
 #'   \item{murder}{Murder rate per 100,000 population (2018)}
