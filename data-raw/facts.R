@@ -154,11 +154,11 @@ edu <-
     # High school graduate or higher
     high = ((S1501_C01_001E - S1501_C01_002E) + S1501_C01_014E)/pop,
     # Bachelor's degree or higher
-    bach = (S1501_C01_005E + S1501_C01_015E)/pop
+    college = (S1501_C01_005E + S1501_C01_015E)/pop
   ) %>%
   inner_join(abb_name, by = "name") %>%
   mutate_if(is.numeric, round, 4) %>%
-  select(abb, high, bach)
+  select(abb, college)
 
 # temperature -------------------------------------------------------------
 
@@ -196,18 +196,25 @@ in_dc <- point.in.polygon(
 allstations$state[which(as.logical(in_dc))] <- "DC"
 
 # annual cooling degree days
-degree_days <-
-  read_fwf(
-    file = "ftp://ftp.ncdc.noaa.gov/pub/data/normals/1981-2010/products/temperature/ann-cldd-normal.txt",
-    col_positions = fwf_cols(
-      id = c(1, 11),
-      days = c(19, 23),
-      flag = c(24)
-    )
-  ) %>%
+degree_days <- read_fwf(
+  file = "ftp://ftp.ncdc.noaa.gov/pub/data/normals/1981-2010/products/temperature/ann-cldd-normal.txt",
+  col_positions = fwf_cols(
+    id = c(1, 11),
+    days = c(19, 23),
+    flag = c(24)
+  )
+)
+
+# invalid negative days
+sum(degree_days$days < 0)
+sum(degree_days$days == -7777L)
+degree_days$days[degree_days$days < 0] <- NA
+
+
+temp <- degree_days %>%
   left_join(allstations, by = "id") %>%
   group_by(abb = state) %>%
-  summarise(heat = round(mean(days)/(2010 - 1981), 2)) %>%
+  summarise(heat = round(mean(days, na.rm = TRUE)/(2010 - 1981), 2)) %>%
   arrange(desc(heat))
 
 # admission ---------------------------------------------------------------
