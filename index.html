@@ -22,7 +22,7 @@
     Figures&quot; objects from the datasets' package included with R. The new
     data is compiled from a number of sources, primarily from United
     States Census Bureau or the relevant federal agency.">
-<meta property="og:image" content="https://kiernann.com/usa/logo.png">
+<meta property="og:image" content="/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">usa</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -79,9 +79,9 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="usa" class="section level1">
+<div id="usa-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#usa" class="anchor"></a>usa <a href="https:/kiernann.com/usa"><img src="reference/figures/logo.png" align="right" height="139"></a>
+<a href="#usa-" class="anchor"></a>usa <a href="https:/kiernann.com/usa"><img src="reference/figures/logo.png" align="right" height="139"></a>
 </h1></div>
 <!-- badges: start -->
 
@@ -90,45 +90,51 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install the release version of ‘usa’ from <a href="https://cran.r-project.org/package=usa">CRAN</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"usa"</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"usa"</span><span class="op">)</span></code></pre></div>
 <p>Or the development version from <a href="https://github.com/kiernann/usa">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="co"># install.packages("remotes")</span>
-<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"kiernann/usa"</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"kiernann/usa"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="base-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#base-data" class="anchor"></a>Base Data</h2>
 <p>R ships with eight outdated objects in the ‘datasets’ package: 7 vectors and a matrix of statistics from the 1970’s.</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">base.vectors</span>)
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">base.vectors</span><span class="op">)</span>
 <span class="co">#&gt;         name abb region           division   area  center.x center.y</span>
 <span class="co">#&gt; 1    Alabama  AL  South East South Central  51609  -86.7509  32.5901</span>
 <span class="co">#&gt; 2     Alaska  AK   West            Pacific 589757 -127.2500  49.2500</span>
 <span class="co">#&gt; 3    Arizona  AZ   West           Mountain 113909 -111.6250  34.2192</span>
 <span class="co">#&gt; 4   Arkansas  AR  South West South Central  53104  -92.2992  34.7336</span>
 <span class="co">#&gt; 5 California  CA   West            Pacific 158693 -119.7730  36.5341</span>
-<span class="co">#&gt; 6   Colorado  CO   West           Mountain 104247 -105.5130  38.6777</span></pre></div>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">state.x77</span>)
+<span class="co">#&gt; 6   Colorado  CO   West           Mountain 104247 -105.5130  38.6777</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">state.x77</span><span class="op">)</span>
 <span class="co">#&gt;            Population Income Illiteracy Life Exp Murder HS Grad Frost   Area</span>
 <span class="co">#&gt; Alabama          3615   3624        2.1    69.05   15.1    41.3    20  50708</span>
 <span class="co">#&gt; Alaska            365   6315        1.5    69.31   11.3    66.7   152 566432</span>
 <span class="co">#&gt; Arizona          2212   4530        1.8    70.55    7.8    58.1    15 113417</span>
 <span class="co">#&gt; Arkansas         2110   3378        1.9    70.66   10.1    39.9    65  51945</span>
 <span class="co">#&gt; California      21198   5114        1.1    71.71   10.3    62.6    20 156361</span>
-<span class="co">#&gt; Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766</span></pre></div>
+<span class="co">#&gt; Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766</span></code></pre></div>
 </div>
 <div id="new-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-data" class="anchor"></a>New Data</h2>
 <p>This package contains new, expanded versions of these vectors.</p>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/sets.html">setdiff</a></span>(<span class="kw pkg">usa</span><span class="kw ns">::</span><span class="no"><a href="reference/state.abb.html">state.abb</a></span>, <span class="kw pkg">datasets</span><span class="kw ns">::</span><span class="no"><a href="https://rdrr.io/r/datasets/state.html">state.abb</a></span>)
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sets.html">setdiff</a></span><span class="op">(</span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/state.abb.html">state.abb</a></span>, <span class="fu">datasets</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/datasets/state.html">state.abb</a></span><span class="op">)</span>
 <span class="co">#&gt; [1] "DC" "PR"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span>(<span class="kw pkg">usa</span><span class="kw ns">::</span><span class="no"><a href="reference/state.region.html">state.region</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/state.region.html">state.region</a></span><span class="op">)</span>
 <span class="co">#&gt; [1] South     West      Northeast Midwest   &lt;NA&gt;     </span>
 <span class="co">#&gt; Levels: Northeast Midwest South West</span>
-<span class="fu">show</span>(<span class="kw pkg">usa</span><span class="kw ns">::</span><span class="no"><a href="reference/territory.abb.html">territory.abb</a></span>)
-<span class="co">#&gt; [1] "AS" "GU" "MP" "UM" "VI"</span></pre></div>
+<span class="fu">show</span><span class="op">(</span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/territory.abb.html">territory.abb</a></span><span class="op">)</span>
+<span class="co">#&gt; [1] "AS" "GU" "MP" "UM" "VI"</span></code></pre></div>
 <p>The package contains <a href="https://tibble.tidyverse.org/">tibbles</a> identifying the states and providing updated facts and figures.</p>
-<div class="sourceCode" id="cb6"><pre class="r"><span class="kw pkg">usa</span><span class="kw ns">::</span><span class="no"><a href="reference/states.html">states</a></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/states.html">states</a></span>
 <span class="co">#&gt; # A tibble: 52 x 8</span>
 <span class="co">#&gt;   name       abb   fips  region division              area   lat   long</span>
 <span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;                &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span>
@@ -138,8 +144,9 @@
 <span class="co">#&gt; 4 Arkansas   AR    05    South  West South Central  52038.  34.9  -92.4</span>
 <span class="co">#&gt; 5 California CA    06    West   Pacific            155854.  37.2 -120. </span>
 <span class="co">#&gt; 6 Colorado   CO    08    West   Mountain           103638.  39.0 -106. </span>
-<span class="co">#&gt; # … with 46 more rows</span></pre></div>
-<div class="sourceCode" id="cb7"><pre class="r"><span class="kw pkg">usa</span><span class="kw ns">::</span><span class="no"><a href="reference/facts.html">facts</a></span>
+<span class="co">#&gt; # … with 46 more rows</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/facts.html">facts</a></span>
 <span class="co">#&gt; # A tibble: 52 x 9</span>
 <span class="co">#&gt;   name       population admission  income life_exp murder  high  bach   heat</span>
 <span class="co">#&gt;   &lt;chr&gt;           &lt;dbl&gt; &lt;date&gt;      &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span>
@@ -149,8 +156,9 @@
 <span class="co">#&gt; 4 Arkansas      3013825 1836-06-15  47062     75.9    7.2 0.873 0.214  62.4 </span>
 <span class="co">#&gt; 5 California   39557045 1850-09-09  75277     81.5    4.4 0.845 0.314  38.1 </span>
 <span class="co">#&gt; 6 Colorado      5695564 1876-08-01  71953     80.3    3.7 0.913 0.384   6.24</span>
-<span class="co">#&gt; # … with 46 more rows</span></pre></div>
-<div class="sourceCode" id="cb8"><pre class="r"><span class="kw pkg">usa</span><span class="kw ns">::</span><span class="no"><a href="reference/territory.html">territory</a></span>
+<span class="co">#&gt; # … with 46 more rows</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/territory.html">territory</a></span>
 <span class="co">#&gt; # A tibble: 7 x 6</span>
 <span class="co">#&gt;   name                        abb   fips    area   lat   long</span>
 <span class="co">#&gt;   &lt;chr&gt;                       &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span>
@@ -160,9 +168,10 @@
 <span class="co">#&gt; 4 Northern Mariana Islands    MP    69     182.   16.8  146. </span>
 <span class="co">#&gt; 5 Puerto Rico                 PR    72    3424.   18.2  -66.4</span>
 <span class="co">#&gt; 6 U.S. Minor Outlying Islands UM    74      NA    NA     NA  </span>
-<span class="co">#&gt; 7 U.S. Virgin Islands         VI    78     134.   18.1  -64.8</span></pre></div>
+<span class="co">#&gt; 7 U.S. Virgin Islands         VI    78     134.   18.1  -64.8</span></code></pre></div>
 <p>ZIP codes from the archived <a href="https://cran.r-project.org/package=zipcode">‘zipcode’</a> package are also included</p>
-<div class="sourceCode" id="cb9"><pre class="r"><span class="kw pkg">usa</span><span class="kw ns">::</span><span class="no"><a href="reference/zipcodes.html">zipcodes</a></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/zipcodes.html">zipcodes</a></span>
 <span class="co">#&gt; # A tibble: 44,336 x 5</span>
 <span class="co">#&gt;   zip   city       state   lat  long</span>
 <span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
@@ -172,9 +181,10 @@
 <span class="co">#&gt; 4 00213 Portsmouth NH     43.0 -71.0</span>
 <span class="co">#&gt; 5 00214 Portsmouth NH     43.0 -71.0</span>
 <span class="co">#&gt; 6 00215 Portsmouth NH     43.0 -71.0</span>
-<span class="co">#&gt; # … with 44,330 more rows</span></pre></div>
+<span class="co">#&gt; # … with 44,330 more rows</span></code></pre></div>
 <p>These synthetic survey respondents from <a href="http://pewrsr.ch/2rNawC7">Pew</a> provide a statistically accurate sample of the American people.</p>
-<div class="sourceCode" id="cb10"><pre class="r"><span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu">select</span>(<span class="kw pkg">usa</span><span class="kw ns">::</span><span class="no"><a href="reference/people.html">people</a></span>, <span class="fl">1</span>:<span class="fl">8</span>)
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu">select</span><span class="op">(</span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/people.html">people</a></span>, <span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 20,000 x 8</span>
 <span class="co">#&gt;      id fname   lname    gender   age race     edu          div               </span>
 <span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;fct&gt;  &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;        &lt;fct&gt;             </span>
@@ -184,7 +194,7 @@
 <span class="co">#&gt; 4     4 David   Mcneely  M         59 White    HS Grad      Mountain          </span>
 <span class="co">#&gt; 5     5 Emily   Tsang    F         19 Asian    Some college Pacific           </span>
 <span class="co">#&gt; 6     6 Rodney  Matheson M         67 White    HS Grad      West North Central</span>
-<span class="co">#&gt; # … with 19,994 more rows</span></pre></div>
+<span class="co">#&gt; # … with 19,994 more rows</span></code></pre></div>
 <hr>
 <p>Please note that the ‘usa’ project is released with a <a href="https://kiernann.com/usa/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 <!-- refs: start -->
@@ -244,7 +254,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
