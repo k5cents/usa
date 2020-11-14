@@ -1,7 +1,9 @@
-# usa (development version)
+# usa 0.1.1
 
 * Add `state_convert()` helper function.
 * Add Electoral College votes to `facts`.
+* Remove the invalid negative degree days in the mean.
+* Rename the `bach` column to `college` and remove the `high` column.
 
 # usa 0.1.0
 
