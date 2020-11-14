@@ -22,9 +22,9 @@ options(tibble.print_min = 6)
 <!-- badges: start -->
 [![Lifecycle: experimental][life_badge]][life_link]
 [![CRAN status][cran_badge]][cran_link]
-[![Travis build status][trav_badge]][trav_link]
-[![Codecov test coverage][cov_badge]][cov_link]
 ![Downloads][dl_badge]
+[![Codecov test coverage][cov_badge]][cov_link]
+[![R build status][ga_badge]][ga_link]
 <!-- badges: end -->
 
 The goal of 'usa' is to provide updated versions of the 'datasets' objects
@@ -122,8 +122,8 @@ contributing to this project, you agree to abide by its terms.
 [life_link]: https://www.tidyverse.org/lifecycle/#experimental
 [cran_badge]: https://www.r-pkg.org/badges/version/usa
 [cran_link]: https://CRAN.R-project.org/package=usa
-[trav_badge]: https://travis-ci.org/kiernann/usa.svg?branch=master
-[trav_link]: https://travis-ci.org/kiernann/usa
+[ga_badge]: https://github.com/kiernann/usa/workflows/R-CMD-check/badge.svg
+[ga_link]: https://github.com/kiernann/usa/actions
 [cov_badge]: https://img.shields.io/codecov/c/github/kiernann/usa/master.svg
 [cov_link]: https://codecov.io/gh/kiernann/usa?branch=master
 [dl_badge]: https://cranlogs.r-pkg.org/badges/grand-total/usa
