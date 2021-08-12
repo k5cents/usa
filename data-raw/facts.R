@@ -45,21 +45,29 @@ st_income <- st_income %>%
 
 # gdp ---------------------------------------------------------------------
 
-# Gross Domestic Product by State: Second Quarter 2019
-gdp_url <- "https://www.bea.gov/system/files/2019-11/qgdpstate1119.xlsx"
-gdp_file <- file_temp(ext = "xlsx")
-download.file(gdp_url, gdp_file)
-gdp <- read_excel(
-  path = gdp_file,
-  sheet = "Table 3",
-  range = "A5:G65"
+# SQGDP2 Gross domestic product (GDP) by state
+gdp_get <- GET(
+  url = "https://apps.bea.gov/api/data",
+  query = list(
+    UserID = Sys.getenv("BEA_API_KEY"),
+    method = "GetData",
+    datasetname = "Regional",
+    TableName = "SQGDP2",
+    GeoFIPS = "STATE",
+    LineCode = 1,
+    Year = 2020,
+    ResultFormat = "json"
+  )
 )
 
-gdp <- gdp %>%
-  select(name = 1, gdp = 7) %>%
-  add_row(name = "Puerto Rico", gdp = 99913) %>%
-  inner_join(abb_name) %>%
-  select(abb, gdp)
+gdp_dat <- content(a, as = "parsed", simplifyDataFrame = TRUE)
+gdp_dat$BEAAPI$Results$UTCProductionTime
+st_income <- gdp_dat$BEAAPI$Results$Data %>%
+  filter(TimePeriod == "2020Q1") %>%
+  select(name = GeoName, gdp = DataValue) %>%
+  mutate(across(gdp, parse_number)) %>%
+  inner_join(abb_name, by = "name") %>%
+  as_tibble()
 
 # life expect -------------------------------------------------------------
 
