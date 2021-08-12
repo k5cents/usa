@@ -13,26 +13,19 @@ abb_name <- select(read_csv("data-raw/states.csv"), name, abb)
 
 # population --------------------------------------------------------------
 
-url <- "https://www2.census.gov/programs-surveys/popest/datasets/2010-2018/state/detail/SCPRC-EST2018-18+POP-RES.csv"
-populations <- read_csv(
-  file = url,
-  na = "X",
-  col_types = cols(
-    SUMLEV = col_character(),
-    REGION = col_character(),
-    DIVISION = col_character(),
-    STATE = col_character(),
-    NAME = col_character(),
-    POPESTIMATE2018 = col_double(),
-    POPEST18PLUS2018 = col_double(),
-    PCNT_POPEST18PLUS = col_double()
-  )
+# Table 2. Resident Population for the 50 States, the District of Columbia, and Puerto Rico
+# https://www.census.gov/data/tables/2020/dec/2020-apportionment-data.html
+pop_url <- "https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table02.xlsx"
+pop_xls <- file_temp(ext = path_ext(pop_url))
+download.file(pop_url, pop_xls)
+st_pop <- read_excel(
+  path = pop_xls,
+  range = "A4:B55"
 )
 
-populations <- populations %>%
-  rename(fips = STATE, population = POPESTIMATE2018) %>%
-  filter(fips != "00") %>%
-  inner_join(abb_fips) %>%
+st_pop <- st_pop %>%
+  rename(population = `RESIDENT POPULATION (APRIL 1, 2020)`) %>%
+  inner_join(abb_name, by = c("AREA" = "name")) %>%
   select(abb, population)
 
 # income ------------------------------------------------------------------
