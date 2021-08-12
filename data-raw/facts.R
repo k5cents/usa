@@ -30,35 +30,18 @@ st_pop <- st_pop %>%
 
 # income ------------------------------------------------------------------
 
-# https://data.census.gov/cedsci/table?tid=ACSST1Y2018.S1903
-# MEDIAN INCOME IN THE PAST 12 MONTHS (IN 2018 INFLATION-ADJUSTED DOLLARS)
-# TableID: S1903
-# Survey/Program: American Community Survey
-# Product: 2018 ACS 1-Year Estimates Subject Tables
-zip_file <- "data-raw/ACSST1Y2018-S1903.zip"
-zip_list <- unzip(zip_file, list = TRUE)
-S1903 <- unzip(
-  zipfile = zip_file,
-  files = zip_list$Name[which.max(zip_list$Length)],
-  exdir = path_temp()
+# MEDIAN INCOME IN THE PAST 12 MONTHS (IN 2019 INFLATION-ADJUSTED DOLLARS)
+# https://data.census.gov/cedsci/table?tid=ACSST1Y2019.S1903
+st_income <- get_acs(
+  geography = "state",
+  variables = "S1903_C03_001E",
+  year = 2019
 )
 
-income <-
-  read_csv(
-    file = S1903,
-    col_types = cols(
-      .default = col_skip(),
-      GEO_ID = col_character(),
-      S1903_C03_001E = col_double()
-    )
-  ) %>%
-  select(fips = GEO_ID, income = S1903_C03_001E) %>%
-  slice(-1) %>%
-  mutate(fips = str_extract(fips, "(?<=US)\\d+")) %>%
-  inner_join(abb_fips) %>%
+st_income <- st_income %>%
+  rename(income = estimate) %>%
+  inner_join(abb_name, by = c("NAME" = "name")) %>%
   select(abb, income)
-
-file_delete(S1903)
 
 # gdp ---------------------------------------------------------------------
 
