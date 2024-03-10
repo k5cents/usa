@@ -1,3 +1,7 @@
+# usa 0.1.2
+
+* Update maintainer email, website URL, and GitHub URL.
+
 # usa 0.1.1
 
 * Add `state_convert()` helper function.

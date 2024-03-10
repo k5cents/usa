@@ -1,19 +1,16 @@
 Package: usa
 Title: Updated US State Facts and Figures
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
-    person(given = "Kiernan",
-           family = "Nicholls",
-           role = c("aut", "cre"),
-           email = "kiernann@protonmail.com")
-Description: Updated versions of the 1970's "US State Facts and
-    Figures" objects from the 'datasets' package included with R. The new
-    data is compiled from a number of sources, primarily from United
-    States Census Bureau or the relevant federal agency.
+    person("Kiernan", "Nicholls", email = "k5cents@gmail.com", role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0000-0002-9229-7897"))
+Description: Updated versions of the 1970's "US State Facts and Figures"
+    objects from the 'datasets' package included with R. The new data is
+    compiled from a number of sources, primarily from United States Census
+    Bureau or the relevant federal agency.
 License: CC BY 4.0
-URL: https://kiernann.com/usa
-    https://github.com/kiernann/usa
-BugReports: https://github.com/kiernann/usa/issues
+URL: https://k5cents.github.io/usa, https://github.com/k5cents/usa
+BugReports: https://github.com/k5cents/usa/issues
 Depends: 
     R (>= 3.2)
 Imports: 
@@ -24,4 +21,4 @@ Suggests:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
