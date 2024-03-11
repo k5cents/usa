@@ -1,72 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://kiernann.com/usa//index.html</loc>
+    <loc>/404.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/city.name.html</loc>
+    <loc>/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/counties.html</loc>
+    <loc>/authors.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/county.name.html</loc>
+    <loc>/index.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/facts.html</loc>
+    <loc>/news/index.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/people.html</loc>
+    <loc>/reference/city.name.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/state.abb.html</loc>
+    <loc>/reference/counties.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/state.area.html</loc>
+    <loc>/reference/county.name.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/state.center.html</loc>
+    <loc>/reference/facts.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/state.division.html</loc>
+    <loc>/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/state.name.html</loc>
+    <loc>/reference/people.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/state.region.html</loc>
+    <loc>/reference/state.abb.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/state.x19.html</loc>
+    <loc>/reference/state.area.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/state_convert.html</loc>
+    <loc>/reference/state.center.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/states.html</loc>
+    <loc>/reference/state.division.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/territory.html</loc>
+    <loc>/reference/state.name.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/territory.abb.html</loc>
+    <loc>/reference/state.region.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/territory.area.html</loc>
+    <loc>/reference/state.x19.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/territory.center.html</loc>
+    <loc>/reference/state_convert.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/territory.name.html</loc>
+    <loc>/reference/states.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/zip.center.html</loc>
+    <loc>/reference/territory.abb.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/zip.code.html</loc>
+    <loc>/reference/territory.area.html</loc>
   </url>
   <url>
-    <loc>https://kiernann.com/usa//reference/zipcodes.html</loc>
+    <loc>/reference/territory.center.html</loc>
+  </url>
+  <url>
+    <loc>/reference/territory.html</loc>
+  </url>
+  <url>
+    <loc>/reference/territory.name.html</loc>
+  </url>
+  <url>
+    <loc>/reference/zip.center.html</loc>
+  </url>
+  <url>
+    <loc>/reference/zip.code.html</loc>
+  </url>
+  <url>
+    <loc>/reference/zipcodes.html</loc>
   </url>
 </urlset>
