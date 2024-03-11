@@ -76,7 +76,7 @@
       </header><div class="row">
   <div class="contents col-md-9">
 <div class="section level1">
-<div class="page-header"><h1 id="usa-">usa <a href="https:/kiernann.com/usa"><img src="reference/figures/logo.png" align="right" height="139"></a>
+<div class="page-header"><h1 id="usa-">usa <a href="https:/k5cents.github.io/usa"><img src="reference/figures/logo.png" align="right" height="139"></a>
 <a class="anchor" aria-label="anchor" href="#usa-"></a>
 </h1></div>
 <!-- badges: start -->
@@ -88,10 +88,10 @@
 <p>You can install the release version of ‘usa’ from <a href="https://cran.r-project.org/package=usa" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"usa"</span><span class="op">)</span></span></code></pre></div>
-<p>Or the development version from <a href="https://github.com/kiernann/usa" class="external-link">GitHub</a> with:</p>
+<p>Or the development version from <a href="https://github.com/k5cents/usa" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"kiernann/usa"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"k5cents/usa"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="base-data">Base Data<a class="anchor" aria-label="anchor" href="#base-data"></a>
@@ -131,7 +131,7 @@
 <p>The package contains <a href="https://tibble.tidyverse.org/" class="external-link">tibbles</a> identifying the states and providing updated facts and figures.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/states.html">states</a></span></span>
-<span><span class="co">#&gt; # A tibble: 52 x 8</span></span>
+<span><span class="co">#&gt; # A tibble: 52 × 8</span></span>
 <span><span class="co">#&gt;   name       abb   fips  region division              area   lat   long</span></span>
 <span><span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;                &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
 <span><span class="co">#&gt; 1 Alabama    AL    01    South  East South Central  50647.  32.7  -86.8</span></span>
@@ -140,10 +140,10 @@
 <span><span class="co">#&gt; 4 Arkansas   AR    05    South  West South Central  52038.  34.9  -92.4</span></span>
 <span><span class="co">#&gt; 5 California CA    06    West   Pacific            155854.  37.2 -120. </span></span>
 <span><span class="co">#&gt; 6 Colorado   CO    08    West   Mountain           103638.  39.0 -106. </span></span>
-<span><span class="co">#&gt; # … with 46 more rows</span></span></code></pre></div>
+<span><span class="co">#&gt; # ℹ 46 more rows</span></span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/facts.html">facts</a></span></span>
-<span><span class="co">#&gt; # A tibble: 52 x 9</span></span>
+<span><span class="co">#&gt; # A tibble: 52 × 9</span></span>
 <span><span class="co">#&gt;   name       population admission  income life_exp murder  high  bach   heat</span></span>
 <span><span class="co">#&gt;   &lt;chr&gt;           &lt;dbl&gt; &lt;date&gt;      &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
 <span><span class="co">#&gt; 1 Alabama       4887871 1819-12-14  49861     75.3    7.8 0.866 0.234  65.9 </span></span>
@@ -152,10 +152,10 @@
 <span><span class="co">#&gt; 4 Arkansas      3013825 1836-06-15  47062     75.9    7.2 0.873 0.214  62.4 </span></span>
 <span><span class="co">#&gt; 5 California   39557045 1850-09-09  75277     81.5    4.4 0.845 0.314  38.1 </span></span>
 <span><span class="co">#&gt; 6 Colorado      5695564 1876-08-01  71953     80.3    3.7 0.913 0.384   6.24</span></span>
-<span><span class="co">#&gt; # … with 46 more rows</span></span></code></pre></div>
+<span><span class="co">#&gt; # ℹ 46 more rows</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/territory.html">territory</a></span></span>
-<span><span class="co">#&gt; # A tibble: 7 x 6</span></span>
+<span><span class="co">#&gt; # A tibble: 7 × 6</span></span>
 <span><span class="co">#&gt;   name                        abb   fips    area   lat   long</span></span>
 <span><span class="co">#&gt;   &lt;chr&gt;                       &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
 <span><span class="co">#&gt; 1 American Samoa              AS    60      76.4 -14.0 -170. </span></span>
@@ -168,7 +168,7 @@
 <p>ZIP codes from the archived <a href="https://cran.r-project.org/package=zipcode" class="external-link">‘zipcode’</a> package are also included</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/zipcodes.html">zipcodes</a></span></span>
-<span><span class="co">#&gt; # A tibble: 44,336 x 5</span></span>
+<span><span class="co">#&gt; # A tibble: 44,336 × 5</span></span>
 <span><span class="co">#&gt;   zip   city       state   lat  long</span></span>
 <span><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
 <span><span class="co">#&gt; 1 00210 Portsmouth NH     43.0 -71.0</span></span>
@@ -177,11 +177,11 @@
 <span><span class="co">#&gt; 4 00213 Portsmouth NH     43.0 -71.0</span></span>
 <span><span class="co">#&gt; 5 00214 Portsmouth NH     43.0 -71.0</span></span>
 <span><span class="co">#&gt; 6 00215 Portsmouth NH     43.0 -71.0</span></span>
-<span><span class="co">#&gt; # … with 44,330 more rows</span></span></code></pre></div>
+<span><span class="co">#&gt; # ℹ 44,330 more rows</span></span></code></pre></div>
 <p>These synthetic survey respondents from <a href="http://pewrsr.ch/2rNawC7" class="external-link">Pew</a> provide a statistically accurate sample of the American people.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu">select</span><span class="op">(</span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/people.html">people</a></span>, <span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 20,000 x 8</span></span>
+<span><span class="co">#&gt; # A tibble: 20,000 × 8</span></span>
 <span><span class="co">#&gt;      id fname   lname    gender   age race     edu          div               </span></span>
 <span><span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;fct&gt;  &lt;dbl&gt; &lt;fct&gt;    &lt;fct&gt;        &lt;fct&gt;             </span></span>
 <span><span class="co">#&gt; 1     1 Marquez Minnick  M         25 White    Some college Mountain          </span></span>
@@ -190,9 +190,9 @@
 <span><span class="co">#&gt; 4     4 David   Mcneely  M         59 White    HS Grad      Mountain          </span></span>
 <span><span class="co">#&gt; 5     5 Emily   Tsang    F         19 Asian    Some college Pacific           </span></span>
 <span><span class="co">#&gt; 6     6 Rodney  Matheson M         67 White    HS Grad      West North Central</span></span>
-<span><span class="co">#&gt; # … with 19,994 more rows</span></span></code></pre></div>
+<span><span class="co">#&gt; # ℹ 19,994 more rows</span></span></code></pre></div>
 <hr>
-<p>Please note that the ‘usa’ project is released with a <a href="https://kiernann.com/usa/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>Please note that the ‘usa’ project is released with a <a href="https://k5cents.com/usa/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 <!-- refs: start -->
 <!-- refs: end -->
 </div>
@@ -237,8 +237,8 @@
 <ul class="list-unstyled">
 <li><a href="https://www.tidyverse.org/lifecycle/#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: experimental"></a></li>
 <li><a href="https://CRAN.R-project.org/package=usa" class="external-link"><img src="https://www.r-pkg.org/badges/version/usa" alt="CRAN status"></a></li>
-<li><a href="https://travis-ci.org/kiernann/usa" class="external-link"><img src="https://travis-ci.org/kiernann/usa.svg?branch=master" alt="Travis build status"></a></li>
-<li><a href="https://codecov.io/gh/kiernann/usa?branch=master" class="external-link"><img src="https://img.shields.io/codecov/c/github/kiernann/usa/master.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://codecov.io/gh/k5cents/usa?branch=master" class="external-link"><img src="https://img.shields.io/codecov/c/github/k5cents/usa/master.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://github.com/k5cents/usa/actions" class="external-link"><img src="https://github.com/k5cents/usa/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
 </ul>
 </div>
 
