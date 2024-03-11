@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# usa <a href='https:/kiernann.com/usa'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# usa <a href='https:/k5cents.github.io/usa'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 
@@ -9,11 +9,11 @@
 experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/usa)](https://CRAN.R-project.org/package=usa)
-[![Travis build
-status](https://travis-ci.org/kiernann/usa.svg?branch=master)](https://travis-ci.org/kiernann/usa)
-[![Codecov test
-coverage](https://img.shields.io/codecov/c/github/kiernann/usa/master.svg)](https://codecov.io/gh/kiernann/usa?branch=master)
 ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/usa)
+[![Codecov test
+coverage](https://img.shields.io/codecov/c/github/k5cents/usa/master.svg)](https://codecov.io/gh/k5cents/usa?branch=master)
+[![R build
+status](https://github.com/k5cents/usa/workflows/R-CMD-check/badge.svg)](https://github.com/k5cents/usa/actions)
 <!-- badges: end -->
 
 The goal of ‘usa’ is to provide updated versions of the ‘datasets’
@@ -31,12 +31,12 @@ You can install the release version of ‘usa’ from
 install.packages("usa")
 ```
 
-Or the development version from
-[GitHub](https://github.com/kiernann/usa) with:
+Or the development version from [GitHub](https://github.com/k5cents/usa)
+with:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("kiernann/usa")
+remotes::install_github("k5cents/usa")
 ```
 
 ## Base Data
@@ -85,7 +85,7 @@ identifying the states and providing updated facts and figures.
 
 ``` r
 usa::states
-#> # A tibble: 52 x 8
+#> # A tibble: 52 × 8
 #>   name       abb   fips  region division              area   lat   long
 #>   <chr>      <chr> <chr> <fct>  <fct>                <dbl> <dbl>  <dbl>
 #> 1 Alabama    AL    01    South  East South Central  50647.  32.7  -86.8
@@ -94,12 +94,12 @@ usa::states
 #> 4 Arkansas   AR    05    South  West South Central  52038.  34.9  -92.4
 #> 5 California CA    06    West   Pacific            155854.  37.2 -120. 
 #> 6 Colorado   CO    08    West   Mountain           103638.  39.0 -106. 
-#> # … with 46 more rows
+#> # ℹ 46 more rows
 ```
 
 ``` r
 usa::facts
-#> # A tibble: 52 x 9
+#> # A tibble: 52 × 9
 #>   name       population admission  income life_exp murder  high  bach   heat
 #>   <chr>           <dbl> <date>      <dbl>    <dbl>  <dbl> <dbl> <dbl>  <dbl>
 #> 1 Alabama       4887871 1819-12-14  49861     75.3    7.8 0.866 0.234  65.9 
@@ -108,12 +108,12 @@ usa::facts
 #> 4 Arkansas      3013825 1836-06-15  47062     75.9    7.2 0.873 0.214  62.4 
 #> 5 California   39557045 1850-09-09  75277     81.5    4.4 0.845 0.314  38.1 
 #> 6 Colorado      5695564 1876-08-01  71953     80.3    3.7 0.913 0.384   6.24
-#> # … with 46 more rows
+#> # ℹ 46 more rows
 ```
 
 ``` r
 usa::territory
-#> # A tibble: 7 x 6
+#> # A tibble: 7 × 6
 #>   name                        abb   fips    area   lat   long
 #>   <chr>                       <chr> <chr>  <dbl> <dbl>  <dbl>
 #> 1 American Samoa              AS    60      76.4 -14.0 -170. 
@@ -126,12 +126,12 @@ usa::territory
 ```
 
 ZIP codes from the archived
-[‘zipcode’](https://cran.r-project.org/package=zipcode) package are
-also included
+[‘zipcode’](https://cran.r-project.org/package=zipcode) package are also
+included
 
 ``` r
 usa::zipcodes
-#> # A tibble: 44,336 x 5
+#> # A tibble: 44,336 × 5
 #>   zip   city       state   lat  long
 #>   <chr> <chr>      <chr> <dbl> <dbl>
 #> 1 00210 Portsmouth NH     43.0 -71.0
@@ -140,7 +140,7 @@ usa::zipcodes
 #> 4 00213 Portsmouth NH     43.0 -71.0
 #> 5 00214 Portsmouth NH     43.0 -71.0
 #> 6 00215 Portsmouth NH     43.0 -71.0
-#> # … with 44,330 more rows
+#> # ℹ 44,330 more rows
 ```
 
 These synthetic survey respondents from [Pew](http://pewrsr.ch/2rNawC7)
@@ -148,7 +148,7 @@ provide a statistically accurate sample of the American people.
 
 ``` r
 dplyr::select(usa::people, 1:8)
-#> # A tibble: 20,000 x 8
+#> # A tibble: 20,000 × 8
 #>      id fname   lname    gender   age race     edu          div               
 #>   <int> <chr>   <chr>    <fct>  <dbl> <fct>    <fct>        <fct>             
 #> 1     1 Marquez Minnick  M         25 White    Some college Mountain          
@@ -157,15 +157,14 @@ dplyr::select(usa::people, 1:8)
 #> 4     4 David   Mcneely  M         59 White    HS Grad      Mountain          
 #> 5     5 Emily   Tsang    F         19 Asian    Some college Pacific           
 #> 6     6 Rodney  Matheson M         67 White    HS Grad      West North Central
-#> # … with 19,994 more rows
+#> # ℹ 19,994 more rows
 ```
 
------
+------------------------------------------------------------------------
 
 Please note that the ‘usa’ project is released with a [Contributor Code
-of Conduct](https://kiernann.com/usa/CODE_OF_CONDUCT.html). By
+of Conduct](https://k5cents.com/usa/CODE_OF_CONDUCT.html). By
 contributing to this project, you agree to abide by its terms.
 
 <!-- refs: start -->
-
 <!-- refs: end -->

@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 options(tibble.print_min = 6)
 ```
 
-# usa <a href='https:/kiernann.com/usa'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# usa <a href='https:/k5cents.github.io/usa'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 [![Lifecycle: experimental][life_badge]][life_link]
@@ -45,7 +45,7 @@ Or the development version from [GitHub][gh] with:
 
 ```{r remote, eval=FALSE}
 # install.packages("remotes")
-remotes::install_github("kiernann/usa")
+remotes::install_github("k5cents/usa")
 ```
 
 ## Base Data
@@ -122,15 +122,15 @@ contributing to this project, you agree to abide by its terms.
 [life_link]: https://www.tidyverse.org/lifecycle/#experimental
 [cran_badge]: https://www.r-pkg.org/badges/version/usa
 [cran_link]: https://CRAN.R-project.org/package=usa
-[ga_badge]: https://github.com/kiernann/usa/workflows/R-CMD-check/badge.svg
-[ga_link]: https://github.com/kiernann/usa/actions
-[cov_badge]: https://img.shields.io/codecov/c/github/kiernann/usa/master.svg
-[cov_link]: https://codecov.io/gh/kiernann/usa?branch=master
+[ga_badge]: https://github.com/k5cents/usa/workflows/R-CMD-check/badge.svg
+[ga_link]: https://github.com/k5cents/usa/actions
+[cov_badge]: https://img.shields.io/codecov/c/github/k5cents/usa/master.svg
+[cov_link]: https://codecov.io/gh/k5cents/usa?branch=master
 [dl_badge]: https://cranlogs.r-pkg.org/badges/grand-total/usa
 [tib]: https://tibble.tidyverse.org/
 [cran]: https://cran.r-project.org/package=usa
-[gh]: https://github.com/kiernann/usa
+[gh]: https://github.com/k5cents/usa
 [zip]: https://cran.r-project.org/package=zipcode
 [pew]: http://pewrsr.ch/2rNawC7
-[coc]: https://kiernann.com/usa/CODE_OF_CONDUCT.html
+[coc]: https://k5cents.com/usa/CODE_OF_CONDUCT.html
 <!-- refs: end -->
