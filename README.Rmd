@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 options(tibble.print_min = 6)
 ```
 
-# usa <a href='https:/k5cents.github.io/usa'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# usa <a href='https:/k5cents.github.io/usa/'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 [![Lifecycle: experimental][life_badge]][life_link]
@@ -119,18 +119,18 @@ contributing to this project, you agree to abide by its terms.
 
 <!-- refs: start -->
 [life_badge]: https://img.shields.io/badge/lifecycle-maturing-blue.svg
-[life_link]: https://www.tidyverse.org/lifecycle/#experimental
+[life_link]: https://lifecycle.r-lib.org/articles/stages.html#experimental
 [cran_badge]: https://www.r-pkg.org/badges/version/usa
 [cran_link]: https://CRAN.R-project.org/package=usa
 [ga_badge]: https://github.com/k5cents/usa/workflows/R-CMD-check/badge.svg
 [ga_link]: https://github.com/k5cents/usa/actions
-[cov_badge]: https://img.shields.io/codecov/c/github/k5cents/usa/master.svg
-[cov_link]: https://codecov.io/gh/k5cents/usa?branch=master
+[cov_badge]: https://codecov.io/gh/k5cents/usa/graph/badge.svg?token=ubolhKW81u
+[cov_link]: https://app.codecov.io/gh/k5cents/usa?branch=master
 [dl_badge]: https://cranlogs.r-pkg.org/badges/grand-total/usa
 [tib]: https://tibble.tidyverse.org/
 [cran]: https://cran.r-project.org/package=usa
 [gh]: https://github.com/k5cents/usa
 [zip]: https://cran.r-project.org/package=zipcode
-[pew]: http://pewrsr.ch/2rNawC7
-[coc]: https://k5cents.com/usa/CODE_OF_CONDUCT.html
+[pew]: https://www.pewresearch.org/methods/2018/01/26/for-weighting-online-opt-in-samples-what-matters-most/
+[coc]: https://k5cents.github.io/usa/CODE_OF_CONDUCT.html
 <!-- refs: end -->

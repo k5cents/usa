@@ -1,17 +1,17 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# usa <a href='https:/k5cents.github.io/usa'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# usa <a href='https:/k5cents.github.io/usa/'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/usa)](https://CRAN.R-project.org/package=usa)
 ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/usa)
 [![Codecov test
-coverage](https://img.shields.io/codecov/c/github/k5cents/usa/master.svg)](https://codecov.io/gh/k5cents/usa?branch=master)
+coverage](https://codecov.io/gh/k5cents/usa/graph/badge.svg?token=ubolhKW81u)](https://app.codecov.io/gh/k5cents/usa?branch=master)
 [![R build
 status](https://github.com/k5cents/usa/workflows/R-CMD-check/badge.svg)](https://github.com/k5cents/usa/actions)
 <!-- badges: end -->
@@ -143,7 +143,8 @@ usa::zipcodes
 #> # ℹ 44,330 more rows
 ```
 
-These synthetic survey respondents from [Pew](http://pewrsr.ch/2rNawC7)
+These synthetic survey respondents from
+[Pew](https://www.pewresearch.org/methods/2018/01/26/for-weighting-online-opt-in-samples-what-matters-most/)
 provide a statistically accurate sample of the American people.
 
 ``` r
@@ -163,7 +164,7 @@ dplyr::select(usa::people, 1:8)
 ------------------------------------------------------------------------
 
 Please note that the ‘usa’ project is released with a [Contributor Code
-of Conduct](https://k5cents.com/usa/CODE_OF_CONDUCT.html). By
+of Conduct](https://k5cents.github.io/usa/CODE_OF_CONDUCT.html). By
 contributing to this project, you agree to abide by its terms.
 
 <!-- refs: start -->

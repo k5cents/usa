@@ -25,7 +25,7 @@ A tibble with 52 rows and 9 variables:
 \item Income: \url{https://data.census.gov/cedsci/table?tid=ACSST1Y2018.S1903}
 \item GDP: \url{https://www.bea.gov/system/files/2019-11/qgdpstate1119.xlsx}
 \item Literacy: \url{https://nces.ed.gov/naal/estimates/StateEstimates.aspx}
-\item Life Expectancy: \url{https://www.cia.gov/library/publications/the-world-factbook/geos/aq.html}
+\item Life Expectancy: \url{https://web.archive.org/web/20231129160338/https://usa.mortality.org/}
 \item Murder: \url{https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018/tables/table-4/table-4.xls/output.xls}
 \item Education: \url{https://data.census.gov/cedsci/table?q=S1501}
 \item Temperature: \url{ftp://ftp.ncdc.noaa.gov/pub/data/normals/1981-2010/products/temperature/ann-cldd-normal.txt}

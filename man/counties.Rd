@@ -13,7 +13,7 @@ A tibble with 3,232 rows and 3 variables:
 }
 }
 \source{
-\url{https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/home/?cid=nrcs143_013697}
+\url{https://web.archive.org/web/20240106151642/https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt}
 }
 \usage{
 counties

@@ -164,7 +164,7 @@ NULL
 #' * Income: \url{https://data.census.gov/cedsci/table?tid=ACSST1Y2018.S1903}
 #' * GDP: \url{https://www.bea.gov/system/files/2019-11/qgdpstate1119.xlsx}
 #' * Literacy: \url{https://nces.ed.gov/naal/estimates/StateEstimates.aspx}
-#' * Life Expectancy: \url{https://www.cia.gov/library/publications/the-world-factbook/geos/aq.html}
+#' * Life Expectancy: \url{https://web.archive.org/web/20231129160338/https://usa.mortality.org/}
 #' * Murder: \url{https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018/tables/table-4/table-4.xls/output.xls}
 #' * Education: \url{https://data.census.gov/cedsci/table?q=S1501}
 #' * Temperature: \url{ftp://ftp.ncdc.noaa.gov/pub/data/normals/1981-2010/products/temperature/ann-cldd-normal.txt}
@@ -229,8 +229,8 @@ NULL
 #' and ethnicity is provided. The last names were proportionally randomly
 #' assigned by race.
 #'
-#' [1]: http://pewrsr.ch/2rNawC7
-#' [2]: https://www.pewresearch.org/methods/?p=85
+#' [1]: https://www.pewresearch.org/methods/2018/01/26/for-weighting-online-opt-in-samples-what-matters-most/
+#' [2]: https://www.pewresearch.org/methods/2018/01/26/appendix-b-synthetic-population-dataset/
 #'
 #' @format A tibble with 20,000 rows and 40 variables:
 #' \describe{
@@ -277,7 +277,7 @@ NULL
 #' }
 #' @source “For Weighting Online Opt-In Samples, What Matters Most?” Pew
 #'   Research Center, Washington, D.C. (January 26, 2018)
-#'   \url{http://pewrsr.ch/2rNawC7}
+#'   \url{https://www.pewresearch.org/methods/2018/01/26/for-weighting-online-opt-in-samples-what-matters-most/}
 "people"
 
 # objects from zipcodes.R -------------------------------------------------
@@ -353,7 +353,7 @@ NULL
 #'   \item{name}{Census county names}
 #'   \item{state}{USPS official state, territory abbreviation code}
 #' }
-#' @source \url{https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/home/?cid=nrcs143_013697}
+#' @source \url{https://web.archive.org/web/20240106151642/https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt}
 "counties"
 
 #' US County Names
@@ -361,5 +361,5 @@ NULL
 #' The name of distinct US counties.
 #'
 #' @format A character vector of length 19108.
-#' @source \url{https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/home/?cid=nrcs143_013697}
+#' @source \url{https://web.archive.org/web/20240106151642/https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt}
 "county.name"

@@ -91,7 +91,7 @@ gdp <- gdp %>%
 # Institute for Health Metrics and Evaluation for the states (2017 data), and
 # from the CIA World Factbook for the territories (2018 data)
 # http://www.healthdata.org/united-states-alabama
-# https://www.cia.gov/library/publications/the-world-factbook/geos/aq.html
+# https://web.archive.org/web/20190109030048/https://www.cia.gov/library/publications/the-world-factbook/fields/355rank.html
 life <-
   read_html("https://w.wiki/BeA") %>%
   html_node(".wikitable") %>%

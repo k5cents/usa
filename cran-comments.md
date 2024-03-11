@@ -15,8 +15,9 @@
 
 * This is a data package that will be rarely updated.
 
-## Submission
+## ReSubmission
 
+* Update URLs in README and package docs.
 * Update email from kiernann@pronmail.com to k5cents@gmail.com
 * Update URLs from kiernann.com to k5cents.com
 * Update Github from @kiernann to @k5cents
