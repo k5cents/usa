@@ -100,14 +100,14 @@ usa::states
 ``` r
 usa::facts
 #> # A tibble: 52 × 9
-#>   name       population admission  income life_exp murder  high  bach   heat
-#>   <chr>           <dbl> <date>      <dbl>    <dbl>  <dbl> <dbl> <dbl>  <dbl>
-#> 1 Alabama       4887871 1819-12-14  49861     75.3    7.8 0.866 0.234  65.9 
-#> 2 Alaska         737438 1959-01-03  74346     78.3    6.4 0.927 0.271 -26.6 
-#> 3 Arizona       7171646 1912-02-14  59246     79.7    5.1 0.871 0.271  73.6 
-#> 4 Arkansas      3013825 1836-06-15  47062     75.9    7.2 0.873 0.214  62.4 
-#> 5 California   39557045 1850-09-09  75277     81.5    4.4 0.845 0.314  38.1 
-#> 6 Colorado      5695564 1876-08-01  71953     80.3    3.7 0.913 0.384   6.24
+#>   name       population votes admission  income life_exp murder college  heat
+#>   <chr>           <dbl> <dbl> <date>      <dbl>    <dbl>  <dbl>   <dbl> <dbl>
+#> 1 Alabama       4887871     9 1819-12-14  49861     75.3    7.8   0.234 65.9 
+#> 2 Alaska         737438     3 1959-01-03  74346     78.3    6.4   0.271  0.37
+#> 3 Arizona       7171646    11 1912-02-14  59246     79.7    5.1   0.271 73.6 
+#> 4 Arkansas      3013825     6 1836-06-15  47062     75.9    7.2   0.214 62.4 
+#> 5 California   39557045    55 1850-09-09  75277     81.5    4.4   0.314 38.9 
+#> 6 Colorado      5695564     9 1876-08-01  71953     80.3    3.7   0.384 15.5 
 #> # ℹ 46 more rows
 ```
 
