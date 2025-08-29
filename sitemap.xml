@@ -1,87 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/city.name.html</loc>
-  </url>
-  <url>
-    <loc>/reference/counties.html</loc>
-  </url>
-  <url>
-    <loc>/reference/county.name.html</loc>
-  </url>
-  <url>
-    <loc>/reference/facts.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/people.html</loc>
-  </url>
-  <url>
-    <loc>/reference/state.abb.html</loc>
-  </url>
-  <url>
-    <loc>/reference/state.area.html</loc>
-  </url>
-  <url>
-    <loc>/reference/state.center.html</loc>
-  </url>
-  <url>
-    <loc>/reference/state.division.html</loc>
-  </url>
-  <url>
-    <loc>/reference/state.name.html</loc>
-  </url>
-  <url>
-    <loc>/reference/state.region.html</loc>
-  </url>
-  <url>
-    <loc>/reference/state.x19.html</loc>
-  </url>
-  <url>
-    <loc>/reference/state_convert.html</loc>
-  </url>
-  <url>
-    <loc>/reference/states.html</loc>
-  </url>
-  <url>
-    <loc>/reference/territory.abb.html</loc>
-  </url>
-  <url>
-    <loc>/reference/territory.area.html</loc>
-  </url>
-  <url>
-    <loc>/reference/territory.center.html</loc>
-  </url>
-  <url>
-    <loc>/reference/territory.html</loc>
-  </url>
-  <url>
-    <loc>/reference/territory.name.html</loc>
-  </url>
-  <url>
-    <loc>/reference/zip.center.html</loc>
-  </url>
-  <url>
-    <loc>/reference/zip.code.html</loc>
-  </url>
-  <url>
-    <loc>/reference/zipcodes.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/city.name.html</loc></url>
+<url><loc>/reference/counties.html</loc></url>
+<url><loc>/reference/county.name.html</loc></url>
+<url><loc>/reference/facts.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/people.html</loc></url>
+<url><loc>/reference/state.abb.html</loc></url>
+<url><loc>/reference/state.area.html</loc></url>
+<url><loc>/reference/state.center.html</loc></url>
+<url><loc>/reference/state.division.html</loc></url>
+<url><loc>/reference/state.name.html</loc></url>
+<url><loc>/reference/state.region.html</loc></url>
+<url><loc>/reference/state.x19.html</loc></url>
+<url><loc>/reference/state_convert.html</loc></url>
+<url><loc>/reference/states.html</loc></url>
+<url><loc>/reference/territory.abb.html</loc></url>
+<url><loc>/reference/territory.area.html</loc></url>
+<url><loc>/reference/territory.center.html</loc></url>
+<url><loc>/reference/territory.html</loc></url>
+<url><loc>/reference/territory.name.html</loc></url>
+<url><loc>/reference/zip.center.html</loc></url>
+<url><loc>/reference/zip.code.html</loc></url>
+<url><loc>/reference/zipcodes.html</loc></url>
 </urlset>
+
