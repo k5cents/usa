@@ -1,6 +1,6 @@
 Package: usa
 Title: Updated US State Facts and Figures
-Version: 0.1.2
+Version: 0.1.3
 Authors@R: 
     person("Kiernan", "Nicholls", email = "k5cents@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-9229-7897"))

@@ -1,3 +1,7 @@
+# usa 0.1.3
+
+* Fix logo URL in README
+
 # usa 0.1.2
 
 * Update maintainer email, website URL, and GitHub URL.

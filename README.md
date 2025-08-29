@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# usa <a href='https:/k5cents.github.io/usa/'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# usa <a href='https://k5cents.github.io/usa/'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 
