@@ -161,13 +161,13 @@ NULL
 #' @source
 #' * Population: \url{https://www2.census.gov/programs-surveys/popest/datasets/2010-2018/state/detail/SCPRC-EST2018-18+POP-RES.csv}
 #' * Electoral College: \url{https://www.archives.gov/electoral-college/allocation}
-#' * Income: \url{https://data.census.gov/cedsci/table?tid=ACSST1Y2018.S1903}
-#' * GDP: \url{https://www.bea.gov/system/files/2019-11/qgdpstate1119.xlsx}
+#' * Income: (Moved Census table ACSST1Y2018.S1903 on income)
+#' * GDP: (Moved BEA dataset on GDP)
 #' * Literacy: \url{https://nces.ed.gov/naal/estimates/StateEstimates.aspx}
 #' * Life Expectancy: \url{https://web.archive.org/web/20231129160338/https://usa.mortality.org/}
 #' * Murder: \url{https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018/tables/table-4/table-4.xls/output.xls}
-#' * Education: \url{https://data.census.gov/cedsci/table?q=S1501}
-#' * Temperature: \url{ftp://ftp.ncdc.noaa.gov/pub/data/normals/1981-2010/products/temperature/ann-cldd-normal.txt}
+#' * Education: (Noved Census table S1501 on education)
+#' * Temperature: (Moved NOAA dataset on temperature)
 "facts"
 
 #' US State and Territory Statistics

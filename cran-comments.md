@@ -15,12 +15,9 @@
 
 * This is a data package that will be rarely updated.
 
-## ReSubmission
+## Resubmission (2025-09-02)
 
-* Update URLs in README and package docs.
-* Update email from kiernann@pronmail.com to k5cents@gmail.com
-* Update URLs from kiernann.com to k5cents.com
-* Update Github from @kiernann to @k5cents
+* Removed all bad URLs and checked with `urlchecker::url_check()`
 
 <!-- links: start -->
 [gh_act]: https://github.com/k5cents/usa/actions
