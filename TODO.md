@@ -42,7 +42,28 @@ The tibble `state_facts` is a better replacement for `state.x77`. Remove the mat
 - Delete `man/state.x19.Rd`
 - Remove from NAMESPACE
 
-### 3. `state_facts` data — Full refresh (highest priority for data work)
+### 3. Split `states` into `state_ids` + `states` (geography)
+
+The current `states` tibble mixes two distinct kinds of data. Split into:
+
+- `state_ids` — the various naming/coding systems used to refer to a state:
+  `name`, `abb` (USPS), `fips`, `ap` (AP style), `iso` (ISO 3166-2, e.g. `"US-AL"`)
+  Serves as the backing data for `state_convert()`, which should be extended to
+  handle all 5 identifier types.
+
+- `states` — purely geographic/classificatory properties:
+  `abb`, `region`, `division`, `area`, `lat`, `long`
+
+**Naming convention note:** underscore objects (`state_ids`, `state_facts`, `states`) are
+modern purpose-built tibbles. Dot objects (`state.abb`, `state.name`, etc.) are the
+compatibility layer that overwrites `datasets::state.*` on `library(usa)`. The territory
+dot vectors (`territory.abb`, etc.) are an exception — they don't overwrite anything but
+use dots for parallel symmetry with the state vectors. This convention should be documented.
+
+**AP abbreviation note:** 8 states have no AP abbreviation (Alaska, Hawaii, Idaho, Iowa,
+Maine, Ohio, Texas, Utah) — use `NA` for these, not the full name.
+
+### 4. `state_facts` data — Full refresh (highest priority for data work)
 
 All columns need updating to 2020 Census era or newer:
 
@@ -60,14 +81,14 @@ All columns need updating to 2020 Census era or newer:
 Rewrite `data-raw/facts.R` with reproducible scripts pulling from Census/CDC/FBI APIs.
 Fix broken/placeholder `\source{}` entries in Rd (several are `(Moved ...)` / `(Noved ...)` stubs).
 
-### 4. `counties` — Rebuild from authoritative source
+### 5. `counties` — Rebuild from authoritative source
 
 - Replace archived FCC/NRCS source with Census Bureau official FIPS county list:
   https://www.census.gov/library/reference/code-lists/ansi.html
 - Handle Connecticut's 2022 transition: 8 historic counties → 9 planning regions (FIPS changed)
 - Consider adding a `population` column from 2020 Census (makes the table significantly more useful)
 
-### 5. `territory` / `territories` — Resolve DC overlap
+### 6. `territory` / `territories` — Resolve DC overlap
 
 DC currently appears in both `states` (52 rows = 50 states + DC + PR) and `territory` (7 rows).
 The tibble and the vectors describe *different* sets: DC and PR are in the tibble but not in
@@ -76,7 +97,7 @@ The tibble and the vectors describe *different* sets: DC and PR are in the tibbl
 - Remove DC from `territory`; document it as the 5 non-state, non-DC/PR territories: AS, GU, MP, UM, VI
 - Update territory populations from 2020 Census
 
-### 6. `zipcodes` — Replace with 2020 ZCTA data
+### 7. `zipcodes` — Replace with 2020 ZCTA data
 
 Current data is CivicSpace 2004 + 2012 augment — very stale.
 - Replace with Census 2020 ZCTA (ZIP Code Tabulation Area) centroids
@@ -85,7 +106,7 @@ Current data is CivicSpace 2004 + 2012 augment — very stale.
 - Column rename: `lat`/`long` → `latitude`/`longitude` (Rd docs already say latitude/longitude
   but the actual data uses lat/long — currently mismatched)
 
-### 7. `state_convert()` — Fix default argument + typo
+### ~~7. `state_convert()` — Fix default argument + typo~~ ✓ DONE (branch: fix-state-convert)
 
 The `to` argument has an implicit `NULL` default and a typo in the choice vector (`"names"` should
 be `"name"`, singular, matching the column name in `states`). The typo also appears in the tests.
@@ -117,29 +138,19 @@ Errors found in existing Rd files (all must be corrected):
 | `territory.Rd` | Says "6 non-state territories and federal district" but has 7 rows |
 | `state_convert.Rd` | `to` argument docs say `"name"` but code uses `"names"` — fix both together |
 
-### 9. Add AP style state abbreviations (issue #7)
-
-The Associated Press uses a different set of state abbreviations from USPS (e.g. "Ala."
-instead of "AL"). These are widely used in journalism and editorial contexts.
-
-- Add an `ap` column to `states` tibble, or a standalone `state.ap` vector
-- Source: https://en.wikipedia.org/wiki/List_of_U.S._state_and_territory_abbreviations
-- Note: 8 states are never abbreviated in AP style (Alaska, Hawaii, Idaho, Iowa, Maine,
-  Ohio, Texas, Utah) — these should be `NA` or the full name, not a made-up abbreviation
-
-### 11. `people` — Minor doc cleanup only
+### 9. `people` — Minor doc cleanup only
 
 Synthetic Pew 2018 population is hard to regenerate; keep as-is.
 - Update `vote` column description — currently says "voted in the 2014 midterm elections"; make year-neutral
 - Fill in the empty `\item{boycott}{}` description (see above)
 
-### 12. Remove `data-raw/documents.R` (dead code)
+### 10. Remove `data-raw/documents.R` (dead code)
 
 This script scrapes the US Constitution into a tibble but never saves it — no `use_data()`,
 no Rd file, not in NAMESPACE. Either finish it as a `documents` dataset or delete it.
 Decision: delete unless there's a plan to finish it for 1.0.0.
 
-### 13. Fix `data-raw/states.R` — `state-abb.csv` write bug
+### 11. Fix `data-raw/states.R` — `state-abb.csv` write bug
 
 Line 113 writes the wrong object to disk:
 ```r
@@ -148,7 +159,7 @@ write_lines(state.area, "data-raw/state-abb.csv")  # BUG: should be state.abb
 The file currently contains numeric area values. Low priority since this file is only used
 for human reference, not read back by any script.
 
-### 14. Package metadata
+### 12. Package metadata
 
 - Bump version to `1.0.0` in `DESCRIPTION`
 - Update `R (>= 3.2)` minimum — consider 4.1+
