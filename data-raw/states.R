@@ -1,4 +1,4 @@
-## code to prepare various code datasets goes here
+## code to prepare various state datasets goes here
 library(tidyverse)
 library(readxl)
 library(rvest)
@@ -19,6 +19,67 @@ codes <- codes %>%
     abb = STUSAB,
     fips = STATE
   )
+
+# AP style abbreviations --------------------------------------------------
+# 8 states have no AP abbreviation (Alaska, Hawaii, Idaho, Iowa, Maine, Ohio,
+# Texas, Utah) — use NA for these.
+# Source: AP Stylebook state abbreviations
+
+ap_abbrevs <- tribble(
+  ~name,                  ~ap,
+  "Alabama",              "Ala.",
+  "Alaska",               NA,
+  "Arizona",              "Ariz.",
+  "Arkansas",             "Ark.",
+  "California",           "Calif.",
+  "Colorado",             "Colo.",
+  "Connecticut",          "Conn.",
+  "Delaware",             "Del.",
+  "District of Columbia", "D.C.",
+  "Florida",              "Fla.",
+  "Georgia",              "Ga.",
+  "Hawaii",               NA,
+  "Idaho",                NA,
+  "Illinois",             "Ill.",
+  "Indiana",              "Ind.",
+  "Iowa",                 NA,
+  "Kansas",               "Kan.",
+  "Kentucky",             "Ky.",
+  "Louisiana",            "La.",
+  "Maine",                NA,
+  "Maryland",             "Md.",
+  "Massachusetts",        "Mass.",
+  "Michigan",             "Mich.",
+  "Minnesota",            "Minn.",
+  "Mississippi",          "Miss.",
+  "Missouri",             "Mo.",
+  "Montana",              "Mont.",
+  "Nebraska",             "Neb.",
+  "Nevada",               "Nev.",
+  "New Hampshire",        "N.H.",
+  "New Jersey",           "N.J.",
+  "New Mexico",           "N.M.",
+  "New York",             "N.Y.",
+  "North Carolina",       "N.C.",
+  "North Dakota",         "N.D.",
+  "Ohio",                 NA,
+  "Oklahoma",             "Okla.",
+  "Oregon",               "Ore.",
+  "Pennsylvania",         "Pa.",
+  "Puerto Rico",          "P.R.",
+  "Rhode Island",         "R.I.",
+  "South Carolina",       "S.C.",
+  "South Dakota",         "S.D.",
+  "Tennessee",            "Tenn.",
+  "Texas",                NA,
+  "Utah",                 NA,
+  "Vermont",              "Vt.",
+  "Virginia",             "Va.",
+  "Washington",           "Wash.",
+  "West Virginia",        "W.Va.",
+  "Wisconsin",            "Wis.",
+  "Wyoming",              "Wyo."
+)
 
 # get geography codes -----------------------------------------------------
 
@@ -60,30 +121,20 @@ divisions <- geocodes %>%
 # get area and location data ----------------------------------------------
 
 tiger <- read_html("https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html")
-# html_node(tiger, "table") %>% html_attr("summary")
-#> This table containing the U.S. States - Current/ACS19 - Data as of January 1,
-#> 2019, gives the data (headers) for each States record (rows). For the record
-#> layout, please reference back to the Record Layout link on the TIGERweb
-#> State-Based Tabular Data Files page for the given record type.
 area <- tiger %>%
   html_node("table") %>%
   html_table(header = TRUE) %>%
   as_tibble(.name_repair = "unique") %>%
   mutate(
-    area = round(AREALAND/2589988, 2),
-    lat = round(CENTLAT, 4),
+    area = round(AREALAND / 2589988, 2),
+    lat  = round(CENTLAT, 4),
     long = round(CENTLON, 4)
   ) %>%
-  select(
-    abb = STUSAB,
-    area,
-    lat,
-    long
-  )
+  select(abb = STUSAB, area, lat, long)
 
-# join data ---------------------------------------------------------------
+# build full joined table -------------------------------------------------
 
-states <- codes %>%
+all_states <- codes %>%
   left_join(geocodes, by = c("name", "fips")) %>%
   left_join(regions, by = "rid") %>%
   left_join(divisions, by = "did") %>%
@@ -91,65 +142,76 @@ states <- codes %>%
   left_join(area, by = "abb") %>%
   arrange(name)
 
-# consider keeping other territories
-# would need to get info for each
-territory <- states %>%
-  filter(!(name %in% datasets::state.name)) %>%
-  select(-region, -division)
+# filter to the 52 (50 states + DC + PR)
+all_states <- all_states %>%
+  filter(name %in% c(datasets::state.name, "District of Columbia", "Puerto Rico"))
 
-states <- states %>%
-  filter(name %in% c(state.name, "District of Columbia", "Puerto Rico"))
+# state_ids ---------------------------------------------------------------
+# All naming/coding systems for each state.
+# ISO 3166-2 is simply "US-" + USPS abbreviation for all entries.
 
-# write data --------------------------------------------------------------
+state_ids <- all_states %>%
+  select(name, abb, fips) %>%
+  left_join(ap_abbrevs, by = "name") %>%
+  mutate(iso = paste0("US-", abb)) %>%
+  select(name, abb, fips, ap, iso)
 
-# save new tibble
-usethis::use_data(states, overwrite = TRUE)
-write_csv(states, "data-raw/states.csv")
+usethis::use_data(state_ids, overwrite = TRUE)
+write_csv(state_ids, "data-raw/state_ids.csv")
 
-# overwrite dataset objects
-state.abb <- states$abb
+# state_geo ---------------------------------------------------------------
+# Geographic and classificatory properties for each state.
+# Keyed by abb to join with state_ids.
+
+state_geo <- all_states %>%
+  select(abb, region, division, area, lat, long)
+
+usethis::use_data(state_geo, overwrite = TRUE)
+write_csv(state_geo, "data-raw/state_geo.csv")
+
+# legacy dot-notation vectors ---------------------------------------------
+# These overwrite datasets::state.* on library(usa) for backwards compat.
+# They are derived from state_ids / state_geo for the 52 rows.
+
+state.abb <- state_ids$abb
 class(state.abb) == class(datasets::state.abb)
 usethis::use_data(state.abb, overwrite = TRUE)
-write_lines(state.area, "data-raw/state-abb.csv")
+write_lines(state.abb, "data-raw/state-abb.csv")
 
-# overwrite datasets::state.center
-state.area <- states$area
+state.area <- state_geo$area
 class(state.area) == class(datasets::state.area)
 usethis::use_data(state.area, overwrite = TRUE)
 write_lines(state.area, "data-raw/state-area.csv")
 
-# overwrite datasets::state.center
-state.center <- list(x = states$long, y = states$lat)
+state.center <- list(x = state_geo$long, y = state_geo$lat)
 class(state.center) == class(datasets::state.center)
 usethis::use_data(state.center, overwrite = TRUE)
 write_csv(as.data.frame(state.center), "data-raw/state-center.csv")
 
-# overwrite datasets::state.division
-state.division <- states$division
+state.division <- state_geo$division
 class(state.division) == class(datasets::state.division)
 usethis::use_data(state.division, overwrite = TRUE)
 write_lines(state.division, "data-raw/state-division.csv")
 
-# overwrite datasets::state.name
-state.name <- states$name
+state.name <- state_ids$name
 class(state.name) == class(datasets::state.name)
 usethis::use_data(state.name, overwrite = TRUE)
 write_lines(state.name, "data-raw/state-name.csv")
 
-# overwrite datasets::state.region
-state.region <- states$region
+state.region <- state_geo$region
 class(state.region) == class(datasets::state.region)
 usethis::use_data(state.region, overwrite = TRUE)
 write_lines(state.region, "data-raw/state-region.csv")
 
 # territory data ----------------------------------------------------------
 
-# save new tibble
+territory <- codes %>%
+  left_join(area, by = "abb") %>%
+  filter(!(name %in% c(datasets::state.name, "District of Columbia", "Puerto Rico"))) %>%
+  arrange(name)
+
 usethis::use_data(territory, overwrite = TRUE)
 write_csv(territory, "data-raw/territory.csv")
-
-territory <- territory %>%
-  filter(!(name %in% c("District of Columbia", "Puerto Rico")))
 
 territory.abb <- territory$abb
 usethis::use_data(territory.abb, overwrite = TRUE)

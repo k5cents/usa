@@ -35,6 +35,6 @@ state_facts
 \description{
 Updated version of the \link[datasets:state]{datasets::state.x77} matrix, which provided eight
 statistics from the 1970's. This version is a modern tibble with updated
-statistics. See also \link{states} for state identifiers and geography.
+statistics. See also \link{state_ids} for state identifiers and \link{state_geo} for geography.
 }
 \keyword{datasets}

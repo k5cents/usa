@@ -3,22 +3,49 @@ NULL
 
 # objects from states.R ---------------------------------------------------
 
-#' US State and Territories
+#' US State Identifiers
 #'
-#' The 50 states, District of Columbia, and Puerto Rico.
+#' The 50 states, District of Columbia, and Puerto Rico — all naming and coding
+#' systems used to refer to each state. The backing data for [state_convert()].
 #'
-#' @format A tibble with 52 rows and 8 variables:
+#' Naming convention: underscore objects (\code{state_ids}, \code{state_facts},
+#' \code{state_geo}) are modern purpose-built tibbles. Dot objects
+#' (\code{state.abb}, \code{state.name}, etc.) are a compatibility layer that
+#' overwrites \code{datasets::state.*} on \code{library(usa)}.
+#'
+#' @format A tibble with 52 rows and 5 variables:
 #' \describe{
-#'   \item{abb}{2-letter abbreviation}
 #'   \item{name}{Full legal name}
+#'   \item{abb}{2-letter USPS abbreviation}
 #'   \item{fips}{Federal Information Processing Standard Publication 5-2 code}
+#'   \item{ap}{AP style abbreviation; \code{NA} for the 8 states with no AP
+#'     abbreviation (Alaska, Hawaii, Idaho, Iowa, Maine, Ohio, Texas, Utah)}
+#'   \item{iso}{ISO 3166-2 code (e.g. \code{"US-AL"})}
+#' }
+#' @source
+#' * Names, abbreviations, FIPS: \url{https://www2.census.gov/geo/docs/reference/state.txt}
+#' * AP abbreviations: AP Stylebook
+#' * ISO 3166-2: ISO Online Browsing Platform
+"state_ids"
+
+#' US State Geography
+#'
+#' Geographic and classificatory properties for the 50 states, District of
+#' Columbia, and Puerto Rico. Keyed by \code{abb} to join with [state_ids].
+#'
+#' @format A tibble with 52 rows and 6 variables:
+#' \describe{
+#'   \item{abb}{2-letter USPS abbreviation (join key)}
 #'   \item{region}{Census Bureau region}
 #'   \item{division}{Census Bureau division}
-#'   \item{area}{Area in square miles}
+#'   \item{area}{Land area in square miles}
 #'   \item{lat}{Center latitudinal coordinate}
 #'   \item{long}{Center longitudinal coordinate}
 #' }
-"states"
+#' @source
+#' * Regions and divisions: \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx}
+#' * Area and centroids: \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
+"state_geo"
 
 #' US Territories
 #'
@@ -144,7 +171,7 @@ NULL
 #'
 #' Updated version of the [datasets::state.x77] matrix, which provided eight
 #' statistics from the 1970's. This version is a modern tibble with updated
-#' statistics. See also [states] for state identifiers and geography.
+#' statistics. See also [state_ids] for state identifiers and [state_geo] for geography.
 #'
 #' @format A tibble with 52 rows and 9 variables:
 #' \describe{

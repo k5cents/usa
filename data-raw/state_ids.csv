@@ -1,0 +1,53 @@
+name,abb,fips,ap,iso
+Alabama,AL,01,Ala.,US-AL
+Alaska,AK,02,NA,US-AK
+Arizona,AZ,04,Ariz.,US-AZ
+Arkansas,AR,05,Ark.,US-AR
+California,CA,06,Calif.,US-CA
+Colorado,CO,08,Colo.,US-CO
+Connecticut,CT,09,Conn.,US-CT
+Delaware,DE,10,Del.,US-DE
+District of Columbia,DC,11,D.C.,US-DC
+Florida,FL,12,Fla.,US-FL
+Georgia,GA,13,Ga.,US-GA
+Hawaii,HI,15,NA,US-HI
+Idaho,ID,16,NA,US-ID
+Illinois,IL,17,Ill.,US-IL
+Indiana,IN,18,Ind.,US-IN
+Iowa,IA,19,NA,US-IA
+Kansas,KS,20,Kan.,US-KS
+Kentucky,KY,21,Ky.,US-KY
+Louisiana,LA,22,La.,US-LA
+Maine,ME,23,NA,US-ME
+Maryland,MD,24,Md.,US-MD
+Massachusetts,MA,25,Mass.,US-MA
+Michigan,MI,26,Mich.,US-MI
+Minnesota,MN,27,Minn.,US-MN
+Mississippi,MS,28,Miss.,US-MS
+Missouri,MO,29,Mo.,US-MO
+Montana,MT,30,Mont.,US-MT
+Nebraska,NE,31,Neb.,US-NE
+Nevada,NV,32,Nev.,US-NV
+New Hampshire,NH,33,N.H.,US-NH
+New Jersey,NJ,34,N.J.,US-NJ
+New Mexico,NM,35,N.M.,US-NM
+New York,NY,36,N.Y.,US-NY
+North Carolina,NC,37,N.C.,US-NC
+North Dakota,ND,38,N.D.,US-ND
+Ohio,OH,39,NA,US-OH
+Oklahoma,OK,40,Okla.,US-OK
+Oregon,OR,41,Ore.,US-OR
+Pennsylvania,PA,42,Pa.,US-PA
+Puerto Rico,PR,72,P.R.,US-PR
+Rhode Island,RI,44,R.I.,US-RI
+South Carolina,SC,45,S.C.,US-SC
+South Dakota,SD,46,S.D.,US-SD
+Tennessee,TN,47,Tenn.,US-TN
+Texas,TX,48,NA,US-TX
+Utah,UT,49,NA,US-UT
+Vermont,VT,50,Vt.,US-VT
+Virginia,VA,51,Va.,US-VA
+Washington,WA,53,Wash.,US-WA
+West Virginia,WV,54,W.Va.,US-WV
+Wisconsin,WI,55,Wis.,US-WI
+Wyoming,WY,56,Wyo.,US-WY
