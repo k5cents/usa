@@ -4,13 +4,10 @@
 ^README\.Rmd$
 ^cran-comments\.md$
 ^\.github$
-^\.travis\.yml$
-^codecov\.yml$
 ^\.covrignore$
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
 ^data-raw$
 ^CRAN-RELEASE$
-^CRAN-SUBMISSION$
-^TODO\.md$
+^\.claude$
