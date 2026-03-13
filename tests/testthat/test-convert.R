@@ -20,7 +20,7 @@ test_that("conversion to full name", {
 
 test_that("conversion to AP abbreviation", {
   y <- usa::state_convert(x, "ap")
-  expect_equal(y, c(NA_character_, "N.M.", NA_character_))  # Idaho and Alaska have no AP abbrev
+  expect_equal(y, c("Idaho", "N.M.", "Alaska"))  # Idaho and Alaska use full name per AP style
 })
 
 test_that("conversion to ISO 3166-2", {
