@@ -1,5 +1,23 @@
 # usa 1.0.0 — Release TODO
 
+## Git Strategy
+
+- `master` — stays CRAN-clean; only touched when submitting a new release
+- `v1.0.0` — integration branch; all 1.0.0 work lands here before going to `master`
+- Task branches — cut from `v1.0.0`, merged back into `v1.0.0` when done
+
+```bash
+# Start a new task
+git checkout v1.0.0
+git checkout -b my-task
+
+# Merge when done
+git checkout v1.0.0
+git merge --no-ff my-task -m "Merge my-task: description"
+```
+
+Hotfixes for the current CRAN version branch from and merge back to `master` directly.
+
 ## Priority Order
 
 ### ~~1. Rename `facts` → `state_facts`~~ ✓ DONE (branch: rename-state-facts)
