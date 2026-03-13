@@ -1,4 +1,4 @@
-abb,region,division,area_land,area_water,lat,long,contiguous,landlocked,peak_elev_ft
+abb,region,division,area_land,area_water,lat,long,contiguous,landlocked,peak_elev
 AL,South,East South Central,50651.52,1768.47,32.7437,-86.8468,TRUE,FALSE,2405
 AK,West,Pacific,571390.6,94334.3,63.4136,-152.8789,FALSE,FALSE,20237
 AZ,West,Mountain,113655.45,329.67,34.2751,-111.6605,TRUE,TRUE,12633

@@ -232,7 +232,7 @@ write_csv(state_ids, "data-raw/state_ids.csv")
 
 # Peak elevations in feet (USGS / state high point records)
 peak_elev <- tribble(
-  ~abb, ~peak_elev_ft,
+  ~abb, ~peak_elev,
   "AL",  2405L,
   "AK", 20237L,
   "AZ", 12633L,
@@ -302,7 +302,7 @@ state_geo <- all_states %>%
   ) %>%
   left_join(peak_elev, by = "abb") %>%
   select(abb, region, division, area_land, area_water, lat, long,
-         contiguous, landlocked, peak_elev_ft)
+         contiguous, landlocked, peak_elev)
 
 usethis::use_data(state_geo, overwrite = TRUE)
 write_csv(state_geo, "data-raw/state_geo.csv")
