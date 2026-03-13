@@ -18,7 +18,7 @@ A tibble with 52 rows and 10 variables:
 \code{FALSE} for Alaska, Hawaii, and Puerto Rico}
 \item{landlocked}{\code{TRUE} for states with no coastline on an ocean,
 gulf, or Great Lake (21 states including DC)}
-\item{peak_elev_ft}{Elevation of the state high point in feet}
+\item{peak_elev}{Elevation of the state high point in feet}
 }
 }
 \source{
