@@ -13,77 +13,61 @@ abb_name <- select(read_csv("data-raw/states.csv"), name, abb)
 
 # population --------------------------------------------------------------
 
-url <- "https://www2.census.gov/programs-surveys/popest/datasets/2010-2018/state/detail/SCPRC-EST2018-18+POP-RES.csv"
-populations <- read_csv(
-  file = url,
-  na = "X",
-  col_types = cols(
-    SUMLEV = col_character(),
-    REGION = col_character(),
-    DIVISION = col_character(),
-    STATE = col_character(),
-    NAME = col_character(),
-    POPESTIMATE2018 = col_double(),
-    POPEST18PLUS2018 = col_double(),
-    PCNT_POPEST18PLUS = col_double()
-  )
+# Table 2. Resident Population for the 50 States, the District of Columbia, and Puerto Rico
+# https://www.census.gov/data/tables/2020/dec/2020-apportionment-data.html
+pop_url <- "https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table02.xlsx"
+pop_xls <- file_temp(ext = path_ext(pop_url))
+download.file(pop_url, pop_xls)
+st_pop <- read_excel(
+  path = pop_xls,
+  range = "A4:B55"
 )
 
-populations <- populations %>%
-  rename(fips = STATE, population = POPESTIMATE2018) %>%
-  filter(fips != "00") %>%
-  inner_join(abb_fips) %>%
+st_pop <- st_pop %>%
+  rename(population = `RESIDENT POPULATION (APRIL 1, 2020)`) %>%
+  inner_join(abb_name, by = c("AREA" = "name")) %>%
   select(abb, population)
 
 # income ------------------------------------------------------------------
 
-# https://data.census.gov/cedsci/table?tid=ACSST1Y2018.S1903
-# MEDIAN INCOME IN THE PAST 12 MONTHS (IN 2018 INFLATION-ADJUSTED DOLLARS)
-# TableID: S1903
-# Survey/Program: American Community Survey
-# Product: 2018 ACS 1-Year Estimates Subject Tables
-zip_file <- "data-raw/ACSST1Y2018-S1903.zip"
-zip_list <- unzip(zip_file, list = TRUE)
-S1903 <- unzip(
-  zipfile = zip_file,
-  files = zip_list$Name[which.max(zip_list$Length)],
-  exdir = path_temp()
+# MEDIAN INCOME IN THE PAST 12 MONTHS (IN 2019 INFLATION-ADJUSTED DOLLARS)
+# https://data.census.gov/cedsci/table?tid=ACSST1Y2019.S1903
+st_income <- get_acs(
+  geography = "state",
+  variables = "S1903_C03_001E",
+  year = 2019
 )
 
-income <-
-  read_csv(
-    file = S1903,
-    col_types = cols(
-      .default = col_skip(),
-      GEO_ID = col_character(),
-      S1903_C03_001E = col_double()
-    )
-  ) %>%
-  select(fips = GEO_ID, income = S1903_C03_001E) %>%
-  slice(-1) %>%
-  mutate(fips = str_extract(fips, "(?<=US)\\d+")) %>%
-  inner_join(abb_fips) %>%
+st_income <- st_income %>%
+  rename(income = estimate) %>%
+  inner_join(abb_name, by = c("NAME" = "name")) %>%
   select(abb, income)
-
-file_delete(S1903)
 
 # gdp ---------------------------------------------------------------------
 
-# Gross Domestic Product by State: Second Quarter 2019
-gdp_url <- "https://www.bea.gov/system/files/2019-11/qgdpstate1119.xlsx"
-gdp_file <- file_temp(ext = "xlsx")
-download.file(gdp_url, gdp_file)
-gdp <- read_excel(
-  path = gdp_file,
-  sheet = "Table 3",
-  range = "A5:G65"
+# SQGDP2 Gross domestic product (GDP) by state
+gdp_get <- GET(
+  url = "https://apps.bea.gov/api/data",
+  query = list(
+    UserID = Sys.getenv("BEA_API_KEY"),
+    method = "GetData",
+    datasetname = "Regional",
+    TableName = "SQGDP2",
+    GeoFIPS = "STATE",
+    LineCode = 1,
+    Year = 2020,
+    ResultFormat = "json"
+  )
 )
 
-gdp <- gdp %>%
-  select(name = 1, gdp = 7) %>%
-  add_row(name = "Puerto Rico", gdp = 99913) %>%
-  inner_join(abb_name) %>%
-  select(abb, gdp)
+gdp_dat <- content(a, as = "parsed", simplifyDataFrame = TRUE)
+gdp_dat$BEAAPI$Results$UTCProductionTime
+st_income <- gdp_dat$BEAAPI$Results$Data %>%
+  filter(TimePeriod == "2020Q1") %>%
+  select(name = GeoName, gdp = DataValue) %>%
+  mutate(across(gdp, parse_number)) %>%
+  inner_join(abb_name, by = "name") %>%
+  as_tibble()
 
 # life expect -------------------------------------------------------------
 
