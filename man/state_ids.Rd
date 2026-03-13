@@ -10,6 +10,8 @@ A tibble with 52 rows and 5 variables:
 \item{name}{Full legal name}
 \item{abb}{2-letter USPS abbreviation}
 \item{fips}{Federal Information Processing Standard Publication 5-2 code}
+\item{icp}{IPUMS Integrated Census Project (STATEICP) code, zero-padded
+2-digit string}
 \item{ap}{AP style abbreviation; the 8 states with no AP abbreviation
 (Alaska, Hawaii, Idaho, Iowa, Maine, Ohio, Texas, Utah) use the full
 state name per AP style}
@@ -19,6 +21,7 @@ state name per AP style}
 \source{
 \itemize{
 \item Names, abbreviations, FIPS: \url{https://www2.census.gov/geo/docs/reference/state.txt}
+\item ICP codes: \url{https://usa.ipums.org/usa-action/variables/STATEICP}
 \item AP abbreviations: AP Stylebook
 \item ISO 3166-2: ISO Online Browsing Platform
 }
