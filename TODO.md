@@ -117,19 +117,29 @@ Errors found in existing Rd files (all must be corrected):
 | `territory.Rd` | Says "6 non-state territories and federal district" but has 7 rows |
 | `state_convert.Rd` | `to` argument docs say `"name"` but code uses `"names"` — fix both together |
 
-### 9. `people` — Minor doc cleanup only
+### 9. Add AP style state abbreviations (issue #7)
+
+The Associated Press uses a different set of state abbreviations from USPS (e.g. "Ala."
+instead of "AL"). These are widely used in journalism and editorial contexts.
+
+- Add an `ap` column to `states` tibble, or a standalone `state.ap` vector
+- Source: https://en.wikipedia.org/wiki/List_of_U.S._state_and_territory_abbreviations
+- Note: 8 states are never abbreviated in AP style (Alaska, Hawaii, Idaho, Iowa, Maine,
+  Ohio, Texas, Utah) — these should be `NA` or the full name, not a made-up abbreviation
+
+### 11. `people` — Minor doc cleanup only
 
 Synthetic Pew 2018 population is hard to regenerate; keep as-is.
 - Update `vote` column description — currently says "voted in the 2014 midterm elections"; make year-neutral
 - Fill in the empty `\item{boycott}{}` description (see above)
 
-### 10. Remove `data-raw/documents.R` (dead code)
+### 12. Remove `data-raw/documents.R` (dead code)
 
 This script scrapes the US Constitution into a tibble but never saves it — no `use_data()`,
 no Rd file, not in NAMESPACE. Either finish it as a `documents` dataset or delete it.
 Decision: delete unless there's a plan to finish it for 1.0.0.
 
-### 11. Fix `data-raw/states.R` — `state-abb.csv` write bug
+### 13. Fix `data-raw/states.R` — `state-abb.csv` write bug
 
 Line 113 writes the wrong object to disk:
 ```r
@@ -138,7 +148,7 @@ write_lines(state.area, "data-raw/state-abb.csv")  # BUG: should be state.abb
 The file currently contains numeric area values. Low priority since this file is only used
 for human reference, not read back by any script.
 
-### 12. Package metadata
+### 14. Package metadata
 
 - Bump version to `1.0.0` in `DESCRIPTION`
 - Update `R (>= 3.2)` minimum — consider 4.1+
