@@ -119,18 +119,24 @@ divisions <- geocodes %>%
   mutate(division = as_factor(str_remove(division, "\\sDivision$")))
 
 # get area and location data ----------------------------------------------
+# TIGER REST API: land area, water area, and centroids
+# Areas in response are square meters; convert to square miles (/2589988)
 
-tiger <- read_html("https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html")
-area <- tiger %>%
-  html_node("table") %>%
-  html_table(header = TRUE) %>%
-  as_tibble(.name_repair = "unique") %>%
+tiger_url <- paste0(
+  "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/",
+  "State_County/MapServer/0/query",
+  "?where=1%3D1&outFields=STUSAB,AREALAND,AREAWATER,CENTLAT,CENTLON",
+  "&returnGeometry=false&f=json&resultRecordCount=60"
+)
+tiger_raw <- jsonlite::fromJSON(tiger_url)
+area <- as_tibble(tiger_raw$features$attributes) %>%
   mutate(
-    area = round(AREALAND / 2589988, 2),
-    lat  = round(CENTLAT, 4),
-    long = round(CENTLON, 4)
+    area_land  = round(as.numeric(AREALAND)  / 2589988, 2),
+    area_water = round(as.numeric(AREAWATER) / 2589988, 2),
+    lat        = round(as.numeric(CENTLAT), 4),
+    long       = round(as.numeric(CENTLON), 4)
   ) %>%
-  select(abb = STUSAB, area, lat, long)
+  select(abb = STUSAB, area_land, area_water, lat, long)
 
 # build full joined table -------------------------------------------------
 
@@ -224,8 +230,79 @@ write_csv(state_ids, "data-raw/state_ids.csv")
 # Geographic and classificatory properties for each state.
 # Keyed by abb to join with state_ids.
 
+# Peak elevations in feet (USGS / state high point records)
+peak_elev <- tribble(
+  ~abb, ~peak_elev_ft,
+  "AL",  2405L,
+  "AK", 20237L,
+  "AZ", 12633L,
+  "AR",  2753L,
+  "CA", 14494L,
+  "CO", 14433L,
+  "CT",  2380L,
+  "DE",   448L,
+  "FL",   345L,
+  "GA",  4784L,
+  "HI", 13796L,
+  "ID", 12662L,
+  "IL",  1235L,
+  "IN",  1257L,
+  "IA",  1670L,
+  "KS",  4039L,
+  "KY",  4139L,
+  "LA",   535L,
+  "ME",  5267L,
+  "MD",  3360L,
+  "MA",  3487L,
+  "MI",  1979L,
+  "MN",  2301L,
+  "MS",   806L,
+  "MO",  1772L,
+  "MT", 12799L,
+  "NE",  5424L,
+  "NV", 13140L,
+  "NH",  6288L,
+  "NJ",  1803L,
+  "NM", 13161L,
+  "NY",  5344L,
+  "NC",  6684L,
+  "ND",  3506L,
+  "OH",  1549L,
+  "OK",  4973L,
+  "OR", 11239L,
+  "PA",  3213L,
+  "RI",   812L,
+  "SC",  3560L,
+  "SD",  7242L,
+  "TN",  6643L,
+  "TX",  8749L,
+  "UT", 13528L,
+  "VT",  4393L,
+  "VA",  5729L,
+  "WA", 14410L,
+  "WV",  4861L,
+  "WI",  1951L,
+  "WY", 13804L,
+  "DC",   409L,
+  "PR",  4390L
+)
+
+# Landlocked: no coastline on an ocean, gulf, or Great Lake.
+# Great Lakes states (not landlocked): IL, IN, MI, MN, NY, OH, PA, WI
+landlocked_abbs <- c(
+  "AZ", "AR", "CO", "DC", "ID", "IA", "KS", "KY", "MO", "MT",
+  "NE", "NV", "NM", "ND", "OK", "SD", "TN", "UT", "VT", "WV", "WY"
+)
+
 state_geo <- all_states %>%
-  select(abb, region, division, area, lat, long)
+  select(abb, region, division, area_land, area_water, lat, long) %>%
+  mutate(
+    contiguous = !abb %in% c("AK", "HI", "PR"),
+    landlocked = abb %in% landlocked_abbs
+  ) %>%
+  left_join(peak_elev, by = "abb") %>%
+  select(abb, region, division, area_land, area_water, lat, long,
+         contiguous, landlocked, peak_elev_ft)
 
 usethis::use_data(state_geo, overwrite = TRUE)
 write_csv(state_geo, "data-raw/state_geo.csv")
@@ -239,7 +316,7 @@ class(state.abb) == class(datasets::state.abb)
 usethis::use_data(state.abb, overwrite = TRUE)
 write_lines(state.abb, "data-raw/state-abb.csv")
 
-state.area <- state_geo$area
+state.area <- state_geo$area_land
 class(state.area) == class(datasets::state.area)
 usethis::use_data(state.area, overwrite = TRUE)
 write_lines(state.area, "data-raw/state-area.csv")

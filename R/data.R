@@ -36,20 +36,46 @@ NULL
 #'
 #' Geographic and classificatory properties for the 50 states, District of
 #' Columbia, and Puerto Rico. Keyed by \code{abb} to join with [state_ids].
+#' Puerto Rico has \code{NA} for \code{region} and \code{division} as it is
+#' not assigned to a Census region.
 #'
-#' @format A tibble with 52 rows and 6 variables:
+#' @format A tibble with 52 rows and 10 variables:
 #' \describe{
 #'   \item{abb}{2-letter USPS abbreviation (join key)}
 #'   \item{region}{Census Bureau region}
 #'   \item{division}{Census Bureau division}
-#'   \item{area}{Land area in square miles}
-#'   \item{lat}{Center latitudinal coordinate}
-#'   \item{long}{Center longitudinal coordinate}
+#'   \item{area_land}{Land area in square miles}
+#'   \item{area_water}{Water area in square miles}
+#'   \item{lat}{Centroid latitudinal coordinate}
+#'   \item{long}{Centroid longitudinal coordinate}
+#'   \item{contiguous}{\code{TRUE} for the 48 contiguous states and DC;
+#'     \code{FALSE} for Alaska, Hawaii, and Puerto Rico}
+#'   \item{landlocked}{\code{TRUE} for states with no coastline on an ocean,
+#'     gulf, or Great Lake (21 states including DC)}
+#'   \item{peak_elev_ft}{Elevation of the state high point in feet}
 #' }
 #' @source
 #' * Regions and divisions: \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx}
-#' * Area and centroids: \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
+#' * Area and centroids: TIGER/Web REST API (State_County layer)
+#' * Peak elevations: USGS state high point records
 "state_geo"
+
+#' US State Capitals
+#'
+#' Capital cities for the 50 states, District of Columbia, and Puerto Rico,
+#' with coordinates and 2020 Census population.
+#'
+#' @format A tibble with 52 rows and 5 variables:
+#' \describe{
+#'   \item{abb}{2-letter USPS abbreviation (join key)}
+#'   \item{capital}{Capital city name}
+#'   \item{lat}{Latitudinal coordinate of the capital}
+#'   \item{long}{Longitudinal coordinate of the capital}
+#'   \item{population}{Capital city population (2020 Decennial Census,
+#'     city proper)}
+#' }
+#' @source \url{https://www.census.gov/quickfacts/}
+"state_capitals"
 
 #' US Territories
 #'
