@@ -13,6 +13,6 @@ test_that("conversion to abbreviation", {
 })
 
 test_that("conversion to full name", {
-  y <- usa::state_convert(x, "names")
+  y <- usa::state_convert(x, "name")
   expect_equal(y, c("Idaho", "New Mexico", "Alaska"))
 })
