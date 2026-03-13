@@ -2,7 +2,7 @@
 
 ## Priority Order
 
-### 1. Rename `facts` → `state_facts` (and consider `territory` → `territories`)
+### ~~1. Rename `facts` → `state_facts`~~ ✓ DONE (branch: rename-state-facts)
 
 `facts` is too ambiguous without the `usa::` prefix — it reads as a descriptor, not a noun.
 `state_facts` makes the object self-describing in any context.
@@ -13,7 +13,7 @@
   and aligning `territory.*` vectors to `territories.*` if renaming
 - These are breaking changes; note them prominently in NEWS.md
 
-### 2. Remove `state.x19`
+### ~~2. Remove `state.x19`~~ ✓ DONE (branch: rename-state-facts)
 
 `state.x19` is a matrix version of `facts`/`state_facts` intended to mirror `datasets::state.x77`.
 The docs and generating code don't match (Rd describes `high`/`bach` columns that no longer exist).
