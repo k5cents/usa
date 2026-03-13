@@ -22,7 +22,7 @@ NULL
 
 #' US Territories
 #'
-#' The 6 non-state territories and federal district.
+#' DC, Puerto Rico, and the 5 US territories (AS, GU, MP, UM, VI).
 #'
 #' @format A tibble with 7 rows and 6 variables:
 #' \describe{
@@ -45,9 +45,9 @@ NULL
 
 #' US Territory Abbreviations
 #'
-#' The 2-letter abbreviations for the US territory names.
+#' The 2-letter abbreviations for the US territory names (AS, GU, MP, UM, VI).
 #'
-#' @format A character vector of length 52.
+#' @format A character vector of length 5.
 #' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
 "territory.abb"
 
@@ -59,11 +59,11 @@ NULL
 #' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
 "state.area"
 
-#' US State Areas
+#' US Territory Areas
 #'
-#' The area in square miles of the US territories.
+#' The area in square miles of the US territories (AS, GU, MP, UM, VI).
 #'
-#' @format A numeric vector of length 52.
+#' @format A numeric vector of length 5.
 #' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
 "territory.area"
 
@@ -114,16 +114,16 @@ NULL
 #'
 #' The full names for the US states.
 #'
-#' @format A numeric vector of length 52.
-#' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
+#' @format A character vector of length 52.
+#' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
 "state.name"
 
 #' US Territory Names
 #'
-#' The full names for the US territories.
+#' The full names for the US territories (AS, GU, MP, UM, VI).
 #'
-#' @format A numeric vector of length 52.
-#' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
+#' @format A character vector of length 5.
+#' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
 "territory.name"
 
 #' US State Regions
@@ -225,7 +225,7 @@ NULL
 #'   \item{house_size}{Household size}
 #'   \item{children}{Has children}
 #'   \item{us_citizen}{Is a US citizen}
-#'   \item{us_born}{Was born in the Us}
+#'   \item{us_born}{Was born in the US}
 #'   \item{house_income}{Family income}
 #'   \item{emp_status}{Employment status}
 #'   \item{emp_sector}{Employment sector}
@@ -238,7 +238,7 @@ NULL
 #'   \item{foodstamp}{Receives food stamps}
 #'   \item{house_moved}{Moved in the last year}
 #'   \item{pub_contact}{Contacted or visited a public official}
-#'   \item{boycott}{}
+#'   \item{boycott}{Participated in a product boycott}
 #'   \item{hood_group}{Participated in a community association}
 #'   \item{hood_talks}{Talked with neighbors}
 #'   \item{hood_trust}{Trusts neighbors}
@@ -247,7 +247,7 @@ NULL
 #'   \item{social}{Uses social media}
 #'   \item{volunteer}{Volunteered}
 #'   \item{register}{Is registered to vote}
-#'   \item{vote}{Voted in the 2014 midterm elections}
+#'   \item{vote}{Voted in the most recent midterm election}
 #'   \item{party}{Political party}
 #'   \item{religion}{Religious (evangelical) affiliation}
 #'   \item{ideology}{Political ideology}
@@ -270,13 +270,13 @@ NULL
 #' [`zipcode`](https://CRAN.R-project.org/package=zipcode) CRAN package, which
 #' was archived on January 1, 2020.
 #'
-#' @format A tibble with 52 rows and 9 variables:
+#' @format A tibble with 44,336 rows and 5 variables:
 #' \describe{
 #'   \item{zip}{5 digit ZIP code or military postal code (FPO/APO)}
 #'   \item{city}{USPS official city name}
 #'   \item{state}{USPS official state, territory abbreviation code}
-#'   \item{latitude}{Decimal Latitude}
-#'   \item{longitude}{Decimal Longitude}
+#'   \item{lat}{Decimal latitude}
+#'   \item{long}{Decimal longitude}
 #' }
 #' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
@@ -339,6 +339,6 @@ NULL
 #'
 #' The name of distinct US counties.
 #'
-#' @format A character vector of length 19108.
+#' @format A character vector of length 1,932.
 #' @source \url{https://web.archive.org/web/20240106151642/https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt}
 "county.name"

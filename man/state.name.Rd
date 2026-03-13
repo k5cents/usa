@@ -5,10 +5,10 @@
 \alias{state.name}
 \title{US State Names}
 \format{
-A numeric vector of length 52.
+A character vector of length 52.
 }
 \source{
-\url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
+\url{https://www2.census.gov/geo/docs/reference/state.txt}
 }
 \usage{
 state.name

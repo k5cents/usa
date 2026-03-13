@@ -5,13 +5,13 @@
 \alias{zipcodes}
 \title{US ZIP Code Locations}
 \format{
-A tibble with 52 rows and 9 variables:
+A tibble with 44,336 rows and 5 variables:
 \describe{
 \item{zip}{5 digit ZIP code or military postal code (FPO/APO)}
 \item{city}{USPS official city name}
 \item{state}{USPS official state, territory abbreviation code}
-\item{latitude}{Decimal Latitude}
-\item{longitude}{Decimal Longitude}
+\item{lat}{Decimal latitude}
+\item{long}{Decimal longitude}
 }
 }
 \source{
