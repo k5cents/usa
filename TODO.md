@@ -102,7 +102,7 @@ state_convert <- function(x, to = c("abb", "name", "fips")) {
 
 Also update `tests/testthat/test-convert.R` which calls `state_convert(x, "names")`.
 
-### 8. Documentation bugs — Fix before CRAN submission
+### ~~8. Documentation bugs~~ ✓ DONE (branch: fix-doc-bugs)
 
 Errors found in existing Rd files (all must be corrected):
 
