@@ -18,8 +18,9 @@ NULL
 #'   \item{name}{Full legal name}
 #'   \item{abb}{2-letter USPS abbreviation}
 #'   \item{fips}{Federal Information Processing Standard Publication 5-2 code}
-#'   \item{ap}{AP style abbreviation; \code{NA} for the 8 states with no AP
-#'     abbreviation (Alaska, Hawaii, Idaho, Iowa, Maine, Ohio, Texas, Utah)}
+#'   \item{ap}{AP style abbreviation; the 8 states with no AP abbreviation
+#'     (Alaska, Hawaii, Idaho, Iowa, Maine, Ohio, Texas, Utah) use the full
+#'     state name per AP style}
 #'   \item{iso}{ISO 3166-2 code (e.g. \code{"US-AL"})}
 #' }
 #' @source

@@ -1,6 +1,6 @@
 name,abb,fips,ap,iso
 Alabama,AL,01,Ala.,US-AL
-Alaska,AK,02,NA,US-AK
+Alaska,AK,02,Alaska,US-AK
 Arizona,AZ,04,Ariz.,US-AZ
 Arkansas,AR,05,Ark.,US-AR
 California,CA,06,Calif.,US-CA
@@ -10,15 +10,15 @@ Delaware,DE,10,Del.,US-DE
 District of Columbia,DC,11,D.C.,US-DC
 Florida,FL,12,Fla.,US-FL
 Georgia,GA,13,Ga.,US-GA
-Hawaii,HI,15,NA,US-HI
-Idaho,ID,16,NA,US-ID
+Hawaii,HI,15,Hawaii,US-HI
+Idaho,ID,16,Idaho,US-ID
 Illinois,IL,17,Ill.,US-IL
 Indiana,IN,18,Ind.,US-IN
-Iowa,IA,19,NA,US-IA
+Iowa,IA,19,Iowa,US-IA
 Kansas,KS,20,Kan.,US-KS
 Kentucky,KY,21,Ky.,US-KY
 Louisiana,LA,22,La.,US-LA
-Maine,ME,23,NA,US-ME
+Maine,ME,23,Maine,US-ME
 Maryland,MD,24,Md.,US-MD
 Massachusetts,MA,25,Mass.,US-MA
 Michigan,MI,26,Mich.,US-MI
@@ -34,7 +34,7 @@ New Mexico,NM,35,N.M.,US-NM
 New York,NY,36,N.Y.,US-NY
 North Carolina,NC,37,N.C.,US-NC
 North Dakota,ND,38,N.D.,US-ND
-Ohio,OH,39,NA,US-OH
+Ohio,OH,39,Ohio,US-OH
 Oklahoma,OK,40,Okla.,US-OK
 Oregon,OR,41,Ore.,US-OR
 Pennsylvania,PA,42,Pa.,US-PA
@@ -43,8 +43,8 @@ Rhode Island,RI,44,R.I.,US-RI
 South Carolina,SC,45,S.C.,US-SC
 South Dakota,SD,46,S.D.,US-SD
 Tennessee,TN,47,Tenn.,US-TN
-Texas,TX,48,NA,US-TX
-Utah,UT,49,NA,US-UT
+Texas,TX,48,Texas,US-TX
+Utah,UT,49,Utah,US-UT
 Vermont,VT,50,Vt.,US-VT
 Virginia,VA,51,Va.,US-VA
 Washington,WA,53,Wash.,US-WA
