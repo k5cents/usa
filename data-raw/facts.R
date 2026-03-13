@@ -1,4 +1,4 @@
-## code to prepare `facts` dataset goes here
+## code to prepare `state_facts` dataset goes here
 library(tidyverse)
 library(lubridate)
 library(magrittr)
@@ -261,7 +261,7 @@ ec <- read_html(url) %>%
 
 # join --------------------------------------------------------------------
 
-facts <- populations %>%
+state_facts <- populations %>%
   left_join(ec) %>%
   left_join(admission) %>%
   left_join(income, by = "abb") %>%
@@ -276,12 +276,5 @@ facts <- populations %>%
 
 # save --------------------------------------------------------------------
 
-use_data(facts, overwrite = TRUE)
-write_csv(facts, "data-raw/facts.csv")
-
-state.x19 <- facts %>%
-  mutate(admission = 2020 - year(admission)) %>%
-  rename(age = admission) %>%
-  column_to_rownames("name") %>%
-  as.matrix()
-use_data(state.x19, overwrite = TRUE)
+use_data(state_facts, overwrite = TRUE)
+write_csv(state_facts, "data-raw/state_facts.csv")

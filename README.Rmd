@@ -90,8 +90,8 @@ facts and figures.
 usa::states
 ```
 
-```{r facts}
-usa::facts
+```{r state_facts}
+usa::state_facts
 ```
 
 ```{r territory}
