@@ -146,6 +146,66 @@ all_states <- codes %>%
 all_states <- all_states %>%
   filter(name %in% c(datasets::state.name, "District of Columbia", "Puerto Rico"))
 
+# IPUMS ICP codes ---------------------------------------------------------
+# STATEICP codes from IPUMS USA: https://usa.ipums.org/usa-action/variables/STATEICP
+# Stored as zero-padded 2-digit strings, parallel to fips.
+
+icp_codes <- tribble(
+  ~name,                  ~icp,
+  "Connecticut",          "01",
+  "Maine",                "02",
+  "Massachusetts",        "03",
+  "New Hampshire",        "04",
+  "Rhode Island",         "05",
+  "Vermont",              "06",
+  "Delaware",             "11",
+  "New Jersey",           "12",
+  "New York",             "13",
+  "Pennsylvania",         "14",
+  "Illinois",             "21",
+  "Indiana",              "22",
+  "Michigan",             "23",
+  "Ohio",                 "24",
+  "Wisconsin",            "25",
+  "Iowa",                 "31",
+  "Kansas",               "32",
+  "Minnesota",            "33",
+  "Missouri",             "34",
+  "Nebraska",             "35",
+  "North Dakota",         "36",
+  "South Dakota",         "37",
+  "Virginia",             "40",
+  "Alabama",              "41",
+  "Arkansas",             "42",
+  "Florida",              "43",
+  "Georgia",              "44",
+  "Louisiana",            "45",
+  "Mississippi",          "46",
+  "North Carolina",       "47",
+  "South Carolina",       "48",
+  "Texas",                "49",
+  "Kentucky",             "51",
+  "Maryland",             "52",
+  "Oklahoma",             "53",
+  "Tennessee",            "54",
+  "West Virginia",        "56",
+  "Arizona",              "61",
+  "Colorado",             "62",
+  "Idaho",                "63",
+  "Montana",              "64",
+  "Nevada",               "65",
+  "New Mexico",           "66",
+  "Utah",                 "67",
+  "Wyoming",              "68",
+  "California",           "71",
+  "Oregon",               "72",
+  "Washington",           "73",
+  "Alaska",               "81",
+  "Hawaii",               "82",
+  "Puerto Rico",          "83",
+  "District of Columbia", "98"
+)
+
 # state_ids ---------------------------------------------------------------
 # All naming/coding systems for each state.
 # ISO 3166-2 is simply "US-" + USPS abbreviation for all entries.
@@ -154,7 +214,8 @@ state_ids <- all_states %>%
   select(name, abb, fips) %>%
   left_join(ap_abbrevs, by = "name") %>%
   mutate(iso = paste0("US-", abb)) %>%
-  select(name, abb, fips, ap, iso)
+  left_join(icp_codes, by = "name") %>%
+  select(name, abb, fips, icp, ap, iso)
 
 usethis::use_data(state_ids, overwrite = TRUE)
 write_csv(state_ids, "data-raw/state_ids.csv")
