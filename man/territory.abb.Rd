@@ -5,7 +5,7 @@
 \alias{territory.abb}
 \title{US Territory Abbreviations}
 \format{
-A character vector of length 52.
+A character vector of length 5.
 }
 \source{
 \url{https://www2.census.gov/geo/docs/reference/state.txt}
@@ -14,6 +14,6 @@ A character vector of length 52.
 territory.abb
 }
 \description{
-The 2-letter abbreviations for the US territory names.
+The 2-letter abbreviations for the US territory names (AS, GU, MP, UM, VI).
 }
 \keyword{datasets}

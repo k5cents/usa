@@ -19,6 +19,6 @@ A tibble with 7 rows and 6 variables:
 territory
 }
 \description{
-The 6 non-state territories and federal district.
+DC, Puerto Rico, and the 5 US territories (AS, GU, MP, UM, VI).
 }
 \keyword{datasets}

@@ -9,7 +9,8 @@ state_convert(x, to = c("abb", "name", "fips"))
 \arguments{
 \item{x}{A character vector of: state names, abbreviations, or FIPS codes.}
 
-\item{to}{The format returned: \code{"abb"}, \code{"name"}, or \code{"fips"}. Defaults to \code{"abb"}.}
+\item{to}{The format returned: \code{"abb"}, \code{"name"}, or \code{"fips"}. Defaults to
+\code{"abb"}.}
 }
 \value{
 A character vector of single format state identifiers.

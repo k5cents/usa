@@ -5,7 +5,7 @@
 \alias{county.name}
 \title{US County Names}
 \format{
-A character vector of length 19108.
+A character vector of length 1,932.
 }
 \source{
 \url{https://web.archive.org/web/20240106151642/https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt}

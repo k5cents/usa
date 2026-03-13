@@ -19,7 +19,7 @@ A tibble with 20,000 rows and 40 variables:
 \item{house_size}{Household size}
 \item{children}{Has children}
 \item{us_citizen}{Is a US citizen}
-\item{us_born}{Was born in the Us}
+\item{us_born}{Was born in the US}
 \item{house_income}{Family income}
 \item{emp_status}{Employment status}
 \item{emp_sector}{Employment sector}
@@ -32,7 +32,7 @@ A tibble with 20,000 rows and 40 variables:
 \item{foodstamp}{Receives food stamps}
 \item{house_moved}{Moved in the last year}
 \item{pub_contact}{Contacted or visited a public official}
-\item{boycott}{}
+\item{boycott}{Participated in a product boycott}
 \item{hood_group}{Participated in a community association}
 \item{hood_talks}{Talked with neighbors}
 \item{hood_trust}{Trusts neighbors}
@@ -41,7 +41,7 @@ A tibble with 20,000 rows and 40 variables:
 \item{social}{Uses social media}
 \item{volunteer}{Volunteered}
 \item{register}{Is registered to vote}
-\item{vote}{Voted in the 2014 midterm elections}
+\item{vote}{Voted in the most recent midterm election}
 \item{party}{Political party}
 \item{religion}{Religious (evangelical) affiliation}
 \item{ideology}{Political ideology}

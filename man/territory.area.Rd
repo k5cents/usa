@@ -3,9 +3,9 @@
 \docType{data}
 \name{territory.area}
 \alias{territory.area}
-\title{US State Areas}
+\title{US Territory Areas}
 \format{
-A numeric vector of length 52.
+A numeric vector of length 5.
 }
 \source{
 \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
@@ -14,6 +14,6 @@ A numeric vector of length 52.
 territory.area
 }
 \description{
-The area in square miles of the US territories.
+The area in square miles of the US territories (AS, GU, MP, UM, VI).
 }
 \keyword{datasets}

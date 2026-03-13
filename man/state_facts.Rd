@@ -33,8 +33,8 @@ A tibble with 52 rows and 9 variables:
 state_facts
 }
 \description{
-Updated version of the \link[datasets:state]{datasets::state.x77} matrix, which provided
-eight statistics from the 1970's. This version is a modern tibble with updated
+Updated version of the \link[datasets:state]{datasets::state.x77} matrix, which provided eight
+statistics from the 1970's. This version is a modern tibble with updated
 statistics. See also \link{states} for state identifiers and geography.
 }
 \keyword{datasets}
