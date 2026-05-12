@@ -25,18 +25,16 @@ st_pop <- get_decennial(
 
 # income ------------------------------------------------------------------
 
-# MEDIAN INCOME IN THE PAST 12 MONTHS (IN 2019 INFLATION-ADJUSTED DOLLARS)
-# https://data.census.gov/cedsci/table?tid=ACSST1Y2019.S1903
+# Median household income, 2022 ACS 1-year Subject Table S1903.
+# S1903_C03_001 = Households; Median income (dollars)
 st_income <- get_acs(
   geography = "state",
-  variables = "S1903_C03_001E",
-  year = 2019
-)
-
-st_income <- st_income %>%
-  rename(income = estimate) %>%
+  variables = "S1903_C03_001",
+  year = 2022,
+  survey = "acs1"
+) %>%
   inner_join(abb_name, by = c("NAME" = "name")) %>%
-  select(abb, income)
+  select(abb, income = estimate)
 
 # gdp ---------------------------------------------------------------------
 
@@ -104,40 +102,16 @@ murder <-
 
 # education ---------------------------------------------------------------
 
-# https://data.census.gov/cedsci/table?tid=ACSST1Y2018.S1501
-# EDUCATIONAL ATTAINMENT
-# TableID: S1501
-# Survey/Program: American Community Survey
-# Product: 2018 ACS 1-Year Estimates Subject Tables
-edu_zip <- dir_ls("data-raw/", regexp = "S1501")
-edu_list <- unzip(edu_zip, list = TRUE)
-edu_file <- unzip(
-  zipfile = edu_zip,
-  files = edu_list$Name[which.max(edu_list$Length)],
-  exdir = path_temp()
-)
-
-edu <-
-  read_csv(
-    file = edu_file,
-    col_types = cols(.default = "c")
-  ) %>%
-  slice(-1) %>%
-  na_if("(X)") %>%
-  mutate_all(parse_guess) %>%
-  transmute(
-    # combine cols for 18 to 24 and over 25
-    name = NAME,
-    # Populations
-    pop = S1501_C01_001E + S1501_C01_006E,
-    # High school graduate or higher
-    high = ((S1501_C01_001E - S1501_C01_002E) + S1501_C01_014E)/pop,
-    # Bachelor's degree or higher
-    college = (S1501_C01_005E + S1501_C01_015E)/pop
-  ) %>%
-  inner_join(abb_name, by = "name") %>%
-  mutate_if(is.numeric, round, 4) %>%
-  select(abb, college)
+# Percent with bachelor's degree or higher (population 25+), 2022 ACS 1-year.
+# S1501_C02_015 = Percent; Population 25 years and over -- Bachelor's degree or higher
+edu <- get_acs(
+  geography = "state",
+  variables = "S1501_C02_015",
+  year = 2022,
+  survey = "acs1"
+) %>%
+  inner_join(abb_name, by = c("NAME" = "name")) %>%
+  select(abb, college = estimate)
 
 # temperature -------------------------------------------------------------
 
