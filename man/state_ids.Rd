@@ -35,8 +35,8 @@ systems used to refer to each state. The backing data for \code{\link[=state_con
 }
 \details{
 Naming convention: underscore objects (\code{state_ids}, \code{state_facts},
-\code{state_geo}) are modern purpose-built tibbles. Dot objects
-(\code{state.abb}, \code{state.name}, etc.) are a compatibility layer that
-overwrites \code{datasets::state.*} on \code{library(usa)}.
+\code{state_geo}) are modern purpose-built tibbles. Convenience vectors
+(\code{state_abbs}, \code{state_names}, etc.) mirror the base R
+\code{datasets::state.*} vectors but cover all 52 rows.
 }
 \keyword{datasets}

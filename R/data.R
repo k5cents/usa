@@ -9,9 +9,9 @@ NULL
 #' systems used to refer to each state. The backing data for [state_convert()].
 #'
 #' Naming convention: underscore objects (\code{state_ids}, \code{state_facts},
-#' \code{state_geo}) are modern purpose-built tibbles. Dot objects
-#' (\code{state.abb}, \code{state.name}, etc.) are a compatibility layer that
-#' overwrites \code{datasets::state.*} on \code{library(usa)}.
+#' \code{state_geo}) are modern purpose-built tibbles. Convenience vectors
+#' (\code{state_abbs}, \code{state_names}, etc.) mirror the base R
+#' \code{datasets::state.*} vectors but cover all 52 rows.
 #'
 #' @format A tibble with 52 rows and 5 variables:
 #' \describe{
@@ -94,11 +94,12 @@ NULL
 
 #' US State Abbreviations
 #'
-#' The 2-letter abbreviations for the US state names.
+#' The 2-letter USPS abbreviations for the 50 states, District of Columbia,
+#' and Puerto Rico. Parallel to [state_names].
 #'
 #' @format A character vector of length 52.
 #' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
-"state.abb"
+"state_abbs"
 
 #' US Territory Abbreviations
 #'
@@ -106,53 +107,56 @@ NULL
 #'
 #' @format A character vector of length 5.
 #' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
-"territory.abb"
+"territory_abbs"
 
-#' US State Areas
+#' US State Land Areas
 #'
-#' The area in square miles of the US states.
+#' Land area in square miles for the 50 states, District of Columbia, and
+#' Puerto Rico. Parallel to [state_names].
 #'
 #' @format A numeric vector of length 52.
-#' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
-"state.area"
+#' @source TIGER/Web REST API (State_County layer)
+"state_areas"
 
 #' US Territory Areas
 #'
 #' The area in square miles of the US territories (AS, GU, MP, UM, VI).
 #'
 #' @format A numeric vector of length 5.
-#' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
-"territory.area"
+#' @source TIGER/Web REST API (State_County layer)
+"territory_areas"
 
-#' US State Centers
+#' US State Geographic Centers
 #'
 #' A list with components named `x` and `y` giving the approximate geographic
-#' center of each state in negative longitude and latitude.
+#' centroid of each state in longitude and latitude. Parallel to [state_names].
 #'
 #' @format A list of length two, each element a numeric vector of length 52.
 #' \describe{
-#'   \item{x}{Center longitudinal coordinate}
-#'   \item{y}{Center latitudinal coordinate}
+#'   \item{x}{Centroid longitudinal coordinate}
+#'   \item{y}{Centroid latitudinal coordinate}
 #' }
-#' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
-"state.center"
+#' @source TIGER/Web REST API (State_County layer)
+"state_centers"
 
-#' US Territory Centers
+#' US Territory Geographic Centers
 #'
 #' A list with components named `x` and `y` giving the approximate geographic
-#' center of each territory in negative longitude and latitude.
+#' center of each territory in longitude and latitude.
 #'
 #' @format A list of length two, each element a numeric vector of length 5.
 #' \describe{
 #'   \item{x}{Center longitudinal coordinate}
 #'   \item{y}{Center latitudinal coordinate}
 #' }
-#' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
-"territory.center"
+#' @source TIGER/Web REST API (State_County layer)
+"territory_centers"
 
-#' US State Divisions
+#' US State Census Divisions
 #'
-#' The Census division to which each state belongs, one of nine:
+#' The Census division to which each state belongs, one of nine. Parallel to
+#' [state_names].
+#'
 #' 1. New England
 #' 2. Middle Atlantic
 #' 3. East North Central
@@ -165,15 +169,16 @@ NULL
 #'
 #' @format A factor vector of length 52.
 #' @source \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx}
-"state.division"
+"state_divisions"
 
 #' US State Names
 #'
-#' The full names for the US states.
+#' The full names for the 50 states, District of Columbia, and Puerto Rico.
+#' Parallel to [state_abbs].
 #'
 #' @format A character vector of length 52.
 #' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
-"state.name"
+"state_names"
 
 #' US Territory Names
 #'
@@ -181,11 +186,13 @@ NULL
 #'
 #' @format A character vector of length 5.
 #' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
-"territory.name"
+"territory_names"
 
-#' US State Regions
+#' US State Census Regions
 #'
-#' The Census region to which each state belongs, one of four:
+#' The Census region to which each state belongs, one of four. Parallel to
+#' [state_names].
+#'
 #' 1. Northeast
 #' 2. Midwest
 #' 3. South
@@ -193,7 +200,7 @@ NULL
 #'
 #' @format A factor vector of length 52.
 #' @source \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx}
-"state.region"
+"state_regions"
 
 # objects from facts.R -----------------------------------------------------
 

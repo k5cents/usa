@@ -307,39 +307,32 @@ state_geo <- all_states %>%
 usethis::use_data(state_geo, overwrite = TRUE)
 write_csv(state_geo, "data-raw/state_geo.csv")
 
-# legacy dot-notation vectors ---------------------------------------------
-# These overwrite datasets::state.* on library(usa) for backwards compat.
-# They are derived from state_ids / state_geo for the 52 rows.
+# underscore-named convenience vectors -----------------------------------
+# Parallel to datasets::state.* but cover all 52 rows (50 states + DC + PR).
 
-state.abb <- state_ids$abb
-class(state.abb) == class(datasets::state.abb)
-usethis::use_data(state.abb, overwrite = TRUE)
-write_lines(state.abb, "data-raw/state-abb.csv")
+state_abbs <- state_ids$abb
+usethis::use_data(state_abbs, overwrite = TRUE)
+write_lines(state_abbs, "data-raw/state-abb.csv")
 
-state.area <- state_geo$area_land
-class(state.area) == class(datasets::state.area)
-usethis::use_data(state.area, overwrite = TRUE)
-write_lines(state.area, "data-raw/state-area.csv")
+state_areas <- state_geo$area_land
+usethis::use_data(state_areas, overwrite = TRUE)
+write_lines(state_areas, "data-raw/state-area.csv")
 
-state.center <- list(x = state_geo$long, y = state_geo$lat)
-class(state.center) == class(datasets::state.center)
-usethis::use_data(state.center, overwrite = TRUE)
-write_csv(as.data.frame(state.center), "data-raw/state-center.csv")
+state_centers <- list(x = state_geo$long, y = state_geo$lat)
+usethis::use_data(state_centers, overwrite = TRUE)
+write_csv(as.data.frame(state_centers), "data-raw/state-center.csv")
 
-state.division <- state_geo$division
-class(state.division) == class(datasets::state.division)
-usethis::use_data(state.division, overwrite = TRUE)
-write_lines(state.division, "data-raw/state-division.csv")
+state_divisions <- state_geo$division
+usethis::use_data(state_divisions, overwrite = TRUE)
+write_lines(state_divisions, "data-raw/state-division.csv")
 
-state.name <- state_ids$name
-class(state.name) == class(datasets::state.name)
-usethis::use_data(state.name, overwrite = TRUE)
-write_lines(state.name, "data-raw/state-name.csv")
+state_names <- state_ids$name
+usethis::use_data(state_names, overwrite = TRUE)
+write_lines(state_names, "data-raw/state-name.csv")
 
-state.region <- state_geo$region
-class(state.region) == class(datasets::state.region)
-usethis::use_data(state.region, overwrite = TRUE)
-write_lines(state.region, "data-raw/state-region.csv")
+state_regions <- state_geo$region
+usethis::use_data(state_regions, overwrite = TRUE)
+write_lines(state_regions, "data-raw/state-region.csv")
 
 # territory data ----------------------------------------------------------
 
@@ -351,18 +344,18 @@ territory <- codes %>%
 usethis::use_data(territory, overwrite = TRUE)
 write_csv(territory, "data-raw/territory.csv")
 
-territory.abb <- territory$abb
-usethis::use_data(territory.abb, overwrite = TRUE)
-write_lines(territory.abb, "data-raw/territory-abb.csv")
+territory_abbs <- territory$abb
+usethis::use_data(territory_abbs, overwrite = TRUE)
+write_lines(territory_abbs, "data-raw/territory-abb.csv")
 
-territory.area <- territory$area
-usethis::use_data(territory.area, overwrite = TRUE)
-write_lines(territory.area, "data-raw/territory-area.csv")
+territory_areas <- territory$area
+usethis::use_data(territory_areas, overwrite = TRUE)
+write_lines(territory_areas, "data-raw/territory-area.csv")
 
-territory.center <- list(x = territory$long, y = territory$lat)
-usethis::use_data(territory.center, overwrite = TRUE)
-write_csv(as.data.frame(territory.center), "data-raw/territory-center.csv")
+territory_centers <- list(x = territory$long, y = territory$lat)
+usethis::use_data(territory_centers, overwrite = TRUE)
+write_csv(as.data.frame(territory_centers), "data-raw/territory-center.csv")
 
-territory.name <- territory$name
-usethis::use_data(territory.name, overwrite = TRUE)
-write_lines(territory.name, "data-raw/territory-name.csv")
+territory_names <- territory$name
+usethis::use_data(territory_names, overwrite = TRUE)
+write_lines(territory_names, "data-raw/territory-name.csv")
