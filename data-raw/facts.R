@@ -1,32 +1,27 @@
 ## code to prepare `state_facts` dataset goes here
 library(tidyverse)
+library(tidycensus)
 library(lubridate)
-library(magrittr)
 library(readxl)
 library(rvest)
-library(rgdal)
 library(fs)
-library(sp)
+library(sp) # point.in.polygon for DC station filtering; replace with sf in #12
 
 abb_fips <- select(read_csv("data-raw/states.csv"), fips, abb)
 abb_name <- select(read_csv("data-raw/states.csv"), name, abb)
 
 # population --------------------------------------------------------------
 
-# Table 2. Resident Population for the 50 States, the District of Columbia, and Puerto Rico
-# https://www.census.gov/data/tables/2020/dec/2020-apportionment-data.html
-pop_url <- "https://www2.census.gov/programs-surveys/decennial/2020/data/apportionment/apportionment-2020-table02.xlsx"
-pop_xls <- file_temp(ext = path_ext(pop_url))
-download.file(pop_url, pop_xls)
-st_pop <- read_excel(
-  path = pop_xls,
-  range = "A4:B55"
-)
-
-st_pop <- st_pop %>%
-  rename(population = `RESIDENT POPULATION (APRIL 1, 2020)`) %>%
-  inner_join(abb_name, by = c("AREA" = "name")) %>%
-  select(abb, population)
+# 2020 Decennial Census PL 94-171 file, variable P1_001N (total population).
+# geography = "state" returns all 52 rows: 50 states + DC + PR.
+st_pop <- get_decennial(
+  geography = "state",
+  variables = "P1_001N",
+  year = 2020,
+  sumfile = "pl"
+) %>%
+  inner_join(abb_name, by = c("NAME" = "name")) %>%
+  select(abb, population = value)
 
 # income ------------------------------------------------------------------
 
