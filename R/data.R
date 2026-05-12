@@ -213,7 +213,7 @@ NULL
 #' @format A tibble with 52 rows and 9 variables:
 #' \describe{
 #'   \item{name}{Full state name}
-#'   \item{population}{Population estimate (September 26, 2019)}
+#'   \item{population}{Resident population (2020 Decennial Census, April 1, 2020)}
 #'   \item{votes}{Votes in the Electoral College (following the 2010 Census)}
 #'   \item{admission}{The date on which the state was admitted to the union}
 #'   \item{income}{Per capita income (2018)}
@@ -223,7 +223,7 @@ NULL
 #'   \item{heat}{Mean number of degree days (temperature requires heating) per year from 1981-2010}
 #' }
 #' @source
-#' * Population: \url{https://www2.census.gov/programs-surveys/popest/datasets/2010-2018/state/detail/SCPRC-EST2018-18+POP-RES.csv}
+#' * Population: 2020 Decennial Census PL 94-171 file, variable \code{P1_001N} via tidycensus
 #' * Electoral College: \url{https://www.archives.gov/electoral-college/allocation}
 #' * Income: Census table ACSST1Y2018.S1903
 #' * Life Expectancy: \url{https://web.archive.org/web/20231129160338/https://usa.mortality.org/}
