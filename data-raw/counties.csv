@@ -23,7 +23,7 @@ fips,name,state
 01043,Cullman,AL
 01045,Dale,AL
 01047,Dallas,AL
-01049,De Kalb,AL
+01049,DeKalb,AL
 01051,Elmore,AL
 01053,Escambia,AL
 01055,Etowah,AL
@@ -56,7 +56,7 @@ fips,name,state
 01109,Pike,AL
 01111,Randolph,AL
 01113,Russell,AL
-01115,St Clair,AL
+01115,St. Clair,AL
 01117,Shelby,AL
 01119,Sumter,AL
 01121,Talladega,AL
@@ -71,27 +71,30 @@ fips,name,state
 02020,Anchorage,AK
 02050,Bethel,AK
 02060,Bristol Bay,AK
+02063,Chugach,AK
+02066,Copper River,AK
 02068,Denali,AK
 02070,Dillingham,AK
 02090,Fairbanks North Star,AK
 02100,Haines,AK
-02110,Juneau,AK
+02105,Hoonah-Angoon,AK
+02110,Juneau City and,AK
 02122,Kenai Peninsula,AK
 02130,Ketchikan Gateway,AK
 02150,Kodiak Island,AK
+02158,Kusilvak,AK
 02164,Lake and Peninsula,AK
 02170,Matanuska-Susitna,AK
 02180,Nome,AK
 02185,North Slope,AK
 02188,Northwest Arctic,AK
-02201,Prince of Wales-Outer Ketchikan,AK
-02220,Sitka,AK
-02232,Skagway-Hoonah-Angoon,AK
+02195,Petersburg,AK
+02198,Prince of Wales-Hyder,AK
+02220,Sitka City and,AK
+02230,Skagway,AK
 02240,Southeast Fairbanks,AK
-02261,Valdez-Cordova,AK
-02270,Wade Hampton,AK
-02280,Wrangell-Petersburg,AK
-02282,Yakutat,AK
+02275,Wrangell City and,AK
+02282,Yakutat City and,AK
 02290,Yukon-Koyukuk,AK
 04001,Apache,AZ
 04003,Cochise,AZ
@@ -169,7 +172,7 @@ fips,name,state
 05117,Prairie,AR
 05119,Pulaski,AR
 05121,Randolph,AR
-05123,St Francis,AR
+05123,St. Francis,AR
 05125,Saline,AR
 05127,Scott,AR
 05129,Searcy,AR
@@ -248,6 +251,7 @@ fips,name,state
 08009,Baca,CO
 08011,Bent,CO
 08013,Boulder,CO
+08014,Broomfield,CO
 08015,Chaffee,CO
 08017,Cheyenne,CO
 08019,Clear Creek,CO
@@ -315,7 +319,7 @@ fips,name,state
 10001,Kent,DE
 10003,New Castle,DE
 10005,Sussex,DE
-11001,Washington,DC
+11001,District of Columbia,DC
 12001,Alachua,FL
 12003,Baker,FL
 12005,Bay,FL
@@ -328,8 +332,7 @@ fips,name,state
 12019,Clay,FL
 12021,Collier,FL
 12023,Columbia,FL
-12025,Dade,FL
-12027,De Soto,FL
+12027,DeSoto,FL
 12029,Dixie,FL
 12031,Duval,FL
 12033,Escambia,FL
@@ -359,6 +362,7 @@ fips,name,state
 12081,Manatee,FL
 12083,Marion,FL
 12085,Martin,FL
+12086,Miami-Dade,FL
 12087,Monroe,FL
 12089,Nassau,FL
 12091,Okaloosa,FL
@@ -370,8 +374,8 @@ fips,name,state
 12103,Pinellas,FL
 12105,Polk,FL
 12107,Putnam,FL
-12109,St Johns,FL
-12111,St Lucie,FL
+12109,St. Johns,FL
+12111,St. Lucie,FL
 12113,Santa Rosa,FL
 12115,Sarasota,FL
 12117,Seminole,FL
@@ -426,7 +430,7 @@ fips,name,state
 13083,Dade,GA
 13085,Dawson,GA
 13087,Decatur,GA
-13089,De Kalb,GA
+13089,DeKalb,GA
 13091,Dodge,GA
 13093,Dooly,GA
 13095,Dougherty,GA
@@ -544,6 +548,7 @@ fips,name,state
 13321,Worth,GA
 15001,Hawaii,HI
 15003,Honolulu,HI
+15005,Kalawao,HI
 15007,Kauai,HI
 15009,Maui,HI
 16001,Ada,ID
@@ -608,10 +613,10 @@ fips,name,state
 17031,Cook,IL
 17033,Crawford,IL
 17035,Cumberland,IL
-17037,De Kalb,IL
+17037,DeKalb,IL
 17039,De Witt,IL
 17041,Douglas,IL
-17043,Du Page,IL
+17043,DuPage,IL
 17045,Edgar,IL
 17047,Edwards,IL
 17049,Effingham,IL
@@ -639,7 +644,7 @@ fips,name,state
 17093,Kendall,IL
 17095,Knox,IL
 17097,Lake,IL
-17099,La Salle,IL
+17099,LaSalle,IL
 17101,Lawrence,IL
 17103,Lee,IL
 17105,Livingston,IL
@@ -671,7 +676,7 @@ fips,name,state
 17157,Randolph,IL
 17159,Richland,IL
 17161,Rock Island,IL
-17163,St Clair,IL
+17163,St. Clair,IL
 17165,Saline,IL
 17167,Sangamon,IL
 17169,Schuyler,IL
@@ -708,7 +713,7 @@ fips,name,state
 18027,Daviess,IN
 18029,Dearborn,IN
 18031,Decatur,IN
-18033,De Kalb,IN
+18033,DeKalb,IN
 18035,Delaware,IN
 18037,Dubois,IN
 18039,Elkhart,IN
@@ -735,9 +740,9 @@ fips,name,state
 18081,Johnson,IN
 18083,Knox,IN
 18085,Kosciusko,IN
-18087,La Grange,IN
+18087,LaGrange,IN
 18089,Lake,IN
-18091,La Porte,IN
+18091,LaPorte,IN
 18093,Lawrence,IN
 18095,Madison,IN
 18097,Marion,IN
@@ -762,7 +767,7 @@ fips,name,state
 18135,Randolph,IN
 18137,Ripley,IN
 18139,Rush,IN
-18141,St Joseph,IN
+18141,St. Joseph,IN
 18143,Scott,IN
 18145,Shelby,IN
 18147,Spencer,IN
@@ -854,7 +859,7 @@ fips,name,state
 19135,Monroe,IA
 19137,Montgomery,IA
 19139,Muscatine,IA
-19141,O Brien,IA
+19141,O'Brien,IA
 19143,Osceola,IA
 19145,Page,IA
 19147,Palo Alto,IA
@@ -1137,7 +1142,7 @@ fips,name,state
 22053,Jefferson Davis,LA
 22055,Lafayette,LA
 22057,Lafourche,LA
-22059,La Salle,LA
+22059,LaSalle,LA
 22061,Lincoln,LA
 22063,Livingston,LA
 22065,Madison,LA
@@ -1151,15 +1156,15 @@ fips,name,state
 22081,Red River,LA
 22083,Richland,LA
 22085,Sabine,LA
-22087,St Bernard,LA
-22089,St Charles,LA
-22091,St Helena,LA
-22093,St James,LA
-22095,St John the Baptist,LA
-22097,St Landry,LA
-22099,St Martin,LA
-22101,St Mary,LA
-22103,St Tammany,LA
+22087,St. Bernard,LA
+22089,St. Charles,LA
+22091,St. Helena,LA
+22093,St. James,LA
+22095,St. John the Baptist,LA
+22097,St. Landry,LA
+22099,St. Martin,LA
+22101,St. Mary,LA
+22103,St. Tammany,LA
 22105,Tangipahoa,LA
 22107,Tensas,LA
 22109,Terrebonne,LA
@@ -1203,15 +1208,15 @@ fips,name,state
 24027,Howard,MD
 24029,Kent,MD
 24031,Montgomery,MD
-24033,Prince Georges,MD
-24035,Queen Annes,MD
-24037,St Marys,MD
+24033,Prince George's,MD
+24035,Queen Anne's,MD
+24037,St. Mary's,MD
 24039,Somerset,MD
 24041,Talbot,MD
 24043,Washington,MD
 24045,Wicomico,MD
 24047,Worcester,MD
-24510,Baltimore City,MD
+24510,Baltimore,MD
 25001,Barnstable,MA
 25003,Berkshire,MA
 25005,Bristol,MA
@@ -1299,8 +1304,8 @@ fips,name,state
 26141,Presque Isle,MI
 26143,Roscommon,MI
 26145,Saginaw,MI
-26147,St Clair,MI
-26149,St Joseph,MI
+26147,St. Clair,MI
+26149,St. Joseph,MI
 26151,Sanilac,MI
 26153,Schoolcraft,MI
 26155,Shiawassee,MI
@@ -1377,7 +1382,7 @@ fips,name,state
 27131,Rice,MN
 27133,Rock,MN
 27135,Roseau,MN
-27137,St Louis,MN
+27137,St. Louis,MN
 27139,Scott,MN
 27141,Sherburne,MN
 27143,Sibley,MN
@@ -1412,7 +1417,7 @@ fips,name,state
 28027,Coahoma,MS
 28029,Copiah,MS
 28031,Covington,MS
-28033,De Soto,MS
+28033,DeSoto,MS
 28035,Forrest,MS
 28037,Franklin,MS
 28039,George,MS
@@ -1509,7 +1514,7 @@ fips,name,state
 29057,Dade,MO
 29059,Dallas,MO
 29061,Daviess,MO
-29063,De Kalb,MO
+29063,DeKalb,MO
 29065,Dent,MO
 29067,Douglas,MO
 29069,Dunklin,MO
@@ -1569,11 +1574,11 @@ fips,name,state
 29177,Ray,MO
 29179,Reynolds,MO
 29181,Ripley,MO
-29183,St Charles,MO
-29185,St Clair,MO
+29183,St. Charles,MO
+29185,St. Clair,MO
 29186,Ste. Genevieve,MO
-29187,St Francois,MO
-29189,St Louis,MO
+29187,St. Francois,MO
+29189,St. Louis,MO
 29195,Saline,MO
 29197,Schuyler,MO
 29199,Scotland,MO
@@ -1592,7 +1597,7 @@ fips,name,state
 29225,Webster,MO
 29227,Worth,MO
 29229,Wright,MO
-29510,St Louis City,MO
+29510,St. Louis,MO
 30001,Beaverhead,MT
 30003,Big Horn,MT
 30005,Blaine,MT
@@ -1649,7 +1654,6 @@ fips,name,state
 30107,Wheatland,MT
 30109,Wibaux,MT
 30111,Yellowstone,MT
-30113,Yellowstone Nat Park,MT
 31001,Adams,NE
 31003,Antelope,NE
 31005,Arthur,NE
@@ -1798,7 +1802,7 @@ fips,name,state
 35007,Colfax,NM
 35009,Curry,NM
 35011,De Baca,NM
-35013,Dona Ana,NM
+35013,Doña Ana,NM
 35015,Eddy,NM
 35017,Grant,NM
 35019,Guadalupe,NM
@@ -1868,7 +1872,7 @@ fips,name,state
 36083,Rensselaer,NY
 36085,Richmond,NY
 36087,Rockland,NY
-36089,St Lawrence,NY
+36089,St. Lawrence,NY
 36091,Saratoga,NY
 36093,Schenectady,NY
 36095,Schoharie,NY
@@ -2008,7 +2012,7 @@ fips,name,state
 38039,Griggs,ND
 38041,Hettinger,ND
 38043,Kidder,ND
-38045,La Moure,ND
+38045,LaMoure,ND
 38047,Logan,ND
 38049,McHenry,ND
 38051,McIntosh,ND
@@ -2408,12 +2412,12 @@ fips,name,state
 46097,Miner,SD
 46099,Minnehaha,SD
 46101,Moody,SD
+46102,Oglala Lakota,SD
 46103,Pennington,SD
 46105,Perkins,SD
 46107,Potter,SD
 46109,Roberts,SD
 46111,Sanborn,SD
-46113,Shannon,SD
 46115,Spink,SD
 46117,Stanley,SD
 46119,Sully,SD
@@ -2444,7 +2448,7 @@ fips,name,state
 47035,Cumberland,TN
 47037,Davidson,TN
 47039,Decatur,TN
-47041,De Kalb,TN
+47041,DeKalb,TN
 47043,Dickson,TN
 47045,Dyer,TN
 47047,Fayette,TN
@@ -2580,7 +2584,7 @@ fips,name,state
 48117,Deaf Smith,TX
 48119,Delta,TX
 48121,Denton,TX
-48123,De Witt,TX
+48123,DeWitt,TX
 48125,Dickens,TX
 48127,Dimmit,TX
 48129,Donley,TX
@@ -2911,47 +2915,44 @@ fips,name,state
 51195,Wise,VA
 51197,Wythe,VA
 51199,York,VA
-51510,Alexandria City,VA
-51515,Bedford City,VA
-51520,Bristol City,VA
-51530,Buena Vista City,VA
-51540,Charlottesville City,VA
-51550,Chesapeake City,VA
-51560,Clifton Forge City,VA
-51570,Colonial Heights Cit,VA
-51580,Covington City,VA
-51590,Danville City,VA
-51595,Emporia City,VA
-51600,Fairfax City,VA
-51610,Falls Church City,VA
-51620,Franklin City,VA
-51630,Fredericksburg City,VA
-51640,Galax City,VA
-51650,Hampton City,VA
-51660,Harrisonburg City,VA
-51670,Hopewell City,VA
-51678,Lexington City,VA
-51680,Lynchburg City,VA
-51683,Manassas City,VA
-51685,Manassas Park City,VA
-51690,Martinsville City,VA
-51700,Newport News City,VA
-51710,Norfolk City,VA
-51720,Norton City,VA
-51730,Petersburg City,VA
-51735,Poquoson City,VA
-51740,Portsmouth City,VA
-51750,Radford City,VA
-51760,Richmond City,VA
-51770,Roanoke City,VA
-51775,Salem City,VA
-51780,South Boston City,VA
-51790,Staunton City,VA
-51800,Suffolk City,VA
-51810,Virginia Beach City,VA
-51820,Waynesboro City,VA
-51830,Williamsburg City,VA
-51840,Winchester City,VA
+51510,Alexandria,VA
+51520,Bristol,VA
+51530,Buena Vista,VA
+51540,Charlottesville,VA
+51550,Chesapeake,VA
+51570,Colonial Heights,VA
+51580,Covington,VA
+51590,Danville,VA
+51595,Emporia,VA
+51600,Fairfax,VA
+51610,Falls Church,VA
+51620,Franklin,VA
+51630,Fredericksburg,VA
+51640,Galax,VA
+51650,Hampton,VA
+51660,Harrisonburg,VA
+51670,Hopewell,VA
+51678,Lexington,VA
+51680,Lynchburg,VA
+51683,Manassas,VA
+51685,Manassas Park,VA
+51690,Martinsville,VA
+51700,Newport News,VA
+51710,Norfolk,VA
+51720,Norton,VA
+51730,Petersburg,VA
+51735,Poquoson,VA
+51740,Portsmouth,VA
+51750,Radford,VA
+51760,Richmond,VA
+51770,Roanoke,VA
+51775,Salem,VA
+51790,Staunton,VA
+51800,Suffolk,VA
+51810,Virginia Beach,VA
+51820,Waynesboro,VA
+51830,Williamsburg,VA
+51840,Winchester,VA
 53001,Adams,WA
 53003,Asotin,WA
 53005,Benton,WA
@@ -3101,7 +3102,7 @@ fips,name,state
 55103,Richland,WI
 55105,Rock,WI
 55107,Rusk,WI
-55109,St Croix,WI
+55109,St. Croix,WI
 55111,Sauk,WI
 55113,Sawyer,WI
 55115,Shawano,WI
@@ -3141,82 +3142,83 @@ fips,name,state
 56041,Uinta,WY
 56043,Washakie,WY
 56045,Weston,WY
-60010,Unknown,AS
-60020,Manua,AS
-60020,Ofu,AS
-60020,Olosega,AS
-60050,Tutuila,AS
-66010,Cocos Island,MP
+60010,Eastern,AS
+60020,Manu'a,AS
+60030,Rose,AS
+60040,Swains,AS
+60050,Western,AS
 66010,Guam,GU
+69085,Northern Islands,MP
 69100,Rota,MP
 69110,Saipan,MP
-69120,Aguijan,MP
 69120,Tinian,MP
 72001,Adjuntas,PR
 72003,Aguada,PR
 72005,Aguadilla,PR
 72007,Aguas Buenas,PR
 72009,Aibonito,PR
-72011,Anasco,PR
+72011,Añasco,PR
 72013,Arecibo,PR
 72015,Arroyo,PR
 72017,Barceloneta,PR
 72019,Barranquitas,PR
-72021,Bayamon,PR
+72021,Bayamón,PR
 72023,Cabo Rojo,PR
 72025,Caguas,PR
 72027,Camuy,PR
-72029,Canovanas,PR
+72029,Canóvanas,PR
 72031,Carolina,PR
-72033,Catano,PR
+72033,Cataño,PR
 72035,Cayey,PR
 72037,Ceiba,PR
+72039,Ciales,PR
 72041,Cidra,PR
 72043,Coamo,PR
-72045,Comerio,PR
+72045,Comerío,PR
 72047,Corozal,PR
 72049,Culebra,PR
 72051,Dorado,PR
 72053,Fajardo,PR
 72054,Florida,PR
-72055,Guanica,PR
+72055,Guánica,PR
 72057,Guayama,PR
 72059,Guayanilla,PR
 72061,Guaynabo,PR
 72063,Gurabo,PR
 72065,Hatillo,PR
 72067,Hormigueros,PR
+72069,Humacao,PR
 72071,Isabela,PR
 72073,Jayuya,PR
-72075,Juana Diaz,PR
+72075,Juana Díaz,PR
 72077,Juncos,PR
 72079,Lajas,PR
 72081,Lares,PR
-72083,Las Marias,PR
+72083,Las Marías,PR
 72085,Las Piedras,PR
-72087,Loiza,PR
+72087,Loíza,PR
 72089,Luquillo,PR
-72091,Manati,PR
+72091,Manatí,PR
 72093,Maricao,PR
 72095,Maunabo,PR
-72097,Mayaguez,PR
+72097,Mayagüez,PR
 72099,Moca,PR
 72101,Morovis,PR
-72103,Nabuabo,PR
+72103,Naguabo,PR
 72105,Naranjito,PR
 72107,Orocovis,PR
 72109,Patillas,PR
-72111,Penuelas,PR
+72111,Peñuelas,PR
 72113,Ponce,PR
 72115,Quebradillas,PR
-72117,Rincon,PR
-72119,Rio Grande,PR
+72117,Rincón,PR
+72119,Río Grande,PR
 72121,Sabana Grande,PR
 72123,Salinas,PR
-72125,San German,PR
+72125,San Germán,PR
 72127,San Juan,PR
 72129,San Lorenzo,PR
-72131,San Sabastian,PR
+72131,San Sebastián,PR
 72133,Santa Isabel,PR
 72135,Toa Alta,PR
 72137,Toa Baja,PR
@@ -3228,6 +3230,7 @@ fips,name,state
 72149,Villalba,PR
 72151,Yabucoa,PR
 72153,Yauco,PR
+74300,Midway,UM
 78010,St. Croix,VI
 78020,St. John,VI
 78030,St. Thomas,VI
