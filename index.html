@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Updated US State Facts and Figures">
-<meta property="og:description" content="Updated versions of the 1970s &quot;US State Facts and Figures&quot; objects from the datasets' package included with R. The new data is compiled from a number of sources, primarily from United States Census Bureau or the relevant federal agency.">
+<meta property="og:description" content='Updated versions of the 1970s "US State Facts and Figures" objects from the datasets package included with R. The new data is compiled from a number of sources, primarily from the United States Census Bureau or the relevant federal agency. Modern tidy tibbles provide richer state-level data including identifiers, geography, capitals, demographics, and socioeconomic statistics. Convenience vectors parallel the base datasets state objects but extend coverage to all 51 jurisdictions: the 50 states and the District of Columbia.'>
 <meta property="og:image" content="/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">usa</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
@@ -77,7 +77,7 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The goal of ‘usa’ is to provide updated versions of the ‘datasets’ objects included with R. When attached, this package <strong>overwrites</strong> these original vectors with information on all fifty states, the District of Columbia, and Puerto Rico. As of now, information on the other territories are provided in separate objects.</p>
+<p>The goal of ‘usa’ is to provide updated versions of the ‘datasets’ objects included with R. This package provides updated vectors covering all fifty states and the District of Columbia, alongside tidy tibbles with richer data. Puerto Rico and the other US territories are provided in separate objects.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -94,15 +94,6 @@
 </h2>
 <p>R ships with eight outdated objects in the ‘datasets’ package: 7 vectors and a matrix of statistics from the 1970’s.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">base.vectors</span><span class="op">)</span></span>
-<span><span class="co">#&gt;         name abb region           division   area  center.x center.y</span></span>
-<span><span class="co">#&gt; 1    Alabama  AL  South East South Central  51609  -86.7509  32.5901</span></span>
-<span><span class="co">#&gt; 2     Alaska  AK   West            Pacific 589757 -127.2500  49.2500</span></span>
-<span><span class="co">#&gt; 3    Arizona  AZ   West           Mountain 113909 -111.6250  34.2192</span></span>
-<span><span class="co">#&gt; 4   Arkansas  AR  South West South Central  53104  -92.2992  34.7336</span></span>
-<span><span class="co">#&gt; 5 California  CA   West            Pacific 158693 -119.7730  36.5341</span></span>
-<span><span class="co">#&gt; 6   Colorado  CO   West           Mountain 104247 -105.5130  38.6777</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">state.x77</span><span class="op">)</span></span>
 <span><span class="co">#&gt;            Population Income Illiteracy Life Exp Murder HS Grad Frost   Area</span></span>
 <span><span class="co">#&gt; Alabama          3615   3624        2.1    69.05   15.1    41.3    20  50708</span></span>
@@ -115,54 +106,79 @@
 <div class="section level2">
 <h2 id="new-data">New Data<a class="anchor" aria-label="anchor" href="#new-data"></a>
 </h2>
-<p>This package contains new, expanded versions of these vectors.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">setdiff</a></span><span class="op">(</span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/state.abb.html">state.abb</a></span>, <span class="fu">datasets</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/datasets/state.html" class="external-link">state.abb</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "DC" "PR"</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/state.region.html">state.region</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] South     West      Northeast Midwest   &lt;NA&gt;     </span></span>
+<p>This package provides updated vectors covering all 51 entries (50 states + DC).</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># DC is the only entry not in datasets::state.abb</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">setdiff</a></span><span class="op">(</span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/state_abbs.html">state_abbs</a></span>, <span class="fu">datasets</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/datasets/state.html" class="external-link">state.abb</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "DC"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/state_regions.html">state_regions</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] South     West      Northeast Midwest  </span></span>
 <span><span class="co">#&gt; Levels: Northeast Midwest South West</span></span>
-<span><span class="fu">show</span><span class="op">(</span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/territory.abb.html">territory.abb</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "AS" "GU" "MP" "UM" "VI"</span></span></code></pre></div>
+<span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/territory_abbs.html">territory_abbs</a></span></span>
+<span><span class="co">#&gt; [1] "AS" "GU" "MP" "PR" "UM" "VI"</span></span></code></pre></div>
 <p>The package contains <a href="https://tibble.tidyverse.org/" class="external-link">tibbles</a> identifying the states and providing updated facts and figures.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/state_ids.html">state_ids</a></span></span>
+<span><span class="co">#&gt; # A tibble: 51 × 6</span></span>
+<span><span class="co">#&gt;   name       abb   fips  icp   ap     iso  </span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;</span></span>
+<span><span class="co">#&gt; 1 Alabama    AL    01    41    Ala.   US-AL</span></span>
+<span><span class="co">#&gt; 2 Alaska     AK    02    81    Alaska US-AK</span></span>
+<span><span class="co">#&gt; 3 Arizona    AZ    04    61    Ariz.  US-AZ</span></span>
+<span><span class="co">#&gt; 4 Arkansas   AR    05    42    Ark.   US-AR</span></span>
+<span><span class="co">#&gt; 5 California CA    06    71    Calif. US-CA</span></span>
+<span><span class="co">#&gt; 6 Colorado   CO    08    62    Colo.  US-CO</span></span>
+<span><span class="co">#&gt; # ℹ 45 more rows</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/states.html">states</a></span></span>
-<span><span class="co">#&gt; # A tibble: 52 × 8</span></span>
-<span><span class="co">#&gt;   name       abb   fips  region division              area   lat   long</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;                &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 Alabama    AL    01    South  East South Central  50647.  32.7  -86.8</span></span>
-<span><span class="co">#&gt; 2 Alaska     AK    02    West   Pacific            571017.  63.4 -153. </span></span>
-<span><span class="co">#&gt; 3 Arizona    AZ    04    West   Mountain           113653.  34.3 -112. </span></span>
-<span><span class="co">#&gt; 4 Arkansas   AR    05    South  West South Central  52038.  34.9  -92.4</span></span>
-<span><span class="co">#&gt; 5 California CA    06    West   Pacific            155854.  37.2 -120. </span></span>
-<span><span class="co">#&gt; 6 Colorado   CO    08    West   Mountain           103638.  39.0 -106. </span></span>
-<span><span class="co">#&gt; # ℹ 46 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/state_geo.html">state_geo</a></span></span>
+<span><span class="co">#&gt; # A tibble: 51 × 10</span></span>
+<span><span class="co">#&gt;   abb   region division  area_land area_water   lat   long contiguous landlocked</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt; &lt;fct&gt;  &lt;fct&gt;         &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;lgl&gt;      &lt;lgl&gt;     </span></span>
+<span><span class="co">#&gt; 1 AL    South  East Sou…    50652.      1768.  32.7  -86.8 TRUE       FALSE     </span></span>
+<span><span class="co">#&gt; 2 AK    West   Pacific     571391.     94334.  63.4 -153.  FALSE      FALSE     </span></span>
+<span><span class="co">#&gt; 3 AZ    West   Mountain    113655.       330.  34.3 -112.  TRUE       TRUE      </span></span>
+<span><span class="co">#&gt; 4 AR    South  West Sou…    51992.      1206.  34.9  -92.4 TRUE       TRUE      </span></span>
+<span><span class="co">#&gt; 5 CA    West   Pacific     155860.      7833.  37.2 -120.  TRUE       FALSE     </span></span>
+<span><span class="co">#&gt; 6 CO    West   Mountain    103637.       458.  39.0 -106.  TRUE       TRUE      </span></span>
+<span><span class="co">#&gt; # ℹ 45 more rows</span></span>
+<span><span class="co">#&gt; # ℹ 1 more variable: peak_elev &lt;int&gt;</span></span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/facts.html">facts</a></span></span>
-<span><span class="co">#&gt; # A tibble: 52 × 9</span></span>
-<span><span class="co">#&gt;   name       population votes admission  income life_exp murder college  heat</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt; &lt;date&gt;      &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 Alabama       4887871     9 1819-12-14  49861     75.3    7.8   0.234 65.9 </span></span>
-<span><span class="co">#&gt; 2 Alaska         737438     3 1959-01-03  74346     78.3    6.4   0.271  0.37</span></span>
-<span><span class="co">#&gt; 3 Arizona       7171646    11 1912-02-14  59246     79.7    5.1   0.271 73.6 </span></span>
-<span><span class="co">#&gt; 4 Arkansas      3013825     6 1836-06-15  47062     75.9    7.2   0.214 62.4 </span></span>
-<span><span class="co">#&gt; 5 California   39557045    55 1850-09-09  75277     81.5    4.4   0.314 38.9 </span></span>
-<span><span class="co">#&gt; 6 Colorado      5695564     9 1876-08-01  71953     80.3    3.7   0.384 15.5 </span></span>
-<span><span class="co">#&gt; # ℹ 46 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/state_capitals.html">state_capitals</a></span></span>
+<span><span class="co">#&gt; # A tibble: 51 × 5</span></span>
+<span><span class="co">#&gt;   abb   capital       lat   long population</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;int&gt;</span></span>
+<span><span class="co">#&gt; 1 AL    Montgomery   32.3  -86.3     200603</span></span>
+<span><span class="co">#&gt; 2 AK    Juneau       58.4 -134.       32255</span></span>
+<span><span class="co">#&gt; 3 AZ    Phoenix      33.6 -112.     1608139</span></span>
+<span><span class="co">#&gt; 4 AR    Little Rock  34.7  -92.4     202591</span></span>
+<span><span class="co">#&gt; 5 CA    Sacramento   38.6 -121.      524943</span></span>
+<span><span class="co">#&gt; 6 CO    Denver       39.8 -105.      715522</span></span>
+<span><span class="co">#&gt; # ℹ 45 more rows</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/territory.html">territory</a></span></span>
-<span><span class="co">#&gt; # A tibble: 7 × 6</span></span>
-<span><span class="co">#&gt;   name                        abb   fips    area   lat   long</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;                       &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 American Samoa              AS    60      76.4 -14.0 -170. </span></span>
-<span><span class="co">#&gt; 2 District of Columbia        DC    11      61.1  38.9  -77.0</span></span>
-<span><span class="co">#&gt; 3 Guam                        GU    66     210.   13.4  145. </span></span>
-<span><span class="co">#&gt; 4 Northern Mariana Islands    MP    69     182.   16.8  146. </span></span>
-<span><span class="co">#&gt; 5 Puerto Rico                 PR    72    3424.   18.2  -66.4</span></span>
-<span><span class="co">#&gt; 6 U.S. Minor Outlying Islands UM    74      NA    NA     NA  </span></span>
-<span><span class="co">#&gt; 7 U.S. Virgin Islands         VI    78     134.   18.1  -64.8</span></span></code></pre></div>
-<p>ZIP codes from the archived <a href="https://cran.r-project.org/package=zipcode" class="external-link">‘zipcode’</a> package are also included</p>
+<code class="sourceCode R"><span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/state_facts.html">state_facts</a></span></span>
+<span><span class="co">#&gt; # A tibble: 51 × 9</span></span>
+<span><span class="co">#&gt;   name       population electors admission  income life_exp murder college frost</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt; &lt;date&gt;      &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 Alabama       5024279        9 1819-12-14  33777     72    10.8    0.288  53.1</span></span>
+<span><span class="co">#&gt; 2 Alaska         733391        3 1959-01-03  43054     74.5   9.74   0.306 198. </span></span>
+<span><span class="co">#&gt; 3 Arizona       7151502       11 1912-02-14  39819     75     7.18   0.33   75.4</span></span>
+<span><span class="co">#&gt; 4 Arkansas      3011524        6 1836-06-15  31380     72.5  10.4    0.254  68.3</span></span>
+<span><span class="co">#&gt; 5 California   39538223       54 1850-09-09  46661     78.3   5.81   0.37   44.6</span></span>
+<span><span class="co">#&gt; 6 Colorado      5773714       10 1876-08-01  49071     77.7   6.77   0.459 189. </span></span>
+<span><span class="co">#&gt; # ℹ 45 more rows</span></span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/territory.html">territory</a></span></span>
+<span><span class="co">#&gt; # A tibble: 6 × 7</span></span>
+<span><span class="co">#&gt;   name                        abb   fips  area_land area_water   lat   long</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;                       &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 American Samoa              AS    60         76.4       505. -14.0 -170. </span></span>
+<span><span class="co">#&gt; 2 Guam                        GU    66        210.        361.  13.4  145. </span></span>
+<span><span class="co">#&gt; 3 Northern Mariana Islands    MP    69        182.       1793.  16.8  146. </span></span>
+<span><span class="co">#&gt; 4 Puerto Rico                 PR    72       3424.       1901.  18.2  -66.4</span></span>
+<span><span class="co">#&gt; 5 U.S. Minor Outlying Islands UM    74         NA          NA   NA     NA  </span></span>
+<span><span class="co">#&gt; 6 U.S. Virgin Islands         VI    78        134.        599.  18.1  -64.8</span></span></code></pre></div>
+<p>ZIP codes from the archived <a href="https://cran.r-project.org/package=zipcode" class="external-link">‘zipcode’</a> package are also included</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/zipcodes.html">zipcodes</a></span></span>
 <span><span class="co">#&gt; # A tibble: 44,336 × 5</span></span>
 <span><span class="co">#&gt;   zip   city       state   lat  long</span></span>
@@ -175,7 +191,7 @@
 <span><span class="co">#&gt; 6 00215 Portsmouth NH     43.0 -71.0</span></span>
 <span><span class="co">#&gt; # ℹ 44,330 more rows</span></span></code></pre></div>
 <p>These synthetic survey respondents from <a href="https://www.pewresearch.org/methods/2018/01/26/for-weighting-online-opt-in-samples-what-matters-most/" class="external-link">Pew</a> provide a statistically accurate sample of the American people.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu">select</span><span class="op">(</span><span class="fu">usa</span><span class="fu">::</span><span class="va"><a href="reference/people.html">people</a></span>, <span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 20,000 × 8</span></span>
 <span><span class="co">#&gt;      id fname   lname    gender   age race     edu          div               </span></span>
@@ -231,7 +247,7 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: experimental"></a></li>
 <li><a href="https://CRAN.R-project.org/package=usa" class="external-link"><img src="https://www.r-pkg.org/badges/version/usa" alt="CRAN status"></a></li>
 <li><a href="https://app.codecov.io/gh/k5cents/usa?branch=master" class="external-link"><img src="https://codecov.io/gh/k5cents/usa/graph/badge.svg?token=ubolhKW81u" alt="Codecov test coverage"></a></li>
 <li><a href="https://github.com/k5cents/usa/actions" class="external-link"><img src="https://github.com/k5cents/usa/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
@@ -249,7 +265,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
       </footer>
