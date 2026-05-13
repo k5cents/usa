@@ -216,19 +216,19 @@ NULL
 #'   \item{population}{Resident population (2020 Decennial Census, April 1, 2020)}
 #'   \item{votes}{Votes in the Electoral College (following the 2010 Census)}
 #'   \item{admission}{The date on which the state was admitted to the union}
-#'   \item{income}{Per capita income (2018)}
+#'   \item{income}{Per capita income in dollars (2022 ACS 1-year)}
 #'   \item{life_exp}{Life expectancy in years (2017-18)}
 #'   \item{murder}{Murder rate per 100,000 population (2018)}
-#'   \item{college}{Percent adult population with at least a bachelor's degree (2019)}
+#'   \item{college}{Proportion of population 25+ with a bachelor's degree or higher (2022 ACS 1-year)}
 #'   \item{heat}{Mean number of degree days (temperature requires heating) per year from 1981-2010}
 #' }
 #' @source
 #' * Population: 2020 Decennial Census PL 94-171 file, variable \code{P1_001N} via tidycensus
 #' * Electoral College: \url{https://www.archives.gov/electoral-college/allocation}
-#' * Income: Census table ACSST1Y2018.S1903
+#' * Income: 2022 ACS 1-year, variable \code{B19301_001} (per capita income) via tidycensus
 #' * Life Expectancy: \url{https://web.archive.org/web/20231129160338/https://usa.mortality.org/}
 #' * Murder: \url{https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018/tables/table-4/table-4.xls/output.xls}
-#' * Education: Census table ACSST1Y2018.S1501
+#' * Education: 2022 ACS 1-year Subject Table S1501, variable \code{S1501_C02_015} via tidycensus
 #' * Temperature: NOAA 1981-2010 Climate Normals
 "state_facts"
 
