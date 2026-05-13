@@ -216,7 +216,7 @@ NULL
 #'   \item{population}{Resident population (2020 Decennial Census, April 1, 2020)}
 #'   \item{votes}{Votes in the Electoral College (following the 2010 Census)}
 #'   \item{admission}{The date on which the state was admitted to the union}
-#'   \item{income}{Median household income in dollars (2022 ACS 1-year)}
+#'   \item{income}{Per capita income in dollars (2022 ACS 1-year)}
 #'   \item{life_exp}{Life expectancy in years (2017-18)}
 #'   \item{murder}{Murder rate per 100,000 population (2018)}
 #'   \item{college}{Percent of population 25+ with a bachelor's degree or higher (2022 ACS 1-year)}
@@ -225,7 +225,7 @@ NULL
 #' @source
 #' * Population: 2020 Decennial Census PL 94-171 file, variable \code{P1_001N} via tidycensus
 #' * Electoral College: \url{https://www.archives.gov/electoral-college/allocation}
-#' * Income: 2022 ACS 1-year Subject Table S1903, variable \code{S1903_C03_001} via tidycensus
+#' * Income: 2022 ACS 1-year, variable \code{B19301_001} (per capita income) via tidycensus
 #' * Life Expectancy: \url{https://web.archive.org/web/20231129160338/https://usa.mortality.org/}
 #' * Murder: \url{https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018/tables/table-4/table-4.xls/output.xls}
 #' * Education: 2022 ACS 1-year Subject Table S1501, variable \code{S1501_C02_015} via tidycensus

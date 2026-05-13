@@ -25,11 +25,11 @@ st_pop <- get_decennial(
 
 # income ------------------------------------------------------------------
 
-# Median household income, 2022 ACS 1-year Subject Table S1903.
-# S1903_C03_001 = Households; Median income (dollars)
+# Per capita income, 2022 ACS 1-year.
+# B19301_001 = Per capita income in the past 12 months (inflation-adjusted dollars)
 st_income <- get_acs(
   geography = "state",
-  variables = "S1903_C03_001",
+  variables = "B19301_001",
   year = 2022,
   survey = "acs1"
 ) %>%
