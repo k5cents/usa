@@ -5,7 +5,7 @@
 \alias{territory}
 \title{US Territories}
 \format{
-A tibble with 7 rows and 6 variables:
+A tibble with 6 rows and 6 variables:
 \describe{
 \item{abb}{2-letter abbreviation}
 \item{name}{Full legal name}
@@ -19,6 +19,7 @@ A tibble with 7 rows and 6 variables:
 territory
 }
 \description{
-The 6 non-state territories and federal district.
+The 6 US territories: Puerto Rico (PR) and the 5 island territories
+(AS, GU, MP, UM, VI).
 }
 \keyword{datasets}

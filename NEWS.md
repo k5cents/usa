@@ -1,3 +1,68 @@
+# usa 1.0.0
+
+## Breaking changes
+
+* `states` split into two tibbles: `state_ids` (naming and coding systems) and
+  `state_geo` (geographic and classificatory properties).
+
+* `facts` renamed to `state_facts`; `state.x19` removed.
+
+* Puerto Rico removed from all `state_*` objects. It is now included in
+  `territory` and the `territory_*` vectors alongside AS, GU, MP, UM, and VI.
+  All `state_*` objects now cover exactly 51 rows (50 states + DC).
+
+* `state.abb`, `state.area`, `state.center`, `state.division`, `state.name`,
+  and `state.region` dot-named vectors replaced with `state_abbs`,
+  `state_areas`, `state_centers`, `state_divisions`, `state_names`, and
+  `state_regions`.
+
+* `zip.code`, `zip.center`, `city.name`, and `county.name` renamed to
+  `zip_codes`, `zip_centers`, `city_names`, and `county_names`.
+
+## New data
+
+* `state_capitals`: capital city name, coordinates (TIGER 2020 internal
+  points), and population (2020 Decennial Census) for the 50 states and DC.
+
+* `state_geo` gains `peak_elev` (state high point in feet, USGS) and adds DC.
+
+## Updated data
+
+* `state_facts` population updated to 2020 Decennial Census (was 2010 ACS).
+
+* `state_facts` income updated to 2022 ACS 1-year per capita income
+  (was 2019 median household income).
+
+* `state_facts` Electoral College votes updated to 2020 Census reapportionment
+  (applies 2022–2032).
+
+* `state_facts` murder rate updated to 2022 FBI NIBRS homicide rate per
+  100,000 via the Crime Data Explorer API (was 2018 UCR).
+
+* `state_facts` education updated to 2022 ACS 1-year; `college` now stored as
+  a proportion (0–1) rather than a percentage.
+
+* `state_facts` `heat` (1981–2010 cooling degree days, dead FTP source)
+  replaced by `frost`: mean days per year with minimum temperature below
+  freezing, from the NCEI 1991–2020 Climate Normals.
+
+* `state_facts` life expectancy updated to 2021 NCHS state life tables via
+  CDC (was 2017–18 data from a Wikipedia scrape).
+
+* `counties` source updated from archived FCC file to Census TIGER 2020
+  national county reference file. Row count 3,232 → 3,235.
+
+* `state_ids` gains `icp` (IPUMS STATEICP codes) and `ap` (AP style
+  abbreviations) columns.
+
+## Other changes
+
+* `sp` and `rgdal` dependencies removed; spatial operations use `sf` and
+  `tigris` throughout.
+
+* `state_capitals` coordinates and population now sourced from the Census API
+  rather than hardcoded.
+
 # usa 0.1.3
 
 * Fix logo URL in README

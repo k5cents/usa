@@ -24,16 +24,16 @@ usethis::use_data(zipcodes, overwrite = TRUE)
 write_csv(zipcodes, "data-raw/zipcodes.csv")
 
 # save codes as vector
-zip.code <- zipcodes$zip
-usethis::use_data(zip.code, overwrite = TRUE)
-write_lines(zip.code, "data-raw/zip.code.csv")
+zip_codes <- zipcodes$zip
+usethis::use_data(zip_codes, overwrite = TRUE)
+write_lines(zip_codes, "data-raw/zip_codes.csv")
 
 # save coordinates as vector
-zip.center <- list(x = zipcodes$lat, y = zipcodes$long)
-usethis::use_data(zip.center, overwrite = TRUE)
-write_lines(zip.center, "data-raw/zip.center.csv")
+zip_centers <- list(x = zipcodes$lat, y = zipcodes$long)
+usethis::use_data(zip_centers, overwrite = TRUE)
+write_lines(zip_centers, "data-raw/zip_centers.csv")
 
 # save cities as vector
-city.name <- sort(unique(zipcodes$city))
-usethis::use_data(city.name, overwrite = TRUE)
-write_lines(city.name, "data-raw/city.name.csv")
+city_names <- sort(unique(zipcodes$city))
+usethis::use_data(city_names, overwrite = TRUE)
+write_lines(city_names, "data-raw/city_names.csv")

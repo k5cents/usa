@@ -28,10 +28,9 @@ options(tibble.print_min = 6)
 <!-- badges: end -->
 
 The goal of 'usa' is to provide updated versions of the 'datasets' objects
-included with R. When attached, this package **overwrites** these original
-vectors with information on all fifty states, the District of Columbia, and
-Puerto Rico. As of now, information on the other territories are provided in
-separate objects.
+included with R. This package provides updated vectors covering all fifty
+states and the District of Columbia, alongside tidy tibbles with richer data.
+Puerto Rico and the other US territories are provided in separate objects.
 
 ## Installation
 
@@ -53,52 +52,45 @@ remotes::install_github("k5cents/usa")
 R ships with eight outdated objects in the 'datasets' package: 7 vectors and a
 matrix of statistics from the 1970's.
 
-```{r enframe_vectors, echo=FALSE}
-base.vectors <- data.frame(
-  name = state.name,
-  abb = state.abb,
-  region = state.region,
-  division = state.division,
-  area = state.area,
-  center.x = state.center$x,
-  center.y = state.center$y
-)
-```
-
-```{r vectors}
-head(base.vectors)
-```
-
 ```{r state.x77}
 head(state.x77)
 ```
 
 ## New Data
 
-This package contains new, expanded versions of these vectors.
+This package provides updated vectors covering all 51 entries (50 states + DC).
 
-```{r join_states, message=FALSE}
-setdiff(usa::state.abb, datasets::state.abb)
-unique(usa::state.region)
-show(usa::territory.abb)
+```{r vectors, message=FALSE}
+# DC is the only entry not in datasets::state.abb
+setdiff(usa::state_abbs, datasets::state.abb)
+unique(usa::state_regions)
+usa::territory_abbs
 ```
 
 The package contains [tibbles][tib] identifying the states and providing updated
 facts and figures.
 
-```{r states}
-usa::states
+```{r state_ids}
+usa::state_ids
 ```
 
-```{r facts}
-usa::facts
+```{r state_geo}
+usa::state_geo
+```
+
+```{r state_capitals}
+usa::state_capitals
+```
+
+```{r state_facts}
+usa::state_facts
 ```
 
 ```{r territory}
 usa::territory
 ```
 
-ZIP codes from the archived ['zipcode'][zip] package are also included
+ZIP codes from the archived ['zipcode'][zip] package are also included.
 
 ```{r zipcodes}
 usa::zipcodes
@@ -118,8 +110,8 @@ Please note that the 'usa' project is released with a
 contributing to this project, you agree to abide by its terms.
 
 <!-- refs: start -->
-[life_badge]: https://img.shields.io/badge/lifecycle-maturing-blue.svg
-[life_link]: https://lifecycle.r-lib.org/articles/stages.html#experimental
+[life_badge]: https://img.shields.io/badge/lifecycle-stable-brightgreen.svg
+[life_link]: https://lifecycle.r-lib.org/articles/stages.html#stable
 [cran_badge]: https://www.r-pkg.org/badges/version/usa
 [cran_link]: https://CRAN.R-project.org/package=usa
 [ga_badge]: https://github.com/k5cents/usa/workflows/R-CMD-check/badge.svg

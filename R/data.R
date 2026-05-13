@@ -3,28 +3,84 @@ NULL
 
 # objects from states.R ---------------------------------------------------
 
-#' US State and Territories
+#' US State Identifiers
 #'
-#' The 50 states, District of Columbia, and Puerto Rico.
+#' The 50 states and District of Columbia — all naming and coding
+#' systems used to refer to each state. The backing data for [state_convert()].
 #'
-#' @format A tibble with 52 rows and 8 variables:
+#' Naming convention: underscore objects (`state_ids`, `state_facts`,
+#' `state_geo`) are modern purpose-built tibbles. Convenience vectors
+#' (`state_abbs`, `state_names`, etc.) mirror the base R
+#' `datasets::state.*` vectors but cover all 51 rows (50 states + DC).
+#'
+#' @format A tibble with 51 rows and 6 variables:
 #' \describe{
-#'   \item{abb}{2-letter abbreviation}
 #'   \item{name}{Full legal name}
+#'   \item{abb}{2-letter USPS abbreviation}
 #'   \item{fips}{Federal Information Processing Standard Publication 5-2 code}
+#'   \item{icp}{IPUMS Integrated Census Project (STATEICP) code, zero-padded
+#'     2-digit string}
+#'   \item{ap}{AP style abbreviation; the 8 states with no AP abbreviation
+#'     (Alaska, Hawaii, Idaho, Iowa, Maine, Ohio, Texas, Utah) use the full
+#'     state name per AP style}
+#'   \item{iso}{ISO 3166-2 code (e.g. `"US-AL"`)}
+#' }
+#' @source
+#' * Names, abbreviations, FIPS: \url{https://www2.census.gov/geo/docs/reference/state.txt}
+#' * ICP codes: \url{https://usa.ipums.org/usa-action/variables/STATEICP}
+#' * AP abbreviations: AP Stylebook
+#' * ISO 3166-2: ISO Online Browsing Platform
+"state_ids"
+
+#' US State Geography
+#'
+#' Geographic and classificatory properties for the 50 states and District of
+#' Columbia. Keyed by \code{abb} to join with [state_ids].
+#'
+#' @format A tibble with 51 rows and 10 variables:
+#' \describe{
+#'   \item{abb}{2-letter USPS abbreviation (join key)}
 #'   \item{region}{Census Bureau region}
 #'   \item{division}{Census Bureau division}
-#'   \item{area}{Area in square miles}
-#'   \item{lat}{Center latitudinal coordinate}
-#'   \item{long}{Center longitudinal coordinate}
+#'   \item{area_land}{Land area in square miles}
+#'   \item{area_water}{Water area in square miles}
+#'   \item{lat}{Centroid latitudinal coordinate}
+#'   \item{long}{Centroid longitudinal coordinate}
+#'   \item{contiguous}{\code{TRUE} for the 48 contiguous states and DC;
+#'     \code{FALSE} for Alaska and Hawaii}
+#'   \item{landlocked}{\code{TRUE} for states with no coastline on an ocean,
+#'     gulf, or Great Lake (21 states including DC)}
+#'   \item{peak_elev}{Elevation of the state high point in feet}
 #' }
-"states"
+#' @source
+#' * Regions and divisions: \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx}
+#' * Area and centroids: TIGER/Web REST API (State_County layer)
+#' * Peak elevations: USGS state high point records
+"state_geo"
+
+#' US State Capitals
+#'
+#' Capital cities for the 50 states and District of Columbia,
+#' with coordinates and 2020 Census population.
+#'
+#' @format A tibble with 51 rows and 5 variables:
+#' \describe{
+#'   \item{abb}{2-letter USPS abbreviation (join key)}
+#'   \item{capital}{Capital city name}
+#'   \item{lat}{Latitudinal coordinate of the capital}
+#'   \item{long}{Longitudinal coordinate of the capital}
+#'   \item{population}{Capital city population (2020 Decennial Census,
+#'     city proper)}
+#' }
+#' @source \url{https://www.census.gov/quickfacts/}
+"state_capitals"
 
 #' US Territories
 #'
-#' The 6 non-state territories and federal district.
+#' The 6 US territories: Puerto Rico (PR) and the 5 island territories
+#' (AS, GU, MP, UM, VI).
 #'
-#' @format A tibble with 7 rows and 6 variables:
+#' @format A tibble with 6 rows and 6 variables:
 #' \describe{
 #'   \item{abb}{2-letter abbreviation}
 #'   \item{name}{Full legal name}
@@ -37,65 +93,69 @@ NULL
 
 #' US State Abbreviations
 #'
-#' The 2-letter abbreviations for the US state names.
+#' The 2-letter USPS abbreviations for the 50 states and District of Columbia.
+#' Parallel to [state_names].
 #'
-#' @format A character vector of length 52.
+#' @format A character vector of length 51.
 #' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
-"state.abb"
+"state_abbs"
 
 #' US Territory Abbreviations
 #'
-#' The 2-letter abbreviations for the US territory names.
+#' The 2-letter abbreviations for the US territories (PR, AS, GU, MP, UM, VI).
 #'
-#' @format A character vector of length 52.
+#' @format A character vector of length 6.
 #' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
-"territory.abb"
+"territory_abbs"
 
-#' US State Areas
+#' US State Land Areas
 #'
-#' The area in square miles of the US states.
+#' Land area in square miles for the 50 states and District of Columbia.
+#' Parallel to [state_names].
 #'
-#' @format A numeric vector of length 52.
-#' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
-"state.area"
+#' @format A numeric vector of length 51.
+#' @source TIGER/Web REST API (State_County layer)
+"state_areas"
 
-#' US State Areas
+#' US Territory Areas
 #'
-#' The area in square miles of the US territories.
+#' The area in square miles of the US territories (PR, AS, GU, MP, UM, VI).
 #'
-#' @format A numeric vector of length 52.
-#' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
-"territory.area"
+#' @format A numeric vector of length 6.
+#' @source TIGER/Web REST API (State_County layer)
+"territory_areas"
 
-#' US State Centers
+#' US State Geographic Centers
 #'
 #' A list with components named `x` and `y` giving the approximate geographic
-#' center of each state in negative longitude and latitude.
+#' centroid of each state in longitude and latitude. Parallel to [state_names].
 #'
-#' @format A list of length two, each element a numeric vector of length 52.
+#' @format A list of length two, each element a numeric vector of length 51.
+#' \describe{
+#'   \item{x}{Centroid longitudinal coordinate}
+#'   \item{y}{Centroid latitudinal coordinate}
+#' }
+#' @source TIGER/Web REST API (State_County layer)
+"state_centers"
+
+#' US Territory Geographic Centers
+#'
+#' A list with components named `x` and `y` giving the approximate geographic
+#' center of each territory in longitude and latitude.
+#'
+#' @format A list of length two, each element a numeric vector of length 6.
 #' \describe{
 #'   \item{x}{Center longitudinal coordinate}
 #'   \item{y}{Center latitudinal coordinate}
 #' }
-#' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
-"state.center"
+#' @source TIGER/Web REST API (State_County layer)
+"territory_centers"
 
-#' US Territory Centers
+#' US State Census Divisions
 #'
-#' A list with components named `x` and `y` giving the approximate geographic
-#' center of each territory in negative longitude and latitude.
+#' The Census division to which each state belongs, one of nine. Parallel to
+#' [state_names].
 #'
-#' @format A list of length two, each element a numeric vector of length 5.
-#' \describe{
-#'   \item{x}{Center longitudinal coordinate}
-#'   \item{y}{Center latitudinal coordinate}
-#' }
-#' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
-"territory.center"
-
-#' US State Divisions
-#'
-#' The Census division to which each state belongs, one of nine:
 #' 1. New England
 #' 2. Middle Atlantic
 #' 3. East North Central
@@ -106,88 +166,72 @@ NULL
 #' 8. Mountain
 #' 9. Pacific
 #'
-#' @format A factor vector of length 52.
+#' @format A factor vector of length 51.
 #' @source \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx}
-"state.division"
+"state_divisions"
 
 #' US State Names
 #'
-#' The full names for the US states.
+#' The full names for the 50 states and District of Columbia.
+#' Parallel to [state_abbs].
 #'
-#' @format A numeric vector of length 52.
-#' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
-"state.name"
+#' @format A character vector of length 51.
+#' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
+"state_names"
 
 #' US Territory Names
 #'
-#' The full names for the US territories.
+#' The full names for the US territories (PR, AS, GU, MP, UM, VI).
 #'
-#' @format A numeric vector of length 52.
-#' @source \url{https://tigerweb.geo.census.gov/tigerwebmain/Files/acs19/tigerweb_acs19_state_us.html}
-"territory.name"
+#' @format A character vector of length 6.
+#' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
+"territory_names"
 
-#' US State Regions
+#' US State Census Regions
 #'
-#' The Census region to which each state belongs, one of four:
+#' The Census region to which each state belongs, one of four. Parallel to
+#' [state_names].
+#'
 #' 1. Northeast
 #' 2. Midwest
 #' 3. South
 #' 4. West
 #'
-#' @format A factor vector of length 52.
+#' @format A factor vector of length 51.
 #' @source \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx}
-"state.region"
+"state_regions"
 
-# objects from info.R -----------------------------------------------------
+# objects from facts.R -----------------------------------------------------
 
 #' US State Facts
 #'
-#' Updated version of the [datasets::state.x77] matrix, which provides eights
-#' statistics from the 1970's. This version is a modern data frame format
-#' with updated (and alternative) statistics.
+#' Updated version of the [datasets::state.x77] matrix, which provided eight
+#' statistics from the 1970s. This version is a modern tibble with updated
+#' statistics.
 #'
-#' @format A tibble with 52 rows and 9 variables:
+#' See also [state_ids] for state identifiers and [state_geo] for geography.
+#'
+#' @format A tibble with 51 rows and 9 variables:
 #' \describe{
 #'   \item{name}{Full state name}
-#'   \item{population}{Population estimate (September 26, 2019)}
-#'   \item{votes}{Votes in the Electoral College (following the 2010 Census)}
-#'   \item{admission}{The data which the state was admitted to the union}
-#'   \item{income}{Per capita income (2018)}
-#'   \item{life_exp}{Life expectancy in years (2017-18)}
-#'   \item{murder}{Murder rate per 100,000 population (2018)}
-#'   \item{college}{Percent adult population with at least a bachelor's degree or greater (2019)}
-#'   \item{heat}{Mean number of degree days (temperature requires heating) per year from 1981-2010}
+#'   \item{population}{Resident population (2020 Decennial Census, April 1, 2020)}
+#'   \item{electors}{Votes in the Electoral College (2020 Census reapportionment, applies 2022–2032)}
+#'   \item{admission}{The date on which the state was admitted to the union}
+#'   \item{income}{Per capita income in dollars (2022 ACS 1-year)}
+#'   \item{life_exp}{Life expectancy at birth in years, both sexes (2021 NCHS)}
+#'   \item{murder}{Homicide rate per 100,000 population (2022 FBI NIBRS)}
+#'   \item{college}{Proportion of population 25+ with a bachelor's degree or higher (2022 ACS 1-year)}
+#'   \item{frost}{Mean number of days per year with minimum temperature below freezing (1991-2020 NCEI Climate Normals)}
 #' }
 #' @source
-#' * Population: \url{https://www2.census.gov/programs-surveys/popest/datasets/2010-2018/state/detail/SCPRC-EST2018-18+POP-RES.csv}
-#' * Electoral College: \url{https://www.archives.gov/electoral-college/allocation}
-#' * Income: (Moved Census table ACSST1Y2018.S1903 on income)
-#' * GDP: (Moved BEA dataset on GDP)
-#' * Literacy: \url{https://nces.ed.gov/naal/estimates/StateEstimates.aspx}
-#' * Life Expectancy: \url{https://web.archive.org/web/20231129160338/https://usa.mortality.org/}
-#' * Murder: \url{https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018/tables/table-4/table-4.xls/output.xls}
-#' * Education: (Noved Census table S1501 on education)
-#' * Temperature: (Moved NOAA dataset on temperature)
-"facts"
-
-#' US State and Territory Statistics
-#'
-#' A matrix version of the [facts] tibble, used to more closely align with the
-#' [datasets::state.x77] matrix included with R.
-#'
-#' @format A tibble with 52 rows and 9 variables:
-#' \describe{
-#'   \item{abb}{2-letter abbreviation}
-#'   \item{population}{Population estimate as of September 26, 2019}
-#'   \item{votes}{Votes in the Electoral College (following the 2010 Census)}
-#'   \item{income}{Per capita income (2017)}
-#'   \item{life_exp}{Life expectancy in years (2017-18)}
-#'   \item{murder}{Murder rate per 100,000 population (2018)}
-#'   \item{high}{Percent of population with at least a high school degree (2019)}
-#'   \item{bach}{Percent of population with at least a bachelor's degree (2019)}
-#'   \item{heat}{Mean number of "degree days" per year from 1981-2010}
-#' }
-"state.x19"
+#' * Population: 2020 Decennial Census PL 94-171 file, variable \code{P1_001N} via tidycensus
+#' * Electoral College: 2020 Census reapportionment (NARA \url{https://www.archives.gov/electoral-college/allocation})
+#' * Income: 2022 ACS 1-year, variable \code{B19301_001} (per capita income) via tidycensus
+#' * Life Expectancy: NCHS 2021 state life tables via \url{https://data.cdc.gov/api/views/it4f-frdc/rows.csv}
+#' * Murder: FBI Crime Data Explorer API (2022 NIBRS)
+#' * Education: 2022 ACS 1-year Subject Table S1501, variable \code{S1501_C02_015} via tidycensus
+#' * Frost: NCEI 1991-2020 Climate Normals, variable \code{ANN-TMIN-AVGNDS-LSTH032}, \url{https://www.ncei.noaa.gov/data/normals-annualseasonal/1991-2020/}
+"state_facts"
 
 # objects from people.R ---------------------------------------------------
 
@@ -218,7 +262,7 @@ NULL
 #' values from each. From this large dataset, the original 20,000 surveys from
 #' the ACS were kept to ensure accurate demographic distribution.
 #'
-#' The names were _RANDOMLY_ assigned to respondents to better simulate a
+#' The names were randomly assigned to respondents to better simulate a
 #' synthetic sample of the population. First names were taken from the
 #' `babynames` dataset which contains the Social Security Administration's
 #' record of baby names from 1880 to 2017 along with gender and proportion.
@@ -237,7 +281,7 @@ NULL
 #'   \item{id}{Sequential unique ID}
 #'   \item{fname}{Random first name, see details}
 #'   \item{lname}{Random last name, see details}
-#'   \item{gender}{Biological sex}
+#'   \item{gender}{Gender (male/female)}
 #'   \item{age}{Age capped at 85}
 #'   \item{race}{Race and Ethnicity}
 #'   \item{edu}{Educational attainment}
@@ -246,7 +290,7 @@ NULL
 #'   \item{house_size}{Household size}
 #'   \item{children}{Has children}
 #'   \item{us_citizen}{Is a US citizen}
-#'   \item{us_born}{Was born in the Us}
+#'   \item{us_born}{Was born in the US}
 #'   \item{house_income}{Family income}
 #'   \item{emp_status}{Employment status}
 #'   \item{emp_sector}{Employment sector}
@@ -259,7 +303,7 @@ NULL
 #'   \item{foodstamp}{Receives food stamps}
 #'   \item{house_moved}{Moved in the last year}
 #'   \item{pub_contact}{Contacted or visited a public official}
-#'   \item{boycott}{}
+#'   \item{boycott}{Participated in a product boycott}
 #'   \item{hood_group}{Participated in a community association}
 #'   \item{hood_talks}{Talked with neighbors}
 #'   \item{hood_trust}{Trusts neighbors}
@@ -268,7 +312,7 @@ NULL
 #'   \item{social}{Uses social media}
 #'   \item{volunteer}{Volunteered}
 #'   \item{register}{Is registered to vote}
-#'   \item{vote}{Voted in the 2014 midterm elections}
+#'   \item{vote}{Voted in the most recent midterm election}
 #'   \item{party}{Political party}
 #'   \item{religion}{Religious (evangelical) affiliation}
 #'   \item{ideology}{Political ideology}
@@ -286,20 +330,20 @@ NULL
 #'
 #' This tibble contains city, state, latitude, and longitude for U.S. ZIP codes
 #' from the CivicSpace Database (August 2004) augmented by Daniel Coven's [web
-#' site](http://federalgovernmentzipcodes.us/) (updated on January 22, 2012).
+#' site](https://federalgovernmentzipcodes.us/) (updated on January 22, 2012).
 #' The data was originally contained in the
 #' [`zipcode`](https://CRAN.R-project.org/package=zipcode) CRAN package, which
 #' was archived on January 1, 2020.
 #'
-#' @format A tibble with 52 rows and 9 variables:
+#' @format A tibble with 44,336 rows and 5 variables:
 #' \describe{
 #'   \item{zip}{5 digit ZIP code or military postal code (FPO/APO)}
 #'   \item{city}{USPS official city name}
 #'   \item{state}{USPS official state, territory abbreviation code}
-#'   \item{latitude}{Decimal Latitude}
-#'   \item{longitude}{Decimal Longitude}
+#'   \item{lat}{Decimal latitude}
+#'   \item{long}{Decimal longitude}
 #' }
-#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#' @source Daniel Coven's [web site](https://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
 #'   <schuyler@geocoder.us>, 5 August 2004.
 "zipcodes"
@@ -310,56 +354,58 @@ NULL
 #' particular postal delivery area.
 #'
 #' @format A character vector of length 44336.
-#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#' @source Daniel Coven's [web site](https://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
 #'   <schuyler@geocoder.us>, 5 August 2004.
-"zip.code"
+"zip_codes"
 
 #' US ZIP Centers
 #'
 #' A list with components named `x` and `y` giving the approximate geographic
-#' center of each ZIP code in negative longitude and latitude.
+#' center of each ZIP code in longitude and latitude.
 #'
 #' @format A list of length two, each element a numeric vector of length 44336.
 #' \describe{
 #'   \item{x}{Center longitudinal coordinate}
 #'   \item{y}{Center latitudinal coordinate}
 #' }
-#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#' @source Daniel Coven's [web site](https://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
 #'   <schuyler@geocoder.us>, 5 August 2004.
-"zip.center"
+"zip_centers"
 
 #' US ZIP Cities
 #'
 #' The United States Postal Service's official names for the cities in which
 #' ZIP codes are contained. This vector contains unique values, sorted
 #' alphabetically; because of this, they do not line up the other vectors in the
-#' way [zip.code] and [zip.center] do.
+#' way [zip_codes] and [zip_centers] do.
 #'
 #' @format A character vector of length 19108.
-#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#' @source Daniel Coven's [web site](https://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
 #'   <schuyler@geocoder.us>, 5 August 2004.
-"city.name"
+"city_names"
 
 #' US Counties
 #'
 #' The county subdivisions of the US states and territories.
 #'
-#' @format A tibble with 3,232 rows and 3 variables:
+#' @format A tibble with 3,235 rows and 3 variables:
 #' \describe{
-#'   \item{fips}{Federal Information Processing Standard Publication 5-2 code}
-#'   \item{name}{Census county names}
-#'   \item{state}{USPS official state, territory abbreviation code}
+#'   \item{fips}{Five-digit FIPS code (state FIPS + county FIPS)}
+#'   \item{name}{County name (type suffix such as "County", "Parish", "Borough" removed)}
+#'   \item{state}{USPS state/territory abbreviation}
 #' }
-#' @source \url{https://web.archive.org/web/20240106151642/https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt}
+#' @source Census TIGER 2020 national county reference file,
+#'   \url{https://www2.census.gov/geo/docs/reference/codes2020/national_county2020.txt}
 "counties"
 
 #' US County Names
 #'
 #' The name of distinct US counties.
 #'
-#' @format A character vector of length 19108.
-#' @source \url{https://web.archive.org/web/20240106151642/https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt}
-"county.name"
+#' @format A character vector of length 1,925.
+#' @source Census TIGER 2020 national county reference file,
+#'   \url{https://www2.census.gov/geo/docs/reference/codes2020/national_county2020.txt}
+"county_names"

@@ -5,17 +5,17 @@
 \alias{zipcodes}
 \title{US ZIP Code Locations}
 \format{
-A tibble with 52 rows and 9 variables:
+A tibble with 44,336 rows and 5 variables:
 \describe{
 \item{zip}{5 digit ZIP code or military postal code (FPO/APO)}
 \item{city}{USPS official city name}
 \item{state}{USPS official state, territory abbreviation code}
-\item{latitude}{Decimal Latitude}
-\item{longitude}{Decimal Longitude}
+\item{lat}{Decimal latitude}
+\item{long}{Decimal longitude}
 }
 }
 \source{
-Daniel Coven's \href{http://federalgovernmentzipcodes.us/}{web site} and
+Daniel Coven's \href{https://federalgovernmentzipcodes.us/}{web site} and
 the CivicSpace US ZIP Code Database written by Schuyler Erle
 \href{mailto:schuyler@geocoder.us}{schuyler@geocoder.us}, 5 August 2004.
 }
@@ -24,7 +24,7 @@ zipcodes
 }
 \description{
 This tibble contains city, state, latitude, and longitude for U.S. ZIP codes
-from the CivicSpace Database (August 2004) augmented by Daniel Coven's \href{http://federalgovernmentzipcodes.us/}{web site} (updated on January 22, 2012).
+from the CivicSpace Database (August 2004) augmented by Daniel Coven's \href{https://federalgovernmentzipcodes.us/}{web site} (updated on January 22, 2012).
 The data was originally contained in the
 \href{https://CRAN.R-project.org/package=zipcode}{\code{zipcode}} CRAN package, which
 was archived on January 1, 2020.

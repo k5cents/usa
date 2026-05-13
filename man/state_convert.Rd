@@ -4,19 +4,26 @@
 \alias{state_convert}
 \title{Convert state identifiers}
 \usage{
-state_convert(x, to = NULL)
+state_convert(x, to = c("abb", "name", "fips", "ap", "iso"))
 }
 \arguments{
-\item{x}{A character vector of: state names, abbreviations, or FIPS codes.}
+\item{x}{A character vector of state identifiers in any supported format.}
 
-\item{to}{The format returned: "abb", "name" or "fips".}
+\item{to}{The format returned: \code{"abb"}, \code{"name"}, \code{"fips"}, \code{"ap"}, or
+\code{"iso"}. Defaults to \code{"abb"}.}
 }
 \value{
 A character vector of single format state identifiers.
 }
 \description{
 Take a vector of state identifiers and convert to a common format.
+Supports all five identifier types in \link{state_ids}: USPS abbreviation,
+full name, FIPS code, AP style abbreviation, and ISO 3166-2 code.
 }
 \examples{
 state_convert(c("AL", "Vermont", "06"))
+state_convert(c("AL", "Vermont", "06"), to = "name")
+state_convert(c("AL", "Vermont", "06"), to = "fips")
+state_convert(c("AL", "Vermont", "06"), to = "ap")
+state_convert(c("AL", "Vermont", "06"), to = "iso")
 }

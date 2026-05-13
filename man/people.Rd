@@ -10,7 +10,7 @@ A tibble with 20,000 rows and 40 variables:
 \item{id}{Sequential unique ID}
 \item{fname}{Random first name, see details}
 \item{lname}{Random last name, see details}
-\item{gender}{Biological sex}
+\item{gender}{Gender (male/female)}
 \item{age}{Age capped at 85}
 \item{race}{Race and Ethnicity}
 \item{edu}{Educational attainment}
@@ -19,7 +19,7 @@ A tibble with 20,000 rows and 40 variables:
 \item{house_size}{Household size}
 \item{children}{Has children}
 \item{us_citizen}{Is a US citizen}
-\item{us_born}{Was born in the Us}
+\item{us_born}{Was born in the US}
 \item{house_income}{Family income}
 \item{emp_status}{Employment status}
 \item{emp_sector}{Employment sector}
@@ -32,7 +32,7 @@ A tibble with 20,000 rows and 40 variables:
 \item{foodstamp}{Receives food stamps}
 \item{house_moved}{Moved in the last year}
 \item{pub_contact}{Contacted or visited a public official}
-\item{boycott}{}
+\item{boycott}{Participated in a product boycott}
 \item{hood_group}{Participated in a community association}
 \item{hood_talks}{Talked with neighbors}
 \item{hood_trust}{Trusts neighbors}
@@ -41,7 +41,7 @@ A tibble with 20,000 rows and 40 variables:
 \item{social}{Uses social media}
 \item{volunteer}{Volunteered}
 \item{register}{Is registered to vote}
-\item{vote}{Voted in the 2014 midterm elections}
+\item{vote}{Voted in the most recent midterm election}
 \item{party}{Political party}
 \item{religion}{Religious (evangelical) affiliation}
 \item{ideology}{Political ideology}
@@ -83,7 +83,7 @@ were combined, stratified, sampled, combined, and imputed to fill missing
 values from each. From this large dataset, the original 20,000 surveys from
 the ACS were kept to ensure accurate demographic distribution.
 
-The names were \emph{RANDOMLY} assigned to respondents to better simulate a
+The names were randomly assigned to respondents to better simulate a
 synthetic sample of the population. First names were taken from the
 \code{babynames} dataset which contains the Social Security Administration's
 record of baby names from 1880 to 2017 along with gender and proportion.
