@@ -34,7 +34,7 @@
   (was 2019 median household income).
 
 * `state_facts` Electoral College votes updated to 2020 Census reapportionment
-  (applies 2024–2032).
+  (applies 2022–2032).
 
 * `state_facts` murder rate updated to 2022 FBI NIBRS homicide rate per
   100,000 via the Crime Data Explorer API (was 2018 UCR).

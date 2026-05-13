@@ -90,7 +90,7 @@ usa::state_facts
 usa::territory
 ```
 
-ZIP codes from the archived ['zipcode'][zip] package are also included
+ZIP codes from the archived ['zipcode'][zip] package are also included.
 
 ```{r zipcodes}
 usa::zipcodes
