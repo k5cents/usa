@@ -4,8 +4,11 @@ library(tidycensus)
 library(lubridate)
 library(readxl)
 library(rvest)
+library(httr)
 library(fs)
-library(sp) # point.in.polygon for DC station filtering; replace with sf in #12
+library(sp)    # point.in.polygon for DC station filtering; replace with sf in #12
+library(rgdal) # readOGR for DC polygon; replace with sf in #12
+library(usethis)
 
 abb_fips <- select(read_csv("data-raw/states.csv"), fips, abb)
 abb_name <- select(read_csv("data-raw/states.csv"), name, abb)
@@ -210,20 +213,22 @@ ec <- read_html(url) %>%
   html_table() %>%
   as_vector() %>%
   enframe(name = NULL) %>%
-  separate(value, c("name", "votes"), "\\s-\\s") %>%
-  mutate(across(votes, parse_number))
+  separate(value, c("name", "electors"), "\\s-\\s") %>%
+  mutate(across(electors, parse_number)) %>%
+  inner_join(abb_name, by = "name") %>%
+  select(abb, electors)
 
 # join --------------------------------------------------------------------
 
-state_facts <- populations %>%
-  left_join(ec) %>%
-  left_join(admission) %>%
-  left_join(income, by = "abb") %>%
+state_facts <- st_pop %>%
+  left_join(ec, by = "abb") %>%
+  left_join(admission, by = "abb") %>%
+  left_join(st_income, by = "abb") %>%
   left_join(life, by = "abb") %>%
   left_join(murder, by = "abb") %>%
   left_join(edu, by = "abb") %>%
-  left_join(degree_days, by = "abb") %>%
-  left_join(abb_name) %>%
+  left_join(temp, by = "abb") %>%
+  left_join(abb_name, by = "abb") %>%
   select(name, everything()) %>%
   arrange(name) %>%
   select(-abb)
