@@ -8,12 +8,12 @@ NULL
 #' The 50 states and District of Columbia — all naming and coding
 #' systems used to refer to each state. The backing data for [state_convert()].
 #'
-#' Naming convention: underscore objects (\code{state_ids}, \code{state_facts},
-#' \code{state_geo}) are modern purpose-built tibbles. Convenience vectors
-#' (\code{state_abbs}, \code{state_names}, etc.) mirror the base R
-#' \code{datasets::state.*} vectors but cover all 51 rows (50 states + DC).
+#' Naming convention: underscore objects (`state_ids`, `state_facts`,
+#' `state_geo`) are modern purpose-built tibbles. Convenience vectors
+#' (`state_abbs`, `state_names`, etc.) mirror the base R
+#' `datasets::state.*` vectors but cover all 51 rows (50 states + DC).
 #'
-#' @format A tibble with 51 rows and 5 variables:
+#' @format A tibble with 51 rows and 6 variables:
 #' \describe{
 #'   \item{name}{Full legal name}
 #'   \item{abb}{2-letter USPS abbreviation}
@@ -23,7 +23,7 @@ NULL
 #'   \item{ap}{AP style abbreviation; the 8 states with no AP abbreviation
 #'     (Alaska, Hawaii, Idaho, Iowa, Maine, Ohio, Texas, Utah) use the full
 #'     state name per AP style}
-#'   \item{iso}{ISO 3166-2 code (e.g. \code{"US-AL"})}
+#'   \item{iso}{ISO 3166-2 code (e.g. `"US-AL"`)}
 #' }
 #' @source
 #' * Names, abbreviations, FIPS: \url{https://www2.census.gov/geo/docs/reference/state.txt}
@@ -206,8 +206,10 @@ NULL
 #' US State Facts
 #'
 #' Updated version of the [datasets::state.x77] matrix, which provided eight
-#' statistics from the 1970's. This version is a modern tibble with updated
-#' statistics. See also [state_ids] for state identifiers and [state_geo] for geography.
+#' statistics from the 1970s. This version is a modern tibble with updated
+#' statistics.
+#'
+#' See also [state_ids] for state identifiers and [state_geo] for geography.
 #'
 #' @format A tibble with 51 rows and 9 variables:
 #' \describe{
@@ -260,7 +262,7 @@ NULL
 #' values from each. From this large dataset, the original 20,000 surveys from
 #' the ACS were kept to ensure accurate demographic distribution.
 #'
-#' The names were _RANDOMLY_ assigned to respondents to better simulate a
+#' The names were randomly assigned to respondents to better simulate a
 #' synthetic sample of the population. First names were taken from the
 #' `babynames` dataset which contains the Social Security Administration's
 #' record of baby names from 1880 to 2017 along with gender and proportion.
@@ -279,7 +281,7 @@ NULL
 #'   \item{id}{Sequential unique ID}
 #'   \item{fname}{Random first name, see details}
 #'   \item{lname}{Random last name, see details}
-#'   \item{gender}{Biological sex}
+#'   \item{gender}{Gender (male/female)}
 #'   \item{age}{Age capped at 85}
 #'   \item{race}{Race and Ethnicity}
 #'   \item{edu}{Educational attainment}
@@ -360,7 +362,7 @@ NULL
 #' US ZIP Centers
 #'
 #' A list with components named `x` and `y` giving the approximate geographic
-#' center of each ZIP code in negative longitude and latitude.
+#' center of each ZIP code in longitude and latitude.
 #'
 #' @format A list of length two, each element a numeric vector of length 44336.
 #' \describe{
