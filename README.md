@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+experimental](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/usa)](https://CRAN.R-project.org/package=usa)
 ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/usa)
@@ -17,10 +17,10 @@ status](https://github.com/k5cents/usa/workflows/R-CMD-check/badge.svg)](https:/
 <!-- badges: end -->
 
 The goal of ‘usa’ is to provide updated versions of the ‘datasets’
-objects included with R. When attached, this package **overwrites**
-these original vectors with information on all fifty states, the
-District of Columbia, and Puerto Rico. As of now, information on the
-other territories are provided in separate objects.
+objects included with R. This package provides updated vectors covering
+all fifty states and the District of Columbia, alongside tidy tibbles
+with richer data. Puerto Rico and the other US territories are provided
+in separate objects.
 
 ## Installation
 
@@ -45,17 +45,6 @@ R ships with eight outdated objects in the ‘datasets’ package: 7 vectors
 and a matrix of statistics from the 1970’s.
 
 ``` r
-head(base.vectors)
-#>         name abb region           division   area  center.x center.y
-#> 1    Alabama  AL  South East South Central  51609  -86.7509  32.5901
-#> 2     Alaska  AK   West            Pacific 589757 -127.2500  49.2500
-#> 3    Arizona  AZ   West           Mountain 113909 -111.6250  34.2192
-#> 4   Arkansas  AR  South West South Central  53104  -92.2992  34.7336
-#> 5 California  CA   West            Pacific 158693 -119.7730  36.5341
-#> 6   Colorado  CO   West           Mountain 104247 -105.5130  38.6777
-```
-
-``` r
 head(state.x77)
 #>            Population Income Illiteracy Life Exp Murder HS Grad Frost   Area
 #> Alabama          3615   3624        2.1    69.05   15.1    41.3    20  50708
@@ -68,61 +57,91 @@ head(state.x77)
 
 ## New Data
 
-This package contains new, expanded versions of these vectors.
+This package provides updated vectors covering all 51 entries (50
+states + DC).
 
 ``` r
-setdiff(usa::state.abb, datasets::state.abb)
-#> [1] "DC" "PR"
-unique(usa::state.region)
-#> [1] South     West      Northeast Midwest   <NA>     
+# DC is the only entry not in datasets::state.abb
+setdiff(usa::state_abbs, datasets::state.abb)
+#> [1] "DC"
+unique(usa::state_regions)
+#> [1] South     West      Northeast Midwest  
 #> Levels: Northeast Midwest South West
-show(usa::territory.abb)
-#> [1] "AS" "GU" "MP" "UM" "VI"
+usa::territory_abbs
+#> [1] "AS" "GU" "MP" "PR" "UM" "VI"
 ```
 
 The package contains [tibbles](https://tibble.tidyverse.org/)
 identifying the states and providing updated facts and figures.
 
 ``` r
-usa::states
-#> # A tibble: 52 × 8
-#>   name       abb   fips  region division              area   lat   long
-#>   <chr>      <chr> <chr> <fct>  <fct>                <dbl> <dbl>  <dbl>
-#> 1 Alabama    AL    01    South  East South Central  50647.  32.7  -86.8
-#> 2 Alaska     AK    02    West   Pacific            571017.  63.4 -153. 
-#> 3 Arizona    AZ    04    West   Mountain           113653.  34.3 -112. 
-#> 4 Arkansas   AR    05    South  West South Central  52038.  34.9  -92.4
-#> 5 California CA    06    West   Pacific            155854.  37.2 -120. 
-#> 6 Colorado   CO    08    West   Mountain           103638.  39.0 -106. 
-#> # ℹ 46 more rows
+usa::state_ids
+#> # A tibble: 51 × 6
+#>   name       abb   fips  icp   ap     iso  
+#>   <chr>      <chr> <chr> <chr> <chr>  <chr>
+#> 1 Alabama    AL    01    41    Ala.   US-AL
+#> 2 Alaska     AK    02    81    Alaska US-AK
+#> 3 Arizona    AZ    04    61    Ariz.  US-AZ
+#> 4 Arkansas   AR    05    42    Ark.   US-AR
+#> 5 California CA    06    71    Calif. US-CA
+#> 6 Colorado   CO    08    62    Colo.  US-CO
+#> # ℹ 45 more rows
 ```
 
 ``` r
-usa::facts
-#> # A tibble: 52 × 9
-#>   name       population votes admission  income life_exp murder college  heat
-#>   <chr>           <dbl> <dbl> <date>      <dbl>    <dbl>  <dbl>   <dbl> <dbl>
-#> 1 Alabama       4887871     9 1819-12-14  49861     75.3    7.8   0.234 65.9 
-#> 2 Alaska         737438     3 1959-01-03  74346     78.3    6.4   0.271  0.37
-#> 3 Arizona       7171646    11 1912-02-14  59246     79.7    5.1   0.271 73.6 
-#> 4 Arkansas      3013825     6 1836-06-15  47062     75.9    7.2   0.214 62.4 
-#> 5 California   39557045    55 1850-09-09  75277     81.5    4.4   0.314 38.9 
-#> 6 Colorado      5695564     9 1876-08-01  71953     80.3    3.7   0.384 15.5 
-#> # ℹ 46 more rows
+usa::state_geo
+#> # A tibble: 51 × 10
+#>   abb   region division  area_land area_water   lat   long contiguous landlocked
+#>   <chr> <fct>  <fct>         <dbl>      <dbl> <dbl>  <dbl> <lgl>      <lgl>     
+#> 1 AL    South  East Sou…    50652.      1768.  32.7  -86.8 TRUE       FALSE     
+#> 2 AK    West   Pacific     571391.     94334.  63.4 -153.  FALSE      FALSE     
+#> 3 AZ    West   Mountain    113655.       330.  34.3 -112.  TRUE       TRUE      
+#> 4 AR    South  West Sou…    51992.      1206.  34.9  -92.4 TRUE       TRUE      
+#> 5 CA    West   Pacific     155860.      7833.  37.2 -120.  TRUE       FALSE     
+#> 6 CO    West   Mountain    103637.       458.  39.0 -106.  TRUE       TRUE      
+#> # ℹ 45 more rows
+#> # ℹ 1 more variable: peak_elev <int>
+```
+
+``` r
+usa::state_capitals
+#> # A tibble: 51 × 5
+#>   abb   capital       lat   long population
+#>   <chr> <chr>       <dbl>  <dbl>      <int>
+#> 1 AL    Montgomery   32.3  -86.3     200603
+#> 2 AK    Juneau       58.4 -134.       32255
+#> 3 AZ    Phoenix      33.6 -112.     1608139
+#> 4 AR    Little Rock  34.7  -92.4     202591
+#> 5 CA    Sacramento   38.6 -121.      524943
+#> 6 CO    Denver       39.8 -105.      715522
+#> # ℹ 45 more rows
+```
+
+``` r
+usa::state_facts
+#> # A tibble: 51 × 9
+#>   name       population electors admission  income life_exp murder college frost
+#>   <chr>           <dbl>    <dbl> <date>      <dbl>    <dbl>  <dbl>   <dbl> <dbl>
+#> 1 Alabama       5024279        9 1819-12-14  33777     72    10.8    0.288  53.1
+#> 2 Alaska         733391        3 1959-01-03  43054     74.5   9.74   0.306 198. 
+#> 3 Arizona       7151502       11 1912-02-14  39819     75     7.18   0.33   75.4
+#> 4 Arkansas      3011524        6 1836-06-15  31380     72.5  10.4    0.254  68.3
+#> 5 California   39538223       54 1850-09-09  46661     78.3   5.81   0.37   44.6
+#> 6 Colorado      5773714       10 1876-08-01  49071     77.7   6.77   0.459 189. 
+#> # ℹ 45 more rows
 ```
 
 ``` r
 usa::territory
-#> # A tibble: 7 × 6
-#>   name                        abb   fips    area   lat   long
-#>   <chr>                       <chr> <chr>  <dbl> <dbl>  <dbl>
-#> 1 American Samoa              AS    60      76.4 -14.0 -170. 
-#> 2 District of Columbia        DC    11      61.1  38.9  -77.0
-#> 3 Guam                        GU    66     210.   13.4  145. 
-#> 4 Northern Mariana Islands    MP    69     182.   16.8  146. 
-#> 5 Puerto Rico                 PR    72    3424.   18.2  -66.4
-#> 6 U.S. Minor Outlying Islands UM    74      NA    NA     NA  
-#> 7 U.S. Virgin Islands         VI    78     134.   18.1  -64.8
+#> # A tibble: 6 × 7
+#>   name                        abb   fips  area_land area_water   lat   long
+#>   <chr>                       <chr> <chr>     <dbl>      <dbl> <dbl>  <dbl>
+#> 1 American Samoa              AS    60         76.4       505. -14.0 -170. 
+#> 2 Guam                        GU    66        210.        361.  13.4  145. 
+#> 3 Northern Mariana Islands    MP    69        182.       1793.  16.8  146. 
+#> 4 Puerto Rico                 PR    72       3424.       1901.  18.2  -66.4
+#> 5 U.S. Minor Outlying Islands UM    74         NA          NA   NA     NA  
+#> 6 U.S. Virgin Islands         VI    78        134.        599.  18.1  -64.8
 ```
 
 ZIP codes from the archived
@@ -168,4 +187,5 @@ of Conduct](https://k5cents.github.io/usa/CODE_OF_CONDUCT.html). By
 contributing to this project, you agree to abide by its terms.
 
 <!-- refs: start -->
+
 <!-- refs: end -->
