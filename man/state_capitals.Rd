@@ -5,7 +5,7 @@
 \alias{state_capitals}
 \title{US State Capitals}
 \format{
-A tibble with 52 rows and 5 variables:
+A tibble with 51 rows and 5 variables:
 \describe{
 \item{abb}{2-letter USPS abbreviation (join key)}
 \item{capital}{Capital city name}
@@ -22,7 +22,7 @@ city proper)}
 state_capitals
 }
 \description{
-Capital cities for the 50 states, District of Columbia, and Puerto Rico,
+Capital cities for the 50 states and District of Columbia,
 with coordinates and 2020 Census population.
 }
 \keyword{datasets}

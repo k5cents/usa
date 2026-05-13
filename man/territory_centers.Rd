@@ -5,7 +5,7 @@
 \alias{territory_centers}
 \title{US Territory Geographic Centers}
 \format{
-A list of length two, each element a numeric vector of length 5.
+A list of length two, each element a numeric vector of length 6.
 \describe{
 \item{x}{Center longitudinal coordinate}
 \item{y}{Center latitudinal coordinate}

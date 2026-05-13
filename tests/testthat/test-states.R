@@ -11,28 +11,33 @@ test_that("underscore vectors have correct classes", {
   expect_named(state_centers, c("x", "y"))
 })
 
-test_that("underscore vectors have 52 entries", {
-  expect_length(state_abbs, 52)
-  expect_length(state_names, 52)
-  expect_length(state_areas, 52)
-  expect_length(state_divisions, 52)
-  expect_length(state_regions, 52)
-  expect_length(state_centers$x, 52)
-  expect_length(state_centers$y, 52)
+test_that("underscore vectors have 51 entries (50 states + DC)", {
+  expect_length(state_abbs, 51)
+  expect_length(state_names, 51)
+  expect_length(state_areas, 51)
+  expect_length(state_divisions, 51)
+  expect_length(state_regions, 51)
+  expect_length(state_centers$x, 51)
+  expect_length(state_centers$y, 51)
 })
 
-test_that("underscore vectors cover DC and PR beyond base R", {
+test_that("underscore vectors cover DC but not PR", {
   expect_true("DC" %in% state_abbs)
-  expect_true("PR" %in% state_abbs)
+  expect_false("PR" %in% state_abbs)
   expect_true("District of Columbia" %in% state_names)
-  expect_true("Puerto Rico" %in% state_names)
+  expect_false("Puerto Rico" %in% state_names)
 })
 
-test_that("territory vectors have correct length", {
-  expect_length(territory_abbs, 5)
-  expect_length(territory_names, 5)
-  expect_length(territory_areas, 5)
-  expect_length(territory_centers$x, 5)
+test_that("territory vectors have correct length (6: AS, GU, MP, PR, UM, VI)", {
+  expect_length(territory_abbs, 6)
+  expect_length(territory_names, 6)
+  expect_length(territory_areas, 6)
+  expect_length(territory_centers$x, 6)
+})
+
+test_that("PR is in territory vectors", {
+  expect_true("PR" %in% territory_abbs)
+  expect_true("Puerto Rico" %in% territory_names)
 })
 
 test_that("dot-notation objects are NOT exported", {

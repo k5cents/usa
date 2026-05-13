@@ -5,7 +5,7 @@
 \alias{state_geo}
 \title{US State Geography}
 \format{
-A tibble with 52 rows and 10 variables:
+A tibble with 51 rows and 10 variables:
 \describe{
 \item{abb}{2-letter USPS abbreviation (join key)}
 \item{region}{Census Bureau region}
@@ -15,7 +15,7 @@ A tibble with 52 rows and 10 variables:
 \item{lat}{Centroid latitudinal coordinate}
 \item{long}{Centroid longitudinal coordinate}
 \item{contiguous}{\code{TRUE} for the 48 contiguous states and DC;
-\code{FALSE} for Alaska, Hawaii, and Puerto Rico}
+\code{FALSE} for Alaska and Hawaii}
 \item{landlocked}{\code{TRUE} for states with no coastline on an ocean,
 gulf, or Great Lake (21 states including DC)}
 \item{peak_elev}{Elevation of the state high point in feet}
@@ -32,9 +32,7 @@ gulf, or Great Lake (21 states including DC)}
 state_geo
 }
 \description{
-Geographic and classificatory properties for the 50 states, District of
-Columbia, and Puerto Rico. Keyed by \code{abb} to join with \link{state_ids}.
-Puerto Rico has \code{NA} for \code{region} and \code{division} as it is
-not assigned to a Census region.
+Geographic and classificatory properties for the 50 states and District of
+Columbia. Keyed by \code{abb} to join with \link{state_ids}.
 }
 \keyword{datasets}

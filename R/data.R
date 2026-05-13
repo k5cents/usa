@@ -8,12 +8,12 @@ NULL
 #' The 50 states and District of Columbia — all naming and coding
 #' systems used to refer to each state. The backing data for [state_convert()].
 #'
-#' Naming convention: underscore objects (\code{state_ids}, \code{state_facts},
-#' \code{state_geo}) are modern purpose-built tibbles. Convenience vectors
-#' (\code{state_abbs}, \code{state_names}, etc.) mirror the base R
-#' \code{datasets::state.*} vectors but cover all 51 rows (50 states + DC).
+#' Naming convention: underscore objects (`state_ids`, `state_facts`,
+#' `state_geo`) are modern purpose-built tibbles. Convenience vectors
+#' (`state_abbs`, `state_names`, etc.) mirror the base R
+#' `datasets::state.*` vectors but cover all 51 rows (50 states + DC).
 #'
-#' @format A tibble with 51 rows and 5 variables:
+#' @format A tibble with 51 rows and 6 variables:
 #' \describe{
 #'   \item{name}{Full legal name}
 #'   \item{abb}{2-letter USPS abbreviation}
@@ -23,7 +23,7 @@ NULL
 #'   \item{ap}{AP style abbreviation; the 8 states with no AP abbreviation
 #'     (Alaska, Hawaii, Idaho, Iowa, Maine, Ohio, Texas, Utah) use the full
 #'     state name per AP style}
-#'   \item{iso}{ISO 3166-2 code (e.g. \code{"US-AL"})}
+#'   \item{iso}{ISO 3166-2 code (e.g. `"US-AL"`)}
 #' }
 #' @source
 #' * Names, abbreviations, FIPS: \url{https://www2.census.gov/geo/docs/reference/state.txt}
@@ -206,8 +206,10 @@ NULL
 #' US State Facts
 #'
 #' Updated version of the [datasets::state.x77] matrix, which provided eight
-#' statistics from the 1970's. This version is a modern tibble with updated
-#' statistics. See also [state_ids] for state identifiers and [state_geo] for geography.
+#' statistics from the 1970s. This version is a modern tibble with updated
+#' statistics.
+#'
+#' See also [state_ids] for state identifiers and [state_geo] for geography.
 #'
 #' @format A tibble with 51 rows and 9 variables:
 #' \describe{
@@ -226,7 +228,7 @@ NULL
 #' * Electoral College: 2020 Census reapportionment (NARA \url{https://www.archives.gov/electoral-college/allocation})
 #' * Income: 2022 ACS 1-year, variable \code{B19301_001} (per capita income) via tidycensus
 #' * Life Expectancy: NCHS 2021 state life tables via \url{https://data.cdc.gov/api/views/it4f-frdc/rows.csv}
-#' * Murder: FBI Crime Data Explorer API (2022 NIBRS), \url{https://api.usa.gov/crime/fbi/cde/}
+#' * Murder: FBI Crime Data Explorer API (2022 NIBRS)
 #' * Education: 2022 ACS 1-year Subject Table S1501, variable \code{S1501_C02_015} via tidycensus
 #' * Frost: NCEI 1991-2020 Climate Normals, variable \code{ANN-TMIN-AVGNDS-LSTH032}, \url{https://www.ncei.noaa.gov/data/normals-annualseasonal/1991-2020/}
 "state_facts"
@@ -260,7 +262,7 @@ NULL
 #' values from each. From this large dataset, the original 20,000 surveys from
 #' the ACS were kept to ensure accurate demographic distribution.
 #'
-#' The names were _RANDOMLY_ assigned to respondents to better simulate a
+#' The names were randomly assigned to respondents to better simulate a
 #' synthetic sample of the population. First names were taken from the
 #' `babynames` dataset which contains the Social Security Administration's
 #' record of baby names from 1880 to 2017 along with gender and proportion.
@@ -279,7 +281,7 @@ NULL
 #'   \item{id}{Sequential unique ID}
 #'   \item{fname}{Random first name, see details}
 #'   \item{lname}{Random last name, see details}
-#'   \item{gender}{Biological sex}
+#'   \item{gender}{Gender (male/female)}
 #'   \item{age}{Age capped at 85}
 #'   \item{race}{Race and Ethnicity}
 #'   \item{edu}{Educational attainment}
@@ -328,7 +330,7 @@ NULL
 #'
 #' This tibble contains city, state, latitude, and longitude for U.S. ZIP codes
 #' from the CivicSpace Database (August 2004) augmented by Daniel Coven's [web
-#' site](http://federalgovernmentzipcodes.us/) (updated on January 22, 2012).
+#' site](https://federalgovernmentzipcodes.us/) (updated on January 22, 2012).
 #' The data was originally contained in the
 #' [`zipcode`](https://CRAN.R-project.org/package=zipcode) CRAN package, which
 #' was archived on January 1, 2020.
@@ -341,7 +343,7 @@ NULL
 #'   \item{lat}{Decimal latitude}
 #'   \item{long}{Decimal longitude}
 #' }
-#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#' @source Daniel Coven's [web site](https://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
 #'   <schuyler@geocoder.us>, 5 August 2004.
 "zipcodes"
@@ -352,7 +354,7 @@ NULL
 #' particular postal delivery area.
 #'
 #' @format A character vector of length 44336.
-#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#' @source Daniel Coven's [web site](https://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
 #'   <schuyler@geocoder.us>, 5 August 2004.
 "zip_codes"
@@ -360,14 +362,14 @@ NULL
 #' US ZIP Centers
 #'
 #' A list with components named `x` and `y` giving the approximate geographic
-#' center of each ZIP code in negative longitude and latitude.
+#' center of each ZIP code in longitude and latitude.
 #'
 #' @format A list of length two, each element a numeric vector of length 44336.
 #' \describe{
 #'   \item{x}{Center longitudinal coordinate}
 #'   \item{y}{Center latitudinal coordinate}
 #' }
-#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#' @source Daniel Coven's [web site](https://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
 #'   <schuyler@geocoder.us>, 5 August 2004.
 "zip_centers"
@@ -380,7 +382,7 @@ NULL
 #' way [zip_codes] and [zip_centers] do.
 #'
 #' @format A character vector of length 19108.
-#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#' @source Daniel Coven's [web site](https://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
 #'   <schuyler@geocoder.us>, 5 August 2004.
 "city_names"

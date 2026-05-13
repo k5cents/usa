@@ -345,7 +345,7 @@ territory_abbs <- territory$abb
 usethis::use_data(territory_abbs, overwrite = TRUE)
 write_lines(territory_abbs, "data-raw/territory-abb.csv")
 
-territory_areas <- territory$area
+territory_areas <- territory$area_land
 usethis::use_data(territory_areas, overwrite = TRUE)
 write_lines(territory_areas, "data-raw/territory-area.csv")
 

@@ -5,7 +5,7 @@
 \alias{state_centers}
 \title{US State Geographic Centers}
 \format{
-A list of length two, each element a numeric vector of length 52.
+A list of length two, each element a numeric vector of length 51.
 \describe{
 \item{x}{Centroid longitudinal coordinate}
 \item{y}{Centroid latitudinal coordinate}

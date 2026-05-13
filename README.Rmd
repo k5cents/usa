@@ -29,8 +29,8 @@ options(tibble.print_min = 6)
 
 The goal of 'usa' is to provide updated versions of the 'datasets' objects
 included with R. This package provides updated vectors covering all fifty
-states, the District of Columbia, and Puerto Rico, alongside tidy tibbles with
-richer data. Territory data is provided in separate objects.
+states and the District of Columbia, alongside tidy tibbles with richer data.
+Puerto Rico and the other US territories are provided in separate objects.
 
 ## Installation
 
@@ -58,10 +58,10 @@ head(state.x77)
 
 ## New Data
 
-This package provides updated vectors covering all 52 entries (50 states + DC + PR).
+This package provides updated vectors covering all 51 entries (50 states + DC).
 
 ```{r vectors, message=FALSE}
-# 2 entries not in datasets::state.abb
+# DC is the only entry not in datasets::state.abb
 setdiff(usa::state_abbs, datasets::state.abb)
 unique(usa::state_regions)
 usa::territory_abbs
@@ -74,6 +74,14 @@ facts and figures.
 usa::state_ids
 ```
 
+```{r state_geo}
+usa::state_geo
+```
+
+```{r state_capitals}
+usa::state_capitals
+```
+
 ```{r state_facts}
 usa::state_facts
 ```
@@ -82,7 +90,7 @@ usa::state_facts
 usa::territory
 ```
 
-ZIP codes from the archived ['zipcode'][zip] package are also included
+ZIP codes from the archived ['zipcode'][zip] package are also included.
 
 ```{r zipcodes}
 usa::zipcodes
@@ -102,8 +110,8 @@ Please note that the 'usa' project is released with a
 contributing to this project, you agree to abide by its terms.
 
 <!-- refs: start -->
-[life_badge]: https://img.shields.io/badge/lifecycle-maturing-blue.svg
-[life_link]: https://lifecycle.r-lib.org/articles/stages.html#experimental
+[life_badge]: https://img.shields.io/badge/lifecycle-stable-brightgreen.svg
+[life_link]: https://lifecycle.r-lib.org/articles/stages.html#stable
 [cran_badge]: https://www.r-pkg.org/badges/version/usa
 [cran_link]: https://CRAN.R-project.org/package=usa
 [ga_badge]: https://github.com/k5cents/usa/workflows/R-CMD-check/badge.svg
