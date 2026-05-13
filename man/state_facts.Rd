@@ -24,7 +24,7 @@ A tibble with 51 rows and 9 variables:
 \item Electoral College: 2020 Census reapportionment (NARA \url{https://www.archives.gov/electoral-college/allocation})
 \item Income: 2022 ACS 1-year, variable \code{B19301_001} (per capita income) via tidycensus
 \item Life Expectancy: NCHS 2021 state life tables via \url{https://data.cdc.gov/api/views/it4f-frdc/rows.csv}
-\item Murder: FBI Crime Data Explorer API (2022 NIBRS), \url{https://ucr.fbi.gov/}
+\item Murder: FBI Crime Data Explorer API (2022 NIBRS)
 \item Education: 2022 ACS 1-year Subject Table S1501, variable \code{S1501_C02_015} via tidycensus
 \item Frost: NCEI 1991-2020 Climate Normals, variable \code{ANN-TMIN-AVGNDS-LSTH032}, \url{https://www.ncei.noaa.gov/data/normals-annualseasonal/1991-2020/}
 }

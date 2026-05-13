@@ -226,7 +226,7 @@ NULL
 #' * Electoral College: 2020 Census reapportionment (NARA \url{https://www.archives.gov/electoral-college/allocation})
 #' * Income: 2022 ACS 1-year, variable \code{B19301_001} (per capita income) via tidycensus
 #' * Life Expectancy: NCHS 2021 state life tables via \url{https://data.cdc.gov/api/views/it4f-frdc/rows.csv}
-#' * Murder: FBI Crime Data Explorer API (2022 NIBRS), \url{https://ucr.fbi.gov/}
+#' * Murder: FBI Crime Data Explorer API (2022 NIBRS)
 #' * Education: 2022 ACS 1-year Subject Table S1501, variable \code{S1501_C02_015} via tidycensus
 #' * Frost: NCEI 1991-2020 Climate Normals, variable \code{ANN-TMIN-AVGNDS-LSTH032}, \url{https://www.ncei.noaa.gov/data/normals-annualseasonal/1991-2020/}
 "state_facts"
