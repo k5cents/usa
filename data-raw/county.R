@@ -1,27 +1,31 @@
-## code to prepare `county` dataset goes here
+## code to prepare `counties` dataset goes here
 library(tidyverse)
-library(janitor)
-library(rvest)
 
-page <- read_html("https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/home/?cid=nrcs143_013697")
-counties <- page %>%
-  html_node(".data") %>%
-  html_table() %>%
-  as_tibble() %>%
-  clean_names() %>%
-  mutate_at(
-    vars(fips),
-    str_pad,
-    width = 5,
-    side = "left",
-    pad = "0"
-  )
+# Census TIGER 2020 national county reference file.
+# Pipe-delimited; STATEFP + COUNTYFP form the 5-digit FIPS code.
+# COUNTYNAME includes a type suffix (County, Parish, Borough, etc.); strip it
+# so names match the bare-name convention used throughout the package.
+counties <- read_delim(
+  "https://www2.census.gov/geo/docs/reference/codes2020/national_county2020.txt",
+  delim = "|",
+  col_types = cols_only(
+    STATE      = col_character(),
+    STATEFP    = col_character(),
+    COUNTYFP   = col_character(),
+    COUNTYNAME = col_character()
+  ),
+  show_col_types = FALSE
+) |>
+  transmute(
+    fips  = paste0(STATEFP, COUNTYFP),
+    name  = str_remove(COUNTYNAME, " (County|Parish|Borough|Census Area|Municipio|Municipality|city|District|Islands|Island)$"),
+    state = STATE
+  ) |>
+  arrange(fips)
 
-# save data as tibble
 usethis::use_data(counties, overwrite = TRUE)
 write_csv(counties, "data-raw/counties.csv")
 
-# save counties as vector
 county.name <- sort(unique(counties$name))
 usethis::use_data(county.name, overwrite = TRUE)
 write_lines(county.name, "data-raw/county.name.csv")

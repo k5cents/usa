@@ -390,19 +390,21 @@ NULL
 #'
 #' The county subdivisions of the US states and territories.
 #'
-#' @format A tibble with 3,232 rows and 3 variables:
+#' @format A tibble with 3,235 rows and 3 variables:
 #' \describe{
-#'   \item{fips}{Federal Information Processing Standard Publication 5-2 code}
-#'   \item{name}{Census county names}
-#'   \item{state}{USPS official state, territory abbreviation code}
+#'   \item{fips}{Five-digit FIPS code (state FIPS + county FIPS)}
+#'   \item{name}{County name (type suffix such as "County", "Parish", "Borough" removed)}
+#'   \item{state}{USPS state/territory abbreviation}
 #' }
-#' @source \url{https://web.archive.org/web/20240106151642/https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt}
+#' @source Census TIGER 2020 national county reference file,
+#'   \url{https://www2.census.gov/geo/docs/reference/codes2020/national_county2020.txt}
 "counties"
 
 #' US County Names
 #'
 #' The name of distinct US counties.
 #'
-#' @format A character vector of length 1,932.
-#' @source \url{https://web.archive.org/web/20240106151642/https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt}
+#' @format A character vector of length 1,925.
+#' @source Census TIGER 2020 national county reference file,
+#'   \url{https://www2.census.gov/geo/docs/reference/codes2020/national_county2020.txt}
 "county.name"
