@@ -218,7 +218,7 @@ NULL
 #'   \item{admission}{The date on which the state was admitted to the union}
 #'   \item{income}{Per capita income in dollars (2022 ACS 1-year)}
 #'   \item{life_exp}{Life expectancy in years (2017-18)}
-#'   \item{murder}{Murder rate per 100,000 population (2018)}
+#'   \item{murder}{Homicide rate per 100,000 population (2022 FBI NIBRS)}
 #'   \item{college}{Proportion of population 25+ with a bachelor's degree or higher (2022 ACS 1-year)}
 #'   \item{heat}{Mean number of degree days (temperature requires heating) per year from 1981-2010}
 #' }
@@ -227,7 +227,7 @@ NULL
 #' * Electoral College: 2020 Census reapportionment (NARA \url{https://www.archives.gov/electoral-college/allocation})
 #' * Income: 2022 ACS 1-year, variable \code{B19301_001} (per capita income) via tidycensus
 #' * Life Expectancy: \url{https://web.archive.org/web/20231129160338/https://usa.mortality.org/}
-#' * Murder: \url{https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018/tables/table-4/table-4.xls/output.xls}
+#' * Murder: FBI Crime Data Explorer API (2022 NIBRS), \url{https://api.usa.gov/crime/fbi/cde/}
 #' * Education: 2022 ACS 1-year Subject Table S1501, variable \code{S1501_C02_015} via tidycensus
 #' * Temperature: NOAA 1981-2010 Climate Normals
 "state_facts"
