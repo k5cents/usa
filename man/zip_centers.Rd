@@ -21,6 +21,6 @@ zip_centers
 }
 \description{
 A list with components named \code{x} and \code{y} giving the approximate geographic
-center of each ZIP code in negative longitude and latitude.
+center of each ZIP code in longitude and latitude.
 }
 \keyword{datasets}

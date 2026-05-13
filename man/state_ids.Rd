@@ -5,7 +5,7 @@
 \alias{state_ids}
 \title{US State Identifiers}
 \format{
-A tibble with 51 rows and 5 variables:
+A tibble with 51 rows and 6 variables:
 \describe{
 \item{name}{Full legal name}
 \item{abb}{2-letter USPS abbreviation}
@@ -37,6 +37,6 @@ systems used to refer to each state. The backing data for \code{\link[=state_con
 Naming convention: underscore objects (\code{state_ids}, \code{state_facts},
 \code{state_geo}) are modern purpose-built tibbles. Convenience vectors
 (\code{state_abbs}, \code{state_names}, etc.) mirror the base R
-\code{datasets::state.*} vectors but cover all 51 rows (50 states + DC).
+\verb{datasets::state.*} vectors but cover all 51 rows (50 states + DC).
 }
 \keyword{datasets}

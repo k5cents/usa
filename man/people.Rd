@@ -10,7 +10,7 @@ A tibble with 20,000 rows and 40 variables:
 \item{id}{Sequential unique ID}
 \item{fname}{Random first name, see details}
 \item{lname}{Random last name, see details}
-\item{gender}{Biological sex}
+\item{gender}{Gender (male/female)}
 \item{age}{Age capped at 85}
 \item{race}{Race and Ethnicity}
 \item{edu}{Educational attainment}
@@ -83,7 +83,7 @@ were combined, stratified, sampled, combined, and imputed to fill missing
 values from each. From this large dataset, the original 20,000 surveys from
 the ACS were kept to ensure accurate demographic distribution.
 
-The names were \emph{RANDOMLY} assigned to respondents to better simulate a
+The names were randomly assigned to respondents to better simulate a
 synthetic sample of the population. First names were taken from the
 \code{babynames} dataset which contains the Social Security Administration's
 record of baby names from 1880 to 2017 along with gender and proportion.
