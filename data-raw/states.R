@@ -66,7 +66,6 @@ ap_abbrevs <- tribble(
   "Oklahoma",             "Okla.",
   "Oregon",               "Ore.",
   "Pennsylvania",         "Pa.",
-  "Puerto Rico",          "P.R.",
   "Rhode Island",         "R.I.",
   "South Carolina",       "S.C.",
   "South Dakota",         "S.D.",
@@ -148,9 +147,9 @@ all_states <- codes %>%
   left_join(area, by = "abb") %>%
   arrange(name)
 
-# filter to the 52 (50 states + DC + PR)
+# filter to the 51 (50 states + DC)
 all_states <- all_states %>%
-  filter(name %in% c(datasets::state.name, "District of Columbia", "Puerto Rico"))
+  filter(name %in% c(datasets::state.name, "District of Columbia"))
 
 # IPUMS ICP codes ---------------------------------------------------------
 # STATEICP codes from IPUMS USA: https://usa.ipums.org/usa-action/variables/STATEICP
@@ -208,7 +207,6 @@ icp_codes <- tribble(
   "Washington",           "73",
   "Alaska",               "81",
   "Hawaii",               "82",
-  "Puerto Rico",          "83",
   "District of Columbia", "98"
 )
 
@@ -283,8 +281,7 @@ peak_elev <- tribble(
   "WV",  4861L,
   "WI",  1951L,
   "WY", 13804L,
-  "DC",   409L,
-  "PR",  4390L
+  "DC",   409L
 )
 
 # Landlocked: no coastline on an ocean, gulf, or Great Lake.
@@ -297,7 +294,7 @@ landlocked_abbs <- c(
 state_geo <- all_states %>%
   select(abb, region, division, area_land, area_water, lat, long) %>%
   mutate(
-    contiguous = !abb %in% c("AK", "HI", "PR"),
+    contiguous = !abb %in% c("AK", "HI"),
     landlocked = abb %in% landlocked_abbs
   ) %>%
   left_join(peak_elev, by = "abb") %>%
@@ -308,7 +305,7 @@ usethis::use_data(state_geo, overwrite = TRUE)
 write_csv(state_geo, "data-raw/state_geo.csv")
 
 # underscore-named convenience vectors -----------------------------------
-# Parallel to datasets::state.* but cover all 52 rows (50 states + DC + PR).
+# Parallel to datasets::state.* but cover all 51 rows (50 states + DC).
 
 state_abbs <- state_ids$abb
 usethis::use_data(state_abbs, overwrite = TRUE)
@@ -338,7 +335,7 @@ write_lines(state_regions, "data-raw/state-region.csv")
 
 territory <- codes %>%
   left_join(area, by = "abb") %>%
-  filter(!(name %in% c(datasets::state.name, "District of Columbia", "Puerto Rico"))) %>%
+  filter(!(name %in% c(datasets::state.name, "District of Columbia"))) %>%
   arrange(name)
 
 usethis::use_data(territory, overwrite = TRUE)
