@@ -5,15 +5,15 @@ NULL
 
 #' US State Identifiers
 #'
-#' The 50 states, District of Columbia, and Puerto Rico — all naming and coding
+#' The 50 states and District of Columbia — all naming and coding
 #' systems used to refer to each state. The backing data for [state_convert()].
 #'
 #' Naming convention: underscore objects (\code{state_ids}, \code{state_facts},
 #' \code{state_geo}) are modern purpose-built tibbles. Convenience vectors
 #' (\code{state_abbs}, \code{state_names}, etc.) mirror the base R
-#' \code{datasets::state.*} vectors but cover all 52 rows.
+#' \code{datasets::state.*} vectors but cover all 51 rows (50 states + DC).
 #'
-#' @format A tibble with 52 rows and 5 variables:
+#' @format A tibble with 51 rows and 5 variables:
 #' \describe{
 #'   \item{name}{Full legal name}
 #'   \item{abb}{2-letter USPS abbreviation}
@@ -34,12 +34,10 @@ NULL
 
 #' US State Geography
 #'
-#' Geographic and classificatory properties for the 50 states, District of
-#' Columbia, and Puerto Rico. Keyed by \code{abb} to join with [state_ids].
-#' Puerto Rico has \code{NA} for \code{region} and \code{division} as it is
-#' not assigned to a Census region.
+#' Geographic and classificatory properties for the 50 states and District of
+#' Columbia. Keyed by \code{abb} to join with [state_ids].
 #'
-#' @format A tibble with 52 rows and 10 variables:
+#' @format A tibble with 51 rows and 10 variables:
 #' \describe{
 #'   \item{abb}{2-letter USPS abbreviation (join key)}
 #'   \item{region}{Census Bureau region}
@@ -49,7 +47,7 @@ NULL
 #'   \item{lat}{Centroid latitudinal coordinate}
 #'   \item{long}{Centroid longitudinal coordinate}
 #'   \item{contiguous}{\code{TRUE} for the 48 contiguous states and DC;
-#'     \code{FALSE} for Alaska, Hawaii, and Puerto Rico}
+#'     \code{FALSE} for Alaska and Hawaii}
 #'   \item{landlocked}{\code{TRUE} for states with no coastline on an ocean,
 #'     gulf, or Great Lake (21 states including DC)}
 #'   \item{peak_elev}{Elevation of the state high point in feet}
@@ -62,10 +60,10 @@ NULL
 
 #' US State Capitals
 #'
-#' Capital cities for the 50 states, District of Columbia, and Puerto Rico,
+#' Capital cities for the 50 states and District of Columbia,
 #' with coordinates and 2020 Census population.
 #'
-#' @format A tibble with 52 rows and 5 variables:
+#' @format A tibble with 51 rows and 5 variables:
 #' \describe{
 #'   \item{abb}{2-letter USPS abbreviation (join key)}
 #'   \item{capital}{Capital city name}
@@ -79,9 +77,10 @@ NULL
 
 #' US Territories
 #'
-#' DC, Puerto Rico, and the 5 US territories (AS, GU, MP, UM, VI).
+#' The 6 US territories: Puerto Rico (PR) and the 5 island territories
+#' (AS, GU, MP, UM, VI).
 #'
-#' @format A tibble with 7 rows and 6 variables:
+#' @format A tibble with 6 rows and 6 variables:
 #' \describe{
 #'   \item{abb}{2-letter abbreviation}
 #'   \item{name}{Full legal name}
@@ -94,35 +93,35 @@ NULL
 
 #' US State Abbreviations
 #'
-#' The 2-letter USPS abbreviations for the 50 states, District of Columbia,
-#' and Puerto Rico. Parallel to [state_names].
+#' The 2-letter USPS abbreviations for the 50 states and District of Columbia.
+#' Parallel to [state_names].
 #'
-#' @format A character vector of length 52.
+#' @format A character vector of length 51.
 #' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
 "state_abbs"
 
 #' US Territory Abbreviations
 #'
-#' The 2-letter abbreviations for the US territory names (AS, GU, MP, UM, VI).
+#' The 2-letter abbreviations for the US territories (PR, AS, GU, MP, UM, VI).
 #'
-#' @format A character vector of length 5.
+#' @format A character vector of length 6.
 #' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
 "territory_abbs"
 
 #' US State Land Areas
 #'
-#' Land area in square miles for the 50 states, District of Columbia, and
-#' Puerto Rico. Parallel to [state_names].
+#' Land area in square miles for the 50 states and District of Columbia.
+#' Parallel to [state_names].
 #'
-#' @format A numeric vector of length 52.
+#' @format A numeric vector of length 51.
 #' @source TIGER/Web REST API (State_County layer)
 "state_areas"
 
 #' US Territory Areas
 #'
-#' The area in square miles of the US territories (AS, GU, MP, UM, VI).
+#' The area in square miles of the US territories (PR, AS, GU, MP, UM, VI).
 #'
-#' @format A numeric vector of length 5.
+#' @format A numeric vector of length 6.
 #' @source TIGER/Web REST API (State_County layer)
 "territory_areas"
 
@@ -131,7 +130,7 @@ NULL
 #' A list with components named `x` and `y` giving the approximate geographic
 #' centroid of each state in longitude and latitude. Parallel to [state_names].
 #'
-#' @format A list of length two, each element a numeric vector of length 52.
+#' @format A list of length two, each element a numeric vector of length 51.
 #' \describe{
 #'   \item{x}{Centroid longitudinal coordinate}
 #'   \item{y}{Centroid latitudinal coordinate}
@@ -144,7 +143,7 @@ NULL
 #' A list with components named `x` and `y` giving the approximate geographic
 #' center of each territory in longitude and latitude.
 #'
-#' @format A list of length two, each element a numeric vector of length 5.
+#' @format A list of length two, each element a numeric vector of length 6.
 #' \describe{
 #'   \item{x}{Center longitudinal coordinate}
 #'   \item{y}{Center latitudinal coordinate}
@@ -167,24 +166,24 @@ NULL
 #' 8. Mountain
 #' 9. Pacific
 #'
-#' @format A factor vector of length 52.
+#' @format A factor vector of length 51.
 #' @source \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx}
 "state_divisions"
 
 #' US State Names
 #'
-#' The full names for the 50 states, District of Columbia, and Puerto Rico.
+#' The full names for the 50 states and District of Columbia.
 #' Parallel to [state_abbs].
 #'
-#' @format A character vector of length 52.
+#' @format A character vector of length 51.
 #' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
 "state_names"
 
 #' US Territory Names
 #'
-#' The full names for the US territories (AS, GU, MP, UM, VI).
+#' The full names for the US territories (PR, AS, GU, MP, UM, VI).
 #'
-#' @format A character vector of length 5.
+#' @format A character vector of length 6.
 #' @source \url{https://www2.census.gov/geo/docs/reference/state.txt}
 "territory_names"
 
@@ -198,7 +197,7 @@ NULL
 #' 3. South
 #' 4. West
 #'
-#' @format A factor vector of length 52.
+#' @format A factor vector of length 51.
 #' @source \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx}
 "state_regions"
 
@@ -210,7 +209,7 @@ NULL
 #' statistics from the 1970's. This version is a modern tibble with updated
 #' statistics. See also [state_ids] for state identifiers and [state_geo] for geography.
 #'
-#' @format A tibble with 52 rows and 9 variables:
+#' @format A tibble with 51 rows and 9 variables:
 #' \describe{
 #'   \item{name}{Full state name}
 #'   \item{population}{Resident population (2020 Decennial Census, April 1, 2020)}

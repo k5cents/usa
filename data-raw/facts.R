@@ -155,12 +155,7 @@ admission <-
   bind_rows(
     tribble(
       ~abb, ~admission,
-      "DC", as.Date("1790-07-16"), # Residence Act
-      "AS", as.Date("1900-04-17"), # Treaty of Cession of Tutuila
-      "GU", as.Date("1898-12-10"), # Treaty of Paris
-      "MP", as.Date("1976-03-24"), # Commonwealth Covenant
-      "PR", as.Date("1898-12-10"), # Treaty of Paris
-      "VI", as.Date("1917-03-31")  # Treaty of the Danish West Indies
+      "DC", as.Date("1790-07-16")  # Residence Act
     )
   ) %>%
   arrange(admission)

@@ -66,8 +66,7 @@ capital_names <- tribble(
   "WV",  "Charleston",      "Charleston",
   "WI",  "Madison",         "Madison",
   "WY",  "Cheyenne",        "Cheyenne",
-  "DC",  "Washington",      "Washington",
-  "PR",  "San Juan",        "San Juan"
+  "DC",  "Washington",      "Washington"
 )
 
 # Fetch place geometries and internal point coordinates from TIGER.
@@ -129,7 +128,7 @@ state_capitals <- capital_names %>%
   left_join(capital_pop, by = "abb") %>%
   select(abb, capital, lat, long, population)  # drop match_name
 
-stopifnot(nrow(state_capitals) == 52, sum(is.na(state_capitals)) == 0)
+stopifnot(nrow(state_capitals) == 51, sum(is.na(state_capitals)) == 0)
 
 usethis::use_data(state_capitals, overwrite = TRUE)
 write_csv(state_capitals, "data-raw/state_capitals.csv")
