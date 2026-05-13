@@ -5,7 +5,7 @@
 \alias{state_divisions}
 \title{US State Census Divisions}
 \format{
-A factor vector of length 52.
+A factor vector of length 51.
 }
 \source{
 \url{https://www2.census.gov/programs-surveys/popest/geographies/2018/state-geocodes-v2018.xlsx}

@@ -5,28 +5,28 @@
 \alias{state_facts}
 \title{US State Facts}
 \format{
-A tibble with 52 rows and 9 variables:
+A tibble with 51 rows and 9 variables:
 \describe{
 \item{name}{Full state name}
-\item{population}{Population estimate (September 26, 2019)}
-\item{votes}{Votes in the Electoral College (following the 2010 Census)}
+\item{population}{Resident population (2020 Decennial Census, April 1, 2020)}
+\item{electors}{Votes in the Electoral College (2020 Census reapportionment, applies 2022–2032)}
 \item{admission}{The date on which the state was admitted to the union}
-\item{income}{Per capita income (2018)}
-\item{life_exp}{Life expectancy in years (2017-18)}
-\item{murder}{Murder rate per 100,000 population (2018)}
-\item{college}{Percent adult population with at least a bachelor's degree (2019)}
-\item{heat}{Mean number of degree days (temperature requires heating) per year from 1981-2010}
+\item{income}{Per capita income in dollars (2022 ACS 1-year)}
+\item{life_exp}{Life expectancy at birth in years, both sexes (2021 NCHS)}
+\item{murder}{Homicide rate per 100,000 population (2022 FBI NIBRS)}
+\item{college}{Proportion of population 25+ with a bachelor's degree or higher (2022 ACS 1-year)}
+\item{frost}{Mean number of days per year with minimum temperature below freezing (1991-2020 NCEI Climate Normals)}
 }
 }
 \source{
 \itemize{
-\item Population: \url{https://www2.census.gov/programs-surveys/popest/datasets/2010-2018/state/detail/SCPRC-EST2018-18+POP-RES.csv}
-\item Electoral College: \url{https://www.archives.gov/electoral-college/allocation}
-\item Income: Census table ACSST1Y2018.S1903
-\item Life Expectancy: \url{https://web.archive.org/web/20231129160338/https://usa.mortality.org/}
-\item Murder: \url{https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018/tables/table-4/table-4.xls/output.xls}
-\item Education: Census table ACSST1Y2018.S1501
-\item Temperature: NOAA 1981-2010 Climate Normals
+\item Population: 2020 Decennial Census PL 94-171 file, variable \code{P1_001N} via tidycensus
+\item Electoral College: 2020 Census reapportionment (NARA \url{https://www.archives.gov/electoral-college/allocation})
+\item Income: 2022 ACS 1-year, variable \code{B19301_001} (per capita income) via tidycensus
+\item Life Expectancy: NCHS 2021 state life tables via \url{https://data.cdc.gov/api/views/it4f-frdc/rows.csv}
+\item Murder: FBI Crime Data Explorer API (2022 NIBRS), \url{https://ucr.fbi.gov/}
+\item Education: 2022 ACS 1-year Subject Table S1501, variable \code{S1501_C02_015} via tidycensus
+\item Frost: NCEI 1991-2020 Climate Normals, variable \code{ANN-TMIN-AVGNDS-LSTH032}, \url{https://www.ncei.noaa.gov/data/normals-annualseasonal/1991-2020/}
 }
 }
 \usage{

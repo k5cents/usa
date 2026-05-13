@@ -5,7 +5,7 @@
 \alias{territory_names}
 \title{US Territory Names}
 \format{
-A character vector of length 5.
+A character vector of length 6.
 }
 \source{
 \url{https://www2.census.gov/geo/docs/reference/state.txt}
@@ -14,6 +14,6 @@ A character vector of length 5.
 territory_names
 }
 \description{
-The full names for the US territories (AS, GU, MP, UM, VI).
+The full names for the US territories (PR, AS, GU, MP, UM, VI).
 }
 \keyword{datasets}

@@ -226,7 +226,7 @@ NULL
 #' * Electoral College: 2020 Census reapportionment (NARA \url{https://www.archives.gov/electoral-college/allocation})
 #' * Income: 2022 ACS 1-year, variable \code{B19301_001} (per capita income) via tidycensus
 #' * Life Expectancy: NCHS 2021 state life tables via \url{https://data.cdc.gov/api/views/it4f-frdc/rows.csv}
-#' * Murder: FBI Crime Data Explorer API (2022 NIBRS), \url{https://api.usa.gov/crime/fbi/cde/}
+#' * Murder: FBI Crime Data Explorer API (2022 NIBRS), \url{https://ucr.fbi.gov/}
 #' * Education: 2022 ACS 1-year Subject Table S1501, variable \code{S1501_C02_015} via tidycensus
 #' * Frost: NCEI 1991-2020 Climate Normals, variable \code{ANN-TMIN-AVGNDS-LSTH032}, \url{https://www.ncei.noaa.gov/data/normals-annualseasonal/1991-2020/}
 "state_facts"
@@ -328,7 +328,7 @@ NULL
 #'
 #' This tibble contains city, state, latitude, and longitude for U.S. ZIP codes
 #' from the CivicSpace Database (August 2004) augmented by Daniel Coven's [web
-#' site](http://federalgovernmentzipcodes.us/) (updated on January 22, 2012).
+#' site](https://federalgovernmentzipcodes.us/) (updated on January 22, 2012).
 #' The data was originally contained in the
 #' [`zipcode`](https://CRAN.R-project.org/package=zipcode) CRAN package, which
 #' was archived on January 1, 2020.
@@ -341,7 +341,7 @@ NULL
 #'   \item{lat}{Decimal latitude}
 #'   \item{long}{Decimal longitude}
 #' }
-#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#' @source Daniel Coven's [web site](https://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
 #'   <schuyler@geocoder.us>, 5 August 2004.
 "zipcodes"
@@ -352,7 +352,7 @@ NULL
 #' particular postal delivery area.
 #'
 #' @format A character vector of length 44336.
-#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#' @source Daniel Coven's [web site](https://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
 #'   <schuyler@geocoder.us>, 5 August 2004.
 "zip_codes"
@@ -367,7 +367,7 @@ NULL
 #'   \item{x}{Center longitudinal coordinate}
 #'   \item{y}{Center latitudinal coordinate}
 #' }
-#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#' @source Daniel Coven's [web site](https://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
 #'   <schuyler@geocoder.us>, 5 August 2004.
 "zip_centers"
@@ -380,7 +380,7 @@ NULL
 #' way [zip_codes] and [zip_centers] do.
 #'
 #' @format A character vector of length 19108.
-#' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
+#' @source Daniel Coven's [web site](https://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
 #'   <schuyler@geocoder.us>, 5 August 2004.
 "city_names"

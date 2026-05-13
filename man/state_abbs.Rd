@@ -5,7 +5,7 @@
 \alias{state_abbs}
 \title{US State Abbreviations}
 \format{
-A character vector of length 52.
+A character vector of length 51.
 }
 \source{
 \url{https://www2.census.gov/geo/docs/reference/state.txt}
@@ -14,7 +14,7 @@ A character vector of length 52.
 state_abbs
 }
 \description{
-The 2-letter USPS abbreviations for the 50 states, District of Columbia,
-and Puerto Rico. Parallel to \link{state_names}.
+The 2-letter USPS abbreviations for the 50 states and District of Columbia.
+Parallel to \link{state_names}.
 }
 \keyword{datasets}

@@ -5,7 +5,7 @@
 \alias{state_areas}
 \title{US State Land Areas}
 \format{
-A numeric vector of length 52.
+A numeric vector of length 51.
 }
 \source{
 TIGER/Web REST API (State_County layer)
@@ -14,7 +14,7 @@ TIGER/Web REST API (State_County layer)
 state_areas
 }
 \description{
-Land area in square miles for the 50 states, District of Columbia, and
-Puerto Rico. Parallel to \link{state_names}.
+Land area in square miles for the 50 states and District of Columbia.
+Parallel to \link{state_names}.
 }
 \keyword{datasets}

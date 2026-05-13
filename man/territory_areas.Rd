@@ -5,7 +5,7 @@
 \alias{territory_areas}
 \title{US Territory Areas}
 \format{
-A numeric vector of length 5.
+A numeric vector of length 6.
 }
 \source{
 TIGER/Web REST API (State_County layer)
@@ -14,6 +14,6 @@ TIGER/Web REST API (State_County layer)
 territory_areas
 }
 \description{
-The area in square miles of the US territories (AS, GU, MP, UM, VI).
+The area in square miles of the US territories (PR, AS, GU, MP, UM, VI).
 }
 \keyword{datasets}
