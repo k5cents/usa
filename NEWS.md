@@ -2,6 +2,11 @@
 
 ## Breaking changes
 
+* `states` split into two tibbles: `state_ids` (naming and coding systems) and
+  `state_geo` (geographic and classificatory properties).
+
+* `facts` renamed to `state_facts`; `state.x19` removed.
+
 * Puerto Rico removed from all `state_*` objects. It is now included in
   `territory` and the `territory_*` vectors alongside AS, GU, MP, UM, and VI.
   All `state_*` objects now cover exactly 51 rows (50 states + DC).
