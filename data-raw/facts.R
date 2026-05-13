@@ -4,8 +4,11 @@ library(tidycensus)
 library(lubridate)
 library(readxl)
 library(rvest)
+library(httr)
 library(fs)
-library(sp) # point.in.polygon for DC station filtering; replace with sf in #12
+library(sp)    # point.in.polygon for DC station filtering; replace with sf in #12
+library(rgdal) # readOGR for DC polygon; replace with sf in #12
+library(usethis)
 
 abb_fips <- select(read_csv("data-raw/states.csv"), fips, abb)
 abb_name <- select(read_csv("data-raw/states.csv"), name, abb)
@@ -204,62 +207,16 @@ admission <-
 
 # electoral college -------------------------------------------------------
 
-# 2020 Census reapportionment; applies to 2022 and 2024 elections.
-# 538 total: 435 House + 100 Senate + 3 DC (23rd Amendment). PR has none.
-ec <- tribble(
-  ~abb, ~electors,
-  "AL",  9L,
-  "AK",  3L,
-  "AZ", 11L,
-  "AR",  6L,
-  "CA", 54L,
-  "CO", 10L,
-  "CT",  7L,
-  "DE",  3L,
-  "DC",  3L,
-  "FL", 30L,
-  "GA", 16L,
-  "HI",  4L,
-  "ID",  4L,
-  "IL", 19L,
-  "IN", 11L,
-  "IA",  6L,
-  "KS",  6L,
-  "KY",  8L,
-  "LA",  8L,
-  "ME",  4L,
-  "MD", 10L,
-  "MA", 11L,
-  "MI", 15L,
-  "MN", 10L,
-  "MS",  6L,
-  "MO", 10L,
-  "MT",  4L,
-  "NE",  5L,
-  "NV",  6L,
-  "NH",  4L,
-  "NJ", 14L,
-  "NM",  5L,
-  "NY", 28L,
-  "NC", 16L,
-  "ND",  3L,
-  "OH", 17L,
-  "OK",  7L,
-  "OR",  8L,
-  "PA", 19L,
-  "RI",  4L,
-  "SC",  9L,
-  "SD",  3L,
-  "TN", 11L,
-  "TX", 40L,
-  "UT",  6L,
-  "VT",  3L,
-  "VA", 13L,
-  "WA", 12L,
-  "WV",  4L,
-  "WI", 10L,
-  "WY",  3L
-)
+url <- "https://www.archives.gov/electoral-college/allocation"
+ec <- read_html(url) %>%
+  html_node("table") %>%
+  html_table() %>%
+  as_vector() %>%
+  enframe(name = NULL) %>%
+  separate(value, c("name", "electors"), "\\s-\\s") %>%
+  mutate(across(electors, parse_number)) %>%
+  inner_join(abb_name, by = "name") %>%
+  select(abb, electors)
 
 # join --------------------------------------------------------------------
 
