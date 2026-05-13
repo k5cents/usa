@@ -5,6 +5,7 @@ library(lubridate)
 library(readxl)
 library(rvest)
 library(httr)
+library(httr2)
 library(fs)
 library(sp)    # point.in.polygon for DC station filtering; replace with sf in #12
 library(rgdal) # readOGR for DC polygon; replace with sf in #12
@@ -88,20 +89,28 @@ life <-
 
 # murder ------------------------------------------------------------------
 
-fbi_url <- "https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018/tables/table-4/table-4.xls/output.xls"
-fbi_file <- file_temp(ext = "xls")
-download.file(fbi_url, fbi_file)
-murder <-
-    read_excel(fbi_file, range = "A4:G203") %>%
-    fill(Area) %>%
-    filter(Year == "2018") %>%
-    select(name = Area, murder = 7) %>%
-    mutate(
-      name = str_remove_all(name, "\\d"),
-      murder = round(as.numeric(murder), 2)
-    ) %>%
-    inner_join(abb_name, by = "name") %>%
-    select(abb, murder)
+# FBI Crime Data Explorer API: annual homicide rate per 100,000 (2022 NIBRS).
+# The API returns monthly rates; summing 12 months gives the annual figure.
+# PR has no NIBRS coverage and will return NA.
+murder <- map_dfr(abb_name$abb, function(st) {
+  resp <- tryCatch(
+    request("https://api.usa.gov/crime/fbi/cde") |>
+      req_url_path_append("summarized", "state", st, "homicide") |>
+      req_url_query(from = "01-2022", to = "12-2022", API_KEY = Sys.getenv("GOV_API_KEY")) |>
+      req_throttle(rate = 2) |>
+      req_perform() |>
+      resp_body_json(),
+    error = function(e) NULL
+  )
+  if (is.null(resp) || is.null(resp$offenses$rates)) {
+    return(tibble(abb = st, murder = NA_real_))
+  }
+  rate_names  <- names(resp$offenses$rates)
+  offense_key <- rate_names[grepl("Offenses", rate_names) & !grepl("United States", rate_names)]
+  if (!length(offense_key)) return(tibble(abb = st, murder = NA_real_))
+  monthly <- unlist(resp$offenses$rates[[offense_key]])
+  tibble(abb = st, murder = round(sum(monthly, na.rm = TRUE), 2))
+})
 
 # education ---------------------------------------------------------------
 
