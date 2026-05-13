@@ -356,7 +356,7 @@ NULL
 #' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
 #'   <schuyler@geocoder.us>, 5 August 2004.
-"zip.code"
+"zip_codes"
 
 #' US ZIP Centers
 #'
@@ -371,20 +371,20 @@ NULL
 #' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
 #'   <schuyler@geocoder.us>, 5 August 2004.
-"zip.center"
+"zip_centers"
 
 #' US ZIP Cities
 #'
 #' The United States Postal Service's official names for the cities in which
 #' ZIP codes are contained. This vector contains unique values, sorted
 #' alphabetically; because of this, they do not line up the other vectors in the
-#' way [zip.code] and [zip.center] do.
+#' way [zip_codes] and [zip_centers] do.
 #'
 #' @format A character vector of length 19108.
 #' @source Daniel Coven's [web site](http://federalgovernmentzipcodes.us/) and
 #'   the CivicSpace US ZIP Code Database written by Schuyler Erle
 #'   <schuyler@geocoder.us>, 5 August 2004.
-"city.name"
+"city_names"
 
 #' US Counties
 #'
@@ -407,4 +407,4 @@ NULL
 #' @format A character vector of length 1,925.
 #' @source Census TIGER 2020 national county reference file,
 #'   \url{https://www2.census.gov/geo/docs/reference/codes2020/national_county2020.txt}
-"county.name"
+"county_names"

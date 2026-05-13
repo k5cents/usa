@@ -26,6 +26,6 @@ counties <- read_delim(
 usethis::use_data(counties, overwrite = TRUE)
 write_csv(counties, "data-raw/counties.csv")
 
-county.name <- sort(unique(counties$name))
-usethis::use_data(county.name, overwrite = TRUE)
-write_lines(county.name, "data-raw/county.name.csv")
+county_names <- sort(unique(counties$name))
+usethis::use_data(county_names, overwrite = TRUE)
+write_lines(county_names, "data-raw/county_names.csv")
