@@ -4,7 +4,6 @@ library(tidycensus)
 library(lubridate)
 library(readxl)
 library(rvest)
-library(httr)
 library(httr2)
 library(sf)
 library(tigris)
@@ -40,51 +39,19 @@ st_income <- get_acs(
   inner_join(abb_name, by = c("NAME" = "name")) %>%
   select(abb, income = estimate)
 
-# gdp ---------------------------------------------------------------------
-
-# SQGDP2 Gross domestic product (GDP) by state
-gdp_get <- GET(
-  url = "https://apps.bea.gov/api/data",
-  query = list(
-    UserID = Sys.getenv("BEA_API_KEY"),
-    method = "GetData",
-    datasetname = "Regional",
-    TableName = "SQGDP2",
-    GeoFIPS = "STATE",
-    LineCode = 1,
-    Year = 2020,
-    ResultFormat = "json"
-  )
-)
-
-gdp_dat <- content(a, as = "parsed", simplifyDataFrame = TRUE)
-gdp_dat$BEAAPI$Results$UTCProductionTime
-st_income <- gdp_dat$BEAAPI$Results$Data %>%
-  filter(TimePeriod == "2020Q1") %>%
-  select(name = GeoName, gdp = DataValue) %>%
-  mutate(across(gdp, parse_number)) %>%
-  inner_join(abb_name, by = "name") %>%
-  as_tibble()
-
 # life expect -------------------------------------------------------------
 
-# List of U.S. states and territories by life expectancy
-# Institute for Health Metrics and Evaluation for the states (2017 data), and
-# from the CIA World Factbook for the territories (2018 data)
-# http://www.healthdata.org/united-states-alabama
-# https://web.archive.org/web/20190109030048/https://www.cia.gov/library/publications/the-world-factbook/fields/355rank.html
-life <-
-  read_html("https://w.wiki/BeA") %>%
-  html_node(".wikitable") %>%
-  html_table(fill = TRUE, header = FALSE) %>%
-  na_if("") %>%
-  slice(-(1)) %>%
-  as_tibble() %>%
-  filter(!is.na(X1)) %>%
-  select(name = X2, life_exp = X3) %>%
-  mutate_at(vars(life_exp), parse_number) %>%
-  inner_join(y = abb_name, by = "name") %>%
-  select(abb, life_exp) %>%
+# NCHS 2021 state life expectancy at birth, both sexes combined.
+# U.S. State Life Expectancy by Sex, 2021 (NVSR data via data.cdc.gov).
+# PR not covered by NCHS state life tables; will be NA in the join.
+life <- read_csv(
+  "https://data.cdc.gov/api/views/it4f-frdc/rows.csv",
+  show_col_types = FALSE
+) |>
+  filter(Sex == "Total") |>
+  select(name = State, life_exp = LE) |>
+  inner_join(abb_name, by = "name") |>
+  select(abb, life_exp) |>
   arrange(desc(life_exp))
 
 # murder ------------------------------------------------------------------
