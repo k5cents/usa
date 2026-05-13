@@ -6,9 +6,9 @@ library(readxl)
 library(rvest)
 library(httr)
 library(httr2)
+library(sf)
+library(tigris)
 library(fs)
-library(sp)    # point.in.polygon for DC station filtering; replace with sf in #12
-library(rgdal) # readOGR for DC polygon; replace with sf in #12
 library(usethis)
 
 abb_fips <- select(read_csv("data-raw/states.csv"), fips, abb)
@@ -126,62 +126,47 @@ edu <- get_acs(
   mutate(college = round(estimate / 100, 4)) |>
   select(abb, college)
 
-# temperature -------------------------------------------------------------
+# frost days --------------------------------------------------------------
 
-allstations <- read_fwf(
-  file = "ftp://ftp.ncdc.noaa.gov/pub/data/normals/1981-2010/station-inventories/allstations.txt",
-  col_positions = fwf_cols(
-    id = c(1, 11),
-    lat = c(13, 20),
-    long = c(22, 30),
-    elev = c(32, 37),
-    state = c(39, 40),
-    name = c(42, 71),
-    gsn = c(73, 75),
-    hsn = c(77, 79),
-    wmoid = c(81, 85),
-    method = c(87, 99)
+# NCEI 1991-2020 Climate Normals: mean days per year with minimum temp < 32F.
+# Variable ANN-TMIN-AVGNDS-LSTH032 from the annualseasonal by-station archive.
+# Replaces 1981-2010 FTP-based cooling degree days (dead source, wrong metric).
+# State assignment via spatial join with TIGER 2022 boundaries (sf + tigris),
+# replacing sp::point.in.polygon + rgdal::readOGR for DC station detection.
+normals_url <- paste0(
+  "https://www.ncei.noaa.gov/data/normals-annualseasonal/1991-2020/archive/",
+  "us-climate-normals_1991-2020_v1.0.1_annualseasonal_multivariate_by-station_c20230404.tar.gz"
+)
+normals_archive <- file_temp(ext = "tar.gz")
+normals_dir     <- file_temp()
+dir.create(normals_dir)
+download.file(normals_url, normals_archive, mode = "wb", quiet = TRUE)
+untar(normals_archive, exdir = normals_dir)
+
+csv_files <- list.files(normals_dir, pattern = "\\.csv$", full.names = TRUE, recursive = TRUE)
+normals <- map_dfr(csv_files, function(f) {
+  tryCatch(
+    read_csv(f, col_types = cols_only(
+      STATION                   = col_character(),
+      LATITUDE                  = col_double(),
+      LONGITUDE                 = col_double(),
+      `ANN-TMIN-AVGNDS-LSTH032` = col_double()
+    ), show_col_types = FALSE),
+    error = function(e) NULL
   )
-)
+}) |> filter(!is.na(`ANN-TMIN-AVGNDS-LSTH032`))
 
-# get DC stations
-# read Dc polygon
-url <- "https://opendata.arcgis.com/datasets/7241f6d500b44288ad983f0942b39663_10.kml"
-tmp <- file_temp(ext = "kml")
-download.file(url, tmp)
-dc_shape <- readOGR(tmp)
+state_bounds <- tigris::states(year = 2022, cb = TRUE) |>
+  filter(STUSPS %in% abb_name$abb) |>
+  select(abb = STUSPS) |>
+  st_transform(4326)
 
-# find points in polygon
-in_dc <- point.in.polygon(
-  point.x = allstations$long,
-  point.y = allstations$lat,
-  pol.x = dc_shape@polygons[[1]]@Polygons[[1]]@coords[, 1],
-  pol.y = dc_shape@polygons[[1]]@Polygons[[1]]@coords[, 2]
-)
-
-allstations$state[which(as.logical(in_dc))] <- "DC"
-
-# annual cooling degree days
-degree_days <- read_fwf(
-  file = "ftp://ftp.ncdc.noaa.gov/pub/data/normals/1981-2010/products/temperature/ann-cldd-normal.txt",
-  col_positions = fwf_cols(
-    id = c(1, 11),
-    days = c(19, 23),
-    flag = c(24)
-  )
-)
-
-# invalid negative days
-sum(degree_days$days < 0)
-sum(degree_days$days == -7777L)
-degree_days$days[degree_days$days < 0] <- NA
-
-
-temp <- degree_days %>%
-  left_join(allstations, by = "id") %>%
-  group_by(abb = state) %>%
-  summarise(heat = round(mean(days, na.rm = TRUE)/(2010 - 1981), 2)) %>%
-  arrange(desc(heat))
+stations_sf <- st_as_sf(normals, coords = c("LONGITUDE", "LATITUDE"), crs = 4326)
+temp <- st_join(stations_sf, state_bounds, join = st_within) |>
+  st_drop_geometry() |>
+  filter(!is.na(abb)) |>
+  group_by(abb) |>
+  summarise(frost = round(mean(`ANN-TMIN-AVGNDS-LSTH032`, na.rm = TRUE), 1))
 
 # admission ---------------------------------------------------------------
 
