@@ -214,7 +214,7 @@ NULL
 #' \describe{
 #'   \item{name}{Full state name}
 #'   \item{population}{Resident population (2020 Decennial Census, April 1, 2020)}
-#'   \item{votes}{Votes in the Electoral College (following the 2010 Census)}
+#'   \item{electors}{Votes in the Electoral College (2020 Census reapportionment, applies 2022–2032)}
 #'   \item{admission}{The date on which the state was admitted to the union}
 #'   \item{income}{Per capita income in dollars (2022 ACS 1-year)}
 #'   \item{life_exp}{Life expectancy in years (2017-18)}
@@ -224,7 +224,7 @@ NULL
 #' }
 #' @source
 #' * Population: 2020 Decennial Census PL 94-171 file, variable \code{P1_001N} via tidycensus
-#' * Electoral College: \url{https://www.archives.gov/electoral-college/allocation}
+#' * Electoral College: 2020 Census reapportionment (NARA \url{https://www.archives.gov/electoral-college/allocation})
 #' * Income: 2022 ACS 1-year, variable \code{B19301_001} (per capita income) via tidycensus
 #' * Life Expectancy: \url{https://web.archive.org/web/20231129160338/https://usa.mortality.org/}
 #' * Murder: \url{https://ucr.fbi.gov/crime-in-the-u.s/2018/crime-in-the-u.s.-2018/tables/table-4/table-4.xls/output.xls}

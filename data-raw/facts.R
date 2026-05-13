@@ -204,26 +204,74 @@ admission <-
 
 # electoral college -------------------------------------------------------
 
-url <- "https://www.archives.gov/electoral-college/allocation"
-ec <- read_html(url) %>%
-  html_node("table") %>%
-  html_table() %>%
-  as_vector() %>%
-  enframe(name = NULL) %>%
-  separate(value, c("name", "votes"), "\\s-\\s") %>%
-  mutate(across(votes, parse_number))
+# 2020 Census reapportionment; applies to 2022 and 2024 elections.
+# 538 total: 435 House + 100 Senate + 3 DC (23rd Amendment). PR has none.
+ec <- tribble(
+  ~abb, ~electors,
+  "AL",  9L,
+  "AK",  3L,
+  "AZ", 11L,
+  "AR",  6L,
+  "CA", 54L,
+  "CO", 10L,
+  "CT",  7L,
+  "DE",  3L,
+  "DC",  3L,
+  "FL", 30L,
+  "GA", 16L,
+  "HI",  4L,
+  "ID",  4L,
+  "IL", 19L,
+  "IN", 11L,
+  "IA",  6L,
+  "KS",  6L,
+  "KY",  8L,
+  "LA",  8L,
+  "ME",  4L,
+  "MD", 10L,
+  "MA", 11L,
+  "MI", 15L,
+  "MN", 10L,
+  "MS",  6L,
+  "MO", 10L,
+  "MT",  4L,
+  "NE",  5L,
+  "NV",  6L,
+  "NH",  4L,
+  "NJ", 14L,
+  "NM",  5L,
+  "NY", 28L,
+  "NC", 16L,
+  "ND",  3L,
+  "OH", 17L,
+  "OK",  7L,
+  "OR",  8L,
+  "PA", 19L,
+  "RI",  4L,
+  "SC",  9L,
+  "SD",  3L,
+  "TN", 11L,
+  "TX", 40L,
+  "UT",  6L,
+  "VT",  3L,
+  "VA", 13L,
+  "WA", 12L,
+  "WV",  4L,
+  "WI", 10L,
+  "WY",  3L
+)
 
 # join --------------------------------------------------------------------
 
-state_facts <- populations %>%
-  left_join(ec) %>%
-  left_join(admission) %>%
-  left_join(income, by = "abb") %>%
+state_facts <- st_pop %>%
+  left_join(ec, by = "abb") %>%
+  left_join(admission, by = "abb") %>%
+  left_join(st_income, by = "abb") %>%
   left_join(life, by = "abb") %>%
   left_join(murder, by = "abb") %>%
   left_join(edu, by = "abb") %>%
-  left_join(degree_days, by = "abb") %>%
-  left_join(abb_name) %>%
+  left_join(temp, by = "abb") %>%
+  left_join(abb_name, by = "abb") %>%
   select(name, everything()) %>%
   arrange(name) %>%
   select(-abb)
