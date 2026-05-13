@@ -220,7 +220,7 @@ NULL
 #'   \item{life_exp}{Life expectancy in years (2017-18)}
 #'   \item{murder}{Homicide rate per 100,000 population (2022 FBI NIBRS)}
 #'   \item{college}{Proportion of population 25+ with a bachelor's degree or higher (2022 ACS 1-year)}
-#'   \item{heat}{Mean number of degree days (temperature requires heating) per year from 1981-2010}
+#'   \item{frost}{Mean number of days per year with minimum temperature below freezing (1991-2020 NCEI Climate Normals)}
 #' }
 #' @source
 #' * Population: 2020 Decennial Census PL 94-171 file, variable \code{P1_001N} via tidycensus
@@ -229,7 +229,7 @@ NULL
 #' * Life Expectancy: \url{https://web.archive.org/web/20231129160338/https://usa.mortality.org/}
 #' * Murder: FBI Crime Data Explorer API (2022 NIBRS), \url{https://api.usa.gov/crime/fbi/cde/}
 #' * Education: 2022 ACS 1-year Subject Table S1501, variable \code{S1501_C02_015} via tidycensus
-#' * Temperature: NOAA 1981-2010 Climate Normals
+#' * Frost: NCEI 1991-2020 Climate Normals, variable \code{ANN-TMIN-AVGNDS-LSTH032}, \url{https://www.ncei.noaa.gov/data/normals-annualseasonal/1991-2020/}
 "state_facts"
 
 # objects from people.R ---------------------------------------------------
