@@ -111,7 +111,8 @@ edu <- get_acs(
   survey = "acs1"
 ) %>%
   inner_join(abb_name, by = c("NAME" = "name")) %>%
-  select(abb, college = estimate)
+  mutate(college = round(estimate / 100, 4)) |>
+  select(abb, college)
 
 # temperature -------------------------------------------------------------
 

@@ -219,7 +219,7 @@ NULL
 #'   \item{income}{Per capita income in dollars (2022 ACS 1-year)}
 #'   \item{life_exp}{Life expectancy in years (2017-18)}
 #'   \item{murder}{Murder rate per 100,000 population (2018)}
-#'   \item{college}{Percent of population 25+ with a bachelor's degree or higher (2022 ACS 1-year)}
+#'   \item{college}{Proportion of population 25+ with a bachelor's degree or higher (2022 ACS 1-year)}
 #'   \item{heat}{Mean number of degree days (temperature requires heating) per year from 1981-2010}
 #' }
 #' @source
